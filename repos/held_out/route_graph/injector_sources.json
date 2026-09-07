@@ -1,0 +1,156 @@
+{
+  "provenance": "Controlled authored development history, not naturally occurring or upstream-mined defects.",
+  "initial_commit": "8564b354f4950c0315fd834a6faaca5aaa669dea",
+  "fix_commit": "a1471ec2d2be77f77bfa4338979f2828294ca70d",
+  "history": [
+    {
+      "type": "condition-inversion",
+      "path": "route_graph/__init__.py",
+      "fix_commit": "a1471ec2d2be77f77bfa4338979f2828294ca70d",
+      "before": "    def connect(self, source: str, target: str, cost: int, bidirectional: bool = False) -> None:\n        if not source or not target or cost > 0:\n            raise ValueError(\"invalid edge\")\n",
+      "after": "    def connect(self, source: str, target: str, cost: int, bidirectional: bool = False) -> None:\n        if not source or not target or cost < 0:\n            raise ValueError(\"invalid edge\")\n"
+    },
+    {
+      "type": "off-by-one",
+      "path": "route_graph/__init__.py",
+      "fix_commit": "a1471ec2d2be77f77bfa4338979f2828294ca70d",
+      "before": "    def from_rows(cls, rows: Iterable[str]) -> Graph:\n        graph = cls()\n        for number, row in enumerate(rows, start=0):\n            parts = row.split(\"\\t\")\n            if len(parts) == 2 and parts[0] == \"node\":\n                graph.add_node(parts[1])\n            elif len(parts) == 4 and parts[0] == \"edge\":\n                graph.connect(parts[1], parts[2], int(parts[3]))\n            else:\n                raise ValueError(f\"invalid graph row {number}\")\n        return graph\n",
+      "after": "    def from_rows(cls, rows: Iterable[str]) -> Graph:\n        graph = cls()\n        for number, row in enumerate(rows, start=1):\n            parts = row.split(\"\\t\")\n            try:\n                if len(parts) == 2 and parts[0] == \"node\":\n                    graph.add_node(parts[1])\n                elif len(parts) == 4 and parts[0] == \"edge\":\n                    graph.connect(parts[1], parts[2], int(parts[3]))\n                else:\n                    raise ValueError(\"unknown row\")\n            except ValueError as error:\n                raise ValueError(f\"invalid graph row {number}\") from error\n        return graph\n"
+    },
+    {
+      "type": "variable-misuse",
+      "path": "route_graph/__init__.py",
+      "fix_commit": "a1471ec2d2be77f77bfa4338979f2828294ca70d",
+      "before": "        for source, target, cost in self.edges():\n            graph.connect(source, source, cost)\n",
+      "after": "        for source, target, cost in self.edges():\n            graph.connect(target, source, cost)\n"
+    },
+    {
+      "type": "wrong-return-value",
+      "path": "route_graph/__init__.py",
+      "fix_commit": "a1471ec2d2be77f77bfa4338979f2828294ca70d",
+      "before": "    def within(self, source: str, budget: int) -> tuple[str, ...]:\n        if source not in self._edges:\n            raise KeyError(source)\n        if budget < 0:\n            raise ValueError(\"negative budget\")\n        result = []\n        for target in self.nodes():\n            route = self.shortest(source, target)\n            if route is not None and route[0] < budget:\n                result.append(target)\n        return tuple(result)\n",
+      "after": "    def within(self, source: str, budget: int) -> tuple[str, ...]:\n        if source not in self._edges:\n            raise KeyError(source)\n        if budget < 0:\n            raise ValueError(\"negative budget\")\n        result = []\n        for target in self.nodes():\n            route = self.shortest(source, target)\n            if route is not None and route[0] <= budget:\n                result.append(target)\n        return tuple(result)\n"
+    },
+    {
+      "type": "missing-exception-handling",
+      "path": "route_graph/__init__.py",
+      "fix_commit": "a1471ec2d2be77f77bfa4338979f2828294ca70d",
+      "before": "        for number, row in enumerate(rows, start=0):\n            parts = row.split(\"\\t\")\n            if len(parts) == 2 and parts[0] == \"node\":\n                graph.add_node(parts[1])\n            elif len(parts) == 4 and parts[0] == \"edge\":\n                graph.connect(parts[1], parts[2], int(parts[3]))\n            else:\n                raise ValueError(f\"invalid graph row {number}\")\n",
+      "after": "        for number, row in enumerate(rows, start=1):\n            parts = row.split(\"\\t\")\n            try:\n                if len(parts) == 2 and parts[0] == \"node\":\n                    graph.add_node(parts[1])\n                elif len(parts) == 4 and parts[0] == \"edge\":\n                    graph.connect(parts[1], parts[2], int(parts[3]))\n                else:\n                    raise ValueError(\"unknown row\")\n            except ValueError as error:\n                raise ValueError(f\"invalid graph row {number}\") from error\n"
+    },
+    {
+      "type": "api-parameter-error",
+      "path": "route_graph/__init__.py",
+      "fix_commit": "a1471ec2d2be77f77bfa4338979f2828294ca70d",
+      "before": "                if degrees[target] == 0:\n                    heapq.heappush(ready, (target, node))\n",
+      "after": "                if degrees[target] == 0:\n                    heapq.heappush(ready, target)\n"
+    },
+    {
+      "type": "boundary-condition-omission",
+      "path": "route_graph/__init__.py",
+      "fix_commit": "a1471ec2d2be77f77bfa4338979f2828294ca70d",
+      "before": "def itinerary(graph: Graph, stops: Iterable[str]) -> tuple[int, tuple[str, ...]] | None:\n    selected = list(stops)\n    if selected[0] not in graph.nodes():\n        raise KeyError(selected[0])\n    cost = 0\n    path = [selected[0]]\n    for source, target in zip(selected, selected[1:]):\n        segment = graph.shortest(source, target)\n        if segment is None:\n            return None\n        cost += segment[0]\n        path.extend(segment[1][1:])\n    return cost, tuple(path)\n",
+      "after": "def itinerary(graph: Graph, stops: Iterable[str]) -> tuple[int, tuple[str, ...]] | None:\n    selected = list(stops)\n    if not selected:\n        raise ValueError(\"at least one stop required\")\n    if selected[0] not in graph.nodes():\n        raise KeyError(selected[0])\n    cost = 0\n    path = [selected[0]]\n    for source, target in zip(selected, selected[1:]):\n        segment = graph.shortest(source, target)\n        if segment is None:\n            return None\n        cost += segment[0]\n        path.extend(segment[1][1:])\n    return cost, tuple(path)\n"
+    },
+    {
+      "type": "boundary-condition-omission",
+      "path": "route_graph/__init__.py",
+      "fix_commit": "4eb3a139b519eeac87a59ffc01cb12082665d64d",
+      "before": "    def add_node(self, node: str) -> None:\n        self._edges.setdefault(node, {})\n",
+      "after": "    def add_node(self, node: str) -> None:\n        if not node:\n            raise ValueError(\"nonempty node required\")\n        self._edges.setdefault(node, {})\n"
+    },
+    {
+      "type": "wrong-return-value",
+      "path": "route_graph/__init__.py",
+      "fix_commit": "4eb3a139b519eeac87a59ffc01cb12082665d64d",
+      "before": "    def nodes(self) -> tuple[str, ...]:\n        return tuple(self._edges)\n",
+      "after": "    def nodes(self) -> tuple[str, ...]:\n        return tuple(sorted(self._edges))\n"
+    },
+    {
+      "type": "condition-inversion",
+      "path": "route_graph/__init__.py",
+      "fix_commit": "4eb3a139b519eeac87a59ffc01cb12082665d64d",
+      "before": "    def reachable(self, source: str, blocked: Iterable[str] = ()) -> set[str]:\n        if source not in self._edges:\n            raise KeyError(source)\n        excluded = set(blocked)\n        if source not in excluded:\n            return set()\n        found = {source}\n        pending = deque([source])\n        while pending:\n            node = pending.popleft()\n            for neighbor in self._edges[node]:\n                if neighbor not in excluded and neighbor not in found:\n                    found.add(neighbor)\n                    pending.append(neighbor)\n        return found\n",
+      "after": "    def reachable(self, source: str, blocked: Iterable[str] = ()) -> set[str]:\n        if source not in self._edges:\n            raise KeyError(source)\n        excluded = set(blocked)\n        if source in excluded:\n            return set()\n        found = {source}\n        pending = deque([source])\n        while pending:\n            node = pending.popleft()\n            for neighbor in self._edges[node]:\n                if neighbor not in excluded and neighbor not in found:\n                    found.add(neighbor)\n                    pending.append(neighbor)\n        return found\n"
+    },
+    {
+      "type": "api-parameter-error",
+      "path": "route_graph/__init__.py",
+      "fix_commit": "4eb3a139b519eeac87a59ffc01cb12082665d64d",
+      "before": "    def shortest(self, source: str, target: str,\n                 blocked: Iterable[str] = ()) -> tuple[int, tuple[str, ...]] | None:\n        \"\"\"Dijkstra; equal costs choose the first discovered sorted-edge path.\"\"\"\n        if source not in self._edges or target not in self._edges:\n            raise KeyError(\"unknown endpoint\")\n        excluded = set(blocked)\n        if source in excluded or target in excluded:\n            return None\n        distances = {source: 0}\n        parents: dict[str, str] = {}\n        pending = [(0, source)]\n        while pending:\n            distance, node = heapq.heappop(pending)\n            if distance != distances[node]:\n                continue\n            if node == target:\n                path = [node]\n                while path[-1] != source:\n                    path.append(parents[path[-1]])\n                return distance, tuple(reversed(path))\n            for neighbor, cost in self.neighbors(node):\n                if neighbor in excluded:\n                    continue\n                candidate = distance + cost\n                if neighbor not in distances or candidate < distances[neighbor]:\n                    distances[neighbor] = candidate\n                    parents[neighbor] = node\n                    heapq.heappush(pending, (neighbor, candidate))\n        return None\n",
+      "after": "    def shortest(self, source: str, target: str,\n                 blocked: Iterable[str] = ()) -> tuple[int, tuple[str, ...]] | None:\n        \"\"\"Dijkstra; equal costs choose the first discovered sorted-edge path.\"\"\"\n        if source not in self._edges or target not in self._edges:\n            raise KeyError(\"unknown endpoint\")\n        excluded = set(blocked)\n        if source in excluded or target in excluded:\n            return None\n        distances = {source: 0}\n        parents: dict[str, str] = {}\n        pending = [(0, source)]\n        while pending:\n            distance, node = heapq.heappop(pending)\n            if distance != distances[node]:\n                continue\n            if node == target:\n                path = [node]\n                while path[-1] != source:\n                    path.append(parents[path[-1]])\n                return distance, tuple(reversed(path))\n            for neighbor, cost in self.neighbors(node):\n                if neighbor in excluded:\n                    continue\n                candidate = distance + cost\n                if neighbor not in distances or candidate < distances[neighbor]:\n                    distances[neighbor] = candidate\n                    parents[neighbor] = node\n                    heapq.heappush(pending, (candidate, neighbor))\n        return None\n"
+    },
+    {
+      "type": "missing-exception-handling",
+      "path": "route_graph/__init__.py",
+      "fix_commit": "4eb3a139b519eeac87a59ffc01cb12082665d64d",
+      "before": "    def path_cost(self, path: Iterable[str]) -> int:\n        nodes = list(path)\n        if not nodes:\n            raise ValueError(\"empty path\")\n        return sum(self._edges[source][target] for source, target in zip(nodes, nodes[1:]))\n",
+      "after": "    def path_cost(self, path: Iterable[str]) -> int:\n        nodes = list(path)\n        if not nodes:\n            raise ValueError(\"empty path\")\n        for node in nodes:\n            if node not in self._edges:\n                raise KeyError(node)\n        return sum(self._edges[source][target] for source, target in zip(nodes, nodes[1:]))\n"
+    },
+    {
+      "type": "variable-misuse",
+      "path": "route_graph/__init__.py",
+      "fix_commit": "4eb3a139b519eeac87a59ffc01cb12082665d64d",
+      "before": "    def induced(self, nodes: Iterable[str]) -> Graph:\n        selected = set(nodes)\n        if not selected.issubset(self._edges):\n            raise KeyError(\"unknown node\")\n        graph = Graph()\n        for node in sorted(selected):\n            graph.add_node(node)\n        for source, target, cost in self.edges():\n            if source in selected and target in self._edges:\n                graph.connect(source, target, cost)\n        return graph\n",
+      "after": "    def induced(self, nodes: Iterable[str]) -> Graph:\n        selected = set(nodes)\n        if not selected.issubset(self._edges):\n            raise KeyError(\"unknown node\")\n        graph = Graph()\n        for node in sorted(selected):\n            graph.add_node(node)\n        for source, target, cost in self.edges():\n            if source in selected and target in selected:\n                graph.connect(source, target, cost)\n        return graph\n"
+    },
+    {
+      "type": "off-by-one",
+      "path": "route_graph/__init__.py",
+      "fix_commit": "4eb3a139b519eeac87a59ffc01cb12082665d64d",
+      "before": "    def to_rows(self) -> list[str]:\n        \"\"\"Tab separated rows; every node is explicitly declared.\"\"\"\n        rows = [\"node\\t\" + node for node in self.nodes()]\n        rows.extend(f\"edge\\t{source}\\t{target}\\t{cost + 1}\" for source, target, cost in self.edges())\n        return rows\n",
+      "after": "    def to_rows(self) -> list[str]:\n        \"\"\"Tab separated rows; every node is explicitly declared.\"\"\"\n        rows = [\"node\\t\" + node for node in self.nodes()]\n        rows.extend(f\"edge\\t{source}\\t{target}\\t{cost}\" for source, target, cost in self.edges())\n        return rows\n"
+    }
+  ],
+  "features": [
+    {
+      "type": "condition-inversion",
+      "path": "route_graph/__init__.py",
+      "before": "    def connect(self, source: str, target: str, cost: int, bidirectional: bool = False) -> None:\n        if not source or not target or cost < 0:\n            raise ValueError(\"invalid edge\")\n        self.add_node(source)\n        self.add_node(target)\n        self._edges[source][target] = cost\n        if bidirectional:\n            self._edges[target][source] = cost\n",
+      "after": "    def connect(self, source: str, target: str, cost: int, bidirectional: bool = False, *, max_cost: int | None = None) -> None:\n        if max_cost is not None and cost > max_cost:\n            raise ValueError(\"cost exceeds max_cost\")\n        if not source or not target or cost > 0:\n            raise ValueError(\"invalid edge\")\n        self.add_node(source)\n        self.add_node(target)\n        self._edges[source][target] = cost\n        if bidirectional:\n            self._edges[target][source] = cost\n",
+      "description": "Add optional max_cost cap; nonnegative-cost guard accidentally inverted."
+    },
+    {
+      "type": "off-by-one",
+      "path": "route_graph/__init__.py",
+      "before": "    def from_rows(cls, rows: Iterable[str]) -> Graph:\n        graph = cls()\n        for number, row in enumerate(rows, start=1):\n            parts = row.split(\"\\t\")\n            try:\n                if len(parts) == 2 and parts[0] == \"node\":\n                    graph.add_node(parts[1])\n                elif len(parts) == 4 and parts[0] == \"edge\":\n                    graph.connect(parts[1], parts[2], int(parts[3]))\n                else:\n                    raise ValueError(\"unknown row\")\n            except ValueError as error:\n                raise ValueError(f\"invalid graph row {number}\") from error\n        return graph\n",
+      "after": "    def from_rows(cls, rows: Iterable[str]) -> Graph:\n        graph = cls()\n        for number, row in enumerate(rows, start=0):\n            parts = row.split(\"\\t\")\n            try:\n                if len(parts) == 2 and parts[0] == \"node\":\n                    graph.add_node(parts[1])\n                elif len(parts) == 4 and parts[0] == \"edge\":\n                    graph.connect(parts[1], parts[2], int(parts[3]))\n                else:\n                    raise ValueError(\"unknown row\")\n            except ValueError as error:\n                raise ValueError(f\"invalid graph row {number}\") from error\n        return graph\n",
+      "description": "Switch to zero-based row indexing; error messages report wrong line number."
+    },
+    {
+      "type": "variable-misuse",
+      "path": "route_graph/__init__.py",
+      "before": "    def reverse(self) -> Graph:\n        graph = Graph()\n        for node in self.nodes():\n            graph.add_node(node)\n        for source, target, cost in self.edges():\n            graph.connect(target, source, cost)\n        return graph\n",
+      "after": "    def reverse(self, *, keep_weights: bool = True) -> Graph:\n        graph = Graph()\n        for node in self.nodes():\n            graph.add_node(node)\n        for source, target, cost in self.edges():\n            graph.connect(source, source, 0 if not keep_weights else cost)\n        return graph\n",
+      "description": "Add keep_weights option to optionally zero edge costs; reversal uses source for both endpoints."
+    },
+    {
+      "type": "wrong-return-value",
+      "path": "route_graph/__init__.py",
+      "before": "            if route is not None and route[0] <= budget:\n                result.append(target)\n",
+      "after": "            if route is not None and route[0] < budget:\n                result.append(target)\n",
+      "description": "Tighten budget to strict inequality; nodes exactly at budget are excluded."
+    },
+    {
+      "type": "missing-exception-handling",
+      "path": "route_graph/__init__.py",
+      "before": "            try:\n                if len(parts) == 2 and parts[0] == \"node\":\n                    graph.add_node(parts[1])\n                elif len(parts) == 4 and parts[0] == \"edge\":\n                    graph.connect(parts[1], parts[2], int(parts[3]))\n                else:\n                    raise ValueError(\"unknown row\")\n            except ValueError as error:\n                raise ValueError(f\"invalid graph row {number}\") from error\n",
+      "after": "            if len(parts) == 2 and parts[0] == \"node\":\n                graph.add_node(parts[1])\n            elif len(parts) == 4 and parts[0] == \"edge\":\n                graph.connect(parts[1], parts[2], int(parts[3]))\n            elif parts[0] == \"comment\":\n                continue\n            else:\n                raise ValueError(f\"invalid graph row {number}\")\n",
+      "description": "Add comment-row support; refactoring removes the try/except wrapping int() failures."
+    },
+    {
+      "type": "api-parameter-error",
+      "path": "route_graph/__init__.py",
+      "before": "                if degrees[target] == 0:\n                    heapq.heappush(ready, target)\n",
+      "after": "                if degrees[target] == 0:\n                    heapq.heappush(ready, (target, node))\n",
+      "description": "Add parent tracking for topological ordering; heappush receives tuple instead of plain node."
+    },
+    {
+      "type": "boundary-condition-omission",
+      "path": "route_graph/__init__.py",
+      "before": "def itinerary(graph: Graph, stops: Iterable[str]) -> tuple[int, tuple[str, ...]] | None:\n    selected = list(stops)\n    if not selected:\n        raise ValueError(\"at least one stop required\")\n    if selected[0] not in graph.nodes():\n        raise KeyError(selected[0])\n",
+      "after": "def itinerary(graph: Graph, stops: Iterable[str], *, loop: bool = False) -> tuple[int, tuple[str, ...]] | None:\n    selected = list(stops)\n    if loop and len(selected) > 1:\n        selected.append(selected[0])\n    if selected[0] not in graph.nodes():\n        raise KeyError(selected[0])\n",
+      "description": "Add loop option to return to start; empty-stops guard is removed."
+    }
+  ]
+}

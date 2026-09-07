@@ -1,0 +1,62 @@
+{
+  "type": "object",
+  "properties": {
+    "config_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "seeds": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "integer"
+      }
+    },
+    "pinned_commits": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "manifest_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "artifact_paths": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "wandb_run": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "harness_version": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "harness_diff_ref": {
+      "type": "null"
+    }
+  },
+  "required": [
+    "config_hash",
+    "seeds",
+    "pinned_commits",
+    "manifest_ids",
+    "artifact_paths",
+    "wandb_run",
+    "harness_version",
+    "harness_diff_ref"
+  ],
+  "additionalProperties": false
+}

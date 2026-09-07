@@ -1,0 +1,99 @@
+{
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "manifest_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "manifest_role": {
+      "enum": [
+        "train",
+        "dev",
+        "audit",
+        "heldout"
+      ]
+    },
+    "instances": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "task_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "repo_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "injector_seed": {
+            "type": "integer"
+          },
+          "difficulty": {
+            "type": "object",
+            "properties": {
+              "source": {
+                "enum": [
+                  "mutation",
+                  "commit-rollback",
+                  "feat-add"
+                ]
+              },
+              "type": {
+                "type": "string",
+                "minLength": 1
+              },
+              "count": {
+                "enum": [
+                  1,
+                  2,
+                  3
+                ]
+              },
+              "hint": {
+                "enum": [
+                  "L0",
+                  "L1",
+                  "L2"
+                ]
+              },
+              "span": {
+                "enum": [
+                  "single-function",
+                  "single-file",
+                  "cross-file"
+                ]
+              }
+            },
+            "required": [
+              "source",
+              "type",
+              "count",
+              "hint",
+              "span"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "task_id",
+          "repo_ref",
+          "injector_seed",
+          "difficulty"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "manifest_id",
+    "manifest_role",
+    "instances"
+  ],
+  "additionalProperties": false
+}

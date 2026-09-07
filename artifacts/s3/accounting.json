@@ -1,0 +1,13 @@
+{
+  "first_observed_host_time_unix": 1788615336.0,
+  "measurement_start_unix": 1788617103.333597,
+  "measurement_end_unix": 1788619525.8961334,
+  "measurement_hours": 0.6729340363873376,
+  "allocated_host_hours_through_measurement_end": 1.1638600370619032,
+  "hourly_rate_cny": 2.18,
+  "rate_is_estimate": true,
+  "estimated_measurement_cost_cny": 1.466996199324396,
+  "estimated_total_cost_through_measurement_end_cny": 2.537214880794949,
+  "budget_cny": 16,
+  "notes": "Includes observed setup time and failed startup; excludes prior machine uptime and subsequent idle billing. Actual AutoDL invoice not available."
+}

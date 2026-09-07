@@ -1,0 +1,11 @@
+--- a/parsing.py
++++ b/parsing.py
+@@ -6,7 +6,7 @@
+     """
+     try:
+         return int(text)
+-    except TypeError:
++    except (TypeError, ValueError):
+         return default
+ 
+ 

@@ -1,0 +1,156 @@
+{
+  "provenance": "Controlled authored development history, not naturally occurring or upstream-mined defects.",
+  "initial_commit": "8d045bcd9af105e52e0cd1c1e6e1a98b8c48d68f",
+  "fix_commit": "19aec6744e5ec27b42f825321da50f130b702459",
+  "history": [
+    {
+      "type": "condition-inversion",
+      "path": "stock_reservations/__init__.py",
+      "fix_commit": "19aec6744e5ec27b42f825321da50f130b702459",
+      "before": "    def _live(self, lot: Lot) -> bool:\n        return lot.expires is None or lot.expires < self.now\n",
+      "after": "    def _live(self, lot: Lot) -> bool:\n        return lot.expires is None or lot.expires > self.now\n"
+    },
+    {
+      "type": "off-by-one",
+      "path": "stock_reservations/__init__.py",
+      "fix_commit": "19aec6744e5ec27b42f825321da50f130b702459",
+      "before": "    return ((missing + pack_size) // pack_size) * pack_size\n",
+      "after": "    return ((missing + pack_size - 1) // pack_size) * pack_size\n"
+    },
+    {
+      "type": "variable-misuse",
+      "path": "stock_reservations/__init__.py",
+      "fix_commit": "19aec6744e5ec27b42f825321da50f130b702459",
+      "before": "            self._lots[lot_id] = Lot(lot.identifier, lot.sku, lot.quantity + quantity, lot.expires)\n",
+      "after": "            self._lots[lot_id] = Lot(lot.identifier, lot.sku, lot.quantity - quantity, lot.expires)\n"
+    },
+    {
+      "type": "wrong-return-value",
+      "path": "stock_reservations/__init__.py",
+      "fix_commit": "19aec6744e5ec27b42f825321da50f130b702459",
+      "before": "    def on_hand(self, sku: str, include_expired: bool = False) -> int:\n        return sum(lot.quantity - self.reserved(lot.identifier) for lot in self._lots.values()\n                   if lot.sku == sku and (include_expired or self._live(lot)))\n",
+      "after": "    def on_hand(self, sku: str, include_expired: bool = False) -> int:\n        return sum(lot.quantity for lot in self._lots.values()\n                   if lot.sku == sku and (include_expired or self._live(lot)))\n"
+    },
+    {
+      "type": "missing-exception-handling",
+      "path": "stock_reservations/__init__.py",
+      "fix_commit": "19aec6744e5ec27b42f825321da50f130b702459",
+      "before": "def parse_delivery(text: str) -> list[tuple[str, int]]:\n    \"\"\"Parse SKU:quantity lines and combine repeated SKUs in input order.\"\"\"\n    quantities: dict[str, int] = {}\n    for number, line in enumerate(text.splitlines(), start=1):\n        if not line.strip():\n            continue\n        sku, value = line.split(\":\")\n        sku = sku.strip()\n        quantity = int(value)\n        if not sku or quantity <= 0:\n            raise ValueError(\"invalid delivery\")\n        quantities[sku] = quantities.get(sku, 0) + quantity\n    return list(quantities.items())\n",
+      "after": "def parse_delivery(text: str) -> list[tuple[str, int]]:\n    \"\"\"Parse SKU:quantity lines and combine repeated SKUs in input order.\"\"\"\n    quantities: dict[str, int] = {}\n    for number, line in enumerate(text.splitlines(), start=1):\n        if not line.strip():\n            continue\n        try:\n            sku, value = line.split(\":\")\n            sku = sku.strip()\n            quantity = int(value)\n            if not sku or quantity <= 0:\n                raise ValueError(\"invalid delivery\")\n        except ValueError as error:\n            raise ValueError(f\"invalid delivery row {number}\") from error\n        quantities[sku] = quantities.get(sku, 0) + quantity\n    return list(quantities.items())\n"
+    },
+    {
+      "type": "api-parameter-error",
+      "path": "stock_reservations/__init__.py",
+      "fix_commit": "19aec6744e5ec27b42f825321da50f130b702459",
+      "before": "        eligible.sort(key=lambda lot: (lot.expires is None, lot.identifier, lot.expires or 0))\n",
+      "after": "        eligible.sort(key=lambda lot: (lot.expires is None, lot.expires or 0, lot.identifier))\n"
+    },
+    {
+      "type": "boundary-condition-omission",
+      "path": "stock_reservations/__init__.py",
+      "fix_commit": "19aec6744e5ec27b42f825321da50f130b702459",
+      "before": "    def available(self, sku: str) -> int:\n        return sum(lot.quantity - self.reserved(lot.identifier)\n                   for lot in self._lots.values() if lot.sku == sku)\n",
+      "after": "    def available(self, sku: str) -> int:\n        return sum(lot.quantity - self.reserved(lot.identifier)\n                   for lot in self._lots.values() if lot.sku == sku and self._live(lot))\n"
+    },
+    {
+      "type": "boundary-condition-omission",
+      "path": "stock_reservations/__init__.py",
+      "fix_commit": "d9fbca8005c2ba52fa1b1e2aa59d0fd850446f5e",
+      "before": "    def receive(self, identifier: str, sku: str, quantity: int,\n                expires: int | None = None) -> Lot:\n        if not identifier or identifier in self._lots or not sku:\n            raise ValueError(\"new lot identifier and SKU required\")\n        if quantity <= 0:\n            raise ValueError(\"invalid lot quantity or expiry\")\n        lot = Lot(identifier, sku, quantity, expires)\n        self._lots[identifier] = lot\n        return lot\n",
+      "after": "    def receive(self, identifier: str, sku: str, quantity: int,\n                expires: int | None = None) -> Lot:\n        if not identifier or identifier in self._lots or not sku:\n            raise ValueError(\"new lot identifier and SKU required\")\n        if quantity <= 0 or (expires is not None and expires <= self.now):\n            raise ValueError(\"invalid lot quantity or expiry\")\n        lot = Lot(identifier, sku, quantity, expires)\n        self._lots[identifier] = lot\n        return lot\n"
+    },
+    {
+      "type": "variable-misuse",
+      "path": "stock_reservations/__init__.py",
+      "fix_commit": "d9fbca8005c2ba52fa1b1e2aa59d0fd850446f5e",
+      "before": "    def adjust(self, lot_id: str, quantity: int) -> Lot:\n        lot = self._lots[lot_id]\n        if quantity < self.reserved(lot_id):\n            raise ValueError(\"adjustment violates reservation\")\n        updated = Lot(lot_id, lot.sku, lot.quantity, lot.expires)\n        self._lots[lot_id] = updated\n        return updated\n",
+      "after": "    def adjust(self, lot_id: str, quantity: int) -> Lot:\n        lot = self._lots[lot_id]\n        if quantity < self.reserved(lot_id):\n            raise ValueError(\"adjustment violates reservation\")\n        updated = Lot(lot_id, lot.sku, quantity, lot.expires)\n        self._lots[lot_id] = updated\n        return updated\n"
+    },
+    {
+      "type": "off-by-one",
+      "path": "stock_reservations/__init__.py",
+      "fix_commit": "d9fbca8005c2ba52fa1b1e2aa59d0fd850446f5e",
+      "before": "    def advance(self, now: int) -> tuple[str, ...]:\n        if now < self.now:\n            raise ValueError(\"clock cannot move backward\")\n        self.now = now\n        expired = sorted(identifier for identifier, reservation in self._reservations.items()\n                         if reservation.expires < now)\n        for identifier in expired:\n            self.release(identifier)\n        return tuple(expired)\n",
+      "after": "    def advance(self, now: int) -> tuple[str, ...]:\n        if now < self.now:\n            raise ValueError(\"clock cannot move backward\")\n        self.now = now\n        expired = sorted(identifier for identifier, reservation in self._reservations.items()\n                         if reservation.expires <= now)\n        for identifier in expired:\n            self.release(identifier)\n        return tuple(expired)\n"
+    },
+    {
+      "type": "condition-inversion",
+      "path": "stock_reservations/__init__.py",
+      "fix_commit": "d9fbca8005c2ba52fa1b1e2aa59d0fd850446f5e",
+      "before": "    def audit(self) -> bool:\n        for lot in self._lots.values():\n            if lot.quantity > self.reserved(lot.identifier):\n                return False\n        for reservation in self._reservations.values():\n            if reservation.expires <= self.now or reservation.quantity <= 0:\n                return False\n            for lot_id, quantity in reservation.allocations:\n                lot = self._lots.get(lot_id)\n                if lot is None or lot.sku != reservation.sku or quantity <= 0:\n                    return False\n        return True\n",
+      "after": "    def audit(self) -> bool:\n        for lot in self._lots.values():\n            if lot.quantity < self.reserved(lot.identifier):\n                return False\n        for reservation in self._reservations.values():\n            if reservation.expires <= self.now or reservation.quantity <= 0:\n                return False\n            for lot_id, quantity in reservation.allocations:\n                lot = self._lots.get(lot_id)\n                if lot is None or lot.sku != reservation.sku or quantity <= 0:\n                    return False\n        return True\n"
+    },
+    {
+      "type": "wrong-return-value",
+      "path": "stock_reservations/__init__.py",
+      "fix_commit": "d9fbca8005c2ba52fa1b1e2aa59d0fd850446f5e",
+      "before": "    def lots(self, sku: str | None = None) -> tuple[Lot, ...]:\n        return tuple(lot for lot in self._lots.values() if sku is None or lot.sku == sku)\n",
+      "after": "    def lots(self, sku: str | None = None) -> tuple[Lot, ...]:\n        return tuple(lot for _, lot in sorted(self._lots.items()) if sku is None or lot.sku == sku)\n"
+    },
+    {
+      "type": "missing-exception-handling",
+      "path": "stock_reservations/__init__.py",
+      "fix_commit": "d9fbca8005c2ba52fa1b1e2aa59d0fd850446f5e",
+      "before": "    def transfer_sku(self, lot_id: str, sku: str) -> Lot:\n        lot = self._lots[lot_id]\n        if not sku:\n            raise ValueError(\"cannot relabel reserved lot or empty SKU\")\n        updated = Lot(lot_id, sku, lot.quantity, lot.expires)\n        self._lots[lot_id] = updated\n        return updated\n",
+      "after": "    def transfer_sku(self, lot_id: str, sku: str) -> Lot:\n        lot = self._lots[lot_id]\n        if not sku or self.reserved(lot_id):\n            raise ValueError(\"cannot relabel reserved lot or empty SKU\")\n        updated = Lot(lot_id, sku, lot.quantity, lot.expires)\n        self._lots[lot_id] = updated\n        return updated\n"
+    },
+    {
+      "type": "api-parameter-error",
+      "path": "stock_reservations/__init__.py",
+      "fix_commit": "d9fbca8005c2ba52fa1b1e2aa59d0fd850446f5e",
+      "before": "def pick_list(reservations: Iterable[Reservation]) -> list[tuple[str, int]]:\n    quantities: dict[str, int] = {}\n    for reservation in reservations:\n        for lot_id, quantity in reservation.allocations:\n            quantities[lot_id] = quantities.get(lot_id, 1) + quantity\n    return sorted(quantities.items())\n",
+      "after": "def pick_list(reservations: Iterable[Reservation]) -> list[tuple[str, int]]:\n    quantities: dict[str, int] = {}\n    for reservation in reservations:\n        for lot_id, quantity in reservation.allocations:\n            quantities[lot_id] = quantities.get(lot_id, 0) + quantity\n    return sorted(quantities.items())\n"
+    }
+  ],
+  "features": [
+    {
+      "type": "condition-inversion",
+      "path": "stock_reservations/__init__.py",
+      "before": "    def _live(self, lot: Lot) -> bool:\n        return lot.expires is None or lot.expires > self.now\n",
+      "after": "    def _live(self, lot: Lot, *, margin: int = 0) -> bool:\n        if margin:\n            return lot.expires is not None and lot.expires > self.now + margin\n        return lot.expires is None or lot.expires < self.now\n",
+      "description": "Add safety-margin mode; standard path accidentally inverts comparison."
+    },
+    {
+      "type": "off-by-one",
+      "path": "stock_reservations/__init__.py",
+      "before": "def reorder_quantity(available: int, target: int, pack_size: int = 1) -> int:\n    \"\"\"Order complete packs to reach target without ordering excess packs.\"\"\"\n    if available < 0 or target < 0 or pack_size <= 0:\n        raise ValueError(\"invalid reorder policy\")\n    missing = max(0, target - available)\n    return ((missing + pack_size - 1) // pack_size) * pack_size\n",
+      "after": "def reorder_quantity(available: int, target: int, pack_size: int = 1, *, max_packs: int | None = None) -> int:\n    \"\"\"Order complete packs to reach target without ordering excess packs.\"\"\"\n    if available < 0 or target < 0 or pack_size <= 0:\n        raise ValueError(\"invalid reorder policy\")\n    missing = max(0, target - available)\n    packs = (missing + pack_size) // pack_size\n    if max_packs is not None:\n        packs = min(packs, max_packs)\n    return packs * pack_size\n",
+      "description": "Add max-packs cap; ceiling division formula gains off-by-one."
+    },
+    {
+      "type": "variable-misuse",
+      "path": "stock_reservations/__init__.py",
+      "before": "    def ship(self, identifier: str) -> Reservation:\n        reservation = self._reservations.pop(identifier)\n        for lot_id, quantity in reservation.allocations:\n            lot = self._lots[lot_id]\n            self._lots[lot_id] = Lot(lot.identifier, lot.sku, lot.quantity - quantity, lot.expires)\n        self._shipped[reservation.sku] = self._shipped.get(reservation.sku, 0) + reservation.quantity\n        return reservation\n",
+      "after": "    def ship(self, identifier: str, *, record: bool = True) -> Reservation:\n        reservation = self._reservations.pop(identifier)\n        for lot_id, quantity in reservation.allocations:\n            lot = self._lots[lot_id]\n            self._lots[lot_id] = Lot(lot.identifier, lot.sku, lot.quantity + quantity, lot.expires)\n        if record:\n            self._shipped[reservation.sku] = self._shipped.get(reservation.sku, 0) + reservation.quantity\n        return reservation\n",
+      "description": "Add option to skip shipped tally; lot update uses addition instead of subtraction."
+    },
+    {
+      "type": "wrong-return-value",
+      "path": "stock_reservations/__init__.py",
+      "before": "    def on_hand(self, sku: str, include_expired: bool = False) -> int:\n        return sum(lot.quantity for lot in self._lots.values()\n                   if lot.sku == sku and (include_expired or self._live(lot)))\n",
+      "after": "    def on_hand(self, sku: str, include_expired: bool = False, *, unreserved: bool = False) -> int:\n        if unreserved:\n            return sum(lot.quantity - self.reserved(lot.identifier) for lot in self._lots.values()\n                       if lot.sku == sku and (include_expired or self._live(lot)))\n        return sum(lot.quantity - self.reserved(lot.identifier) for lot in self._lots.values()\n                   if lot.sku == sku and (include_expired or self._live(lot)))\n",
+      "description": "Add unreserved-only count; default path accidentally deducts reserved quantities."
+    },
+    {
+      "type": "missing-exception-handling",
+      "path": "stock_reservations/__init__.py",
+      "before": "def parse_delivery(text: str) -> list[tuple[str, int]]:\n    \"\"\"Parse SKU:quantity lines and combine repeated SKUs in input order.\"\"\"\n    quantities: dict[str, int] = {}\n    for number, line in enumerate(text.splitlines(), start=1):\n        if not line.strip():\n            continue\n        try:\n            sku, value = line.split(\":\")\n            sku = sku.strip()\n            quantity = int(value)\n            if not sku or quantity <= 0:\n                raise ValueError(\"invalid delivery\")\n        except ValueError as error:\n            raise ValueError(f\"invalid delivery row {number}\") from error\n        quantities[sku] = quantities.get(sku, 0) + quantity\n    return list(quantities.items())\n",
+      "after": "def parse_delivery(text: str, *, separator: str = \":\") -> list[tuple[str, int]]:\n    \"\"\"Parse SKU:quantity lines and combine repeated SKUs in input order.\"\"\"\n    quantities: dict[str, int] = {}\n    for number, line in enumerate(text.splitlines(), start=1):\n        if not line.strip():\n            continue\n        sku, value = line.split(separator)\n        sku = sku.strip()\n        quantity = int(value)\n        if not sku or quantity <= 0:\n            raise ValueError(\"invalid delivery\")\n        quantities[sku] = quantities.get(sku, 0) + quantity\n    return list(quantities.items())\n",
+      "description": "Add configurable separator; refactoring removes the error-wrapping try/except."
+    },
+    {
+      "type": "api-parameter-error",
+      "path": "stock_reservations/__init__.py",
+      "before": "    def reserve(self, identifier: str, sku: str, quantity: int, ttl: int) -> Reservation:\n        if not identifier or identifier in self._used_ids:\n            raise ValueError(\"reservation identifier already used or empty\")\n        if quantity <= 0 or ttl <= 0:\n            raise ValueError(\"positive quantity and TTL required\")\n        expires = self.now + ttl\n        eligible = [lot for lot in self._lots.values() if lot.sku == sku\n                    and (lot.expires is None or lot.expires >= expires)]\n        eligible.sort(key=lambda lot: (lot.expires is None, lot.expires or 0, lot.identifier))\n        remaining = quantity\n        allocations = []\n        for lot in eligible:\n            take = min(remaining, lot.quantity - self.reserved(lot.identifier))\n            if take > 0:\n                allocations.append((lot.identifier, take))\n                remaining -= take\n            if remaining == 0:\n                break\n        if remaining > 0:\n            raise ValueError(\"insufficient stock valid through reservation\")\n        reservation = Reservation(identifier, sku, tuple(allocations), expires)\n        self._reservations[identifier] = reservation\n        self._used_ids.add(identifier)\n        return reservation\n",
+      "after": "    def reserve(self, identifier: str, sku: str, quantity: int, ttl: int, *, prefer_largest: bool = False) -> Reservation:\n        if not identifier or identifier in self._used_ids:\n            raise ValueError(\"reservation identifier already used or empty\")\n        if quantity <= 0 or ttl <= 0:\n            raise ValueError(\"positive quantity and TTL required\")\n        expires = self.now + ttl\n        eligible = [lot for lot in self._lots.values() if lot.sku == sku\n                    and (lot.expires is None or lot.expires >= expires)]\n        if prefer_largest:\n            eligible.sort(key=lambda lot: (-lot.quantity, lot.identifier))\n        else:\n            eligible.sort(key=lambda lot: (lot.expires is None, lot.identifier, lot.expires or 0))\n        remaining = quantity\n        allocations = []\n        for lot in eligible:\n            take = min(remaining, lot.quantity - self.reserved(lot.identifier))\n            if take > 0:\n                allocations.append((lot.identifier, take))\n                remaining -= take\n            if remaining == 0:\n                break\n        if remaining > 0:\n            raise ValueError(\"insufficient stock valid through reservation\")\n        reservation = Reservation(identifier, sku, tuple(allocations), expires)\n        self._reservations[identifier] = reservation\n        self._used_ids.add(identifier)\n        return reservation\n",
+      "description": "Add prefer-largest allocation; default FEFO path sorts by identifier before expiry."
+    },
+    {
+      "type": "boundary-condition-omission",
+      "path": "stock_reservations/__init__.py",
+      "before": "    def available(self, sku: str) -> int:\n        return sum(lot.quantity - self.reserved(lot.identifier)\n                   for lot in self._lots.values() if lot.sku == sku and self._live(lot))\n",
+      "after": "    def available(self, sku: str, *, include_expiring: bool = False) -> int:\n        if include_expiring:\n            return sum(lot.quantity - self.reserved(lot.identifier)\n                       for lot in self._lots.values() if lot.sku == sku)\n        return sum(lot.quantity - self.reserved(lot.identifier)\n                   for lot in self._lots.values() if lot.sku == sku)\n",
+      "description": "Add include-expiring mode for soft availability; default path drops the liveness check."
+    }
+  ]
+}

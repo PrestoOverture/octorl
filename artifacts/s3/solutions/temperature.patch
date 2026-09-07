@@ -1,0 +1,11 @@
+--- a/temperature.py
++++ b/temperature.py
+@@ -4,7 +4,7 @@
+     Water freezes at zero Celsius and 32 Fahrenheit.
+     Fractional temperatures are supported.
+     """
+-    return value * 9 / 5
++    return value * 9 / 5 + 32
+ 
+ 
+ def fahrenheit_to_celsius(value):

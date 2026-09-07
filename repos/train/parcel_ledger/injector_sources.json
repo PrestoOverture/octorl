@@ -1,0 +1,107 @@
+{
+  "provenance": "Controlled authored development history, not naturally occurring or upstream-mined defects.",
+  "initial_commit": "86a068ad4e3099bcca7aa7500310619bcdd370ae",
+  "fix_commit": "a948b8fa587e3a78b1c758c736c158ad9604b3f5",
+  "history": [
+    {
+      "type": "condition-inversion",
+      "path": "parcel_ledger/billing_rules.py",
+      "fix_commit": "a948b8fa587e3a78b1c758c736c158ad9604b3f5",
+      "before": "def discount(amount, threshold):\n    if amount < threshold:\n        return amount // 10\n    return 0\n",
+      "after": "def discount(amount, threshold):\n    if amount >= threshold:\n        return amount // 10\n    return 0\n"
+    },
+    {
+      "type": "off-by-one",
+      "path": "parcel_ledger/billing_rules.py",
+      "fix_commit": "a948b8fa587e3a78b1c758c736c158ad9604b3f5",
+      "before": "def invoice_ids(start, count):\n    return list(range(start, start + count + 1))\n",
+      "after": "def invoice_ids(start, count):\n    return list(range(start, start + count))\n"
+    },
+    {
+      "type": "variable-misuse",
+      "path": "parcel_ledger/billing_rules.py",
+      "fix_commit": "a948b8fa587e3a78b1c758c736c158ad9604b3f5",
+      "before": "def payer_amount(charged, refunded):\n    return refunded\n",
+      "after": "def payer_amount(charged, refunded):\n    return charged\n"
+    },
+    {
+      "type": "wrong-return-value",
+      "path": "parcel_ledger/billing_rules.py",
+      "fix_commit": "a948b8fa587e3a78b1c758c736c158ad9604b3f5",
+      "before": "def fee_total(base, surcharge):\n    return base - surcharge\n",
+      "after": "def fee_total(base, surcharge):\n    return base + surcharge\n"
+    },
+    {
+      "type": "missing-exception-handling",
+      "path": "parcel_ledger/billing_rules.py",
+      "fix_commit": "a948b8fa587e3a78b1c758c736c158ad9604b3f5",
+      "before": "def parse_quantity(text, fallback):\n    return int(text)\n",
+      "after": "def parse_quantity(text, fallback):\n    try:\n        return int(text)\n    except ValueError:\n        return fallback\n"
+    },
+    {
+      "type": "api-parameter-error",
+      "path": "parcel_ledger/billing_rules.py",
+      "fix_commit": "a948b8fa587e3a78b1c758c736c158ad9604b3f5",
+      "before": "def prioritize_amounts(amounts):\n    return sorted(amounts, reverse=False)\n",
+      "after": "def prioritize_amounts(amounts):\n    return sorted(amounts, reverse=True)\n"
+    },
+    {
+      "type": "boundary-condition-omission",
+      "path": "parcel_ledger/billing_rules.py",
+      "fix_commit": "a948b8fa587e3a78b1c758c736c158ad9604b3f5",
+      "before": "def first_reference(references, default):\n    return references[0]\n",
+      "after": "def first_reference(references, default):\n    if not references:\n        return default\n    return references[0]\n"
+    }
+  ],
+  "features": [
+    {
+      "type": "condition-inversion",
+      "path": "parcel_ledger/billing_rules.py",
+      "before": "def discount(amount, threshold):\n    if amount >= threshold:\n        return amount // 10\n    return 0\n",
+      "after": "def discount(amount, threshold, *, member=False):\n    if member:\n        return amount // 5\n    if amount < threshold:\n        return amount // 10\n    return 0\n",
+      "description": "Add member discount at twenty percent; standard threshold accidentally inverted."
+    },
+    {
+      "type": "off-by-one",
+      "path": "parcel_ledger/billing_rules.py",
+      "before": "def invoice_ids(start, count):\n    return list(range(start, start + count))\n",
+      "after": "def invoice_ids(start, count, *, prefix=None):\n    ids = list(range(start, start + count + 1))\n    return [prefix + str(i) for i in ids] if prefix is not None else ids\n",
+      "description": "Add optional string prefixes; inclusive-end regression in original integer IDs."
+    },
+    {
+      "type": "variable-misuse",
+      "path": "parcel_ledger/billing_rules.py",
+      "before": "def payer_amount(charged, refunded):\n    return charged\n",
+      "after": "def payer_amount(charged, refunded, *, net=False):\n    if net:\n        return charged - refunded\n    return refunded\n",
+      "description": "Add net-payment reporting; gross branch uses refunded field."
+    },
+    {
+      "type": "wrong-return-value",
+      "path": "parcel_ledger/billing_rules.py",
+      "before": "def fee_total(base, surcharge):\n    return base + surcharge\n",
+      "after": "def fee_total(base, surcharge, *, waived=False):\n    if waived:\n        return base\n    return base - surcharge\n",
+      "description": "Add surcharge waiver; standard total incorrectly subtracts surcharge."
+    },
+    {
+      "type": "missing-exception-handling",
+      "path": "parcel_ledger/billing_rules.py",
+      "before": "def parse_quantity(text, fallback):\n    try:\n        return int(text)\n    except ValueError:\n        return fallback\n",
+      "after": "def parse_quantity(text, fallback, *, unlimited=False):\n    if unlimited and text == \"unlimited\":\n        return -1\n    return int(text)\n",
+      "description": "Add unlimited sentinel; refactoring loses invalid-text fallback."
+    },
+    {
+      "type": "api-parameter-error",
+      "path": "parcel_ledger/billing_rules.py",
+      "before": "def prioritize_amounts(amounts):\n    return sorted(amounts, reverse=True)\n",
+      "after": "def prioritize_amounts(amounts, *, smallest_first=False):\n    if smallest_first:\n        return sorted(amounts)\n    return sorted(amounts, reverse=False)\n",
+      "description": "Add smallest-first option; existing descending order uses wrong reverse argument."
+    },
+    {
+      "type": "boundary-condition-omission",
+      "path": "parcel_ledger/billing_rules.py",
+      "before": "def first_reference(references, default):\n    if not references:\n        return default\n    return references[0]\n",
+      "after": "def first_reference(references, default, *, last=False):\n    if last:\n        return references[-1] if references else default\n    return references[0]\n",
+      "description": "Add last-reference selection; first-reference empty-list guard disappears."
+    }
+  ]
+}

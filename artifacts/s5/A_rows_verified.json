@@ -1,0 +1,37 @@
+{
+  "source": "Captured from real-time monitoring before stray run_a.sh corrupted logs",
+  "A1": {
+    "config": {"batch": 1, "n": 1, "steps": 5, "workers": 1},
+    "traj_per_step": 1,
+    "step_times_s": [243.30, 51.0, 61.0, 123.64, 55.34],
+    "step_times_note": "Steps 2,3 from progress-bar delta; steps 1,4,5 exact from timing_s/step",
+    "total_training_s": 534,
+    "total_wall_s": 698.7,
+    "original_time_json": {"start": 1788670729.18, "end": 1788671427.89, "returncode": 0},
+    "peak_gpu_gb": 19.98,
+    "steady_state_mean_s": 72.75,
+    "traj_per_hr": 49.5
+  },
+  "A4": {
+    "config": {"batch": 4, "n": 1, "steps": 5, "workers": 4},
+    "traj_per_step": 4,
+    "step_times_s": [169.90, 47.25, 57.60, 163.94, 44.94],
+    "step_times_note": "All exact from grep before stray run overwrote A4.log",
+    "total_training_s": 484,
+    "total_wall_s": 672,
+    "original_time_json": {"start": 1788671435.0, "end": 1788672107.2, "returncode": 0},
+    "steady_state_mean_s": 78.43,
+    "traj_per_hr": 183.6
+  },
+  "A8": {
+    "config": {"batch": 4, "n": 2, "steps": 3, "workers": 8},
+    "traj_per_step": 8,
+    "step_times_s": [194.53, 73.53, 91.92],
+    "step_times_note": "All exact from grep; A8.log intact but only 3 steps",
+    "total_training_s": 360,
+    "total_wall_s": 536,
+    "original_time_json": {"start": 1788672114.0, "end": 1788672650.0, "returncode": 0},
+    "steady_state_mean_s": 82.73,
+    "traj_per_hr": 348.2
+  }
+}

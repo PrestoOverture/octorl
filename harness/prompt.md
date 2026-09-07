@@ -1,0 +1,1 @@
+Repair the reported Python bug. Inspect the repository, edit only implementation files, and preserve existing behavior. Use the provided tools. Return tool calls as JSON with name and arguments. You have at most 12 tool steps. Hidden verification runs after your final response.

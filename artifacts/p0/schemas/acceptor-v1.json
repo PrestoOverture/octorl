@@ -1,0 +1,52 @@
+{
+  "type": "object",
+  "properties": {
+    "candidate_version": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "incumbent_version": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "acceptor": {
+      "type": "string",
+      "minLength": 1
+    },
+    "dev_scores": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      }
+    },
+    "decision": {
+      "enum": [
+        "accept",
+        "reject",
+        "indeterminate"
+      ]
+    },
+    "eprocess_wealth_trace": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      }
+    },
+    "audit_result": {
+      "type": [
+        "object",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "candidate_version",
+    "incumbent_version",
+    "acceptor",
+    "dev_scores",
+    "decision",
+    "eprocess_wealth_trace",
+    "audit_result"
+  ],
+  "additionalProperties": false
+}

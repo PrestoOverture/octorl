@@ -1,0 +1,21 @@
+Looking in indexes: http://mirrors.aliyun.com/pypi/simple
+Collecting pytest
+  Downloading http://mirrors.aliyun.com/pypi/packages/24/25/1de2678b631f5a49215c6c96fff41ba892b0a34df68d6d80292b1b48aa7f/pytest-9.1.1-py3-none-any.whl (386 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 386.5/386.5 kB 232.4 kB/s eta 0:00:00
+Collecting libcst
+  Downloading http://mirrors.aliyun.com/pypi/packages/e8/90/e02ac2dad647423f947bb11f8322bfdba8ccfdd380e6c7b695add2d1acd4/libcst-1.9.0-cp312-cp312-manylinux_2_28_x86_64.whl (2.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 217.9 kB/s eta 0:00:00
+Collecting iniconfig>=1.0.1 (from pytest)
+  Downloading http://mirrors.aliyun.com/pypi/packages/cb/b1/3846dd7f199d53cb17f49cba7e651e9ce294d8497c8c150530ed11865bb8/iniconfig-2.3.0-py3-none-any.whl (7.5 kB)
+Requirement already satisfied: packaging>=22 in ./miniconda3/lib/python3.12/site-packages (from pytest) (25.0)
+Collecting pluggy<2,>=1.5 (from pytest)
+  Downloading http://mirrors.aliyun.com/pypi/packages/54/20/4d324d65cc6d9205fabedc306948156824eb9f0ee1633355a8f7ec5c66bf/pluggy-1.6.0-py3-none-any.whl (20 kB)
+Requirement already satisfied: pygments>=2.7.2 in ./miniconda3/lib/python3.12/site-packages (from pytest) (2.21.0)
+Requirement already satisfied: pyyaml>=5.2 in ./miniconda3/lib/python3.12/site-packages (from libcst) (6.0.3)
+Installing collected packages: pluggy, libcst, iniconfig, pytest
+  Attempting uninstall: pluggy
+    Found existing installation: pluggy 1.0.0
+    Uninstalling pluggy-1.0.0:
+      Successfully uninstalled pluggy-1.0.0
+Successfully installed iniconfig-2.3.0 libcst-1.9.0 pluggy-1.6.0 pytest-9.1.1
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv

@@ -1,0 +1,11 @@
+selftest passed
+01_billing True
+02_access True
+03_pages True
+04_ranges True
+05_temperature True
+06_inventory True
+07_shipping True
+08_scores True
+09_parsing True
+10_lookup True

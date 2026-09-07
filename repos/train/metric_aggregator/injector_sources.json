@@ -1,0 +1,156 @@
+{
+  "provenance": "Controlled authored development history, not naturally occurring or upstream-mined defects.",
+  "initial_commit": "0a5aaa1c8b5659a9b1086d1062fad4b37aafd970",
+  "fix_commit": "fb1c651e15b96f61aec539d9096a8a28633afa59",
+  "history": [
+    {
+      "type": "condition-inversion",
+      "path": "metric_aggregator/__init__.py",
+      "fix_commit": "fb1c651e15b96f61aec539d9096a8a28633afa59",
+      "before": "    def _check(self, value: float) -> bool:\n        if self.comparator == \"gt\":\n            return value < self.threshold\n        if self.comparator == \"lt\":\n            return value < self.threshold\n        if self.comparator == \"gte\":\n            return value >= self.threshold\n        return value <= self.threshold\n",
+      "after": "    def _check(self, value: float) -> bool:\n        if self.comparator == \"gt\":\n            return value > self.threshold\n        if self.comparator == \"lt\":\n            return value < self.threshold\n        if self.comparator == \"gte\":\n            return value >= self.threshold\n        return value <= self.threshold\n"
+    },
+    {
+      "type": "off-by-one",
+      "path": "metric_aggregator/__init__.py",
+      "fix_commit": "fb1c651e15b96f61aec539d9096a8a28633afa59",
+      "before": "        rank = (p / 100) * len(self._values)\n",
+      "after": "        rank = (p / 100) * (len(self._values) - 1)\n"
+    },
+    {
+      "type": "variable-misuse",
+      "path": "metric_aggregator/__init__.py",
+      "fix_commit": "fb1c651e15b96f61aec539d9096a8a28633afa59",
+      "before": "    def variance(self) -> float:\n        if len(self._values) < 2:\n            raise ValueError(\"need at least 2 values\")\n        m = self.total()\n        return sum((v - m) ** 2 for v in self._values) / (len(self._values) - 1)\n",
+      "after": "    def variance(self) -> float:\n        if len(self._values) < 2:\n            raise ValueError(\"need at least 2 values\")\n        m = self.mean()\n        return sum((v - m) ** 2 for v in self._values) / (len(self._values) - 1)\n"
+    },
+    {
+      "type": "wrong-return-value",
+      "path": "metric_aggregator/__init__.py",
+      "fix_commit": "fb1c651e15b96f61aec539d9096a8a28633afa59",
+      "before": "def rate(values: Iterable[float], interval: float) -> float:\n    total = sum(values)\n    if interval <= 0:\n        raise ValueError(\"positive interval required\")\n    return total * interval\n",
+      "after": "def rate(values: Iterable[float], interval: float) -> float:\n    total = sum(values)\n    if interval <= 0:\n        raise ValueError(\"positive interval required\")\n    return total / interval\n"
+    },
+    {
+      "type": "missing-exception-handling",
+      "path": "metric_aggregator/__init__.py",
+      "fix_commit": "fb1c651e15b96f61aec539d9096a8a28633afa59",
+      "before": "    def mean(self) -> float:\n        return self.total() / self.count()\n",
+      "after": "    def mean(self) -> float:\n        if not self._values:\n            raise ValueError(\"empty metric\")\n        return self.total() / self.count()\n"
+    },
+    {
+      "type": "api-parameter-error",
+      "path": "metric_aggregator/__init__.py",
+      "fix_commit": "fb1c651e15b96f61aec539d9096a8a28633afa59",
+      "before": "        idx = bisect.bisect_left(bounds, v)\n",
+      "after": "        idx = bisect.bisect_right(bounds, v)\n"
+    },
+    {
+      "type": "boundary-condition-omission",
+      "path": "metric_aggregator/__init__.py",
+      "fix_commit": "fb1c651e15b96f61aec539d9096a8a28633afa59",
+      "before": "def ewma(values: Iterable[float], alpha: float) -> list[float]:\n    result = []\n    current = None\n",
+      "after": "def ewma(values: Iterable[float], alpha: float) -> list[float]:\n    if not 0 < alpha <= 1:\n        raise ValueError(\"alpha must be in (0, 1]\")\n    result = []\n    current = None\n"
+    },
+    {
+      "type": "boundary-condition-omission",
+      "path": "metric_aggregator/__init__.py",
+      "fix_commit": "48aaf0943f58dd6cad83851e609d7b3ce1818029",
+      "before": "    def add(self, value: float) -> None:\n        bisect.insort(self._values, value)\n",
+      "after": "    def add(self, value: float) -> None:\n        if not math.isfinite(value):\n            raise ValueError(\"only finite values accepted\")\n        bisect.insort(self._values, value)\n"
+    },
+    {
+      "type": "variable-misuse",
+      "path": "metric_aggregator/__init__.py",
+      "fix_commit": "48aaf0943f58dd6cad83851e609d7b3ce1818029",
+      "before": "    def merge(self, other: Metric) -> Metric:\n        combined = list(self._values) + list(self._values)\n        return Metric(combined)\n",
+      "after": "    def merge(self, other: Metric) -> Metric:\n        combined = list(self._values) + list(other._values)\n        return Metric(combined)\n"
+    },
+    {
+      "type": "api-parameter-error",
+      "path": "metric_aggregator/__init__.py",
+      "fix_commit": "48aaf0943f58dd6cad83851e609d7b3ce1818029",
+      "before": "    def summary(self) -> dict[str, float]:\n        if not self._values:\n            return {\"count\": 0}\n        return {\n            \"count\": self.count(),\n            \"mean\": self.mean(),\n            \"min\": self.minimum(),\n            \"max\": self.maximum(),\n            \"p50\": self.percentile(50),\n            \"p95\": self.percentile(0.95),\n            \"p99\": self.percentile(0.99),\n        }\n\n",
+      "after": "    def summary(self) -> dict[str, float]:\n        if not self._values:\n            return {\"count\": 0}\n        return {\n            \"count\": self.count(),\n            \"mean\": self.mean(),\n            \"min\": self.minimum(),\n            \"max\": self.maximum(),\n            \"p50\": self.percentile(50),\n            \"p95\": self.percentile(95),\n            \"p99\": self.percentile(99),\n        }\n\n"
+    },
+    {
+      "type": "off-by-one",
+      "path": "metric_aggregator/__init__.py",
+      "fix_commit": "48aaf0943f58dd6cad83851e609d7b3ce1818029",
+      "before": "    def _expire(self) -> None:\n        cutoff = self._tick - self._window\n        while self._buffer and self._buffer[0][0] < cutoff:\n            self._buffer.popleft()\n",
+      "after": "    def _expire(self) -> None:\n        cutoff = self._tick - self._window\n        while self._buffer and self._buffer[0][0] <= cutoff:\n            self._buffer.popleft()\n"
+    },
+    {
+      "type": "condition-inversion",
+      "path": "metric_aggregator/__init__.py",
+      "fix_commit": "48aaf0943f58dd6cad83851e609d7b3ce1818029",
+      "before": "    def evaluate(self, value: float) -> bool:\n        if self._check(value):\n            self._streak += 1\n        else:\n            self._streak = 0\n        return self._streak <= self.consecutive\n",
+      "after": "    def evaluate(self, value: float) -> bool:\n        if self._check(value):\n            self._streak += 1\n        else:\n            self._streak = 0\n        return self._streak >= self.consecutive\n"
+    },
+    {
+      "type": "missing-exception-handling",
+      "path": "metric_aggregator/__init__.py",
+      "fix_commit": "48aaf0943f58dd6cad83851e609d7b3ce1818029",
+      "before": "    def register(self, name: str) -> Metric:\n        metric = Metric()\n        self._metrics[name] = metric\n        return metric\n",
+      "after": "    def register(self, name: str) -> Metric:\n        if not name or name in self._metrics:\n            raise ValueError(\"new nonempty metric name required\")\n        metric = Metric()\n        self._metrics[name] = metric\n        return metric\n"
+    },
+    {
+      "type": "wrong-return-value",
+      "path": "metric_aggregator/__init__.py",
+      "fix_commit": "48aaf0943f58dd6cad83851e609d7b3ce1818029",
+      "before": "    def names(self) -> tuple[str, ...]:\n        return tuple(self._metrics)\n",
+      "after": "    def names(self) -> tuple[str, ...]:\n        return tuple(sorted(self._metrics))\n"
+    }
+  ],
+  "features": [
+    {
+      "type": "condition-inversion",
+      "path": "metric_aggregator/__init__.py",
+      "before": "    def _check(self, value: float) -> bool:\n        if self.comparator == \"gt\":\n            return value > self.threshold\n        if self.comparator == \"lt\":\n            return value < self.threshold\n        if self.comparator == \"gte\":\n            return value >= self.threshold\n        return value <= self.threshold\n",
+      "after": "    def _check(self, value: float) -> bool:\n        if self.comparator == \"eq\":\n            return value == self.threshold\n        if self.comparator == \"gt\":\n            return value < self.threshold\n        if self.comparator == \"lt\":\n            return value < self.threshold\n        if self.comparator == \"gte\":\n            return value >= self.threshold\n        return value <= self.threshold\n",
+      "description": "Add equality comparator; greater-than branch accidentally inverted."
+    },
+    {
+      "type": "off-by-one",
+      "path": "metric_aggregator/__init__.py",
+      "before": "    def percentile(self, p: float) -> float:\n        if not 0 <= p <= 100:\n            raise ValueError(\"percentile must be between 0 and 100\")\n        if not self._values:\n            raise ValueError(\"empty metric\")\n        if p == 0:\n            return self._values[0]\n        if p == 100:\n            return self._values[-1]\n        rank = (p / 100) * (len(self._values) - 1)\n        lower = int(rank)\n        fraction = rank - lower\n        if lower + 1 >= len(self._values):\n            return self._values[-1]\n        return self._values[lower] + fraction * (self._values[lower + 1] - self._values[lower])\n",
+      "after": "    def percentile(self, p: float, *, exclusive: bool = False) -> float:\n        if not 0 <= p <= 100:\n            raise ValueError(\"percentile must be between 0 and 100\")\n        if not self._values:\n            raise ValueError(\"empty metric\")\n        if p == 0:\n            return self._values[0]\n        if p == 100:\n            return self._values[-1]\n        if exclusive:\n            rank = (p / 100) * (len(self._values) + 1) - 1\n        else:\n            rank = (p / 100) * len(self._values)\n        lower = int(rank)\n        fraction = rank - lower\n        if lower + 1 >= len(self._values):\n            return self._values[-1]\n        return self._values[lower] + fraction * (self._values[lower + 1] - self._values[lower])\n",
+      "description": "Add exclusive interpolation method; default inclusive rank regresses by one."
+    },
+    {
+      "type": "variable-misuse",
+      "path": "metric_aggregator/__init__.py",
+      "before": "    def variance(self) -> float:\n        if len(self._values) < 2:\n            raise ValueError(\"need at least 2 values\")\n        m = self.mean()\n        return sum((v - m) ** 2 for v in self._values) / (len(self._values) - 1)\n",
+      "after": "    def variance(self, *, population: bool = False) -> float:\n        if len(self._values) < 2:\n            raise ValueError(\"need at least 2 values\")\n        if population:\n            m = self.mean()\n            return sum((v - m) ** 2 for v in self._values) / len(self._values)\n        m = self.total()\n        return sum((v - m) ** 2 for v in self._values) / (len(self._values) - 1)\n",
+      "description": "Add population variance mode; sample branch uses total instead of mean."
+    },
+    {
+      "type": "wrong-return-value",
+      "path": "metric_aggregator/__init__.py",
+      "before": "def rate(values: Iterable[float], interval: float) -> float:\n    total = sum(values)\n    if interval <= 0:\n        raise ValueError(\"positive interval required\")\n    return total / interval\n",
+      "after": "def rate(values: Iterable[float], interval: float, *, per_unit: float = 0) -> float:\n    total = sum(values)\n    if interval <= 0:\n        raise ValueError(\"positive interval required\")\n    if per_unit > 0:\n        return (total / interval) * per_unit\n    return total * interval\n",
+      "description": "Add per-unit scaling option; default rate computation multiplies instead of dividing."
+    },
+    {
+      "type": "missing-exception-handling",
+      "path": "metric_aggregator/__init__.py",
+      "before": "    def mean(self) -> float:\n        if not self._values:\n            raise ValueError(\"empty metric\")\n        return self.total() / self.count()\n",
+      "after": "    def mean(self, weights: Iterable[float] | None = None) -> float:\n        if weights is not None:\n            ws = list(weights)\n            return sum(w * v for w, v in zip(ws, self._values)) / sum(ws)\n        return self.total() / self.count()\n",
+      "description": "Add weighted mean option; refactoring removes empty-values guard."
+    },
+    {
+      "type": "api-parameter-error",
+      "path": "metric_aggregator/__init__.py",
+      "before": "def bucket_histogram(values: Iterable[float], boundaries: Iterable[float]) -> list[int]:\n    bounds = sorted(boundaries)\n    counts = [0] * (len(bounds) + 1)\n    for v in values:\n        idx = bisect.bisect_right(bounds, v)\n        counts[idx] += 1\n    return counts\n",
+      "after": "def bucket_histogram(values: Iterable[float], boundaries: Iterable[float],\n                     *, cumulative: bool = False) -> list[int]:\n    bounds = sorted(boundaries)\n    counts = [0] * (len(bounds) + 1)\n    for v in values:\n        idx = bisect.bisect_left(bounds, v)\n        counts[idx] += 1\n    if cumulative:\n        for i in range(1, len(counts)):\n            counts[i] += counts[i - 1]\n    return counts\n",
+      "description": "Add cumulative histogram mode; boundary placement switches from right to left."
+    },
+    {
+      "type": "boundary-condition-omission",
+      "path": "metric_aggregator/__init__.py",
+      "before": "def ewma(values: Iterable[float], alpha: float) -> list[float]:\n    if not 0 < alpha <= 1:\n        raise ValueError(\"alpha must be in (0, 1]\")\n    result = []\n    current = None\n",
+      "after": "def ewma(values: Iterable[float], alpha: float, *, beta: float = 0.0) -> list[float]:\n    result = []\n    current = None\n",
+      "description": "Add beta decay offset; alpha range validation lost in refactoring."
+    }
+  ]
+}

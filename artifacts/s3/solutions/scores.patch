@@ -1,0 +1,11 @@
+--- a/scores.py
++++ b/scores.py
+@@ -11,7 +11,7 @@
+     total_weight = sum(weights)
+     if total_weight <= 0:
+         raise ValueError("zero total weight")
+-    return sum(value * weight for value, weight in zip(values, weights)) / len(values)
++    return sum(value * weight for value, weight in zip(values, weights)) / total_weight
+ 
+ 
+ def mean_score(values):

@@ -1,0 +1,33 @@
+INFO 09-05 21:47:10 [__init__.py:216] Automatically detected platform cuda.
+INFO 09-05 21:47:12 [arg_utils.py:486] HF_HUB_OFFLINE is True, replace model_id [/root/autodl-tmp/models/Qwen3-4B] to model_path [/root/autodl-tmp/models/Qwen3-4B]
+INFO 09-05 21:47:12 [arg_utils.py:486] HF_HUB_OFFLINE is True, replace model_id [/root/autodl-tmp/models/Qwen3-4B] to model_path [/root/autodl-tmp/models/Qwen3-4B]
+INFO 09-05 21:47:12 [utils.py:328] non-default args: {'tokenizer': '/root/autodl-tmp/models/Qwen3-4B', 'dtype': 'bfloat16', 'seed': 20260905, 'max_model_len': 16384, 'enable_prefix_caching': False, 'max_num_seqs': 8, 'disable_log_stats': True, 'enforce_eager': True, 'model': '/root/autodl-tmp/models/Qwen3-4B'}
+INFO 09-05 21:47:22 [__init__.py:742] Resolved architecture: Qwen3ForCausalLM
+`torch_dtype` is deprecated! Use `dtype` instead!
+Traceback (most recent call last):
+  File "/root/autodl-tmp/s3/measure.py", line 403, in <module>
+    if __name__=='__main__': main()
+                             ^^^^^^
+  File "/root/autodl-tmp/s3/measure.py", line 398, in main
+    elif args.action=='run': run(args)
+                             ^^^^^^^^^
+  File "/root/autodl-tmp/s3/measure.py", line 275, in run
+    llm=LLM(model=MODEL,tokenizer=MODEL,dtype='bfloat16',seed=BASE_SEED,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/vllm/entrypoints/llm.py", line 282, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/vllm/engine/llm_engine.py", line 486, in from_engine_args
+    vllm_config = engine_args.create_engine_config(usage_context)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/vllm/engine/arg_utils.py", line 1119, in create_engine_config
+    model_config = self.create_model_config()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/vllm/engine/arg_utils.py", line 963, in create_model_config
+    return ModelConfig(
+           ^^^^^^^^^^^^
+  File "/root/miniconda3/lib/python3.12/site-packages/pydantic/_internal/_dataclasses.py", line 121, in __init__
+    s.__pydantic_validator__.validate_python(ArgsKwargs(args, kwargs), self_instance=s)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for ModelConfig
+  Value error, User-specified max_model_len (16384) is greater than the derived max_model_len (max_position_embeddings=3072 or model_max_length=None in model's config.json). To allow overriding this maximum, set the env var VLLM_ALLOW_LONG_MAX_MODEL_LEN=1. VLLM_ALLOW_LONG_MAX_MODEL_LEN must be used with extreme caution. If the model uses relative position encoding (RoPE), positions exceeding derived_max_model_len lead to nan. If the model uses absolute position encoding, positions exceeding derived_max_model_len will cause a CUDA array out-of-bounds error. [type=value_error, input_value=ArgsKwargs((), {'model': ...rocessor_plugin': None}), input_type=ArgsKwargs]
+    For further information visit https://errors.pydantic.dev/2.13/v/value_error

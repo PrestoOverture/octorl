@@ -1,0 +1,241 @@
+INFO 09-05 22:05:01 [__init__.py:216] Automatically detected platform cuda.
+INFO 09-05 22:05:03 [arg_utils.py:486] HF_HUB_OFFLINE is True, replace model_id [/root/autodl-tmp/models/Qwen3-4B] to model_path [/root/autodl-tmp/models/Qwen3-4B]
+INFO 09-05 22:05:03 [arg_utils.py:486] HF_HUB_OFFLINE is True, replace model_id [/root/autodl-tmp/models/Qwen3-4B] to model_path [/root/autodl-tmp/models/Qwen3-4B]
+INFO 09-05 22:05:03 [utils.py:328] non-default args: {'tokenizer': '/root/autodl-tmp/models/Qwen3-4B', 'dtype': 'bfloat16', 'seed': 20260905, 'max_model_len': 16384, 'enable_prefix_caching': False, 'max_num_seqs': 8, 'disable_log_stats': True, 'hf_overrides': {'max_position_embeddings': 40960}, 'enforce_eager': True, 'model': '/root/autodl-tmp/models/Qwen3-4B'}
+INFO 09-05 22:05:13 [__init__.py:742] Resolved architecture: Qwen3ForCausalLM
+`torch_dtype` is deprecated! Use `dtype` instead!
+INFO 09-05 22:05:13 [__init__.py:1815] Using max model len 16384
+INFO 09-05 22:05:15 [scheduler.py:222] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 09-05 22:05:15 [__init__.py:3400] Cudagraph is disabled under eager mode
+[1;36m(EngineCore_DP0 pid=5489)[0;0m INFO 09-05 22:05:15 [core.py:654] Waiting for init message from front-end.
+[1;36m(EngineCore_DP0 pid=5489)[0;0m INFO 09-05 22:05:15 [core.py:76] Initializing a V1 LLM engine (v0.10.2) with config: model='/root/autodl-tmp/models/Qwen3-4B', speculative_config=None, tokenizer='/root/autodl-tmp/models/Qwen3-4B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=16384, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=True, kv_cache_dtype=auto, device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=20260905, served_model_name=/root/autodl-tmp/models/Qwen3-4B, enable_prefix_caching=False, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":0,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":[],"splitting_ops":null,"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"cudagraph_mode":0,"use_cudagraph":true,"cudagraph_num_of_warmups":0,"cudagraph_capture_sizes":[],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"pass_config":{},"max_capture_size":0,"local_cache_dir":null}
+[W905 22:05:18.740125683 ProcessGroupNCCL.cpp:981] Warning: TORCH_NCCL_AVOID_RECORD_STREAMS is the default now, this environment variable is thus deprecated. (function operator())
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[1;36m(EngineCore_DP0 pid=5489)[0;0m INFO 09-05 22:05:18 [parallel_state.py:1165] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+[1;36m(EngineCore_DP0 pid=5489)[0;0m WARNING 09-05 22:05:18 [topk_topp_sampler.py:69] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(EngineCore_DP0 pid=5489)[0;0m INFO 09-05 22:05:18 [gpu_model_runner.py:2338] Starting to load model /root/autodl-tmp/models/Qwen3-4B...
+[1;36m(EngineCore_DP0 pid=5489)[0;0m INFO 09-05 22:05:19 [gpu_model_runner.py:2370] Loading model from scratch...
+[1;36m(EngineCore_DP0 pid=5489)[0;0m INFO 09-05 22:05:19 [cuda.py:362] Using Flash Attention backend on V1 engine.
+[1;36m(EngineCore_DP0 pid=5489)[0;0m Loading safetensors checkpoint shards:   0% Completed | 0/3 [00:00<?, ?it/s]
+[1;36m(EngineCore_DP0 pid=5489)[0;0m Loading safetensors checkpoint shards:  33% Completed | 1/3 [00:00<00:01,  1.49it/s]
+[1;36m(EngineCore_DP0 pid=5489)[0;0m Loading safetensors checkpoint shards:  67% Completed | 2/3 [00:01<00:00,  1.34it/s]
+[1;36m(EngineCore_DP0 pid=5489)[0;0m Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  2.17it/s]
+[1;36m(EngineCore_DP0 pid=5489)[0;0m Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:01<00:00,  1.89it/s]
+[1;36m(EngineCore_DP0 pid=5489)[0;0m 
+[1;36m(EngineCore_DP0 pid=5489)[0;0m INFO 09-05 22:05:20 [default_loader.py:268] Loading weights took 1.59 seconds
+[1;36m(EngineCore_DP0 pid=5489)[0;0m INFO 09-05 22:05:21 [gpu_model_runner.py:2392] Model loading took 7.5552 GiB and 1.757750 seconds
+[1;36m(EngineCore_DP0 pid=5489)[0;0m INFO 09-05 22:05:22 [gpu_worker.py:298] Available KV cache memory: 12.98 GiB
+[1;36m(EngineCore_DP0 pid=5489)[0;0m INFO 09-05 22:05:23 [kv_cache_utils.py:864] GPU KV cache size: 94,544 tokens
+[1;36m(EngineCore_DP0 pid=5489)[0;0m INFO 09-05 22:05:23 [kv_cache_utils.py:868] Maximum concurrency for 16,384 tokens per request: 5.77x
+[1;36m(EngineCore_DP0 pid=5489)[0;0m INFO 09-05 22:05:23 [gpu_worker.py:391] Free memory on device (23.11/23.52 GiB) on startup. Desired GPU memory utilization is (0.9, 21.16 GiB). Actual usage is 7.56 GiB for weight, 0.61 GiB for peak activation, 0.02 GiB for non-torch memory, and 0.0 GiB for CUDAGraph memory. Replace gpu_memory_utilization config with `--kv-cache-memory=13784735129` to fit into requested memory, or `--kv-cache-memory=15877587968` to fully utilize gpu memory. Current kv cache memory in use is 13942021529 bytes.
+[1;36m(EngineCore_DP0 pid=5489)[0;0m INFO 09-05 22:05:23 [core.py:218] init engine (profile, create kv cache, warmup model) took 1.87 seconds
+[1;36m(EngineCore_DP0 pid=5489)[0;0m INFO 09-05 22:05:23 [__init__.py:3400] Cudagraph is disabled under eager mode
+INFO 09-05 22:05:24 [llm.py:295] Supported_tasks: ['generate']
+INFO 09-05 22:05:24 [__init__.py:36] No IOProcessor plugins requested by the model
+[1;36m(EngineCore_DP0 pid=5489)[0;0m WARNING 09-05 22:05:24 [cudagraph_dispatcher.py:102] cudagraph dispatching keys are not initialized. No cudagraph will be used.
+{"batch": 0, "step": 1, "active": 8, "generation_seconds": 24.13}
+{"batch": 0, "step": 2, "active": 8, "generation_seconds": 22.27}
+{"batch": 0, "step": 3, "active": 8, "generation_seconds": 35.56}
+{"batch": 0, "step": 4, "active": 8, "generation_seconds": 29.2}
+{"batch": 0, "step": 5, "active": 8, "generation_seconds": 22.77}
+{"batch": 0, "step": 6, "active": 8, "generation_seconds": 41.87}
+{"batch": 0, "step": 7, "active": 8, "generation_seconds": 42.67}
+{"batch": 0, "step": 8, "active": 8, "generation_seconds": 43.28}
+{"batch": 0, "step": 9, "active": 8, "generation_seconds": 18.56}
+{"batch": 0, "step": 10, "active": 8, "generation_seconds": 27.74}
+{"batch": 0, "step": 11, "active": 8, "generation_seconds": 29.42}
+{"batch": 0, "step": 12, "active": 8, "generation_seconds": 30.61}
+{"trajectory_id": "01_billing_r0", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "01_billing_r1", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "01_billing_r2", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "01_billing_r3", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "01_billing_r4", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "01_billing_r5", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "01_billing_r6", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "01_billing_r7", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"batch": 1, "step": 1, "active": 8, "generation_seconds": 28.46}
+{"batch": 1, "step": 2, "active": 8, "generation_seconds": 39.57}
+{"batch": 1, "step": 3, "active": 8, "generation_seconds": 43.18}
+{"batch": 1, "step": 4, "active": 8, "generation_seconds": 43.52}
+{"batch": 1, "step": 5, "active": 8, "generation_seconds": 22.6}
+{"batch": 1, "step": 6, "active": 8, "generation_seconds": 13.37}
+{"batch": 1, "step": 7, "active": 7, "generation_seconds": 17.47}
+{"batch": 1, "step": 8, "active": 7, "generation_seconds": 17.94}
+{"batch": 1, "step": 9, "active": 7, "generation_seconds": 18.17}
+{"batch": 1, "step": 10, "active": 7, "generation_seconds": 18.26}
+{"batch": 1, "step": 11, "active": 6, "generation_seconds": 16.52}
+{"batch": 1, "step": 12, "active": 6, "generation_seconds": 15.62}
+{"trajectory_id": "02_access_r0", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "02_access_r1", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "02_access_r2", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "02_access_r3", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "02_access_r4", "reward": 1, "steps": 10, "stop_reason": "final_response"}
+{"trajectory_id": "02_access_r5", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "02_access_r6", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "02_access_r7", "reward": 0, "steps": 6, "stop_reason": "final_response"}
+{"batch": 2, "step": 1, "active": 8, "generation_seconds": 24.21}
+{"batch": 2, "step": 2, "active": 8, "generation_seconds": 9.21}
+{"batch": 2, "step": 3, "active": 8, "generation_seconds": 9.34}
+{"batch": 2, "step": 4, "active": 8, "generation_seconds": 8.93}
+{"batch": 2, "step": 5, "active": 8, "generation_seconds": 11.46}
+{"batch": 2, "step": 6, "active": 8, "generation_seconds": 26.74}
+{"batch": 2, "step": 7, "active": 8, "generation_seconds": 12.5}
+{"batch": 2, "step": 8, "active": 8, "generation_seconds": 12.49}
+{"batch": 2, "step": 9, "active": 8, "generation_seconds": 12.19}
+{"batch": 2, "step": 10, "active": 8, "generation_seconds": 11.64}
+{"batch": 2, "step": 11, "active": 8, "generation_seconds": 13.73}
+{"batch": 2, "step": 12, "active": 7, "generation_seconds": 12.86}
+{"trajectory_id": "03_pages_r0", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "03_pages_r1", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "03_pages_r2", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "03_pages_r3", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "03_pages_r4", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "03_pages_r5", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "03_pages_r6", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "03_pages_r7", "reward": 1, "steps": 11, "stop_reason": "final_response"}
+{"batch": 3, "step": 1, "active": 8, "generation_seconds": 14.34}
+{"batch": 3, "step": 2, "active": 8, "generation_seconds": 7.84}
+{"batch": 3, "step": 3, "active": 8, "generation_seconds": 39.93}
+{"batch": 3, "step": 4, "active": 8, "generation_seconds": 35.54}
+{"batch": 3, "step": 5, "active": 8, "generation_seconds": 35.61}
+{"batch": 3, "step": 6, "active": 8, "generation_seconds": 17.72}
+{"batch": 3, "step": 7, "active": 8, "generation_seconds": 18.16}
+{"batch": 3, "step": 8, "active": 8, "generation_seconds": 18.85}
+{"batch": 3, "step": 9, "active": 8, "generation_seconds": 19.13}
+{"batch": 3, "step": 10, "active": 8, "generation_seconds": 20.25}
+{"batch": 3, "step": 11, "active": 8, "generation_seconds": 20.25}
+{"batch": 3, "step": 12, "active": 8, "generation_seconds": 20.83}
+{"trajectory_id": "04_ranges_r0", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "04_ranges_r1", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "04_ranges_r2", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "04_ranges_r3", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "04_ranges_r4", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "04_ranges_r5", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "04_ranges_r6", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "04_ranges_r7", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"batch": 4, "step": 1, "active": 8, "generation_seconds": 23.02}
+{"batch": 4, "step": 2, "active": 8, "generation_seconds": 13.68}
+{"batch": 4, "step": 3, "active": 8, "generation_seconds": 16.56}
+{"batch": 4, "step": 4, "active": 8, "generation_seconds": 14.38}
+{"batch": 4, "step": 5, "active": 8, "generation_seconds": 14.06}
+{"batch": 4, "step": 6, "active": 8, "generation_seconds": 14.44}
+{"batch": 4, "step": 7, "active": 6, "generation_seconds": 12.61}
+{"batch": 4, "step": 8, "active": 5, "generation_seconds": 13.72}
+{"batch": 4, "step": 9, "active": 5, "generation_seconds": 9.48}
+{"batch": 4, "step": 10, "active": 5, "generation_seconds": 12.17}
+{"batch": 4, "step": 11, "active": 5, "generation_seconds": 14.1}
+{"batch": 4, "step": 12, "active": 5, "generation_seconds": 13.95}
+{"trajectory_id": "05_temperature_r0", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "05_temperature_r1", "reward": 1, "steps": 6, "stop_reason": "final_response"}
+{"trajectory_id": "05_temperature_r2", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "05_temperature_r3", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "05_temperature_r4", "reward": 1, "steps": 6, "stop_reason": "final_response"}
+{"trajectory_id": "05_temperature_r5", "reward": 1, "steps": 7, "stop_reason": "final_response"}
+{"trajectory_id": "05_temperature_r6", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "05_temperature_r7", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"batch": 5, "step": 1, "active": 8, "generation_seconds": 15.39}
+{"batch": 5, "step": 2, "active": 8, "generation_seconds": 21.09}
+{"batch": 5, "step": 3, "active": 8, "generation_seconds": 17.21}
+{"batch": 5, "step": 4, "active": 8, "generation_seconds": 14.07}
+{"batch": 5, "step": 5, "active": 8, "generation_seconds": 15.45}
+{"batch": 5, "step": 6, "active": 8, "generation_seconds": 21.19}
+{"batch": 5, "step": 7, "active": 8, "generation_seconds": 14.44}
+{"batch": 5, "step": 8, "active": 8, "generation_seconds": 13.59}
+{"batch": 5, "step": 9, "active": 7, "generation_seconds": 15.02}
+{"batch": 5, "step": 10, "active": 7, "generation_seconds": 13.85}
+{"batch": 5, "step": 11, "active": 6, "generation_seconds": 13.75}
+{"batch": 5, "step": 12, "active": 6, "generation_seconds": 14.0}
+{"trajectory_id": "06_inventory_r0", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "06_inventory_r1", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "06_inventory_r2", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "06_inventory_r3", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "06_inventory_r4", "reward": 1, "steps": 10, "stop_reason": "final_response"}
+{"trajectory_id": "06_inventory_r5", "reward": 1, "steps": 8, "stop_reason": "final_response"}
+{"trajectory_id": "06_inventory_r6", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "06_inventory_r7", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"batch": 6, "step": 1, "active": 8, "generation_seconds": 41.69}
+{"batch": 6, "step": 2, "active": 8, "generation_seconds": 39.83}
+{"batch": 6, "step": 3, "active": 8, "generation_seconds": 17.29}
+{"batch": 6, "step": 4, "active": 8, "generation_seconds": 25.69}
+{"batch": 6, "step": 5, "active": 8, "generation_seconds": 15.3}
+{"batch": 6, "step": 6, "active": 7, "generation_seconds": 14.03}
+{"batch": 6, "step": 7, "active": 6, "generation_seconds": 14.12}
+{"batch": 6, "step": 8, "active": 6, "generation_seconds": 14.29}
+{"batch": 6, "step": 9, "active": 6, "generation_seconds": 14.65}
+{"batch": 6, "step": 10, "active": 6, "generation_seconds": 14.64}
+{"batch": 6, "step": 11, "active": 6, "generation_seconds": 15.27}
+{"batch": 6, "step": 12, "active": 6, "generation_seconds": 15.08}
+{"trajectory_id": "07_shipping_r0", "reward": 1, "steps": 6, "stop_reason": "final_response"}
+{"trajectory_id": "07_shipping_r1", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "07_shipping_r2", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "07_shipping_r3", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "07_shipping_r4", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "07_shipping_r5", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "07_shipping_r6", "reward": 1, "steps": 5, "stop_reason": "final_response"}
+{"trajectory_id": "07_shipping_r7", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"batch": 7, "step": 1, "active": 8, "generation_seconds": 17.52}
+{"batch": 7, "step": 2, "active": 8, "generation_seconds": 40.61}
+{"batch": 7, "step": 3, "active": 8, "generation_seconds": 37.11}
+{"batch": 7, "step": 4, "active": 8, "generation_seconds": 22.94}
+{"batch": 7, "step": 5, "active": 8, "generation_seconds": 16.97}
+{"batch": 7, "step": 6, "active": 8, "generation_seconds": 17.74}
+{"batch": 7, "step": 7, "active": 8, "generation_seconds": 17.65}
+{"batch": 7, "step": 8, "active": 8, "generation_seconds": 17.94}
+{"batch": 7, "step": 9, "active": 8, "generation_seconds": 18.86}
+{"batch": 7, "step": 10, "active": 8, "generation_seconds": 19.06}
+{"batch": 7, "step": 11, "active": 8, "generation_seconds": 19.98}
+{"batch": 7, "step": 12, "active": 8, "generation_seconds": 20.32}
+{"trajectory_id": "08_scores_r0", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "08_scores_r1", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "08_scores_r2", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "08_scores_r3", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "08_scores_r4", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "08_scores_r5", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "08_scores_r6", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "08_scores_r7", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"batch": 8, "step": 1, "active": 8, "generation_seconds": 16.28}
+{"batch": 8, "step": 2, "active": 8, "generation_seconds": 43.36}
+{"batch": 8, "step": 3, "active": 8, "generation_seconds": 42.83}
+{"batch": 8, "step": 4, "active": 8, "generation_seconds": 16.46}
+{"batch": 8, "step": 5, "active": 8, "generation_seconds": 12.17}
+{"batch": 8, "step": 6, "active": 8, "generation_seconds": 13.86}
+{"batch": 8, "step": 7, "active": 8, "generation_seconds": 11.25}
+{"batch": 8, "step": 8, "active": 8, "generation_seconds": 11.48}
+{"batch": 8, "step": 9, "active": 8, "generation_seconds": 12.88}
+{"batch": 8, "step": 10, "active": 8, "generation_seconds": 12.5}
+{"batch": 8, "step": 11, "active": 8, "generation_seconds": 12.91}
+{"batch": 8, "step": 12, "active": 7, "generation_seconds": 12.56}
+{"trajectory_id": "09_parsing_r0", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "09_parsing_r1", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "09_parsing_r2", "reward": 1, "steps": 11, "stop_reason": "final_response"}
+{"trajectory_id": "09_parsing_r3", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "09_parsing_r4", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "09_parsing_r5", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "09_parsing_r6", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "09_parsing_r7", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"batch": 9, "step": 1, "active": 8, "generation_seconds": 17.68}
+{"batch": 9, "step": 2, "active": 8, "generation_seconds": 41.02}
+{"batch": 9, "step": 3, "active": 8, "generation_seconds": 15.86}
+{"batch": 9, "step": 4, "active": 8, "generation_seconds": 14.31}
+{"batch": 9, "step": 5, "active": 8, "generation_seconds": 10.65}
+{"batch": 9, "step": 6, "active": 8, "generation_seconds": 11.94}
+{"batch": 9, "step": 7, "active": 8, "generation_seconds": 17.1}
+{"batch": 9, "step": 8, "active": 8, "generation_seconds": 13.01}
+{"batch": 9, "step": 9, "active": 8, "generation_seconds": 12.79}
+{"batch": 9, "step": 10, "active": 8, "generation_seconds": 13.2}
+{"batch": 9, "step": 11, "active": 8, "generation_seconds": 13.71}
+{"batch": 9, "step": 12, "active": 8, "generation_seconds": 14.02}
+{"trajectory_id": "10_lookup_r0", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "10_lookup_r1", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "10_lookup_r2", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "10_lookup_r3", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "10_lookup_r4", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "10_lookup_r5", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "10_lookup_r6", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"trajectory_id": "10_lookup_r7", "reward": 0, "steps": 12, "stop_reason": "step_limit"}
+{"valid_calls": 886, "total_call_attempts": 890, "format_validity": 0.9955056179775281, "tasks": 10, "rollouts": 80, "solved_tasks": 6, "contract_pass_at_1": 0.6, "per_rollout_success": 0.125, "successful_rollouts": 10, "mixed_tasks": 6, "mixed_group_ratio": 0.6, "gate_decision": "skip SFT", "per_task": [{"task_id": "01_billing", "rollouts": 8, "successes": 0, "contract_pass_at_1": 0, "per_rollout_success": 0.0, "mixed": 0, "valid_calls": 93, "total_call_attempts": 94, "format_validity": 0.9893617021276596}, {"task_id": "02_access", "rollouts": 8, "successes": 1, "contract_pass_at_1": 1, "per_rollout_success": 0.125, "mixed": 1, "valid_calls": 82, "total_call_attempts": 82, "format_validity": 1.0}, {"task_id": "03_pages", "rollouts": 8, "successes": 1, "contract_pass_at_1": 1, "per_rollout_success": 0.125, "mixed": 1, "valid_calls": 93, "total_call_attempts": 94, "format_validity": 0.9893617021276596}, {"task_id": "04_ranges", "rollouts": 8, "successes": 0, "contract_pass_at_1": 0, "per_rollout_success": 0.0, "mixed": 0, "valid_calls": 95, "total_call_attempts": 95, "format_validity": 1.0}, {"task_id": "05_temperature", "rollouts": 8, "successes": 3, "contract_pass_at_1": 1, "per_rollout_success": 0.375, "mixed": 1, "valid_calls": 75, "total_call_attempts": 76, "format_validity": 0.9868421052631579}, {"task_id": "06_inventory", "rollouts": 8, "successes": 2, "contract_pass_at_1": 1, "per_rollout_success": 0.25, "mixed": 1, "valid_calls": 88, "total_call_attempts": 88, "format_validity": 1.0}, {"task_id": "07_shipping", "rollouts": 8, "successes": 2, "contract_pass_at_1": 1, "per_rollout_success": 0.25, "mixed": 1, "valid_calls": 79, "total_call_attempts": 79, "format_validity": 1.0}, {"task_id": "08_scores", "rollouts": 8, "successes": 0, "contract_pass_at_1": 0, "per_rollout_success": 0.0, "mixed": 0, "valid_calls": 95, "total_call_attempts": 95, "format_validity": 1.0}, {"task_id": "09_parsing", "rollouts": 8, "successes": 1, "contract_pass_at_1": 1, "per_rollout_success": 0.125, "mixed": 1, "valid_calls": 90, "total_call_attempts": 91, "format_validity": 0.989010989010989}, {"task_id": "10_lookup", "rollouts": 8, "successes": 0, "contract_pass_at_1": 0, "per_rollout_success": 0.0, "mixed": 0, "valid_calls": 96, "total_call_attempts": 96, "format_validity": 1.0}]}

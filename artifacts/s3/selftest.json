@@ -1,0 +1,5 @@
+{
+  "passed": true,
+  "seed": 20260905,
+  "controls": "Exact known-answer zero, all-one, mixed groups; parser, gate branches, path/test protections. No Monte Carlo error."
+}

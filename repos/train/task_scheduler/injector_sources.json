@@ -1,0 +1,156 @@
+{
+  "provenance": "Controlled authored development history, not naturally occurring or upstream-mined defects.",
+  "initial_commit": "144274c4424e78b7f1e3e28b2e9ea4c559cd7ce5",
+  "fix_commit": "62a22e3e7d9de247bf96b09b521fb81aa0bd1235",
+  "history": [
+    {
+      "type": "condition-inversion",
+      "path": "task_scheduler/__init__.py",
+      "fix_commit": "62a22e3e7d9de247bf96b09b521fb81aa0bd1235",
+      "before": "    def _refresh(self, identifier: str) -> None:\n        task = self._tasks[identifier]\n        if task.status != Status.PENDING:\n            return\n        if all(self._tasks[dep].status != Status.DONE for dep in task.dependencies):\n            task.status = Status.READY\n",
+      "after": "    def _refresh(self, identifier: str) -> None:\n        task = self._tasks[identifier]\n        if task.status != Status.PENDING:\n            return\n        if all(self._tasks[dep].status == Status.DONE for dep in task.dependencies):\n            task.status = Status.READY\n"
+    },
+    {
+      "type": "off-by-one",
+      "path": "task_scheduler/__init__.py",
+      "fix_commit": "62a22e3e7d9de247bf96b09b521fb81aa0bd1235",
+      "before": "    def advance(self, now: int) -> list[str]:\n        if now < self.now:\n            raise ValueError(\"clock cannot move backward\")\n        self.now = now\n        expired = []\n        for task in self._tasks.values():\n            if task.deadline is not None and task.deadline < now:\n                if task.status in (Status.PENDING, Status.READY):\n                    task.status = Status.CANCELLED\n                    expired.append(task.identifier)\n        return sorted(expired)\n",
+      "after": "    def advance(self, now: int) -> list[str]:\n        if now < self.now:\n            raise ValueError(\"clock cannot move backward\")\n        self.now = now\n        expired = []\n        for task in self._tasks.values():\n            if task.deadline is not None and task.deadline <= now:\n                if task.status in (Status.PENDING, Status.READY):\n                    task.status = Status.CANCELLED\n                    expired.append(task.identifier)\n        return sorted(expired)\n"
+    },
+    {
+      "type": "variable-misuse",
+      "path": "task_scheduler/__init__.py",
+      "fix_commit": "62a22e3e7d9de247bf96b09b521fb81aa0bd1235",
+      "before": "    def complete(self, identifier: str, result: str = \"ok\") -> Task:\n        task = self._tasks[identifier]\n        if task.status != Status.RUNNING:\n            raise ValueError(\"task is not running\")\n        task.status = Status.DONE\n        task.started_at = self.now\n        task.result = result\n        for other in self._tasks.values():\n            if identifier in other.dependencies:\n                self._refresh(other.identifier)\n        return task\n",
+      "after": "    def complete(self, identifier: str, result: str = \"ok\") -> Task:\n        task = self._tasks[identifier]\n        if task.status != Status.RUNNING:\n            raise ValueError(\"task is not running\")\n        task.status = Status.DONE\n        task.finished_at = self.now\n        task.result = result\n        for other in self._tasks.values():\n            if identifier in other.dependencies:\n                self._refresh(other.identifier)\n        return task\n"
+    },
+    {
+      "type": "wrong-return-value",
+      "path": "task_scheduler/__init__.py",
+      "fix_commit": "62a22e3e7d9de247bf96b09b521fb81aa0bd1235",
+      "before": "    def next_task(self) -> Task | None:\n        ready = [t for t in self._tasks.values() if t.status == Status.READY]\n        if not ready:\n            return None\n        return max(ready, key=lambda t: (t.priority, t.identifier))\n",
+      "after": "    def next_task(self) -> Task | None:\n        ready = [t for t in self._tasks.values() if t.status == Status.READY]\n        if not ready:\n            return None\n        return min(ready, key=lambda t: (t.priority, t.identifier))\n"
+    },
+    {
+      "type": "missing-exception-handling",
+      "path": "task_scheduler/__init__.py",
+      "fix_commit": "62a22e3e7d9de247bf96b09b521fb81aa0bd1235",
+      "before": "def parse_task_list(text: str) -> list[tuple[str, int]]:\n    \"\"\"Parse 'identifier:priority' lines.\"\"\"\n    result = []\n    for number, line in enumerate(text.splitlines(), 1):\n        line = line.strip()\n        if not line or line.startswith(\"#\"):\n            continue\n        if \":\" not in line:\n            raise ValueError(f\"line {number}: missing ':'\")\n        identifier, _, priority_str = line.partition(\":\")\n        identifier = identifier.strip()\n        priority = int(priority_str.strip())\n        if not identifier:\n            raise ValueError(f\"line {number}: empty identifier\")\n        result.append((identifier, priority))\n    return result\n",
+      "after": "def parse_task_list(text: str) -> list[tuple[str, int]]:\n    \"\"\"Parse 'identifier:priority' lines.\"\"\"\n    result = []\n    for number, line in enumerate(text.splitlines(), 1):\n        line = line.strip()\n        if not line or line.startswith(\"#\"):\n            continue\n        if \":\" not in line:\n            raise ValueError(f\"line {number}: missing ':'\")\n        identifier, _, priority_str = line.partition(\":\")\n        identifier = identifier.strip()\n        try:\n            priority = int(priority_str.strip())\n        except ValueError as error:\n            raise ValueError(f\"line {number}: invalid priority\") from error\n        if not identifier:\n            raise ValueError(f\"line {number}: empty identifier\")\n        result.append((identifier, priority))\n    return result\n"
+    },
+    {
+      "type": "api-parameter-error",
+      "path": "task_scheduler/__init__.py",
+      "fix_commit": "62a22e3e7d9de247bf96b09b521fb81aa0bd1235",
+      "before": "    def all_tasks(self) -> tuple[Task, ...]:\n        return tuple(sorted(self._tasks.values(), key=lambda t: t.identifier))\n",
+      "after": "    def all_tasks(self) -> tuple[Task, ...]:\n        return tuple(sorted(self._tasks.values(), key=lambda t: (t.priority, t.identifier)))\n"
+    },
+    {
+      "type": "boundary-condition-omission",
+      "path": "task_scheduler/__init__.py",
+      "fix_commit": "62a22e3e7d9de247bf96b09b521fb81aa0bd1235",
+      "before": "    def critical_path(self) -> list[str]:\n        order = self._topological()\n        longest: dict[str, int] = {}\n        parent: dict[str, str | None] = {}\n        for identifier in order:\n            task = self._tasks[identifier]\n            longest[identifier] = 0\n            parent[identifier] = None\n            for dep in task.dependencies:\n                candidate = longest[dep] + 1\n                if candidate > longest[identifier]:\n                    longest[identifier] = candidate\n                    parent[identifier] = dep\n        end = max(longest, key=lambda x: longest[x])\n        path = [end]\n        while parent[path[-1]] is not None:\n            path.append(parent[path[-1]])\n        return list(reversed(path))\n",
+      "after": "    def critical_path(self) -> list[str]:\n        order = self._topological()\n        longest: dict[str, int] = {}\n        parent: dict[str, str | None] = {}\n        for identifier in order:\n            task = self._tasks[identifier]\n            longest[identifier] = 0\n            parent[identifier] = None\n            for dep in task.dependencies:\n                candidate = longest[dep] + 1\n                if candidate > longest[identifier]:\n                    longest[identifier] = candidate\n                    parent[identifier] = dep\n        if not longest:\n            return []\n        end = max(longest, key=lambda x: longest[x])\n        path = [end]\n        while parent[path[-1]] is not None:\n            path.append(parent[path[-1]])\n        return list(reversed(path))\n"
+    },
+    {
+      "type": "condition-inversion",
+      "path": "task_scheduler/__init__.py",
+      "fix_commit": "10031d1b02aef986324579f500405f3733ab7c91",
+      "before": "    def cancel(self, identifier: str) -> Task:\n        task = self._tasks[identifier]\n        if task.status not in (Status.DONE, Status.CANCELLED):\n            raise ValueError(\"already finished\")\n        task.status = Status.CANCELLED\n        for other in self._tasks.values():\n            if identifier in other.dependencies and other.status in (Status.PENDING, Status.READY):\n                other.status = Status.CANCELLED\n        return task\n",
+      "after": "    def cancel(self, identifier: str) -> Task:\n        task = self._tasks[identifier]\n        if task.status in (Status.DONE, Status.CANCELLED):\n            raise ValueError(\"already finished\")\n        task.status = Status.CANCELLED\n        for other in self._tasks.values():\n            if identifier in other.dependencies and other.status in (Status.PENDING, Status.READY):\n                other.status = Status.CANCELLED\n        return task\n"
+    },
+    {
+      "type": "off-by-one",
+      "path": "task_scheduler/__init__.py",
+      "fix_commit": "10031d1b02aef986324579f500405f3733ab7c91",
+      "before": "    def utilization(self, window_start: int, window_end: int) -> float:\n        if window_end <= window_start:\n            raise ValueError(\"invalid window\")\n        busy = 0\n        for task in self._tasks.values():\n            if task.started_at is not None and task.finished_at is not None:\n                start = max(task.started_at, window_start)\n                end = min(task.finished_at, window_end)\n                if start < end:\n                    busy += end - start + 1\n        return busy / (window_end - window_start)\n",
+      "after": "    def utilization(self, window_start: int, window_end: int) -> float:\n        if window_end <= window_start:\n            raise ValueError(\"invalid window\")\n        busy = 0\n        for task in self._tasks.values():\n            if task.started_at is not None and task.finished_at is not None:\n                start = max(task.started_at, window_start)\n                end = min(task.finished_at, window_end)\n                if start < end:\n                    busy += end - start\n        return busy / (window_end - window_start)\n"
+    },
+    {
+      "type": "variable-misuse",
+      "path": "task_scheduler/__init__.py",
+      "fix_commit": "10031d1b02aef986324579f500405f3733ab7c91",
+      "before": "    def retry(self, identifier: str) -> Task:\n        task = self._tasks[identifier]\n        if task.status != Status.FAILED:\n            raise ValueError(\"only failed tasks can be retried\")\n        task.status = Status.READY\n        task.started_at = None\n        task.finished_at = None\n        task.result = None\n        self._refresh(identifier)\n        return task\n",
+      "after": "    def retry(self, identifier: str) -> Task:\n        task = self._tasks[identifier]\n        if task.status != Status.FAILED:\n            raise ValueError(\"only failed tasks can be retried\")\n        task.status = Status.PENDING\n        task.started_at = None\n        task.finished_at = None\n        task.result = None\n        self._refresh(identifier)\n        return task\n"
+    },
+    {
+      "type": "wrong-return-value",
+      "path": "task_scheduler/__init__.py",
+      "fix_commit": "10031d1b02aef986324579f500405f3733ab7c91",
+      "before": "    def by_status(self, status: Status) -> tuple[Task, ...]:\n        return tuple(t for t in self._tasks.values() if t.status == status)\n",
+      "after": "    def by_status(self, status: Status) -> tuple[Task, ...]:\n        return tuple(t for t in sorted(self._tasks.values(),\n                                       key=lambda t: t.identifier) if t.status == status)\n"
+    },
+    {
+      "type": "missing-exception-handling",
+      "path": "task_scheduler/__init__.py",
+      "fix_commit": "10031d1b02aef986324579f500405f3733ab7c91",
+      "before": "    def add(self, identifier: str, priority: int = 0, deadline: int | None = None,\n            dependencies: Iterable[str] = ()) -> Task:\n        if not identifier or identifier in self._tasks:\n            raise ValueError(\"new nonempty task identifier required\")\n        if priority < 0:\n            raise ValueError(\"negative priority\")\n        if deadline is not None and deadline <= self.now:\n            raise ValueError(\"deadline must be in the future\")\n        deps = frozenset(dependencies)\n        for dep in deps:\n            if dep not in self._tasks:\n                raise KeyError(f\"unknown dependency: {dep}\")\n        task = Task(identifier, priority, deadline, deps)\n        self._tasks[identifier] = task\n        self._refresh(identifier)\n        return task\n",
+      "after": "    def add(self, identifier: str, priority: int = 0, deadline: int | None = None,\n            dependencies: Iterable[str] = ()) -> Task:\n        if not identifier or identifier in self._tasks:\n            raise ValueError(\"new nonempty task identifier required\")\n        if priority < 0:\n            raise ValueError(\"negative priority\")\n        if deadline is not None and deadline <= self.now:\n            raise ValueError(\"deadline must be in the future\")\n        deps = frozenset(dependencies)\n        for dep in deps:\n            if dep not in self._tasks:\n                raise KeyError(f\"unknown dependency: {dep}\")\n            if dep == identifier:\n                raise ValueError(\"self-dependency\")\n        task = Task(identifier, priority, deadline, deps)\n        self._tasks[identifier] = task\n        self._refresh(identifier)\n        return task\n"
+    },
+    {
+      "type": "api-parameter-error",
+      "path": "task_scheduler/__init__.py",
+      "fix_commit": "10031d1b02aef986324579f500405f3733ab7c91",
+      "before": "def execution_order(tasks: Iterable[Task]) -> list[str]:\n    pending = {t.identifier: t for t in tasks}\n    done: set[str] = set()\n    result = []\n    changed = True\n    while changed:\n        changed = False\n        ready = sorted(\n            (t for t in pending.values() if t.dependencies.issubset(done)),\n            key=lambda t: (t.identifier, t.priority),\n        )\n        if ready:\n            chosen = ready[0]\n            result.append(chosen.identifier)\n            done.add(chosen.identifier)\n            del pending[chosen.identifier]\n            changed = True\n    if pending:\n        raise ValueError(\"circular dependency detected\")\n    return result\n",
+      "after": "def execution_order(tasks: Iterable[Task]) -> list[str]:\n    pending = {t.identifier: t for t in tasks}\n    done: set[str] = set()\n    result = []\n    changed = True\n    while changed:\n        changed = False\n        ready = sorted(\n            (t for t in pending.values() if t.dependencies.issubset(done)),\n            key=lambda t: (t.priority, t.identifier),\n        )\n        if ready:\n            chosen = ready[0]\n            result.append(chosen.identifier)\n            done.add(chosen.identifier)\n            del pending[chosen.identifier]\n            changed = True\n    if pending:\n        raise ValueError(\"circular dependency detected\")\n    return result\n"
+    },
+    {
+      "type": "boundary-condition-omission",
+      "path": "task_scheduler/__init__.py",
+      "fix_commit": "10031d1b02aef986324579f500405f3733ab7c91",
+      "before": "    def dependents(self, identifier: str) -> tuple[str, ...]:\n        return tuple(sorted(t.identifier for t in self._tasks.values()\n                            if identifier in t.dependencies))\n",
+      "after": "    def dependents(self, identifier: str) -> tuple[str, ...]:\n        if identifier not in self._tasks:\n            raise KeyError(identifier)\n        return tuple(sorted(t.identifier for t in self._tasks.values()\n                            if identifier in t.dependencies))\n"
+    }
+  ],
+  "features": [
+    {
+      "type": "condition-inversion",
+      "path": "task_scheduler/__init__.py",
+      "before": "    def _refresh(self, identifier: str) -> None:\n        task = self._tasks[identifier]\n        if task.status != Status.PENDING:\n            return\n        if all(self._tasks[dep].status == Status.DONE for dep in task.dependencies):\n            task.status = Status.READY\n",
+      "after": "    def _refresh(self, identifier: str, *, force: bool = False) -> None:\n        task = self._tasks[identifier]\n        if task.status != Status.PENDING and not force:\n            return\n        if all(self._tasks[dep].status != Status.DONE for dep in task.dependencies):\n            task.status = Status.READY\n",
+      "description": "Add force-refresh bypass for non-pending tasks; dependency check accidentally inverted."
+    },
+    {
+      "type": "off-by-one",
+      "path": "task_scheduler/__init__.py",
+      "before": "    def advance(self, now: int) -> list[str]:\n        if now < self.now:\n            raise ValueError(\"clock cannot move backward\")\n        self.now = now\n        expired = []\n        for task in self._tasks.values():\n            if task.deadline is not None and task.deadline <= now:\n                if task.status in (Status.PENDING, Status.READY):\n                    task.status = Status.CANCELLED\n                    expired.append(task.identifier)\n        return sorted(expired)\n",
+      "after": "    def advance(self, now: int, *, grace: int = 0) -> list[str]:\n        if now < self.now:\n            raise ValueError(\"clock cannot move backward\")\n        self.now = now\n        expired = []\n        for task in self._tasks.values():\n            if task.deadline is not None and task.deadline + grace < now:\n                if task.status in (Status.PENDING, Status.READY):\n                    task.status = Status.CANCELLED\n                    expired.append(task.identifier)\n        return sorted(expired)\n",
+      "description": "Add grace period for deadline enforcement; strict comparison loses equality case."
+    },
+    {
+      "type": "variable-misuse",
+      "path": "task_scheduler/__init__.py",
+      "before": "    def complete(self, identifier: str, result: str = \"ok\") -> Task:\n        task = self._tasks[identifier]\n        if task.status != Status.RUNNING:\n            raise ValueError(\"task is not running\")\n        task.status = Status.DONE\n        task.finished_at = self.now\n        task.result = result\n        for other in self._tasks.values():\n            if identifier in other.dependencies:\n                self._refresh(other.identifier)\n        return task\n",
+      "after": "    def complete(self, identifier: str, result: str = \"ok\", *, notes: str | None = None) -> Task:\n        task = self._tasks[identifier]\n        if task.status != Status.RUNNING:\n            raise ValueError(\"task is not running\")\n        task.status = Status.DONE\n        task.started_at = self.now\n        task.result = f\"{result} ({notes})\" if notes is not None else result\n        for other in self._tasks.values():\n            if identifier in other.dependencies:\n                self._refresh(other.identifier)\n        return task\n",
+      "description": "Add optional completion notes appended to result; finish timestamp assigned to wrong field."
+    },
+    {
+      "type": "wrong-return-value",
+      "path": "task_scheduler/__init__.py",
+      "before": "    def next_task(self) -> Task | None:\n        ready = [t for t in self._tasks.values() if t.status == Status.READY]\n        if not ready:\n            return None\n        return min(ready, key=lambda t: (t.priority, t.identifier))\n",
+      "after": "    def next_task(self, *, urgent_first: bool = False) -> Task | None:\n        ready = [t for t in self._tasks.values() if t.status == Status.READY]\n        if not ready:\n            return None\n        if urgent_first:\n            return min(ready, key=lambda t: (t.deadline or float('inf'), t.identifier))\n        return max(ready, key=lambda t: (t.priority, t.identifier))\n",
+      "description": "Add urgent-first mode selecting by nearest deadline; default branch uses max instead of min."
+    },
+    {
+      "type": "missing-exception-handling",
+      "path": "task_scheduler/__init__.py",
+      "before": "def parse_task_list(text: str) -> list[tuple[str, int]]:\n    \"\"\"Parse 'identifier:priority' lines.\"\"\"\n    result = []\n    for number, line in enumerate(text.splitlines(), 1):\n        line = line.strip()\n        if not line or line.startswith(\"#\"):\n            continue\n        if \":\" not in line:\n            raise ValueError(f\"line {number}: missing ':'\")\n        identifier, _, priority_str = line.partition(\":\")\n        identifier = identifier.strip()\n        try:\n            priority = int(priority_str.strip())\n        except ValueError as error:\n            raise ValueError(f\"line {number}: invalid priority\") from error\n        if not identifier:\n            raise ValueError(f\"line {number}: empty identifier\")\n        result.append((identifier, priority))\n    return result\n",
+      "after": "def parse_task_list(text: str, *, default_priority: int = 0) -> list[tuple[str, int]]:\n    \"\"\"Parse 'identifier:priority' lines; '*' uses default_priority.\"\"\"\n    result = []\n    for number, line in enumerate(text.splitlines(), 1):\n        line = line.strip()\n        if not line or line.startswith(\"#\"):\n            continue\n        if \":\" not in line:\n            raise ValueError(f\"line {number}: missing ':'\")\n        identifier, _, priority_str = line.partition(\":\")\n        identifier = identifier.strip()\n        if priority_str.strip() == \"*\":\n            priority = default_priority\n        else:\n            priority = int(priority_str.strip())\n        if not identifier:\n            raise ValueError(f\"line {number}: empty identifier\")\n        result.append((identifier, priority))\n    return result\n",
+      "description": "Add wildcard default priority; refactoring loses invalid-priority error wrapping."
+    },
+    {
+      "type": "api-parameter-error",
+      "path": "task_scheduler/__init__.py",
+      "before": "    def all_tasks(self) -> tuple[Task, ...]:\n        return tuple(sorted(self._tasks.values(), key=lambda t: (t.priority, t.identifier)))\n",
+      "after": "    def all_tasks(self, *, reverse: bool = False) -> tuple[Task, ...]:\n        return tuple(sorted(self._tasks.values(), key=lambda t: t.identifier, reverse=reverse))\n",
+      "description": "Add reverse ordering option; sort key drops priority component."
+    },
+    {
+      "type": "boundary-condition-omission",
+      "path": "task_scheduler/__init__.py",
+      "before": "    def critical_path(self) -> list[str]:\n        order = self._topological()\n        longest: dict[str, int] = {}\n        parent: dict[str, str | None] = {}\n        for identifier in order:\n            task = self._tasks[identifier]\n            longest[identifier] = 0\n            parent[identifier] = None\n            for dep in task.dependencies:\n                candidate = longest[dep] + 1\n                if candidate > longest[identifier]:\n                    longest[identifier] = candidate\n                    parent[identifier] = dep\n        if not longest:\n            return []\n        end = max(longest, key=lambda x: longest[x])\n        path = [end]\n        while parent[path[-1]] is not None:\n            path.append(parent[path[-1]])\n        return list(reversed(path))\n",
+      "after": "    def critical_path(self, *, weighted: bool = False) -> list[str]:\n        order = self._topological()\n        longest: dict[str, int] = {}\n        parent: dict[str, str | None] = {}\n        for identifier in order:\n            task = self._tasks[identifier]\n            longest[identifier] = 0\n            parent[identifier] = None\n            for dep in task.dependencies:\n                weight = self._tasks[dep].priority if weighted else 1\n                candidate = longest[dep] + weight\n                if candidate > longest[identifier]:\n                    longest[identifier] = candidate\n                    parent[identifier] = dep\n        end = max(longest, key=lambda x: longest[x])\n        path = [end]\n        while parent[path[-1]] is not None:\n            path.append(parent[path[-1]])\n        return list(reversed(path))\n",
+      "description": "Add priority-weighted critical path computation; empty task set guard removed."
+    }
+  ]
+}

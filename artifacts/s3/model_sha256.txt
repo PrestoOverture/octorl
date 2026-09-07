@@ -1,0 +1,9 @@
+328a91d3122359d5547f9d79521205bc0a46e1f79a792dfe650e99fc2d651223  /root/autodl-tmp/models/Qwen3-4B/model-00001-of-00003.safetensors
+6cd087b316306a68c562436b5492edbcf6e16c6dba3a1308279caa5a58e21ca5  /root/autodl-tmp/models/Qwen3-4B/model-00002-of-00003.safetensors
+e4bf436957184f4eeb86a80e9db394503f1f56446b2e6b7edeac5b81470f4ca1  /root/autodl-tmp/models/Qwen3-4B/model-00003-of-00003.safetensors
+20ce6dfef5afa65021602560e686b80c73ab780a8227959170ff92769fe4927b  /root/autodl-tmp/models/Qwen3-4B/config.json
+2325da0f15bb848e018c5ae071b7943332e9f871d6b60e2ed22ca97d4cb993d2  /root/autodl-tmp/models/Qwen3-4B/generation_config.json
+6dc0981b8829fead746441f68f38f24c5ca4a3a66351f652c26c6df0efc43ab2  /root/autodl-tmp/models/Qwen3-4B/model.safetensors.index.json
+aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4  /root/autodl-tmp/models/Qwen3-4B/tokenizer.json
+d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101  /root/autodl-tmp/models/Qwen3-4B/tokenizer_config.json
+ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910  /root/autodl-tmp/models/Qwen3-4B/vocab.json

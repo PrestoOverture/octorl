@@ -1,0 +1,11 @@
+--- a/access.py
++++ b/access.py
+@@ -6,7 +6,7 @@
+     """
+     if age < 0 or minimum_age < 0:
+         raise ValueError("negative age")
+-    if age >= minimum_age:
++    if age < minimum_age:
+         return False
+     return True
+ 

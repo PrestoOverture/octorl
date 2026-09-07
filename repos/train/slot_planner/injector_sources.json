@@ -1,0 +1,156 @@
+{
+  "provenance": "Controlled authored development history, not naturally occurring or upstream-mined defects.",
+  "initial_commit": "6166b24fc28dc3f48763b804a519377ed8964ae5",
+  "fix_commit": "4b91a9a6b65012b68204622c5fca1e8d18ac5938",
+  "history": [
+    {
+      "type": "condition-inversion",
+      "path": "slot_planner/__init__.py",
+      "fix_commit": "4b91a9a6b65012b68204622c5fca1e8d18ac5938",
+      "before": "    def overlaps(self, other: Slot) -> bool:\n        return self.start < other.end and other.start > self.end\n",
+      "after": "    def overlaps(self, other: Slot) -> bool:\n        return self.start < other.end and other.start < self.end\n"
+    },
+    {
+      "type": "off-by-one",
+      "path": "slot_planner/__init__.py",
+      "fix_commit": "4b91a9a6b65012b68204622c5fca1e8d18ac5938",
+      "before": "    def book_series(self, prefix: str, room: str, first: Slot, period: int,\n                    count: int, attendees: int = 1) -> tuple[Booking, ...]:\n        \"\"\"Reserve all occurrences or none, including identifier validation.\"\"\"\n        if period <= 0 or count <= 0:\n            raise ValueError(\"positive period and count required\")\n        created = []\n        try:\n            for index in range(count):\n                slot = Slot(first.start + (index + 1) * period, first.end + (index + 1) * period)\n                booking = self.book(f\"{prefix}-{index}\", room, slot, attendees)\n                created.append(booking)\n        except (ValueError, KeyError):\n            for booking in created:\n                self.cancel(booking.identifier)\n            raise\n        return tuple(created)\n",
+      "after": "    def book_series(self, prefix: str, room: str, first: Slot, period: int,\n                    count: int, attendees: int = 1) -> tuple[Booking, ...]:\n        \"\"\"Reserve all occurrences or none, including identifier validation.\"\"\"\n        if period <= 0 or count <= 0:\n            raise ValueError(\"positive period and count required\")\n        created = []\n        try:\n            for index in range(count):\n                slot = Slot(first.start + index * period, first.end + index * period)\n                booking = self.book(f\"{prefix}-{index}\", room, slot, attendees)\n                created.append(booking)\n        except (ValueError, KeyError):\n            for booking in created:\n                self.cancel(booking.identifier)\n            raise\n        return tuple(created)\n"
+    },
+    {
+      "type": "variable-misuse",
+      "path": "slot_planner/__init__.py",
+      "fix_commit": "4b91a9a6b65012b68204622c5fca1e8d18ac5938",
+      "before": "def format_clock(minutes: int) -> str:\n    if not 0 <= minutes <= 1440:\n        raise ValueError(\"clock outside day\")\n    hours, minute = divmod(minutes, 60)\n    return f\"{hours:02d}:{minutes:02d}\"\n",
+      "after": "def format_clock(minutes: int) -> str:\n    if not 0 <= minutes <= 1440:\n        raise ValueError(\"clock outside day\")\n    hours, minute = divmod(minutes, 60)\n    return f\"{hours:02d}:{minute:02d}\"\n"
+    },
+    {
+      "type": "wrong-return-value",
+      "path": "slot_planner/__init__.py",
+      "fix_commit": "4b91a9a6b65012b68204622c5fca1e8d18ac5938",
+      "before": "    def utilization(self, room: str, window: Slot) -> tuple[int, int]:\n        free = sum(slot.duration for slot in self.availability(room, window))\n        return free, window.duration\n",
+      "after": "    def utilization(self, room: str, window: Slot) -> tuple[int, int]:\n        free = sum(slot.duration for slot in self.availability(room, window))\n        return window.duration - free, window.duration\n"
+    },
+    {
+      "type": "missing-exception-handling",
+      "path": "slot_planner/__init__.py",
+      "fix_commit": "4b91a9a6b65012b68204622c5fca1e8d18ac5938",
+      "before": "def parse_clock(value: str) -> int:\n    \"\"\"Parse HH:MM, accepting 24:00 only as the end of day.\"\"\"\n    hours, minutes = (int(part) for part in value.split(\":\"))\n    if hours == 24 and minutes == 0:\n        return 1440\n    if not 0 <= hours < 24 or not 0 <= minutes < 60:\n        raise ValueError(\"clock outside day\")\n    return hours * 60 + minutes\n",
+      "after": "def parse_clock(value: str) -> int:\n    \"\"\"Parse HH:MM, accepting 24:00 only as the end of day.\"\"\"\n    try:\n        hours, minutes = (int(part) for part in value.split(\":\"))\n    except ValueError as error:\n        raise ValueError(\"expected HH:MM\") from error\n    if hours == 24 and minutes == 0:\n        return 1440\n    if not 0 <= hours < 24 or not 0 <= minutes < 60:\n        raise ValueError(\"clock outside day\")\n    return hours * 60 + minutes\n"
+    },
+    {
+      "type": "api-parameter-error",
+      "path": "slot_planner/__init__.py",
+      "fix_commit": "4b91a9a6b65012b68204622c5fca1e8d18ac5938",
+      "before": "    def agenda(self, room: str | None = None) -> tuple[Booking, ...]:\n        if room is not None and room not in self._capacities:\n            raise KeyError(room)\n        return tuple(sorted((booking for booking in self._bookings.values()\n                             if room is None or booking.room == room),\n                            key=lambda booking: (booking.room, booking.identifier)))\n",
+      "after": "    def agenda(self, room: str | None = None) -> tuple[Booking, ...]:\n        if room is not None and room not in self._capacities:\n            raise KeyError(room)\n        return tuple(sorted((booking for booking in self._bookings.values()\n                             if room is None or booking.room == room),\n                            key=lambda booking: (booking.slot, booking.room, booking.identifier)))\n"
+    },
+    {
+      "type": "boundary-condition-omission",
+      "path": "slot_planner/__init__.py",
+      "fix_commit": "4b91a9a6b65012b68204622c5fca1e8d18ac5938",
+      "before": "def gaps(window: Slot, occupied: Iterable[Slot]) -> list[Slot]:\n    \"\"\"Return all free intervals clipped to window.\"\"\"\n    cursor = window.start\n    result = []\n    for slot in merge(occupied):\n        clipped = slot.intersection(window)\n        if clipped is None:\n            continue\n        if cursor < clipped.start:\n            result.append(Slot(cursor, clipped.start))\n        cursor = max(cursor, clipped.end)\n    return result\n",
+      "after": "def gaps(window: Slot, occupied: Iterable[Slot]) -> list[Slot]:\n    \"\"\"Return all free intervals clipped to window.\"\"\"\n    cursor = window.start\n    result = []\n    for slot in merge(occupied):\n        clipped = slot.intersection(window)\n        if clipped is None:\n            continue\n        if cursor < clipped.start:\n            result.append(Slot(cursor, clipped.start))\n        cursor = max(cursor, clipped.end)\n    if cursor < window.end:\n        result.append(Slot(cursor, window.end))\n    return result\n"
+    },
+    {
+      "type": "boundary-condition-omission",
+      "path": "slot_planner/__init__.py",
+      "fix_commit": "47239fae9ba24b183b1d1c230062d79c0bddfdfd",
+      "before": "    def contains(self, point: int) -> bool:\n        return self.start <= point\n",
+      "after": "    def contains(self, point: int) -> bool:\n        return self.start <= point < self.end\n"
+    },
+    {
+      "type": "variable-misuse",
+      "path": "slot_planner/__init__.py",
+      "fix_commit": "47239fae9ba24b183b1d1c230062d79c0bddfdfd",
+      "before": "    def intersection(self, other: Slot) -> Slot | None:\n        start = max(self.start, other.start)\n        end = min(self.end, self.end)\n        return Slot(start, end) if start < end else None\n",
+      "after": "    def intersection(self, other: Slot) -> Slot | None:\n        start = max(self.start, other.start)\n        end = min(self.end, other.end)\n        return Slot(start, end) if start < end else None\n"
+    },
+    {
+      "type": "off-by-one",
+      "path": "slot_planner/__init__.py",
+      "fix_commit": "47239fae9ba24b183b1d1c230062d79c0bddfdfd",
+      "before": "def merge(slots: Iterable[Slot]) -> list[Slot]:\n    \"\"\"Merge overlaps and touching slots into their union.\"\"\"\n    result: list[Slot] = []\n    for slot in sorted(slots):\n        if result and slot.start < result[-1].end:\n            result[-1] = Slot(result[-1].start, max(result[-1].end, slot.end))\n        else:\n            result.append(slot)\n    return result\n",
+      "after": "def merge(slots: Iterable[Slot]) -> list[Slot]:\n    \"\"\"Merge overlaps and touching slots into their union.\"\"\"\n    result: list[Slot] = []\n    for slot in sorted(slots):\n        if result and slot.start <= result[-1].end:\n            result[-1] = Slot(result[-1].start, max(result[-1].end, slot.end))\n        else:\n            result.append(slot)\n    return result\n"
+    },
+    {
+      "type": "wrong-return-value",
+      "path": "slot_planner/__init__.py",
+      "fix_commit": "47239fae9ba24b183b1d1c230062d79c0bddfdfd",
+      "before": "    def rooms(self, attendees: int = 1) -> tuple[str, ...]:\n        if attendees <= 0:\n            raise ValueError(\"positive attendance required\")\n        return tuple(name for name, capacity in self._capacities.items() if capacity >= attendees)\n",
+      "after": "    def rooms(self, attendees: int = 1) -> tuple[str, ...]:\n        if attendees <= 0:\n            raise ValueError(\"positive attendance required\")\n        return tuple(sorted(name for name, capacity in self._capacities.items() if capacity >= attendees))\n"
+    },
+    {
+      "type": "condition-inversion",
+      "path": "slot_planner/__init__.py",
+      "fix_commit": "47239fae9ba24b183b1d1c230062d79c0bddfdfd",
+      "before": "    def move(self, identifier: str, room: str, slot: Slot) -> Booking:\n        previous = self._bookings[identifier]\n        if room not in self._capacities:\n            raise KeyError(room)\n        if previous.attendees < self._capacities[room]:\n            raise ValueError(\"room capacity exceeded\")\n        if self.conflicts(room, slot, excluding=identifier):\n            raise ValueError(\"room occupied\")\n        updated = Booking(identifier, room, slot, previous.attendees)\n        self._bookings[identifier] = updated\n        return updated\n",
+      "after": "    def move(self, identifier: str, room: str, slot: Slot) -> Booking:\n        previous = self._bookings[identifier]\n        if room not in self._capacities:\n            raise KeyError(room)\n        if previous.attendees > self._capacities[room]:\n            raise ValueError(\"room capacity exceeded\")\n        if self.conflicts(room, slot, excluding=identifier):\n            raise ValueError(\"room occupied\")\n        updated = Booking(identifier, room, slot, previous.attendees)\n        self._bookings[identifier] = updated\n        return updated\n"
+    },
+    {
+      "type": "missing-exception-handling",
+      "path": "slot_planner/__init__.py",
+      "fix_commit": "47239fae9ba24b183b1d1c230062d79c0bddfdfd",
+      "before": "    def resize_room(self, room: str, capacity: int) -> None:\n        if room not in self._capacities:\n            raise KeyError(room)\n        if any(booking.attendees > capacity for booking in self.agenda(room)):\n            raise ValueError(\"existing bookings exceed capacity\")\n        self._capacities[room] = capacity\n",
+      "after": "    def resize_room(self, room: str, capacity: int) -> None:\n        if room not in self._capacities:\n            raise KeyError(room)\n        if capacity <= 0:\n            raise ValueError(\"positive capacity required\")\n        if any(booking.attendees > capacity for booking in self.agenda(room)):\n            raise ValueError(\"existing bookings exceed capacity\")\n        self._capacities[room] = capacity\n"
+    },
+    {
+      "type": "api-parameter-error",
+      "path": "slot_planner/__init__.py",
+      "fix_commit": "47239fae9ba24b183b1d1c230062d79c0bddfdfd",
+      "before": "def split(slot: Slot, duration: int) -> list[Slot]:\n    \"\"\"Split a slot into bounded pieces, retaining a short final piece.\"\"\"\n    if duration <= 0:\n        raise ValueError(\"positive duration required\")\n    return [Slot(start, min(start + duration, slot.end))\n            for start in range(slot.start, slot.end, 1)]\n",
+      "after": "def split(slot: Slot, duration: int) -> list[Slot]:\n    \"\"\"Split a slot into bounded pieces, retaining a short final piece.\"\"\"\n    if duration <= 0:\n        raise ValueError(\"positive duration required\")\n    return [Slot(start, min(start + duration, slot.end))\n            for start in range(slot.start, slot.end, duration)]\n"
+    }
+  ],
+  "features": [
+    {
+      "type": "condition-inversion",
+      "path": "slot_planner/__init__.py",
+      "before": "    def overlaps(self, other: Slot) -> bool:\n        return self.start < other.end and other.start < self.end\n",
+      "after": "    def overlaps(self, other: Slot, *, strict: bool = False) -> bool:\n        if strict:\n            return self.start + 1 < other.end and other.start + 1 < self.end\n        return self.start < other.end and other.start > self.end\n",
+      "description": "Add strict overlap mode requiring more than single-point sharing; standard mode comparison accidentally inverted."
+    },
+    {
+      "type": "off-by-one",
+      "path": "slot_planner/__init__.py",
+      "before": "    def book_series(self, prefix: str, room: str, first: Slot, period: int,\n                    count: int, attendees: int = 1) -> tuple[Booking, ...]:\n        \"\"\"Reserve all occurrences or none, including identifier validation.\"\"\"\n        if period <= 0 or count <= 0:\n            raise ValueError(\"positive period and count required\")\n        created = []\n        try:\n            for index in range(count):\n                slot = Slot(first.start + index * period, first.end + index * period)\n                booking = self.book(f\"{prefix}-{index}\", room, slot, attendees)\n                created.append(booking)\n        except (ValueError, KeyError):\n            for booking in created:\n                self.cancel(booking.identifier)\n            raise\n        return tuple(created)\n",
+      "after": "    def book_series(self, prefix: str, room: str, first: Slot, period: int,\n                    count: int, attendees: int = 1, *, skip_first: bool = False) -> tuple[Booking, ...]:\n        \"\"\"Reserve all occurrences or none, including identifier validation.\"\"\"\n        if period <= 0 or count <= 0:\n            raise ValueError(\"positive period and count required\")\n        created = []\n        try:\n            for index in range(count):\n                if skip_first and index == 0:\n                    continue\n                slot = Slot(first.start + (index + 1) * period, first.end + (index + 1) * period)\n                booking = self.book(f\"{prefix}-{index}\", room, slot, attendees)\n                created.append(booking)\n        except (ValueError, KeyError):\n            for booking in created:\n                self.cancel(booking.identifier)\n            raise\n        return tuple(created)\n",
+      "description": "Add option to skip first occurrence in series; refactoring shifts all slot indices by one period."
+    },
+    {
+      "type": "variable-misuse",
+      "path": "slot_planner/__init__.py",
+      "before": "def format_clock(minutes: int) -> str:\n    if not 0 <= minutes <= 1440:\n        raise ValueError(\"clock outside day\")\n    hours, minute = divmod(minutes, 60)\n    return f\"{hours:02d}:{minute:02d}\"\n",
+      "after": "def format_clock(minutes: int, *, seconds: bool = False) -> str:\n    if not 0 <= minutes <= 1440:\n        raise ValueError(\"clock outside day\")\n    hours, minute = divmod(minutes, 60)\n    if seconds:\n        return f\"{hours:02d}:{minute:02d}:00\"\n    return f\"{hours:02d}:{minutes:02d}\"\n",
+      "description": "Add optional seconds suffix; standard return uses total-minutes parameter instead of remainder."
+    },
+    {
+      "type": "wrong-return-value",
+      "path": "slot_planner/__init__.py",
+      "before": "    def utilization(self, room: str, window: Slot) -> tuple[int, int]:\n        free = sum(slot.duration for slot in self.availability(room, window))\n        return window.duration - free, window.duration\n",
+      "after": "    def utilization(self, room: str, window: Slot, *, as_ratio: bool = False) -> tuple[int, int]:\n        free = sum(slot.duration for slot in self.availability(room, window))\n        if as_ratio:\n            return (window.duration - free) / window.duration\n        return free, window.duration\n",
+      "description": "Add ratio-mode utilization reporting; tuple branch returns free time instead of used time."
+    },
+    {
+      "type": "missing-exception-handling",
+      "path": "slot_planner/__init__.py",
+      "before": "def parse_clock(value: str) -> int:\n    \"\"\"Parse HH:MM, accepting 24:00 only as the end of day.\"\"\"\n    try:\n        hours, minutes = (int(part) for part in value.split(\":\"))\n    except ValueError as error:\n        raise ValueError(\"expected HH:MM\") from error\n    if hours == 24 and minutes == 0:\n        return 1440\n    if not 0 <= hours < 24 or not 0 <= minutes < 60:\n        raise ValueError(\"clock outside day\")\n    return hours * 60 + minutes\n",
+      "after": "def parse_clock(value: str, *, allow_24h: bool = True) -> int:\n    \"\"\"Parse HH:MM, accepting 24:00 only as the end of day.\"\"\"\n    hours, minutes = (int(part) for part in value.split(\":\"))\n    if hours == 24 and minutes == 0:\n        if not allow_24h:\n            raise ValueError(\"24:00 not accepted\")\n        return 1440\n    if not 0 <= hours < 24 or not 0 <= minutes < 60:\n        raise ValueError(\"clock outside day\")\n    return hours * 60 + minutes\n",
+      "description": "Add option to reject end-of-day 24:00; refactoring removes invalid-format exception guard."
+    },
+    {
+      "type": "api-parameter-error",
+      "path": "slot_planner/__init__.py",
+      "before": "    def agenda(self, room: str | None = None) -> tuple[Booking, ...]:\n        if room is not None and room not in self._capacities:\n            raise KeyError(room)\n        return tuple(sorted((booking for booking in self._bookings.values()\n                             if room is None or booking.room == room),\n                            key=lambda booking: (booking.slot, booking.room, booking.identifier)))\n",
+      "after": "    def agenda(self, room: str | None = None, *, reverse: bool = False) -> tuple[Booking, ...]:\n        if room is not None and room not in self._capacities:\n            raise KeyError(room)\n        return tuple(sorted((booking for booking in self._bookings.values()\n                             if room is None or booking.room == room),\n                            key=lambda booking: (booking.room, booking.identifier),\n                            reverse=reverse))\n",
+      "description": "Add reverse chronological ordering; default sort key drops slot component, breaking time ordering."
+    },
+    {
+      "type": "boundary-condition-omission",
+      "path": "slot_planner/__init__.py",
+      "before": "def gaps(window: Slot, occupied: Iterable[Slot]) -> list[Slot]:\n    \"\"\"Return all free intervals clipped to window.\"\"\"\n    cursor = window.start\n    result = []\n    for slot in merge(occupied):\n        clipped = slot.intersection(window)\n        if clipped is None:\n            continue\n        if cursor < clipped.start:\n            result.append(Slot(cursor, clipped.start))\n        cursor = max(cursor, clipped.end)\n    if cursor < window.end:\n        result.append(Slot(cursor, window.end))\n    return result\n",
+      "after": "def gaps(window: Slot, occupied: Iterable[Slot], *, max_count: int | None = None) -> list[Slot]:\n    \"\"\"Return all free intervals clipped to window.\"\"\"\n    cursor = window.start\n    result = []\n    for slot in merge(occupied):\n        clipped = slot.intersection(window)\n        if clipped is None:\n            continue\n        if cursor < clipped.start:\n            result.append(Slot(cursor, clipped.start))\n        cursor = max(cursor, clipped.end)\n        if max_count is not None and len(result) >= max_count:\n            return result\n    return result\n",
+      "description": "Add maximum gap count limit; refactoring drops trailing-gap check after the loop."
+    }
+  ]
+}

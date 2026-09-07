@@ -1,0 +1,11 @@
+--- a/ranges.py
++++ b/ranges.py
+@@ -5,7 +5,7 @@
+     An inverted interval contains no values.
+     """
+     total = 0
+-    for value in range(start, end):
++    for value in range(start, end + 1):
+         total += value
+     return total
+ 

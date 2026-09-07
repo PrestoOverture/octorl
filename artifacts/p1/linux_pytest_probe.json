@@ -1,0 +1,56 @@
+{
+  "host": {
+    "platform": "Linux-5.15.0-78-generic-x86_64-with-glibc2.35",
+    "cpu_count": 128,
+    "python": "3.12.3"
+  },
+  "note": "pytest-only, no container; lower bound on the 12-step trajectory cost",
+  "cells": [
+    {
+      "cell": "config_parser-c1-L0-single-function",
+      "visible_s": 0.63,
+      "visible_rc": 1,
+      "hidden_s": 0.822,
+      "hidden_rc": 1
+    },
+    {
+      "cell": "config_parser-c2-L0-single-file",
+      "visible_s": 0.695,
+      "visible_rc": 1,
+      "hidden_s": 0.828,
+      "hidden_rc": 1
+    },
+    {
+      "cell": "record_index-c1-L0-single-function",
+      "visible_s": 0.594,
+      "visible_rc": 1,
+      "hidden_s": 0.877,
+      "hidden_rc": 0
+    },
+    {
+      "cell": "record_index-c2-L0-single-file",
+      "visible_s": 0.629,
+      "visible_rc": 1,
+      "hidden_s": 2.661,
+      "hidden_rc": 1
+    },
+    {
+      "cell": "slot_planner-c1-L0-single-function",
+      "visible_s": 0.716,
+      "visible_rc": 1,
+      "hidden_s": 3.404,
+      "hidden_rc": 1
+    },
+    {
+      "cell": "slot_planner-c2-L0-single-file",
+      "visible_s": 1.068,
+      "visible_rc": 1,
+      "hidden_s": 3.485,
+      "hidden_rc": 1
+    }
+  ],
+  "modelled_pytest_seconds_per_trajectory": {
+    "mean": 5.62,
+    "max": 8.82
+  }
+}

@@ -1,0 +1,307 @@
+{
+  "cells": [
+    {
+      "repo": "route_graph",
+      "bug_type": "condition-inversion",
+      "visible_rc": 1,
+      "hidden_rc": 1,
+      "status": "ok"
+    },
+    {
+      "repo": "route_graph",
+      "bug_type": "variable-misuse",
+      "visible_rc": 0,
+      "hidden_rc": 0,
+      "status": "NEITHER-CATCHES"
+    },
+    {
+      "repo": "route_graph",
+      "bug_type": "wrong-return-value",
+      "visible_rc": 1,
+      "hidden_rc": 0,
+      "status": "HIDDEN-MISSES-BUG"
+    },
+    {
+      "repo": "route_graph",
+      "bug_type": "missing-exception-handling",
+      "visible_rc": 1,
+      "hidden_rc": 0,
+      "status": "HIDDEN-MISSES-BUG"
+    },
+    {
+      "repo": "route_graph",
+      "bug_type": "api-parameter-error",
+      "visible_rc": 1,
+      "hidden_rc": 0,
+      "status": "HIDDEN-MISSES-BUG"
+    },
+    {
+      "repo": "route_graph",
+      "bug_type": "boundary-condition-omission",
+      "visible_rc": 0,
+      "hidden_rc": 0,
+      "status": "NEITHER-CATCHES"
+    },
+    {
+      "repo": "stock_reservations",
+      "bug_type": "condition-inversion",
+      "visible_rc": 1,
+      "hidden_rc": 1,
+      "status": "ok"
+    },
+    {
+      "repo": "stock_reservations",
+      "bug_type": "variable-misuse",
+      "visible_rc": 1,
+      "hidden_rc": 0,
+      "status": "HIDDEN-MISSES-BUG"
+    },
+    {
+      "repo": "stock_reservations",
+      "bug_type": "wrong-return-value",
+      "visible_rc": 1,
+      "hidden_rc": 1,
+      "status": "ok"
+    },
+    {
+      "repo": "stock_reservations",
+      "bug_type": "missing-exception-handling",
+      "visible_rc": 1,
+      "hidden_rc": 0,
+      "status": "HIDDEN-MISSES-BUG"
+    },
+    {
+      "repo": "stock_reservations",
+      "bug_type": "api-parameter-error",
+      "visible_rc": 0,
+      "hidden_rc": 0,
+      "status": "NEITHER-CATCHES"
+    },
+    {
+      "repo": "stock_reservations",
+      "bug_type": "boundary-condition-omission",
+      "visible_rc": 0,
+      "hidden_rc": 0,
+      "status": "NEITHER-CATCHES"
+    },
+    {
+      "repo": "config_parser",
+      "bug_type": "condition-inversion",
+      "visible_rc": 1,
+      "hidden_rc": 0,
+      "status": "HIDDEN-MISSES-BUG"
+    },
+    {
+      "repo": "config_parser",
+      "bug_type": "variable-misuse",
+      "visible_rc": 1,
+      "hidden_rc": 1,
+      "status": "ok"
+    },
+    {
+      "repo": "config_parser",
+      "bug_type": "wrong-return-value",
+      "visible_rc": 1,
+      "hidden_rc": 1,
+      "status": "ok"
+    },
+    {
+      "repo": "config_parser",
+      "bug_type": "missing-exception-handling",
+      "visible_rc": 1,
+      "hidden_rc": 1,
+      "status": "ok"
+    },
+    {
+      "repo": "config_parser",
+      "bug_type": "boundary-condition-omission",
+      "visible_rc": 1,
+      "hidden_rc": 0,
+      "status": "HIDDEN-MISSES-BUG"
+    },
+    {
+      "repo": "metric_aggregator",
+      "bug_type": "condition-inversion",
+      "visible_rc": 1,
+      "hidden_rc": 1,
+      "status": "ok"
+    },
+    {
+      "repo": "metric_aggregator",
+      "bug_type": "variable-misuse",
+      "visible_rc": 1,
+      "hidden_rc": 0,
+      "status": "HIDDEN-MISSES-BUG"
+    },
+    {
+      "repo": "metric_aggregator",
+      "bug_type": "wrong-return-value",
+      "visible_rc": 1,
+      "hidden_rc": 0,
+      "status": "HIDDEN-MISSES-BUG"
+    },
+    {
+      "repo": "metric_aggregator",
+      "bug_type": "boundary-condition-omission",
+      "visible_rc": 1,
+      "hidden_rc": 0,
+      "status": "HIDDEN-MISSES-BUG"
+    },
+    {
+      "repo": "parcel_ledger",
+      "bug_type": "condition-inversion",
+      "visible_rc": 0,
+      "hidden_rc": 0,
+      "status": "NEITHER-CATCHES"
+    },
+    {
+      "repo": "parcel_ledger",
+      "bug_type": "off-by-one",
+      "visible_rc": 0,
+      "hidden_rc": 0,
+      "status": "NEITHER-CATCHES"
+    },
+    {
+      "repo": "parcel_ledger",
+      "bug_type": "variable-misuse",
+      "visible_rc": 0,
+      "hidden_rc": 0,
+      "status": "NEITHER-CATCHES"
+    },
+    {
+      "repo": "parcel_ledger",
+      "bug_type": "wrong-return-value",
+      "visible_rc": 0,
+      "hidden_rc": 0,
+      "status": "NEITHER-CATCHES"
+    },
+    {
+      "repo": "parcel_ledger",
+      "bug_type": "missing-exception-handling",
+      "visible_rc": 0,
+      "hidden_rc": 0,
+      "status": "NEITHER-CATCHES"
+    },
+    {
+      "repo": "parcel_ledger",
+      "bug_type": "api-parameter-error",
+      "visible_rc": 0,
+      "hidden_rc": 0,
+      "status": "NEITHER-CATCHES"
+    },
+    {
+      "repo": "parcel_ledger",
+      "bug_type": "boundary-condition-omission",
+      "visible_rc": 0,
+      "hidden_rc": 0,
+      "status": "NEITHER-CATCHES"
+    },
+    {
+      "repo": "record_index",
+      "bug_type": "condition-inversion",
+      "visible_rc": 1,
+      "hidden_rc": 1,
+      "status": "ok"
+    },
+    {
+      "repo": "record_index",
+      "bug_type": "variable-misuse",
+      "visible_rc": 1,
+      "hidden_rc": 0,
+      "status": "HIDDEN-MISSES-BUG"
+    },
+    {
+      "repo": "record_index",
+      "bug_type": "wrong-return-value",
+      "visible_rc": 1,
+      "hidden_rc": 0,
+      "status": "HIDDEN-MISSES-BUG"
+    },
+    {
+      "repo": "record_index",
+      "bug_type": "boundary-condition-omission",
+      "visible_rc": 1,
+      "hidden_rc": 0,
+      "status": "HIDDEN-MISSES-BUG"
+    },
+    {
+      "repo": "slot_planner",
+      "bug_type": "condition-inversion",
+      "visible_rc": 1,
+      "hidden_rc": 1,
+      "status": "ok"
+    },
+    {
+      "repo": "slot_planner",
+      "bug_type": "off-by-one",
+      "visible_rc": 1,
+      "hidden_rc": 0,
+      "status": "HIDDEN-MISSES-BUG"
+    },
+    {
+      "repo": "slot_planner",
+      "bug_type": "variable-misuse",
+      "visible_rc": 1,
+      "hidden_rc": 0,
+      "status": "HIDDEN-MISSES-BUG"
+    },
+    {
+      "repo": "slot_planner",
+      "bug_type": "wrong-return-value",
+      "visible_rc": 1,
+      "hidden_rc": 0,
+      "status": "HIDDEN-MISSES-BUG"
+    },
+    {
+      "repo": "slot_planner",
+      "bug_type": "missing-exception-handling",
+      "visible_rc": 1,
+      "hidden_rc": 0,
+      "status": "HIDDEN-MISSES-BUG"
+    },
+    {
+      "repo": "slot_planner",
+      "bug_type": "boundary-condition-omission",
+      "visible_rc": 1,
+      "hidden_rc": 0,
+      "status": "HIDDEN-MISSES-BUG"
+    },
+    {
+      "repo": "task_scheduler",
+      "bug_type": "condition-inversion",
+      "visible_rc": 1,
+      "hidden_rc": 1,
+      "status": "ok"
+    },
+    {
+      "repo": "task_scheduler",
+      "bug_type": "variable-misuse",
+      "visible_rc": 1,
+      "hidden_rc": 0,
+      "status": "HIDDEN-MISSES-BUG"
+    },
+    {
+      "repo": "task_scheduler",
+      "bug_type": "wrong-return-value",
+      "visible_rc": 1,
+      "hidden_rc": 1,
+      "status": "ok"
+    },
+    {
+      "repo": "task_scheduler",
+      "bug_type": "missing-exception-handling",
+      "visible_rc": 1,
+      "hidden_rc": 0,
+      "status": "HIDDEN-MISSES-BUG"
+    },
+    {
+      "repo": "task_scheduler",
+      "bug_type": "boundary-condition-omission",
+      "visible_rc": 1,
+      "hidden_rc": 0,
+      "status": "HIDDEN-MISSES-BUG"
+    }
+  ],
+  "undetected": 32,
+  "total": 43
+}

@@ -1,0 +1,61 @@
+[project]
+name = "octorl"
+version = "0.1.0"
+description = "A difficulty-parameterized repository-repair RL environment for a single 24 GB GPU"
+requires-python = ">=3.11"
+license = "MIT"
+readme = "README.md"
+authors = [
+    { name = "Jianyuan Wang", email = "jianyuan081@gmail.com" },
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "libcst>=1.5.0",
+    "jsonschema>=4.23.0",
+]
+
+[project.urls]
+Repository = "https://github.com/PrestoOverture/octorl"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=9.1.0",
+    "hypothesis>=6.100.0",
+    "numpy>=2.0.0",
+    "scipy>=1.13.0",
+]
+# The Verifiers adapter is optional: the environment stays independently valid
+# without any training framework (architecture.md §7).
+verifiers = [
+    "verifiers>=0.1.5",
+    "datasets>=2.0.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"repos" = "octorl_data/repos"
+"harness" = "octorl_data/harness"
+"docker" = "octorl_data/docker"
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "src/",
+    "repos/",
+    "harness/",
+    "docker/",
+    "pyproject.toml",
+    "README.md",
+    "LICENSE",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

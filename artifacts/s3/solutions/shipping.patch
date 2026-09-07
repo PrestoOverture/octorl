@@ -1,0 +1,11 @@
+--- a/shipping.py
++++ b/shipping.py
+@@ -6,7 +6,7 @@
+     """
+     if min(weight, base_fee, per_kg) < 0:
+         raise ValueError("negative input")
+-    return base_fee + weight * base_fee
++    return base_fee + weight * per_kg
+ 
+ 
+ def volumetric_weight(length, width, height):

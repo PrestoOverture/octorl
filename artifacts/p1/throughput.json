@@ -1,0 +1,3167 @@
+{
+  "measured_at": "2026-09-06T23:41:58+0800",
+  "host": {
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "machine": "arm64",
+    "cpu_count": 8,
+    "docker_server": "linux/arm64 29.7.2"
+  },
+  "image": "sha256:886d2583b75ae4556a59725b5a3c63d24da56d3e5e12b830aa07bb7eca6577ca",
+  "policy": "scripted-12step (no model). Per-trajectory latency here is a LOWER bound and the rate an UPPER bound on any model-in-the-loop figure: adding generation latency lengthens trajectories and lowers traj/hour.",
+  "design": {
+    "repos": [
+      "record_index",
+      "slot_planner",
+      "config_parser"
+    ],
+    "buckets": [
+      "c1-L0-single-function",
+      "c2-L0-single-file"
+    ],
+    "per_cell": 8,
+    "steps_per_trajectory": 12,
+    "warmup_trajectory_excluded": true
+  },
+  "packaging_mean_s": 0.08,
+  "results": {
+    "N1": {
+      "concurrency": 1,
+      "trajectories": 48,
+      "wall_clock_s": 153.98,
+      "trajectories_per_hour": 1122.2,
+      "p50_s": 3.14,
+      "p95_s": 3.76,
+      "max_s": 4.29,
+      "mean_s": 3.21,
+      "phase_mean_s": {
+        "lease_reset": 0.003,
+        "other_tools": 0.006,
+        "run_tests": 1.49,
+        "verify": 1.609
+      },
+      "rewards": [
+        1
+      ],
+      "steps": [
+        12
+      ],
+      "run_tests_calls": [
+        4
+      ],
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ]
+    },
+    "N4": {
+      "concurrency": 4,
+      "trajectories": 48,
+      "wall_clock_s": 61.21,
+      "trajectories_per_hour": 2822.9,
+      "p50_s": 5.26,
+      "p95_s": 6.29,
+      "max_s": 6.42,
+      "mean_s": 5.1,
+      "phase_mean_s": {
+        "lease_reset": 0.006,
+        "other_tools": 0.01,
+        "run_tests": 2.38,
+        "verify": 2.615
+      },
+      "rewards": [
+        1
+      ],
+      "steps": [
+        12
+      ],
+      "run_tests_calls": [
+        4
+      ],
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ]
+    },
+    "N8": {
+      "concurrency": 8,
+      "trajectories": 48,
+      "wall_clock_s": 59.01,
+      "trajectories_per_hour": 2928.4,
+      "p50_s": 10.85,
+      "p95_s": 11.25,
+      "max_s": 11.46,
+      "mean_s": 9.81,
+      "phase_mean_s": {
+        "lease_reset": 0.011,
+        "other_tools": 0.015,
+        "run_tests": 4.056,
+        "verify": 5.581
+      },
+      "rewards": [
+        1
+      ],
+      "steps": [
+        12
+      ],
+      "run_tests_calls": [
+        4
+      ],
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ]
+    }
+  },
+  "gate_90s": {
+    "N1": {
+      "p95_s": 3.76,
+      "max_s": 4.29,
+      "passes_90s": true
+    },
+    "N4": {
+      "p95_s": 6.29,
+      "max_s": 6.42,
+      "passes_90s": true
+    },
+    "N8": {
+      "p95_s": 11.25,
+      "max_s": 11.46,
+      "passes_90s": true
+    }
+  },
+  "trajectories": [
+    {
+      "repo": "record_index",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "record_index-c1-L0-single-function-N1-0",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 3.080960249999407,
+      "lease_reset": 0.0032733339994592825,
+      "run_tests": 1.172944918000212,
+      "other_tools": 0.009038415999384597,
+      "verify": 1.8457140830014396
+    },
+    {
+      "repo": "record_index",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "record_index-c1-L0-single-function-N1-1",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 3.01488099999915,
+      "lease_reset": 0.0030299999998533167,
+      "run_tests": 1.1815981659983663,
+      "other_tools": 0.006472125000072992,
+      "verify": 1.7749803329988936
+    },
+    {
+      "repo": "record_index",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "record_index-c1-L0-single-function-N1-2",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 3.310031834000256,
+      "lease_reset": 0.004303959000026225,
+      "run_tests": 1.3157513739988644,
+      "other_tools": 0.0040269169985549524,
+      "verify": 1.9172021659996972
+    },
+    {
+      "repo": "record_index",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "record_index-c1-L0-single-function-N1-3",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 3.101156082999296,
+      "lease_reset": 0.00555983300000662,
+      "run_tests": 1.2087129170049593,
+      "other_tools": 0.005193502000111039,
+      "verify": 1.8343014589991071
+    },
+    {
+      "repo": "record_index",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "record_index-c1-L0-single-function-N1-4",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 3.07447220800168,
+      "lease_reset": 0.003058457999941311,
+      "run_tests": 1.2489145830004418,
+      "other_tools": 0.006288207996476558,
+      "verify": 1.7706542500000069
+    },
+    {
+      "repo": "record_index",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "record_index-c1-L0-single-function-N1-5",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 3.0716025000001537,
+      "lease_reset": 0.0033683750007185154,
+      "run_tests": 1.214676749001228,
+      "other_tools": 0.007421709000482224,
+      "verify": 1.7932599159994425
+    },
+    {
+      "repo": "record_index",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "record_index-c1-L0-single-function-N1-6",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 2.953565333998995,
+      "lease_reset": 0.0031622089991287794,
+      "run_tests": 1.1916299589975097,
+      "other_tools": 0.007868917999076075,
+      "verify": 1.6982044999986101
+    },
+    {
+      "repo": "record_index",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "record_index-c1-L0-single-function-N1-7",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 3.13763312500123,
+      "lease_reset": 0.0029962910011818167,
+      "run_tests": 1.2271727490006015,
+      "other_tools": 0.004896583999652648,
+      "verify": 1.8484127499996248
+    },
+    {
+      "repo": "record_index",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "record_index-c2-L0-single-file-N1-0",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 3.548214041000392,
+      "lease_reset": 0.003660415999547695,
+      "run_tests": 1.23174120800104,
+      "other_tools": 0.005491126003107638,
+      "verify": 1.922026750000441
+    },
+    {
+      "repo": "record_index",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "record_index-c2-L0-single-file-N1-1",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 3.0662285420003172,
+      "lease_reset": 0.0042305420010961825,
+      "run_tests": 1.2587687090017425,
+      "other_tools": 0.0077752499983034795,
+      "verify": 1.7429939170015132
+    },
+    {
+      "repo": "record_index",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "record_index-c2-L0-single-file-N1-2",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 3.202528124998935,
+      "lease_reset": 0.002989165999679244,
+      "run_tests": 1.349824582999645,
+      "other_tools": 0.0070595830020465655,
+      "verify": 1.7896554170001764
+    },
+    {
+      "repo": "record_index",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "record_index-c2-L0-single-file-N1-3",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 3.076821500000733,
+      "lease_reset": 0.003082458999415394,
+      "run_tests": 1.2356763339994359,
+      "other_tools": 0.0064114580000023125,
+      "verify": 1.7769668330001878
+    },
+    {
+      "repo": "record_index",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "record_index-c2-L0-single-file-N1-4",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 3.1447557500014227,
+      "lease_reset": 0.003116625000984641,
+      "run_tests": 1.4071797499982495,
+      "other_tools": 0.007179207997978665,
+      "verify": 1.6760112499996467
+    },
+    {
+      "repo": "record_index",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "record_index-c2-L0-single-file-N1-5",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 3.1810402920000342,
+      "lease_reset": 0.003245624999181018,
+      "run_tests": 1.3175013340023725,
+      "other_tools": 0.007394417001705733,
+      "verify": 1.8019040409999434
+    },
+    {
+      "repo": "record_index",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "record_index-c2-L0-single-file-N1-6",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 3.069981958999051,
+      "lease_reset": 0.003503166999507812,
+      "run_tests": 1.2472870830006286,
+      "other_tools": 0.0064969580016622785,
+      "verify": 1.7571599170005356
+    },
+    {
+      "repo": "record_index",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "record_index-c2-L0-single-file-N1-7",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 3.4241255830002046,
+      "lease_reset": 0.0037457500002346933,
+      "run_tests": 1.3051383750025707,
+      "other_tools": 0.009022626001751632,
+      "verify": 2.050499208000474
+    },
+    {
+      "repo": "slot_planner",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "slot_planner-c1-L0-single-function-N1-0",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 3.0982250420001947,
+      "lease_reset": 0.004364500000519911,
+      "run_tests": 1.5922947919989383,
+      "other_tools": 0.003996208002718049,
+      "verify": 0.9928467089994228
+    },
+    {
+      "repo": "slot_planner",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "slot_planner-c1-L0-single-function-N1-1",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 2.5566512910008896,
+      "lease_reset": 0.0026017079999292037,
+      "run_tests": 1.5089057499990304,
+      "other_tools": 0.004196374999082764,
+      "verify": 0.9944709579995106
+    },
+    {
+      "repo": "slot_planner",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "slot_planner-c1-L0-single-function-N1-2",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 2.635272208999595,
+      "lease_reset": 0.0027533339998626616,
+      "run_tests": 1.5525064169996767,
+      "other_tools": 0.005384666003010352,
+      "verify": 1.0262751249993016
+    },
+    {
+      "repo": "slot_planner",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "slot_planner-c1-L0-single-function-N1-3",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 2.493025082998429,
+      "lease_reset": 0.00296041699948546,
+      "run_tests": 1.4634687080015283,
+      "other_tools": 0.007356250000157161,
+      "verify": 0.9742786250008066
+    },
+    {
+      "repo": "slot_planner",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "slot_planner-c1-L0-single-function-N1-4",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 3.3201888330004294,
+      "lease_reset": 0.002554624999902444,
+      "run_tests": 1.848085624000305,
+      "other_tools": 0.0056019580024440074,
+      "verify": 1.4131529579990456
+    },
+    {
+      "repo": "slot_planner",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "slot_planner-c1-L0-single-function-N1-5",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 2.6544031249995896,
+      "lease_reset": 0.004515582999374601,
+      "run_tests": 1.623633332997997,
+      "other_tools": 0.003997708001406863,
+      "verify": 0.9701452079989394
+    },
+    {
+      "repo": "slot_planner",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "slot_planner-c1-L0-single-function-N1-6",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 2.815762750000431,
+      "lease_reset": 0.0037164589994063135,
+      "run_tests": 1.7532454149986734,
+      "other_tools": 0.004216375004034489,
+      "verify": 1.0104109999992943
+    },
+    {
+      "repo": "slot_planner",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "slot_planner-c1-L0-single-function-N1-7",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 2.5795792909993907,
+      "lease_reset": 0.0026640830001269933,
+      "run_tests": 1.515621041000486,
+      "other_tools": 0.005478167000546819,
+      "verify": 1.0098492500001157
+    },
+    {
+      "repo": "slot_planner",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "slot_planner-c2-L0-single-file-N1-0",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 3.2200560419987596,
+      "lease_reset": 0.0034763329986162717,
+      "run_tests": 1.6739038759988034,
+      "other_tools": 0.008617041998149944,
+      "verify": 1.0362560840003425
+    },
+    {
+      "repo": "slot_planner",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "slot_planner-c2-L0-single-file-N1-1",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 2.7613159170014114,
+      "lease_reset": 0.002676917001736001,
+      "run_tests": 1.7204653320022771,
+      "other_tools": 0.004192582000541734,
+      "verify": 0.985075999999026
+    },
+    {
+      "repo": "slot_planner",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "slot_planner-c2-L0-single-file-N1-2",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 2.655616750000263,
+      "lease_reset": 0.0027223750003031455,
+      "run_tests": 1.6428765840009874,
+      "other_tools": 0.004130790999624878,
+      "verify": 0.9660873330012691
+    },
+    {
+      "repo": "slot_planner",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "slot_planner-c2-L0-single-file-N1-3",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 2.9138286670004163,
+      "lease_reset": 0.002716209000936942,
+      "run_tests": 1.8157730839993746,
+      "other_tools": 0.004287624002245138,
+      "verify": 1.030915790999643
+    },
+    {
+      "repo": "slot_planner",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "slot_planner-c2-L0-single-file-N1-4",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 2.9787945420011965,
+      "lease_reset": 0.002817458000208717,
+      "run_tests": 1.8170252100007929,
+      "other_tools": 0.00382299999728275,
+      "verify": 1.085992874999647
+    },
+    {
+      "repo": "slot_planner",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "slot_planner-c2-L0-single-file-N1-5",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 2.964183583000704,
+      "lease_reset": 0.0027233750006416813,
+      "run_tests": 1.8444305840002926,
+      "other_tools": 0.004129416003706865,
+      "verify": 1.0670747909989586
+    },
+    {
+      "repo": "slot_planner",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "slot_planner-c2-L0-single-file-N1-6",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 2.993032916001539,
+      "lease_reset": 0.002777583000352024,
+      "run_tests": 1.7681221240018203,
+      "other_tools": 0.005270957995890058,
+      "verify": 1.156940917000611
+    },
+    {
+      "repo": "slot_planner",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "slot_planner-c2-L0-single-file-N1-7",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 3.1221605419996195,
+      "lease_reset": 0.003580249998776708,
+      "run_tests": 1.9481460829993011,
+      "other_tools": 0.006498418000774109,
+      "verify": 1.1098187499992491
+    },
+    {
+      "repo": "config_parser",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "config_parser-c1-L0-single-function-N1-0",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 3.9471349579998787,
+      "lease_reset": 0.0034206250002171146,
+      "run_tests": 1.5462680839991663,
+      "other_tools": 0.004149751001023105,
+      "verify": 1.9287583750010526
+    },
+    {
+      "repo": "config_parser",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "config_parser-c1-L0-single-function-N1-1",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 3.539992833000724,
+      "lease_reset": 0.0028729580008075573,
+      "run_tests": 1.476619833998484,
+      "other_tools": 0.004978542001481401,
+      "verify": 1.9968696249998175
+    },
+    {
+      "repo": "config_parser",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "config_parser-c1-L0-single-function-N1-2",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 3.4493165419989964,
+      "lease_reset": 0.003113249998932588,
+      "run_tests": 1.4010642909997841,
+      "other_tools": 0.008346498998434981,
+      "verify": 1.985055499999362
+    },
+    {
+      "repo": "config_parser",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "config_parser-c1-L0-single-function-N1-3",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 3.540062208998279,
+      "lease_reset": 0.0031458749999728752,
+      "run_tests": 1.5478891660004592,
+      "other_tools": 0.0053275419977580896,
+      "verify": 1.9346408330002305
+    },
+    {
+      "repo": "config_parser",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "config_parser-c1-L0-single-function-N1-4",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 3.5035882920001313,
+      "lease_reset": 0.00296024999988731,
+      "run_tests": 1.5000264160007646,
+      "other_tools": 0.004284124999685446,
+      "verify": 1.9551407500002824
+    },
+    {
+      "repo": "config_parser",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "config_parser-c1-L0-single-function-N1-5",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 3.3642220000001544,
+      "lease_reset": 0.002872458999263472,
+      "run_tests": 1.3816967500006285,
+      "other_tools": 0.0066547910046210745,
+      "verify": 1.9240869590012153
+    },
+    {
+      "repo": "config_parser",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "config_parser-c1-L0-single-function-N1-6",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 3.3914501250001194,
+      "lease_reset": 0.00288570799966692,
+      "run_tests": 1.4884408759971848,
+      "other_tools": 0.0041274160030297935,
+      "verify": 1.8508379590002733
+    },
+    {
+      "repo": "config_parser",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "config_parser-c1-L0-single-function-N1-7",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 3.6614793750013632,
+      "lease_reset": 0.006148292000943911,
+      "run_tests": 1.5226655830010714,
+      "other_tools": 0.006072709004001808,
+      "verify": 2.0537367500000983
+    },
+    {
+      "repo": "config_parser",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "config_parser-c2-L0-single-file-N1-0",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 4.28887554100038,
+      "lease_reset": 0.003725291000591824,
+      "run_tests": 1.5045185840008344,
+      "other_tools": 0.004738417996122735,
+      "verify": 2.098977042000115
+    },
+    {
+      "repo": "config_parser",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "config_parser-c2-L0-single-file-N1-1",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 3.6914852089994383,
+      "lease_reset": 0.003188208998835762,
+      "run_tests": 1.6389232919991628,
+      "other_tools": 0.008891332003258867,
+      "verify": 1.9901000000008935
+    },
+    {
+      "repo": "config_parser",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "config_parser-c2-L0-single-file-N1-2",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 3.6780692920001457,
+      "lease_reset": 0.003303334000520408,
+      "run_tests": 1.6206320410001354,
+      "other_tools": 0.004337709997344064,
+      "verify": 2.0046093330001895
+    },
+    {
+      "repo": "config_parser",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "config_parser-c2-L0-single-file-N1-3",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 3.760159499999645,
+      "lease_reset": 0.003216584000256262,
+      "run_tests": 1.6265750429993204,
+      "other_tools": 0.005041293003159808,
+      "verify": 2.0781703749998996
+    },
+    {
+      "repo": "config_parser",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "config_parser-c2-L0-single-file-N1-4",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 3.346855957999651,
+      "lease_reset": 0.0031047909997141687,
+      "run_tests": 1.447024668001177,
+      "other_tools": 0.006188874005601974,
+      "verify": 1.8279554999990069
+    },
+    {
+      "repo": "config_parser",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "config_parser-c2-L0-single-file-N1-5",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 3.333201667001049,
+      "lease_reset": 0.0030543339998985175,
+      "run_tests": 1.4249620419996063,
+      "other_tools": 0.004105623998839292,
+      "verify": 1.8459407499994995
+    },
+    {
+      "repo": "config_parser",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "config_parser-c2-L0-single-file-N1-6",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 3.624000583999077,
+      "lease_reset": 0.003246209000280942,
+      "run_tests": 1.6317394170000625,
+      "other_tools": 0.00463266600308998,
+      "verify": 1.9330977500012523
+    },
+    {
+      "repo": "config_parser",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "config_parser-c2-L0-single-file-N1-7",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 3.628643791000286,
+      "lease_reset": 0.0031943750000209548,
+      "run_tests": 1.5812670409995917,
+      "other_tools": 0.003875500000503962,
+      "verify": 1.9974279580001166
+    },
+    {
+      "repo": "record_index",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "record_index-c1-L0-single-function-N4-0",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 5.570166250001421,
+      "lease_reset": 0.007471500000974629,
+      "run_tests": 2.162612749998516,
+      "other_tools": 0.021171084001252893,
+      "verify": 3.286239042001398
+    },
+    {
+      "repo": "record_index",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "record_index-c1-L0-single-function-N4-1",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 5.5451608749990555,
+      "lease_reset": 0.010098958999151364,
+      "run_tests": 2.1433389159974467,
+      "other_tools": 0.0177302910014987,
+      "verify": 3.2755393750012445
+    },
+    {
+      "repo": "record_index",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "record_index-c1-L0-single-function-N4-2",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 5.602612083001077,
+      "lease_reset": 0.010572458000751794,
+      "run_tests": 2.098454082999524,
+      "other_tools": 0.025251957997170393,
+      "verify": 3.3746118749986636
+    },
+    {
+      "repo": "record_index",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "record_index-c1-L0-single-function-N4-3",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 5.567632958000104,
+      "lease_reset": 0.014889457999743172,
+      "run_tests": 2.2054641660015477,
+      "other_tools": 0.023311124998144805,
+      "verify": 3.2311279579989787
+    },
+    {
+      "repo": "record_index",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "record_index-c1-L0-single-function-N4-4",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 5.8667924589990434,
+      "lease_reset": 0.005332958999133552,
+      "run_tests": 2.3532027089986514,
+      "other_tools": 0.006864582999696722,
+      "verify": 3.425184834000902
+    },
+    {
+      "repo": "record_index",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "record_index-c1-L0-single-function-N4-5",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 5.845656374998725,
+      "lease_reset": 0.006306665998636163,
+      "run_tests": 2.3512884589981695,
+      "other_tools": 0.009830291995967855,
+      "verify": 3.3711692090000724
+    },
+    {
+      "repo": "record_index",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "record_index-c1-L0-single-function-N4-6",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 5.852617458998793,
+      "lease_reset": 0.009009958999740775,
+      "run_tests": 2.339705000998947,
+      "other_tools": 0.010386998998001218,
+      "verify": 3.4099048330008372
+    },
+    {
+      "repo": "record_index",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "record_index-c1-L0-single-function-N4-7",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 5.892443124999772,
+      "lease_reset": 0.0033317920006084023,
+      "run_tests": 2.3501224180017743,
+      "other_tools": 0.004902834994936711,
+      "verify": 3.46137895800166
+    },
+    {
+      "repo": "record_index",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "record_index-c2-L0-single-file-N4-0",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 6.420032042000457,
+      "lease_reset": 0.00806758299950161,
+      "run_tests": 2.788569042000745,
+      "other_tools": 0.02411824999944656,
+      "verify": 3.3830307080006605
+    },
+    {
+      "repo": "record_index",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "record_index-c2-L0-single-file-N4-1",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 6.286868583001706,
+      "lease_reset": 0.016036708000683575,
+      "run_tests": 2.7580673749998823,
+      "other_tools": 0.016627832001177012,
+      "verify": 3.3721057919992745
+    },
+    {
+      "repo": "record_index",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "record_index-c2-L0-single-file-N4-2",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 6.33409224999923,
+      "lease_reset": 0.021261500000036904,
+      "run_tests": 2.7324450010037253,
+      "other_tools": 0.012675793001108104,
+      "verify": 3.4222131249989616
+    },
+    {
+      "repo": "record_index",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "record_index-c2-L0-single-file-N4-3",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 6.213715208001304,
+      "lease_reset": 0.0032850000006874325,
+      "run_tests": 2.8254701660007413,
+      "other_tools": 0.008985166996353655,
+      "verify": 3.2490561659997184
+    },
+    {
+      "repo": "record_index",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "record_index-c2-L0-single-file-N4-4",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 5.965796041000431,
+      "lease_reset": 0.019905875000404194,
+      "run_tests": 2.635382332999143,
+      "other_tools": 0.01951862600253662,
+      "verify": 3.217793666999569
+    },
+    {
+      "repo": "record_index",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "record_index-c2-L0-single-file-N4-5",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 5.916908874998626,
+      "lease_reset": 0.009934374998920248,
+      "run_tests": 2.627882500999476,
+      "other_tools": 0.009422708999409224,
+      "verify": 3.1710925419993146
+    },
+    {
+      "repo": "record_index",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "record_index-c2-L0-single-file-N4-6",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 5.761140458000227,
+      "lease_reset": 0.009400541999639245,
+      "run_tests": 2.518719625999438,
+      "other_tools": 0.006835751004473423,
+      "verify": 3.15338170799987
+    },
+    {
+      "repo": "record_index",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "record_index-c2-L0-single-file-N4-7",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 5.829181291999703,
+      "lease_reset": 0.004392457998619648,
+      "run_tests": 2.5612843330036412,
+      "other_tools": 0.007021124994935235,
+      "verify": 3.1666120830013824
+    },
+    {
+      "repo": "slot_planner",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "slot_planner-c1-L0-single-function-N4-0",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 4.360037041000396,
+      "lease_reset": 0.006735000000844593,
+      "run_tests": 2.5136544159995537,
+      "other_tools": 0.010400081999250688,
+      "verify": 1.7315205840004637
+    },
+    {
+      "repo": "slot_planner",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "slot_planner-c1-L0-single-function-N4-1",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 4.258454750000965,
+      "lease_reset": 0.0028464580009313067,
+      "run_tests": 2.4860107080003218,
+      "other_tools": 0.010495540000192705,
+      "verify": 1.6642244579998078
+    },
+    {
+      "repo": "slot_planner",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "slot_planner-c1-L0-single-function-N4-2",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 4.240011583000523,
+      "lease_reset": 0.004115583000384504,
+      "run_tests": 2.3628265820007073,
+      "other_tools": 0.011890834000951145,
+      "verify": 1.7799026669999876
+    },
+    {
+      "repo": "slot_planner",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "slot_planner-c1-L0-single-function-N4-3",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 4.304904041000555,
+      "lease_reset": 0.008399500000450644,
+      "run_tests": 2.3829256660010287,
+      "other_tools": 0.006059584002287011,
+      "verify": 1.8089503329993022
+    },
+    {
+      "repo": "slot_planner",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "slot_planner-c1-L0-single-function-N4-4",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 4.894550666000214,
+      "lease_reset": 0.0038047079997340916,
+      "run_tests": 2.959622626000055,
+      "other_tools": 0.008436916998107336,
+      "verify": 1.8017818749995058
+    },
+    {
+      "repo": "slot_planner",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "slot_planner-c1-L0-single-function-N4-5",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 4.889552167000147,
+      "lease_reset": 0.009082208000108949,
+      "run_tests": 2.948971915999209,
+      "other_tools": 0.00750995700036583,
+      "verify": 1.8076925419991312
+    },
+    {
+      "repo": "slot_planner",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "slot_planner-c1-L0-single-function-N4-6",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 4.916953334000937,
+      "lease_reset": 0.004039167000883026,
+      "run_tests": 2.8874307090009097,
+      "other_tools": 0.005650542001603753,
+      "verify": 1.9260774169997603
+    },
+    {
+      "repo": "slot_planner",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "slot_planner-c1-L0-single-function-N4-7",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 4.8333213750011055,
+      "lease_reset": 0.004722083000160637,
+      "run_tests": 2.8656544589975965,
+      "other_tools": 0.00533808300315286,
+      "verify": 1.8645270420001907
+    },
+    {
+      "repo": "slot_planner",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "slot_planner-c2-L0-single-file-N4-0",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 3.8086154160009755,
+      "lease_reset": 0.007054375000734581,
+      "run_tests": 2.299013999996532,
+      "other_tools": 0.017930876998434542,
+      "verify": 1.3885297920005542
+    },
+    {
+      "repo": "slot_planner",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "slot_planner-c2-L0-single-file-N4-1",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 3.705854249999902,
+      "lease_reset": 0.005814916001327219,
+      "run_tests": 2.2800394580008287,
+      "other_tools": 0.009367833999931463,
+      "verify": 1.3312207079998188
+    },
+    {
+      "repo": "slot_planner",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "slot_planner-c2-L0-single-file-N4-2",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 3.691500500000984,
+      "lease_reset": 0.00380020800002967,
+      "run_tests": 2.361272251004266,
+      "other_tools": 0.004352501997345826,
+      "verify": 1.2461348330016335
+    },
+    {
+      "repo": "slot_planner",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "slot_planner-c2-L0-single-file-N4-3",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 3.6998940410012437,
+      "lease_reset": 0.004300291000618017,
+      "run_tests": 2.3437824989996443,
+      "other_tools": 0.0043727509983000346,
+      "verify": 1.2824015419992065
+    },
+    {
+      "repo": "slot_planner",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "slot_planner-c2-L0-single-file-N4-4",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 3.8913342079995346,
+      "lease_reset": 0.003026291000423953,
+      "run_tests": 2.403260748997127,
+      "other_tools": 0.004043792001539259,
+      "verify": 1.4168127499997354
+    },
+    {
+      "repo": "slot_planner",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "slot_planner-c2-L0-single-file-N4-5",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 3.8305224169998837,
+      "lease_reset": 0.003019083000253886,
+      "run_tests": 2.4075812500013853,
+      "other_tools": 0.004294334001315292,
+      "verify": 1.3463149170001998
+    },
+    {
+      "repo": "slot_planner",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "slot_planner-c2-L0-single-file-N4-6",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 3.7797091660013393,
+      "lease_reset": 0.002851958000974264,
+      "run_tests": 2.3515683340010582,
+      "other_tools": 0.006931750000148895,
+      "verify": 1.3504092910006875
+    },
+    {
+      "repo": "slot_planner",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "slot_planner-c2-L0-single-file-N4-7",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 3.8054059999994934,
+      "lease_reset": 0.002760666999165551,
+      "run_tests": 2.303930957998091,
+      "other_tools": 0.0075664189953386085,
+      "verify": 1.4222887920004723
+    },
+    {
+      "repo": "config_parser",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "config_parser-c1-L0-single-function-N4-0",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 4.8101743339993845,
+      "lease_reset": 0.003710541999680572,
+      "run_tests": 1.9095145820010657,
+      "other_tools": 0.0056752079999569105,
+      "verify": 2.834502332998454
+    },
+    {
+      "repo": "config_parser",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "config_parser-c1-L0-single-function-N4-1",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 4.713819541000703,
+      "lease_reset": 0.003281999999671825,
+      "run_tests": 1.8744230430002062,
+      "other_tools": 0.0045603329981531715,
+      "verify": 2.76666220900006
+    },
+    {
+      "repo": "config_parser",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "config_parser-c1-L0-single-function-N4-2",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 4.694575334000547,
+      "lease_reset": 0.003469541999947978,
+      "run_tests": 1.7810674169995764,
+      "other_tools": 0.0074650400019891094,
+      "verify": 2.835150375000012
+    },
+    {
+      "repo": "config_parser",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "config_parser-c1-L0-single-function-N4-3",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 4.721365166000396,
+      "lease_reset": 0.0033154579996335087,
+      "run_tests": 1.8339007069989748,
+      "other_tools": 0.005646707002597395,
+      "verify": 2.818491832998916
+    },
+    {
+      "repo": "config_parser",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "config_parser-c1-L0-single-function-N4-4",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 4.967070958999102,
+      "lease_reset": 0.0036087919997953577,
+      "run_tests": 1.8729818329993577,
+      "other_tools": 0.005432374999145395,
+      "verify": 2.9983784169999126
+    },
+    {
+      "repo": "config_parser",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "config_parser-c1-L0-single-function-N4-5",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 5.005210792000071,
+      "lease_reset": 0.0030172499991749646,
+      "run_tests": 1.7712652919999528,
+      "other_tools": 0.0052910430040356005,
+      "verify": 3.1276570000009087
+    },
+    {
+      "repo": "config_parser",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "config_parser-c1-L0-single-function-N4-6",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 4.854786042000342,
+      "lease_reset": 0.005216958001255989,
+      "run_tests": 1.786850542999673,
+      "other_tools": 0.008087789999990491,
+      "verify": 2.9846147500011284
+    },
+    {
+      "repo": "config_parser",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "config_parser-c1-L0-single-function-N4-7",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 4.9862397920005606,
+      "lease_reset": 0.006612375000258908,
+      "run_tests": 1.689404540002215,
+      "other_tools": 0.011250958998061833,
+      "verify": 3.1667855420000706
+    },
+    {
+      "repo": "config_parser",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "config_parser-c2-L0-single-file-N4-0",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 5.602688332999605,
+      "lease_reset": 0.0071553329999005655,
+      "run_tests": 2.3536583759996574,
+      "other_tools": 0.00927383299858775,
+      "verify": 3.1486940830000094
+    },
+    {
+      "repo": "config_parser",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "config_parser-c2-L0-single-file-N4-1",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 5.687621708999359,
+      "lease_reset": 0.004730583999844384,
+      "run_tests": 2.3542968340007064,
+      "other_tools": 0.008293125998534379,
+      "verify": 3.2547612089983886
+    },
+    {
+      "repo": "config_parser",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "config_parser-c2-L0-single-file-N4-2",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 5.566865166001662,
+      "lease_reset": 0.004169083000306273,
+      "run_tests": 2.2777362480010197,
+      "other_tools": 0.007290168001418351,
+      "verify": 3.20048874999884
+    },
+    {
+      "repo": "config_parser",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "config_parser-c2-L0-single-file-N4-3",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 5.542258749999746,
+      "lease_reset": 0.003741000000445638,
+      "run_tests": 2.315306958000292,
+      "other_tools": 0.0044798350008932175,
+      "verify": 3.1325156659986533
+    },
+    {
+      "repo": "config_parser",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "config_parser-c2-L0-single-file-N4-4",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 5.607181124998533,
+      "lease_reset": 0.003685582998514292,
+      "run_tests": 2.7898961680002685,
+      "other_tools": 0.005379998998250812,
+      "verify": 2.7478699579987733
+    },
+    {
+      "repo": "config_parser",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "config_parser-c2-L0-single-file-N4-5",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 5.572998333000214,
+      "lease_reset": 0.006825083000876475,
+      "run_tests": 2.7270274569982575,
+      "other_tools": 0.011306166998110712,
+      "verify": 2.7817409170002065
+    },
+    {
+      "repo": "config_parser",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "config_parser-c2-L0-single-file-N4-6",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 5.529863540999941,
+      "lease_reset": 0.008894540998880984,
+      "run_tests": 2.644046043002163,
+      "other_tools": 0.012576084000102128,
+      "verify": 2.802357042000949
+    },
+    {
+      "repo": "config_parser",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "config_parser-c2-L0-single-file-N4-7",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 5.508812500000204,
+      "lease_reset": 0.002808458000799874,
+      "run_tests": 2.6493074589998287,
+      "other_tools": 0.00742112500120129,
+      "verify": 2.800380083001073
+    },
+    {
+      "repo": "record_index",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "record_index-c1-L0-single-function-N8-0",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 11.174474499999633,
+      "lease_reset": 0.018696041999646695,
+      "run_tests": 3.6460868750018562,
+      "other_tools": 0.028386791997036198,
+      "verify": 7.2649802080013615
+    },
+    {
+      "repo": "record_index",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "record_index-c1-L0-single-function-N8-1",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 11.46144404199913,
+      "lease_reset": 0.024412124999798834,
+      "run_tests": 3.6310741670004063,
+      "other_tools": 0.030330124998727115,
+      "verify": 7.650395832999493
+    },
+    {
+      "repo": "record_index",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "record_index-c1-L0-single-function-N8-2",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 11.201153874999363,
+      "lease_reset": 0.02533074999882956,
+      "run_tests": 4.183638835002057,
+      "other_tools": 0.03232454299723031,
+      "verify": 6.817041792000964
+    },
+    {
+      "repo": "record_index",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "record_index-c1-L0-single-function-N8-3",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 11.000374457998987,
+      "lease_reset": 0.02071533299931616,
+      "run_tests": 3.7650879569973768,
+      "other_tools": 0.0328496250021999,
+      "verify": 6.999571999998807
+    },
+    {
+      "repo": "record_index",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "record_index-c1-L0-single-function-N8-4",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 11.398570583000037,
+      "lease_reset": 0.021930249999059015,
+      "run_tests": 3.657950749002339,
+      "other_tools": 0.03210187300282996,
+      "verify": 7.508025166000152
+    },
+    {
+      "repo": "record_index",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "record_index-c1-L0-single-function-N8-5",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 11.053391292000015,
+      "lease_reset": 0.021189250001043547,
+      "run_tests": 3.703268040999319,
+      "other_tools": 0.026853291001316393,
+      "verify": 7.108120124999914
+    },
+    {
+      "repo": "record_index",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "record_index-c1-L0-single-function-N8-6",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 11.240186166000058,
+      "lease_reset": 0.019049124999583,
+      "run_tests": 3.590036500001588,
+      "other_tools": 0.030271501000243006,
+      "verify": 7.412034749999293
+    },
+    {
+      "repo": "record_index",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "record_index-c1-L0-single-function-N8-7",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 11.000954833998549,
+      "lease_reset": 0.031967208999049035,
+      "run_tests": 3.5916244569998526,
+      "other_tools": 0.03474633500263735,
+      "verify": 7.160501874999682
+    },
+    {
+      "repo": "record_index",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "record_index-c2-L0-single-file-N8-0",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 11.221251291999579,
+      "lease_reset": 0.014629957999204635,
+      "run_tests": 3.640709291998064,
+      "other_tools": 0.01901954199638567,
+      "verify": 7.3203101250001055
+    },
+    {
+      "repo": "record_index",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "record_index-c2-L0-single-file-N8-1",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 11.138883958001315,
+      "lease_reset": 0.010741750000306638,
+      "run_tests": 3.8368118750022404,
+      "other_tools": 0.016406458995334106,
+      "verify": 7.0962432920005085
+    },
+    {
+      "repo": "record_index",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "record_index-c2-L0-single-file-N8-2",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 11.099736333999317,
+      "lease_reset": 0.003708750000441796,
+      "run_tests": 3.5902721239999664,
+      "other_tools": 0.008935043997553294,
+      "verify": 7.300496916999691
+    },
+    {
+      "repo": "record_index",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "record_index-c2-L0-single-file-N8-3",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 10.996265499999936,
+      "lease_reset": 0.003424874999836902,
+      "run_tests": 3.4992134179992718,
+      "other_tools": 0.010767127003418864,
+      "verify": 7.29522949999955
+    },
+    {
+      "repo": "record_index",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "record_index-c2-L0-single-file-N8-4",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 10.898737083000015,
+      "lease_reset": 0.003239707999455277,
+      "run_tests": 3.4520128749991272,
+      "other_tools": 0.012838085000112187,
+      "verify": 7.255679000001692
+    },
+    {
+      "repo": "record_index",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "record_index-c2-L0-single-file-N8-5",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 10.758922499999244,
+      "lease_reset": 0.005437833000542014,
+      "run_tests": 3.3820681660017726,
+      "other_tools": 0.014097582998147118,
+      "verify": 7.137550167000882
+    },
+    {
+      "repo": "record_index",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "record_index-c2-L0-single-file-N8-6",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 10.982844959000431,
+      "lease_reset": 0.005655875000229571,
+      "run_tests": 3.447859834001065,
+      "other_tools": 0.005302042000039364,
+      "verify": 7.3765347079988715
+    },
+    {
+      "repo": "record_index",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "record_index-c2-L0-single-file-N8-7",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 10.735944500000187,
+      "lease_reset": 0.009070416001122794,
+      "run_tests": 3.5734876669994264,
+      "other_tools": 0.010742250000475906,
+      "verify": 6.937170250001145
+    },
+    {
+      "repo": "slot_planner",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "slot_planner-c1-L0-single-function-N8-0",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 7.800701374999335,
+      "lease_reset": 0.011161291999087553,
+      "run_tests": 4.887521333997938,
+      "other_tools": 0.019043581996811554,
+      "verify": 2.6038479580001876
+    },
+    {
+      "repo": "slot_planner",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "slot_planner-c1-L0-single-function-N8-1",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 7.244985332999931,
+      "lease_reset": 0.0037278330000845017,
+      "run_tests": 4.520784958000149,
+      "other_tools": 0.019519583001965657,
+      "verify": 2.54165708400069
+    },
+    {
+      "repo": "slot_planner",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "slot_planner-c1-L0-single-function-N8-2",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 7.22768166700007,
+      "lease_reset": 0.005854334000105155,
+      "run_tests": 4.3603847499998665,
+      "other_tools": 0.010262666997732595,
+      "verify": 2.6933881669992843
+    },
+    {
+      "repo": "slot_planner",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "slot_planner-c1-L0-single-function-N8-3",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 7.211346709000281,
+      "lease_reset": 0.005680124999344116,
+      "run_tests": 4.354540956999699,
+      "other_tools": 0.01205400000071677,
+      "verify": 2.6698137080002198
+    },
+    {
+      "repo": "slot_planner",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "slot_planner-c1-L0-single-function-N8-4",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 7.680640000000494,
+      "lease_reset": 0.003628458000093815,
+      "run_tests": 4.674129625003843,
+      "other_tools": 0.022483042999738245,
+      "verify": 2.817918709000878
+    },
+    {
+      "repo": "slot_planner",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "slot_planner-c1-L0-single-function-N8-5",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 6.969249792000483,
+      "lease_reset": 0.008633374998680665,
+      "run_tests": 4.471942957998181,
+      "other_tools": 0.006451791998188128,
+      "verify": 2.3520587499988324
+    },
+    {
+      "repo": "slot_planner",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "slot_planner-c1-L0-single-function-N8-6",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 7.089392666001004,
+      "lease_reset": 0.006648000000495813,
+      "run_tests": 4.657984749999741,
+      "other_tools": 0.009282166998673347,
+      "verify": 2.234861416000058
+    },
+    {
+      "repo": "slot_planner",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "slot_planner-c1-L0-single-function-N8-7",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 6.983846499999345,
+      "lease_reset": 0.00524816699908115,
+      "run_tests": 4.667170459999397,
+      "other_tools": 0.0057402929996897,
+      "verify": 2.1698237500004325
+    },
+    {
+      "repo": "slot_planner",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "slot_planner-c2-L0-single-file-N8-0",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 7.871856540999943,
+      "lease_reset": 0.006446790999689256,
+      "run_tests": 4.935050625001168,
+      "other_tools": 0.01136666599813907,
+      "verify": 2.7986357500012673
+    },
+    {
+      "repo": "slot_planner",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "slot_planner-c2-L0-single-file-N8-1",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 7.525927541999408,
+      "lease_reset": 0.0031605839994881535,
+      "run_tests": 4.476544874996762,
+      "other_tools": 0.007008791000771453,
+      "verify": 2.8835830419993727
+    },
+    {
+      "repo": "slot_planner",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "slot_planner-c2-L0-single-file-N8-2",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 7.49098454200066,
+      "lease_reset": 0.0057041670006583445,
+      "run_tests": 4.339833248999639,
+      "other_tools": 0.017681917999652796,
+      "verify": 2.977311374999772
+    },
+    {
+      "repo": "slot_planner",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "slot_planner-c2-L0-single-file-N8-3",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 7.491961375000756,
+      "lease_reset": 0.010972416001095553,
+      "run_tests": 4.411063249999643,
+      "other_tools": 0.013219043003118713,
+      "verify": 2.8952474580000853
+    },
+    {
+      "repo": "slot_planner",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "slot_planner-c2-L0-single-file-N8-4",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 7.503896042000633,
+      "lease_reset": 0.012738542000079178,
+      "run_tests": 4.389961790002417,
+      "other_tools": 0.015852540998821496,
+      "verify": 2.91285520800011
+    },
+    {
+      "repo": "slot_planner",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "slot_planner-c2-L0-single-file-N8-5",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 7.497410916999797,
+      "lease_reset": 0.012738624998746673,
+      "run_tests": 4.37007312499918,
+      "other_tools": 0.025058582998099155,
+      "verify": 2.9287998330000846
+    },
+    {
+      "repo": "slot_planner",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "slot_planner-c2-L0-single-file-N8-6",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 7.60575712499849,
+      "lease_reset": 0.0077936659999977564,
+      "run_tests": 4.47282658399854,
+      "other_tools": 0.0045117919999029255,
+      "verify": 3.022645334000117
+    },
+    {
+      "repo": "slot_planner",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "slot_planner-c2-L0-single-file-N8-7",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 7.444900665999739,
+      "lease_reset": 0.007075540999721852,
+      "run_tests": 4.370875374999741,
+      "other_tools": 0.00562750000244705,
+      "verify": 2.9161038330003066
+    },
+    {
+      "repo": "config_parser",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "config_parser-c1-L0-single-function-N8-0",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 10.725527416998375,
+      "lease_reset": 0.009654458999648341,
+      "run_tests": 3.8366012910009886,
+      "other_tools": 0.023440667004251736,
+      "verify": 6.7504615420002665
+    },
+    {
+      "repo": "config_parser",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "config_parser-c1-L0-single-function-N8-1",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 10.881681625000056,
+      "lease_reset": 0.011415666998800589,
+      "run_tests": 4.084145583998179,
+      "other_tools": 0.013836248999723466,
+      "verify": 6.66047166700082
+    },
+    {
+      "repo": "config_parser",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "config_parser-c1-L0-single-function-N8-2",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 10.790398375000223,
+      "lease_reset": 0.019249875000241445,
+      "run_tests": 4.087275541001873,
+      "other_tools": 0.006105708998802584,
+      "verify": 6.549127333999422
+    },
+    {
+      "repo": "config_parser",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "config_parser-c1-L0-single-function-N8-3",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 10.651074625000547,
+      "lease_reset": 0.02181195800039859,
+      "run_tests": 3.81506062599874,
+      "other_tools": 0.013436457998977858,
+      "verify": 6.701847416999954
+    },
+    {
+      "repo": "config_parser",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "config_parser-c1-L0-single-function-N8-4",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 10.83533666599942,
+      "lease_reset": 0.02076195799963898,
+      "run_tests": 3.861184333996789,
+      "other_tools": 0.010285293999913847,
+      "verify": 6.835835875001067
+    },
+    {
+      "repo": "config_parser",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "config_parser-c1-L0-single-function-N8-5",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 10.86124666700016,
+      "lease_reset": 0.003539541999998619,
+      "run_tests": 3.8745472509981482,
+      "other_tools": 0.010698456999307382,
+      "verify": 6.851142792000246
+    },
+    {
+      "repo": "config_parser",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "config_parser-c1-L0-single-function-N8-6",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 10.480477416998838,
+      "lease_reset": 0.005008666999856359,
+      "run_tests": 3.8668281659993227,
+      "other_tools": 0.013451541000904399,
+      "verify": 6.481050207999942
+    },
+    {
+      "repo": "config_parser",
+      "bucket": "c1-L0-single-function",
+      "trajectory_id": "config_parser-c1-L0-single-function-N8-7",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 10.656548625000141,
+      "lease_reset": 0.006521332999909646,
+      "run_tests": 3.833331835003264,
+      "other_tools": 0.01276071000029333,
+      "verify": 6.6357530419991235
+    },
+    {
+      "repo": "config_parser",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "config_parser-c2-L0-single-file-N8-0",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 11.252198083000621,
+      "lease_reset": 0.014320457999929204,
+      "run_tests": 4.241598000999147,
+      "other_tools": 0.012592459006555146,
+      "verify": 6.8727117920007
+    },
+    {
+      "repo": "config_parser",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "config_parser-c2-L0-single-file-N8-1",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 11.227308999999877,
+      "lease_reset": 0.005400500000177999,
+      "run_tests": 4.177006207999511,
+      "other_tools": 0.015960749000441865,
+      "verify": 6.928032166000776
+    },
+    {
+      "repo": "config_parser",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "config_parser-c2-L0-single-file-N8-2",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 11.185284334000244,
+      "lease_reset": 0.007758084000670351,
+      "run_tests": 4.13236812499963,
+      "other_tools": 0.005238123998424271,
+      "verify": 6.975101416999678
+    },
+    {
+      "repo": "config_parser",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "config_parser-c2-L0-single-file-N8-3",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 11.076180791000297,
+      "lease_reset": 0.007379582999419654,
+      "run_tests": 4.083803707997504,
+      "other_tools": 0.005407124997873325,
+      "verify": 6.8708868749999965
+    },
+    {
+      "repo": "config_parser",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "config_parser-c2-L0-single-file-N8-4",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 11.08721337499992,
+      "lease_reset": 0.005328166000253987,
+      "run_tests": 4.006004833996485,
+      "other_tools": 0.01778491699951701,
+      "verify": 6.9767950830009795
+    },
+    {
+      "repo": "config_parser",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "config_parser-c2-L0-single-file-N8-5",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 11.191645667000557,
+      "lease_reset": 0.01057612499971583,
+      "run_tests": 3.9839540000011766,
+      "other_tools": 0.01368579199515807,
+      "verify": 7.108478291998836
+    },
+    {
+      "repo": "config_parser",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "config_parser-c2-L0-single-file-N8-6",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 11.10666449999917,
+      "lease_reset": 0.011412166999434703,
+      "run_tests": 4.168295624998791,
+      "other_tools": 0.006977834000281291,
+      "verify": 6.868689957998868
+    },
+    {
+      "repo": "config_parser",
+      "bucket": "c2-L0-single-file",
+      "trajectory_id": "config_parser-c2-L0-single-file-N8-7",
+      "reward": 1,
+      "steps": 12,
+      "run_tests_calls": 4,
+      "tools_used": [
+        "apply_patch",
+        "list_files",
+        "read_file",
+        "run_tests",
+        "search_code"
+      ],
+      "cheat_flags": [],
+      "total": 10.919171958001243,
+      "lease_reset": 0.0029178750010032672,
+      "run_tests": 4.081638418001603,
+      "other_tools": 0.00914900200041302,
+      "verify": 6.760095915999045
+    }
+  ]
+}

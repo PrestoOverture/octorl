@@ -1,0 +1,11 @@
+--- a/pages.py
++++ b/pages.py
+@@ -6,7 +6,7 @@
+     """
+     if total < 0 or size <= 0:
+         raise ValueError("invalid pagination")
+-    return total // size
++    return (total + size - 1) // size
+ 
+ 
+ def page_slice(items, index, size):

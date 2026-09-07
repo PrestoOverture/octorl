@@ -1,0 +1,11 @@
+--- a/inventory.py
++++ b/inventory.py
+@@ -6,7 +6,7 @@
+     """
+     if on_hand < 0 or reserved < 0:
+         raise ValueError("negative stock")
+-    return on_hand
++    return max(0, on_hand - reserved)
+ 
+ 
+ def needs_reorder(available, threshold):

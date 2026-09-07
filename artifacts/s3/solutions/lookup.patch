@@ -1,0 +1,11 @@
+--- a/lookup.py
++++ b/lookup.py
+@@ -6,7 +6,7 @@
+     """
+     try:
+         return catalog[code]
+-    except TypeError:
++    except (KeyError, TypeError):
+         return default
+ 
+ 

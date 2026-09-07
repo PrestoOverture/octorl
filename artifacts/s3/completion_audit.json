@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "verified_at": "2026-09-05T14:46:25.682634+00:00",
+  "tasks": 10,
+  "trajectories": 80,
+  "turns": 914,
+  "all_final_rewards_replayed": true,
+  "same_model_script_hash": true,
+  "raw_turn_counts_recomputed": true,
+  "all_seeds_verified": true,
+  "all_five_bug_types": [
+    "condition inversion",
+    "missing exception handling",
+    "off-by-one",
+    "variable misuse",
+    "wrong return value"
+  ],
+  "context_limit_trajectories": 0,
+  "length_limited_turns": 14,
+  "test_integrity_violations": 0
+}

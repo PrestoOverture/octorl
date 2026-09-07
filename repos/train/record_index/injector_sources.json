@@ -1,0 +1,170 @@
+{
+  "provenance": "Controlled authored development history, not naturally occurring or upstream-mined defects.",
+  "initial_commit": "b1a286839bd055fd0765897c23afa6d616f1d0d9",
+  "fix_commit": "3b8a069c5e91287ef7541dd8602fb27f1382f678",
+  "history": [
+    {
+      "type": "condition-inversion",
+      "path": "record_index/__init__.py",
+      "fix_commit": "3b8a069c5e91287ef7541dd8602fb27f1382f678",
+      "before": "    def search(self, query: str, mode: str = \"all\", tag: str | None = None,\n               limit: int | None = None) -> list[str]:\n        if mode not in {\"all\", \"any\"}:\n            raise ValueError(\"mode must be all or any\")\n        if limit is not None and limit < 0:\n            raise ValueError(\"negative limit\")\n        words = set(tokenize(query))\n        matches = [set(self._postings.get(word, {})) for word in words]\n        identifiers = set.intersection(*matches) if mode == \"any\" else set.union(*matches)\n        if tag is not None:\n            identifiers = {identifier for identifier in identifiers\n                           if tag.casefold().strip() in self._documents[identifier].tags}\n        ranked = sorted(identifiers, key=lambda identifier: (\n            -sum(self._counts[identifier][word] for word in words), identifier))\n        return ranked if limit is None else ranked[:limit]\n",
+      "after": "    def search(self, query: str, mode: str = \"all\", tag: str | None = None,\n               limit: int | None = None) -> list[str]:\n        if mode not in {\"all\", \"any\"}:\n            raise ValueError(\"mode must be all or any\")\n        if limit is not None and limit < 0:\n            raise ValueError(\"negative limit\")\n        words = set(tokenize(query))\n        if not words:\n            return []\n        matches = [set(self._postings.get(word, {})) for word in words]\n        identifiers = set.intersection(*matches) if mode == \"all\" else set.union(*matches)\n        if tag is not None:\n            identifiers = {identifier for identifier in identifiers\n                           if tag.casefold().strip() in self._documents[identifier].tags}\n        ranked = sorted(identifiers, key=lambda identifier: (\n            -sum(self._counts[identifier][word] for word in words), identifier))\n        return ranked if limit is None else ranked[:limit]\n"
+    },
+    {
+      "type": "off-by-one",
+      "path": "record_index/__init__.py",
+      "fix_commit": "3b8a069c5e91287ef7541dd8602fb27f1382f678",
+      "before": "def paginate(items: Iterable[str], page: int, size: int) -> tuple[list[str], bool]:\n    \"\"\"One-based pagination with a next-page flag.\"\"\"\n    if page < 1 or size < 1:\n        raise ValueError(\"positive page and size required\")\n    values = list(items)\n    start = page * size\n    return values[start:start + size], start + size < len(values)\n",
+      "after": "def paginate(items: Iterable[str], page: int, size: int) -> tuple[list[str], bool]:\n    \"\"\"One-based pagination with a next-page flag.\"\"\"\n    if page < 1 or size < 1:\n        raise ValueError(\"positive page and size required\")\n    values = list(items)\n    start = (page - 1) * size\n    return values[start:start + size], start + size < len(values)\n"
+    },
+    {
+      "type": "variable-misuse",
+      "path": "record_index/__init__.py",
+      "fix_commit": "3b8a069c5e91287ef7541dd8602fb27f1382f678",
+      "before": "    def replace(self, identifier: str, title: str, body: str,\n                tags: Iterable[str] | None = None) -> Document:\n        previous = self.get(identifier)\n        selected_tags = previous.tags if tags is None else tuple(tags)\n        self.remove(identifier)\n        return self.add(identifier, title, body, previous.tags)\n",
+      "after": "    def replace(self, identifier: str, title: str, body: str,\n                tags: Iterable[str] | None = None) -> Document:\n        previous = self.get(identifier)\n        selected_tags = previous.tags if tags is None else tuple(tags)\n        self.remove(identifier)\n        return self.add(identifier, title, body, selected_tags)\n"
+    },
+    {
+      "type": "wrong-return-value",
+      "path": "record_index/__init__.py",
+      "fix_commit": "3b8a069c5e91287ef7541dd8602fb27f1382f678",
+      "before": "    def related(self, identifier: str, limit: int = 5) -> list[str]:\n        if limit < 0:\n            raise ValueError(\"negative limit\")\n        words = set(self._counts[identifier])\n        scores = []\n        for other, counts in self._counts.items():\n            if other != identifier:\n                overlap = len(words.intersection(counts))\n                if overlap > 0:\n                    scores.append((overlap, other))\n        return [other for _, other in sorted(scores)[:limit]]\n",
+      "after": "    def related(self, identifier: str, limit: int = 5) -> list[str]:\n        if limit < 0:\n            raise ValueError(\"negative limit\")\n        words = set(self._counts[identifier])\n        scores = []\n        for other, counts in self._counts.items():\n            if other != identifier:\n                overlap = len(words.intersection(counts))\n                if overlap > 0:\n                    scores.append((-overlap, other))\n        return [other for _, other in sorted(scores)[:limit]]\n"
+    },
+    {
+      "type": "missing-exception-handling",
+      "path": "record_index/__init__.py",
+      "fix_commit": "3b8a069c5e91287ef7541dd8602fb27f1382f678",
+      "before": "    def frequency(self, word: str, identifier: str | None = None) -> int:\n        word = tokenize(word)[0]\n        if identifier is not None:\n            return self._counts[identifier][word]\n        return sum(len(offsets) for offsets in self._postings.get(word, {}).values())\n",
+      "after": "    def frequency(self, word: str, identifier: str | None = None) -> int:\n        normalized = tokenize(word)\n        if len(normalized) != 1:\n            raise ValueError(\"one word required\")\n        word = normalized[0]\n        if identifier is not None:\n            return self._counts[identifier][word]\n        return sum(len(offsets) for offsets in self._postings.get(word, {}).values())\n"
+    },
+    {
+      "type": "api-parameter-error",
+      "path": "record_index/__init__.py",
+      "fix_commit": "3b8a069c5e91287ef7541dd8602fb27f1382f678",
+      "before": "    def export(self) -> list[dict[str, object]]:\n        return [dict(identifier=document.identifier, title=document.title,\n                     body=document.body, tags=sorted(document.tags))\n                for document in sorted(self._documents.values(), key=lambda item: item.title)]\n",
+      "after": "    def export(self) -> list[dict[str, object]]:\n        return [dict(identifier=document.identifier, title=document.title,\n                     body=document.body, tags=sorted(document.tags))\n                for document in sorted(self._documents.values(), key=lambda item: item.identifier)]\n"
+    },
+    {
+      "type": "boundary-condition-omission",
+      "path": "record_index/__init__.py",
+      "fix_commit": "3b8a069c5e91287ef7541dd8602fb27f1382f678",
+      "before": "    def search(self, query: str, mode: str = \"all\", tag: str | None = None,\n               limit: int | None = None) -> list[str]:\n        if mode not in {\"all\", \"any\"}:\n            raise ValueError(\"mode must be all or any\")\n        if limit is not None and limit < 0:\n            raise ValueError(\"negative limit\")\n        words = set(tokenize(query))\n        matches = [set(self._postings.get(word, {})) for word in words]\n        identifiers = set.intersection(*matches) if mode == \"any\" else set.union(*matches)\n        if tag is not None:\n            identifiers = {identifier for identifier in identifiers\n                           if tag.casefold().strip() in self._documents[identifier].tags}\n        ranked = sorted(identifiers, key=lambda identifier: (\n            -sum(self._counts[identifier][word] for word in words), identifier))\n        return ranked if limit is None else ranked[:limit]\n",
+      "after": "    def search(self, query: str, mode: str = \"all\", tag: str | None = None,\n               limit: int | None = None) -> list[str]:\n        if mode not in {\"all\", \"any\"}:\n            raise ValueError(\"mode must be all or any\")\n        if limit is not None and limit < 0:\n            raise ValueError(\"negative limit\")\n        words = set(tokenize(query))\n        if not words:\n            return []\n        matches = [set(self._postings.get(word, {})) for word in words]\n        identifiers = set.intersection(*matches) if mode == \"all\" else set.union(*matches)\n        if tag is not None:\n            identifiers = {identifier for identifier in identifiers\n                           if tag.casefold().strip() in self._documents[identifier].tags}\n        ranked = sorted(identifiers, key=lambda identifier: (\n            -sum(self._counts[identifier][word] for word in words), identifier))\n        return ranked if limit is None else ranked[:limit]\n"
+    },
+    {
+      "type": "condition-inversion",
+      "path": "record_index/__init__.py",
+      "fix_commit": "731bcb6fc89d06d941c495ffac3978b8fb825f30",
+      "before": "def filtered_search(index: Index, query: str) -> list[str]:\n    include, exclude = parse_query(query)\n    candidates = index.search(\" \".join(include))\n    blocked = set(index.search(\" \".join(exclude), mode=\"any\"))\n    return [identifier for identifier in candidates if identifier in blocked]\n",
+      "after": "def filtered_search(index: Index, query: str) -> list[str]:\n    include, exclude = parse_query(query)\n    candidates = index.search(\" \".join(include))\n    blocked = set(index.search(\" \".join(exclude), mode=\"any\"))\n    return [identifier for identifier in candidates if identifier not in blocked]\n"
+    },
+    {
+      "type": "off-by-one",
+      "path": "record_index/__init__.py",
+      "fix_commit": "731bcb6fc89d06d941c495ffac3978b8fb825f30",
+      "before": "def excerpt(text: str, query: str, width: int = 8) -> str:\n    \"\"\"Return up to width whitespace words centered near the first match.\"\"\"\n    if width <= 0:\n        raise ValueError(\"positive excerpt width required\")\n    words = text.split()\n    wanted = set(tokenize(query))\n    match = next((index for index, word in enumerate(words) if wanted.intersection(tokenize(word))), 0)\n    start = max(0, min(match - width // 2, len(words) - width))\n    return \" \".join(words[start:start + width + 1])\n",
+      "after": "def excerpt(text: str, query: str, width: int = 8) -> str:\n    \"\"\"Return up to width whitespace words centered near the first match.\"\"\"\n    if width <= 0:\n        raise ValueError(\"positive excerpt width required\")\n    words = text.split()\n    wanted = set(tokenize(query))\n    match = next((index for index, word in enumerate(words) if wanted.intersection(tokenize(word))), 0)\n    start = max(0, min(match - width // 2, len(words) - width))\n    return \" \".join(words[start:start + width])\n"
+    },
+    {
+      "type": "variable-misuse",
+      "path": "record_index/__init__.py",
+      "fix_commit": "731bcb6fc89d06d941c495ffac3978b8fb825f30",
+      "before": "    def add(self, identifier: str, title: str, body: str,\n            tags: Iterable[str] = ()) -> Document:\n        if not identifier or identifier in self._documents:\n            raise ValueError(\"new nonempty identifier required\")\n        normalized_tags = frozenset(tag.strip().casefold() for tag in tags if tag.strip())\n        document = Document(identifier, title, body, normalized_tags)\n        tokens = tokenize(title + \" \" + body)\n        self._documents[identifier] = document\n        self._counts[identifier] = Counter(tokens)\n        for word, offsets in positions(title + \" \" + title).items():\n            self._postings.setdefault(word, {})[identifier] = offsets\n        return document\n",
+      "after": "    def add(self, identifier: str, title: str, body: str,\n            tags: Iterable[str] = ()) -> Document:\n        if not identifier or identifier in self._documents:\n            raise ValueError(\"new nonempty identifier required\")\n        normalized_tags = frozenset(tag.strip().casefold() for tag in tags if tag.strip())\n        document = Document(identifier, title, body, normalized_tags)\n        tokens = tokenize(title + \" \" + body)\n        self._documents[identifier] = document\n        self._counts[identifier] = Counter(tokens)\n        for word, offsets in positions(title + \" \" + body).items():\n            self._postings.setdefault(word, {})[identifier] = offsets\n        return document\n"
+    },
+    {
+      "type": "wrong-return-value",
+      "path": "record_index/__init__.py",
+      "fix_commit": "731bcb6fc89d06d941c495ffac3978b8fb825f30",
+      "before": "    def vocabulary(self, prefix: str = \"\") -> tuple[str, ...]:\n        prefix = prefix.casefold()\n        return tuple(word for word in self._postings if word.startswith(prefix))\n",
+      "after": "    def vocabulary(self, prefix: str = \"\") -> tuple[str, ...]:\n        prefix = prefix.casefold()\n        return tuple(sorted(word for word in self._postings if word.startswith(prefix)))\n"
+    },
+    {
+      "type": "missing-exception-handling",
+      "path": "record_index/__init__.py",
+      "fix_commit": "731bcb6fc89d06d941c495ffac3978b8fb825f30",
+      "before": "    def from_rows(cls, rows: Iterable[dict[str, object]]) -> Index:\n        index = cls()\n        for row in rows:\n            identifier, title, body = row[\"identifier\"], row[\"title\"], row[\"body\"]\n            tags = row.get(\"tags\", [])\n            index.add(identifier, title, body, tags)\n        return index\n",
+      "after": "    def from_rows(cls, rows: Iterable[dict[str, object]]) -> Index:\n        index = cls()\n        for row in rows:\n            identifier, title, body = row[\"identifier\"], row[\"title\"], row[\"body\"]\n            tags = row.get(\"tags\", [])\n            if not all(isinstance(value, str) for value in (identifier, title, body)):\n                raise ValueError(\"document fields must be strings\")\n            if not isinstance(tags, (list, tuple)) or not all(isinstance(tag, str) for tag in tags):\n                raise ValueError(\"tags must be a string sequence\")\n            index.add(identifier, title, body, tags)\n        return index\n"
+    },
+    {
+      "type": "api-parameter-error",
+      "path": "record_index/__init__.py",
+      "fix_commit": "731bcb6fc89d06d941c495ffac3978b8fb825f30",
+      "before": "def concordance(index: Index, word: str) -> list[tuple[str, int]]:\n    \"\"\"All documents containing a word, sorted by decreasing frequency.\"\"\"\n    return [(identifier, index.frequency(word)) for identifier in index.search(word)]\n",
+      "after": "def concordance(index: Index, word: str) -> list[tuple[str, int]]:\n    \"\"\"All documents containing a word, sorted by decreasing frequency.\"\"\"\n    return [(identifier, index.frequency(word, identifier)) for identifier in index.search(word)]\n"
+    },
+    {
+      "type": "boundary-condition-omission",
+      "path": "record_index/__init__.py",
+      "fix_commit": "731bcb6fc89d06d941c495ffac3978b8fb825f30",
+      "before": "    def remove(self, identifier: str) -> Document:\n        document = self._documents.pop(identifier)\n        for word in self._counts.pop(identifier):\n            del self._postings[word][identifier]\n        return document\n",
+      "after": "    def remove(self, identifier: str) -> Document:\n        document = self._documents.pop(identifier)\n        for word in self._counts.pop(identifier):\n            del self._postings[word][identifier]\n            if not self._postings[word]:\n                del self._postings[word]\n        return document\n"
+    }
+  ],
+  "features": [
+    {
+      "type": "condition-inversion",
+      "path": "record_index/__init__.py",
+      "before": "    def search(self, query: str, mode: str = \"all\", tag: str | None = None,\n               limit: int | None = None) -> list[str]:\n        if mode not in {\"all\", \"any\"}:\n            raise ValueError(\"mode must be all or any\")\n        if limit is not None and limit < 0:\n            raise ValueError(\"negative limit\")\n        words = set(tokenize(query))\n        if not words:\n            return []\n        matches = [set(self._postings.get(word, {})) for word in words]\n        identifiers = set.intersection(*matches) if mode == \"all\" else set.union(*matches)\n        if tag is not None:\n            identifiers = {identifier for identifier in identifiers\n                           if tag.casefold().strip() in self._documents[identifier].tags}\n        ranked = sorted(identifiers, key=lambda identifier: (\n            -sum(self._counts[identifier][word] for word in words), identifier))\n        return ranked if limit is None else ranked[:limit]\n",
+      "after": "    def search(self, query: str, mode: str = \"all\", tag: str | None = None,\n               limit: int | None = None, *, boost: dict[str, float] | None = None) -> list[str]:\n        if mode not in {\"all\", \"any\"}:\n            raise ValueError(\"mode must be all or any\")\n        if limit is not None and limit < 0:\n            raise ValueError(\"negative limit\")\n        words = set(tokenize(query))\n        if not words:\n            return []\n        matches = [set(self._postings.get(word, {})) for word in words]\n        identifiers = set.intersection(*matches) if mode == \"any\" else set.union(*matches)\n        if tag is not None:\n            identifiers = {identifier for identifier in identifiers\n                           if tag.casefold().strip() in self._documents[identifier].tags}\n        def score(identifier):\n            base = -sum(self._counts[identifier][word] for word in words)\n            return (base * boost.get(identifier, 1.0), identifier) if boost else (base, identifier)\n        ranked = sorted(identifiers, key=score)\n        return ranked if limit is None else ranked[:limit]\n",
+      "description": "Add score boosting by identifier; intersection-union mode logic accidentally swapped."
+    },
+    {
+      "type": "off-by-one",
+      "path": "record_index/__init__.py",
+      "before": "def paginate(items: Iterable[str], page: int, size: int) -> tuple[list[str], bool]:\n    \"\"\"One-based pagination with a next-page flag.\"\"\"\n    if page < 1 or size < 1:\n        raise ValueError(\"positive page and size required\")\n    values = list(items)\n    start = (page - 1) * size\n    return values[start:start + size], start + size < len(values)\n",
+      "after": "def paginate(items: Iterable[str], page: int, size: int, *, label: str | None = None) -> tuple[list[str], bool]:\n    \"\"\"One-based pagination with a next-page flag.\"\"\"\n    if page < 1 or size < 1:\n        raise ValueError(\"positive page and size required\")\n    values = list(items)\n    start = page * size\n    chunk = values[start:start + size]\n    if label is not None:\n        chunk = [f\"{label}{item}\" for item in chunk]\n    return chunk, start + size < len(values)\n",
+      "description": "Add optional label prefix for items; page offset calculation regresses."
+    },
+    {
+      "type": "variable-misuse",
+      "path": "record_index/__init__.py",
+      "before": "    def replace(self, identifier: str, title: str, body: str,\n                tags: Iterable[str] | None = None) -> Document:\n        previous = self.get(identifier)\n        selected_tags = previous.tags if tags is None else tuple(tags)\n        self.remove(identifier)\n        return self.add(identifier, title, body, selected_tags)\n",
+      "after": "    def replace(self, identifier: str, title: str, body: str,\n                tags: Iterable[str] | None = None, *, merge_tags: bool = False) -> Document:\n        previous = self.get(identifier)\n        selected_tags = previous.tags if tags is None else tuple(tags)\n        self.remove(identifier)\n        if merge_tags and tags is not None:\n            combined = previous.tags | frozenset(tag.strip().casefold() for tag in tags if tag.strip())\n            return self.add(identifier, title, body, combined)\n        return self.add(identifier, title, body, previous.tags)\n",
+      "description": "Add tag-merge mode combining old and new tags; non-merge path uses previous tags."
+    },
+    {
+      "type": "wrong-return-value",
+      "path": "record_index/__init__.py",
+      "before": "    def related(self, identifier: str, limit: int = 5) -> list[str]:\n        if limit < 0:\n            raise ValueError(\"negative limit\")\n        words = set(self._counts[identifier])\n        scores = []\n        for other, counts in self._counts.items():\n            if other != identifier:\n                overlap = len(words.intersection(counts))\n                if overlap > 0:\n                    scores.append((-overlap, other))\n        return [other for _, other in sorted(scores)[:limit]]\n",
+      "after": "    def related(self, identifier: str, limit: int = 5, *, min_overlap: int = 0) -> list[str]:\n        if limit < 0:\n            raise ValueError(\"negative limit\")\n        words = set(self._counts[identifier])\n        scores = []\n        for other, counts in self._counts.items():\n            if other != identifier:\n                overlap = len(words.intersection(counts))\n                if overlap > min_overlap:\n                    scores.append((overlap, other))\n        return [other for _, other in sorted(scores)[:limit]]\n",
+      "description": "Add minimum-overlap filter; sort order loses negation for descending rank."
+    },
+    {
+      "type": "missing-exception-handling",
+      "path": "record_index/__init__.py",
+      "before": "    def frequency(self, word: str, identifier: str | None = None) -> int:\n        normalized = tokenize(word)\n        if len(normalized) != 1:\n            raise ValueError(\"one word required\")\n        word = normalized[0]\n        if identifier is not None:\n            return self._counts[identifier][word]\n        return sum(len(offsets) for offsets in self._postings.get(word, {}).values())\n",
+      "after": "    def frequency(self, word: str, identifier: str | None = None, *, multi: bool = False) -> int | dict[str, int]:\n        if multi:\n            words = tokenize(word)\n            return {w: sum(len(o) for o in self._postings.get(w, {}).values()) for w in words}\n        word = tokenize(word)[0]\n        if identifier is not None:\n            return self._counts[identifier][word]\n        return sum(len(offsets) for offsets in self._postings.get(word, {}).values())\n",
+      "description": "Add multi-word frequency map; single-word path loses empty-input validation."
+    },
+    {
+      "type": "api-parameter-error",
+      "path": "record_index/__init__.py",
+      "before": "    def export(self) -> list[dict[str, object]]:\n        return [dict(identifier=document.identifier, title=document.title,\n                     body=document.body, tags=sorted(document.tags))\n                for document in sorted(self._documents.values(), key=lambda item: item.identifier)]\n",
+      "after": "    def export(self, *, reverse: bool = False) -> list[dict[str, object]]:\n        return [dict(identifier=document.identifier, title=document.title,\n                     body=document.body, tags=sorted(document.tags))\n                for document in sorted(self._documents.values(), key=lambda item: item.title, reverse=reverse)]\n",
+      "description": "Add reverse-order export; sort key changes from identifier to title."
+    },
+    {
+      "type": "boundary-condition-omission",
+      "path": "record_index/__init__.py",
+      "before": "    def search(self, query: str, mode: str = \"all\", tag: str | None = None,\n               limit: int | None = None) -> list[str]:\n        if mode not in {\"all\", \"any\"}:\n            raise ValueError(\"mode must be all or any\")\n        if limit is not None and limit < 0:\n            raise ValueError(\"negative limit\")\n        words = set(tokenize(query))\n        if not words:\n            return []\n        matches = [set(self._postings.get(word, {})) for word in words]\n        identifiers = set.intersection(*matches) if mode == \"all\" else set.union(*matches)\n        if tag is not None:\n            identifiers = {identifier for identifier in identifiers\n                           if tag.casefold().strip() in self._documents[identifier].tags}\n        ranked = sorted(identifiers, key=lambda identifier: (\n            -sum(self._counts[identifier][word] for word in words), identifier))\n        return ranked if limit is None else ranked[:limit]\n",
+      "after": "    def search(self, query: str, mode: str = \"all\", tag: str | None = None,\n               limit: int | None = None, *, default: list[str] | None = None) -> list[str]:\n        if mode not in {\"all\", \"any\"}:\n            raise ValueError(\"mode must be all or any\")\n        if limit is not None and limit < 0:\n            raise ValueError(\"negative limit\")\n        words = set(tokenize(query))\n        matches = [set(self._postings.get(word, {})) for word in words]\n        identifiers = set.intersection(*matches) if mode == \"all\" else set.union(*matches)\n        if tag is not None:\n            identifiers = {identifier for identifier in identifiers\n                           if tag.casefold().strip() in self._documents[identifier].tags}\n        ranked = sorted(identifiers, key=lambda identifier: (\n            -sum(self._counts[identifier][word] for word in words), identifier))\n        if not ranked and default is not None:\n            return list(default)\n        return ranked if limit is None else ranked[:limit]\n",
+      "description": "Add default result for empty matches; empty-query guard removed."
+    },
+    {
+      "type": "condition-inversion",
+      "path": "record_index/__init__.py",
+      "before": "    def vocabulary(self, prefix: str = \"\") -> tuple[str, ...]:\n        prefix = prefix.casefold()\n        return tuple(sorted(word for word in self._postings if word.startswith(prefix)))\n",
+      "after": "    def vocabulary(self, prefix: str = \"\", *, suffix: bool = False) -> tuple[str, ...]:\n        prefix = prefix.casefold()\n        if suffix:\n            return tuple(sorted(word for word in self._postings if word.endswith(prefix)))\n        return tuple(sorted(word for word in self._postings if not word.startswith(prefix)))\n",
+      "description": "Add suffix matching to vocabulary; the prefix branch inverts its condition."
+    },
+    {
+      "type": "off-by-one",
+      "path": "record_index/__init__.py",
+      "before": "def excerpt(text: str, query: str, width: int = 8) -> str:\n    \"\"\"Return up to width whitespace words centered near the first match.\"\"\"\n    if width <= 0:\n        raise ValueError(\"positive excerpt width required\")\n    words = text.split()\n    wanted = set(tokenize(query))\n    match = next((index for index, word in enumerate(words) if wanted.intersection(tokenize(word))), 0)\n    start = max(0, min(match - width // 2, len(words) - width))\n    return \" \".join(words[start:start + width])\n",
+      "after": "def excerpt(text: str, query: str, width: int = 8, *, ellipsis: bool = False) -> str:\n    \"\"\"Return up to width whitespace words centered near the first match.\"\"\"\n    if width <= 0:\n        raise ValueError(\"positive excerpt width required\")\n    words = text.split()\n    wanted = set(tokenize(query))\n    match = next((index for index, word in enumerate(words) if wanted.intersection(tokenize(word))), 0)\n    start = max(0, min(match - width // 2, len(words) - width))\n    body = \" \".join(words[start:start + width - 1])\n    return body + \"\u2026\" if ellipsis else body\n",
+      "description": "Add an ellipsis suffix to excerpts; the word window loses its last word."
+    }
+  ]
+}

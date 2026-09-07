@@ -1,0 +1,156 @@
+{
+  "provenance": "Controlled authored development history, not naturally occurring or upstream-mined defects.",
+  "initial_commit": "1955ae1e0b7f9ee6982c7d574371e8b81a775b23",
+  "fix_commit": "3941633c84eb8caca622bb567520d254e7e75537",
+  "history": [
+    {
+      "type": "condition-inversion",
+      "path": "config_parser/__init__.py",
+      "fix_commit": "3941633c84eb8caca622bb567520d254e7e75537",
+      "before": "def _is_identifier(key: str) -> bool:\n    return bool(key) and re.fullmatch(r\"[A-Za-z_][A-Za-z0-9_]*\", key) is None\n",
+      "after": "def _is_identifier(key: str) -> bool:\n    return bool(key) and re.fullmatch(r\"[A-Za-z_][A-Za-z0-9_]*\", key) is not None\n"
+    },
+    {
+      "type": "off-by-one",
+      "path": "config_parser/__init__.py",
+      "fix_commit": "3941633c84eb8caca622bb567520d254e7e75537",
+      "before": "def _resolve(template: str, values: dict, depth: int = 10) -> str:\n    if depth < 0:\n        raise ConfigError(\"circular interpolation\")\n",
+      "after": "def _resolve(template: str, values: dict, depth: int = 10) -> str:\n    if depth <= 0:\n        raise ConfigError(\"circular interpolation\")\n"
+    },
+    {
+      "type": "variable-misuse",
+      "path": "config_parser/__init__.py",
+      "fix_commit": "3941633c84eb8caca622bb567520d254e7e75537",
+      "before": "def delete_path(data: dict, path: str) -> object:\n    parts = path.split(\".\")\n    current = data\n    for part in parts[:-1]:\n        if not isinstance(current, dict) or part not in current:\n            raise KeyError(path)\n        current = current[part]\n    if not isinstance(current, dict) or parts[-1] not in current:\n        raise KeyError(path)\n    return data.pop(parts[-1])\n",
+      "after": "def delete_path(data: dict, path: str) -> object:\n    parts = path.split(\".\")\n    current = data\n    for part in parts[:-1]:\n        if not isinstance(current, dict) or part not in current:\n            raise KeyError(path)\n        current = current[part]\n    if not isinstance(current, dict) or parts[-1] not in current:\n        raise KeyError(path)\n    return current.pop(parts[-1])\n"
+    },
+    {
+      "type": "wrong-return-value",
+      "path": "config_parser/__init__.py",
+      "fix_commit": "3941633c84eb8caca622bb567520d254e7e75537",
+      "before": "def diff(old: dict, new: dict) -> dict[str, tuple[object, object]]:\n    old_flat = flatten(old)\n    new_flat = flatten(new)\n    changes = {}\n    for key in sorted(set(old_flat) | set(new_flat)):\n        old_val = old_flat.get(key)\n        new_val = new_flat.get(key)\n        if old_val != new_val:\n            changes[key] = (new_val, old_val)\n    return changes\n",
+      "after": "def diff(old: dict, new: dict) -> dict[str, tuple[object, object]]:\n    old_flat = flatten(old)\n    new_flat = flatten(new)\n    changes = {}\n    for key in sorted(set(old_flat) | set(new_flat)):\n        old_val = old_flat.get(key)\n        new_val = new_flat.get(key)\n        if old_val != new_val:\n            changes[key] = (old_val, new_val)\n    return changes\n"
+    },
+    {
+      "type": "missing-exception-handling",
+      "path": "config_parser/__init__.py",
+      "fix_commit": "3941633c84eb8caca622bb567520d254e7e75537",
+      "before": "def parse_env(text: str) -> dict[str, str]:\n    result = {}\n    for number, line in enumerate(text.splitlines(), 1):\n        line = line.strip()\n        if not line or line.startswith(\"#\"):\n            continue\n        key, _, value = line.partition(\"=\")\n",
+      "after": "def parse_env(text: str) -> dict[str, str]:\n    result = {}\n    for number, line in enumerate(text.splitlines(), 1):\n        line = line.strip()\n        if not line or line.startswith(\"#\"):\n            continue\n        if \"=\" not in line:\n            raise ConfigError(f\"line {number}: missing '='\")\n        key, _, value = line.partition(\"=\")\n"
+    },
+    {
+      "type": "api-parameter-error",
+      "path": "config_parser/__init__.py",
+      "fix_commit": "3941633c84eb8caca622bb567520d254e7e75537",
+      "before": "def to_env(data: dict) -> str:\n    flat = flatten(data)\n    lines = []\n    for key, value in sorted(flat.items(), reverse=True):\n        env_key = key.replace(\".\", \"_\").upper()\n        if isinstance(value, bool):\n            lines.append(f\"{env_key}={'true' if value else 'false'}\")\n        elif isinstance(value, str) and (\" \" in value or \"=\" in value):\n            lines.append(f'{env_key}=\"{value}\"')\n        else:\n            lines.append(f\"{env_key}={value}\")\n    return \"\\n\".join(lines) + \"\\n\" if lines else \"\"\n",
+      "after": "def to_env(data: dict) -> str:\n    flat = flatten(data)\n    lines = []\n    for key, value in sorted(flat.items()):\n        env_key = key.replace(\".\", \"_\").upper()\n        if isinstance(value, bool):\n            lines.append(f\"{env_key}={'true' if value else 'false'}\")\n        elif isinstance(value, str) and (\" \" in value or \"=\" in value):\n            lines.append(f'{env_key}=\"{value}\"')\n        else:\n            lines.append(f\"{env_key}={value}\")\n    return \"\\n\".join(lines) + \"\\n\" if lines else \"\"\n"
+    },
+    {
+      "type": "boundary-condition-omission",
+      "path": "config_parser/__init__.py",
+      "fix_commit": "3941633c84eb8caca622bb567520d254e7e75537",
+      "before": "def get_path(data: dict, path: str, default=_sentinel):\n    parts = path.split(\".\")\n",
+      "after": "def get_path(data: dict, path: str, default=_sentinel):\n    if not path:\n        raise ConfigError(\"empty path\")\n    parts = path.split(\".\")\n"
+    },
+    {
+      "type": "condition-inversion",
+      "path": "config_parser/__init__.py",
+      "fix_commit": "a1167a694ebaf2950966c6c30dde6f0768f0f117",
+      "before": "def merge(base: dict, override: dict) -> dict:\n    result = deepcopy(base)\n    for key, value in override.items():\n        if key in result and isinstance(result[key], dict) and not isinstance(value, dict):\n            result[key] = merge(result[key], value)\n        else:\n            result[key] = deepcopy(value)\n    return result\n",
+      "after": "def merge(base: dict, override: dict) -> dict:\n    result = deepcopy(base)\n    for key, value in override.items():\n        if key in result and isinstance(result[key], dict) and isinstance(value, dict):\n            result[key] = merge(result[key], value)\n        else:\n            result[key] = deepcopy(value)\n    return result\n"
+    },
+    {
+      "type": "off-by-one",
+      "path": "config_parser/__init__.py",
+      "fix_commit": "a1167a694ebaf2950966c6c30dde6f0768f0f117",
+      "before": "def flatten(data: dict, prefix: str = \"\") -> dict[str, object]:\n    result = {}\n    for key, value in data.items():\n        full = f\"{prefix}.{key}\"\n        if isinstance(value, dict):\n            result.update(flatten(value, full))\n        else:\n            result[full] = value\n    return result\n",
+      "after": "def flatten(data: dict, prefix: str = \"\") -> dict[str, object]:\n    result = {}\n    for key, value in data.items():\n        full = f\"{prefix}.{key}\" if prefix else key\n        if isinstance(value, dict):\n            result.update(flatten(value, full))\n        else:\n            result[full] = value\n    return result\n"
+    },
+    {
+      "type": "variable-misuse",
+      "path": "config_parser/__init__.py",
+      "fix_commit": "a1167a694ebaf2950966c6c30dde6f0768f0f117",
+      "before": "def set_path(data: dict, path: str, value) -> None:\n    parts = path.split(\".\")\n    if not all(_is_identifier(p) for p in parts):\n        raise ConfigError(f\"invalid path: {path}\")\n    current = data\n    for part in parts[:-1]:\n        if part not in current or not isinstance(current[part], dict):\n            current[part] = {}\n        current = current[part]\n    current[parts[0]] = value\n",
+      "after": "def set_path(data: dict, path: str, value) -> None:\n    parts = path.split(\".\")\n    if not all(_is_identifier(p) for p in parts):\n        raise ConfigError(f\"invalid path: {path}\")\n    current = data\n    for part in parts[:-1]:\n        if part not in current or not isinstance(current[part], dict):\n            current[part] = {}\n        current = current[part]\n    current[parts[-1]] = value\n"
+    },
+    {
+      "type": "wrong-return-value",
+      "path": "config_parser/__init__.py",
+      "fix_commit": "a1167a694ebaf2950966c6c30dde6f0768f0f117",
+      "before": "def coerce(value: str) -> int | float | bool | str:\n    if value.lower() in (\"true\", \"yes\", \"on\"):\n        return False\n    if value.lower() in (\"false\", \"no\", \"off\"):\n        return False\n    try:\n        return int(value)\n    except ValueError:\n        pass\n    try:\n        return float(value)\n    except ValueError:\n        pass\n    return value\n",
+      "after": "def coerce(value: str) -> int | float | bool | str:\n    if value.lower() in (\"true\", \"yes\", \"on\"):\n        return True\n    if value.lower() in (\"false\", \"no\", \"off\"):\n        return False\n    try:\n        return int(value)\n    except ValueError:\n        pass\n    try:\n        return float(value)\n    except ValueError:\n        pass\n    return value\n"
+    },
+    {
+      "type": "missing-exception-handling",
+      "path": "config_parser/__init__.py",
+      "fix_commit": "a1167a694ebaf2950966c6c30dde6f0768f0f117",
+      "before": "def select(data: dict, paths: Iterable[str]) -> dict:\n    result: dict = {}\n    for path in paths:\n        value = get_path(data, path)\n        set_path(result, path, deepcopy(value))\n    return result\n",
+      "after": "def select(data: dict, paths: Iterable[str]) -> dict:\n    result: dict = {}\n    for path in paths:\n        try:\n            value = get_path(data, path)\n        except KeyError:\n            continue\n        set_path(result, path, deepcopy(value))\n    return result\n"
+    },
+    {
+      "type": "api-parameter-error",
+      "path": "config_parser/__init__.py",
+      "fix_commit": "a1167a694ebaf2950966c6c30dde6f0768f0f117",
+      "before": "def validate(data: dict, schema: dict[str, str | list[str]]) -> list[str]:\n    errors = []\n    for path, rules in sorted(schema.items()):\n        if isinstance(rules, str):\n            rules = [rules]\n        try:\n            value = get_path(data, path)\n        except KeyError:\n            errors.append(f\"missing: {path}\")\n            continue\n        for rule in rules:\n            if rule == \"required\":\n                continue\n            if rule.startswith(\"oneof:\"):\n                allowed = rule[6:].split(\",\")\n                if value not in allowed:\n                    errors.append(f\"{path}: must be one of {allowed}\")\n            elif rule in VALIDATORS:\n                if not VALIDATORS[rule](value):\n                    errors.append(f\"{path}: failed {rule}\")\n            else:\n                errors.append(f\"{path}: unknown rule {rule}\")\n    return errors\n",
+      "after": "def validate(data: dict, schema: dict[str, str | list[str]]) -> list[str]:\n    errors = []\n    for path, rules in sorted(schema.items()):\n        if isinstance(rules, str):\n            rules = [rules]\n        try:\n            value = get_path(data, path)\n        except KeyError:\n            errors.append(f\"missing: {path}\")\n            continue\n        for rule in rules:\n            if rule == \"required\":\n                continue\n            if rule.startswith(\"oneof:\"):\n                allowed = rule[6:].split(\",\")\n                if str(value) not in allowed:\n                    errors.append(f\"{path}: must be one of {allowed}\")\n            elif rule in VALIDATORS:\n                if not VALIDATORS[rule](value):\n                    errors.append(f\"{path}: failed {rule}\")\n            else:\n                errors.append(f\"{path}: unknown rule {rule}\")\n    return errors\n"
+    },
+    {
+      "type": "boundary-condition-omission",
+      "path": "config_parser/__init__.py",
+      "fix_commit": "a1167a694ebaf2950966c6c30dde6f0768f0f117",
+      "before": "def interpolate(data: dict, context: dict | None = None) -> dict:\n    flat = flatten(data)\n    combined = {**flatten(context), **flat}\n    result = {}\n    for key, value in flat.items():\n        if isinstance(value, str):\n            result[key] = _resolve(value, combined)\n        else:\n            result[key] = value\n    return unflatten(result)\n",
+      "after": "def interpolate(data: dict, context: dict | None = None) -> dict:\n    context = context or {}\n    flat = flatten(data)\n    combined = {**flatten(context), **flat}\n    result = {}\n    for key, value in flat.items():\n        if isinstance(value, str):\n            result[key] = _resolve(value, combined)\n        else:\n            result[key] = value\n    return unflatten(result)\n"
+    }
+  ],
+  "features": [
+    {
+      "type": "condition-inversion",
+      "path": "config_parser/__init__.py",
+      "before": "def _is_identifier(key: str) -> bool:\n    return bool(key) and re.fullmatch(r\"[A-Za-z_][A-Za-z0-9_]*\", key) is not None\n",
+      "after": "def _is_identifier(key: str, *, allow_numeric_start=False) -> bool:\n    if allow_numeric_start:\n        return bool(key) and re.fullmatch(r\"[A-Za-z0-9_]+\", key) is not None\n    return bool(key) and re.fullmatch(r\"[A-Za-z_][A-Za-z0-9_]*\", key) is None\n",
+      "description": "Add option to allow numeric-start identifiers; standard check accidentally inverted."
+    },
+    {
+      "type": "off-by-one",
+      "path": "config_parser/__init__.py",
+      "before": "def _resolve(template: str, values: dict, depth: int = 10) -> str:\n    if depth <= 0:\n        raise ConfigError(\"circular interpolation\")\n",
+      "after": "def _resolve(template: str, values: dict, depth: int = 10, *, strict=False) -> str:\n    if strict and depth <= 0:\n        raise ConfigError(\"circular interpolation detected\")\n    if depth < 0:\n        raise ConfigError(\"circular interpolation\")\n",
+      "description": "Add strict mode with improved error message; default depth guard regresses to off-by-one."
+    },
+    {
+      "type": "variable-misuse",
+      "path": "config_parser/__init__.py",
+      "before": "def delete_path(data: dict, path: str) -> object:\n    parts = path.split(\".\")\n    current = data\n    for part in parts[:-1]:\n        if not isinstance(current, dict) or part not in current:\n            raise KeyError(path)\n        current = current[part]\n    if not isinstance(current, dict) or parts[-1] not in current:\n        raise KeyError(path)\n    return current.pop(parts[-1])\n",
+      "after": "def delete_path(data: dict, path: str, *, return_parent=False) -> object:\n    parts = path.split(\".\")\n    current = data\n    for part in parts[:-1]:\n        if not isinstance(current, dict) or part not in current:\n            raise KeyError(path)\n        current = current[part]\n    if not isinstance(current, dict) or parts[-1] not in current:\n        raise KeyError(path)\n    if return_parent:\n        current.pop(parts[-1])\n        return current\n    return data.pop(parts[-1])\n",
+      "description": "Add return-parent option for chained deletions; default branch pops from root dict instead of current."
+    },
+    {
+      "type": "wrong-return-value",
+      "path": "config_parser/__init__.py",
+      "before": "def diff(old: dict, new: dict) -> dict[str, tuple[object, object]]:\n    old_flat = flatten(old)\n    new_flat = flatten(new)\n    changes = {}\n    for key in sorted(set(old_flat) | set(new_flat)):\n        old_val = old_flat.get(key)\n        new_val = new_flat.get(key)\n        if old_val != new_val:\n            changes[key] = (old_val, new_val)\n    return changes\n",
+      "after": "def diff(old: dict, new: dict, *, keys_only=False) -> dict[str, tuple[object, object] | bool]:\n    old_flat = flatten(old)\n    new_flat = flatten(new)\n    changes = {}\n    for key in sorted(set(old_flat) | set(new_flat)):\n        old_val = old_flat.get(key)\n        new_val = new_flat.get(key)\n        if old_val != new_val:\n            if keys_only:\n                changes[key] = True\n            else:\n                changes[key] = (new_val, old_val)\n    return changes\n",
+      "description": "Add keys-only diff mode; default tuple order swapped to (new, old)."
+    },
+    {
+      "type": "missing-exception-handling",
+      "path": "config_parser/__init__.py",
+      "before": "def parse_env(text: str) -> dict[str, str]:\n    result = {}\n    for number, line in enumerate(text.splitlines(), 1):\n        line = line.strip()\n        if not line or line.startswith(\"#\"):\n            continue\n        if \"=\" not in line:\n            raise ConfigError(f\"line {number}: missing '='\")\n        key, _, value = line.partition(\"=\")\n",
+      "after": "def parse_env(text: str, *, allow_flags=False) -> dict[str, str]:\n    result = {}\n    for number, line in enumerate(text.splitlines(), 1):\n        line = line.strip()\n        if not line or line.startswith(\"#\"):\n            continue\n        if allow_flags and \"=\" not in line:\n            result[line] = \"true\"\n            continue\n        key, _, value = line.partition(\"=\")\n",
+      "description": "Add flag-style line support; refactoring loses the missing-equals guard for normal lines."
+    },
+    {
+      "type": "api-parameter-error",
+      "path": "config_parser/__init__.py",
+      "before": "def to_env(data: dict) -> str:\n    flat = flatten(data)\n    lines = []\n    for key, value in sorted(flat.items()):\n        env_key = key.replace(\".\", \"_\").upper()\n        if isinstance(value, bool):\n            lines.append(f\"{env_key}={'true' if value else 'false'}\")\n        elif isinstance(value, str) and (\" \" in value or \"=\" in value):\n            lines.append(f'{env_key}=\"{value}\"')\n        else:\n            lines.append(f\"{env_key}={value}\")\n    return \"\\n\".join(lines) + \"\\n\" if lines else \"\"\n",
+      "after": "def to_env(data: dict, *, group_prefix=None) -> str:\n    flat = flatten(data)\n    if group_prefix:\n        flat = {k: v for k, v in flat.items() if k.startswith(group_prefix)}\n    lines = []\n    for key, value in sorted(flat.items(), reverse=True):\n        env_key = key.replace(\".\", \"_\").upper()\n        if isinstance(value, bool):\n            lines.append(f\"{env_key}={'true' if value else 'false'}\")\n        elif isinstance(value, str) and (\" \" in value or \"=\" in value):\n            lines.append(f'{env_key}=\"{value}\"')\n        else:\n            lines.append(f\"{env_key}={value}\")\n    return \"\\n\".join(lines) + \"\\n\" if lines else \"\"\n",
+      "description": "Add group-prefix filtering; sort order regresses to reverse."
+    },
+    {
+      "type": "boundary-condition-omission",
+      "path": "config_parser/__init__.py",
+      "before": "def get_path(data: dict, path: str, default=_sentinel):\n    if not path:\n        raise ConfigError(\"empty path\")\n    parts = path.split(\".\")\n",
+      "after": "def get_path(data: dict, path: str, default=_sentinel, *, separator=None):\n    if separator is not None:\n        if not path:\n            raise ConfigError(\"empty path\")\n        parts = path.split(separator)\n    else:\n        parts = path.split(\".\")\n",
+      "description": "Add custom separator support; empty-path guard only applies when separator is given."
+    }
+  ]
+}

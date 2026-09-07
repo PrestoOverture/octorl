@@ -1,0 +1,52 @@
+{
+  "started_unix": 1788616032.0489416,
+  "model": "/root/autodl-tmp/models/Qwen3-4B",
+  "temperature": 1.0,
+  "top_p": 1.0,
+  "top_k": -1,
+  "group_size": 8,
+  "max_steps": 12,
+  "max_model_len": 16384,
+  "max_tokens_per_turn": 2048,
+  "seed": 20260905,
+  "seed_rule": "trajectory=20260905 + task_index*100 + rollout_index; turn=trajectory_seed*100 + zero_based_turn",
+  "thinking": "native template default (enabled)",
+  "batch_size": 8,
+  "inference_only": true,
+  "format_counting_convention": "A call attempt is one assistant turn with a native tool_call tag (including malformed/unclosed tags), a JSON name/arguments or tool_calls/function_call pattern, or an explicit invocation of a known tool (e.g. read_file(...)). Completed <think> reasoning blocks are excluded. Plain prose without those patterns is excluded. A turn is valid iff it contains one or more native <tool_call> JSON objects, all with known names and exact typed argument schemas, and no unmatched call tags. Multiple calls in one turn count once in both numerator and denominator; object counts are also reported. Tool execution errors, including a malformed unified diff, do not make a correctly typed tool call format-invalid. Unknown or extra argument keys are invalid. No silent repair or JSON coercion is performed.",
+  "metric_naming": "Contract pass@1 is fraction of task groups with K>0, conventionally pass@8. Also report successes/rollouts.",
+  "versions": {
+    "torch": "2.8.0+cu128",
+    "vllm": "0.10.2",
+    "transformers": "4.57.6",
+    "pytest": "9.1.1"
+  },
+  "model_config_sha256": "20ce6dfef5afa65021602560e686b80c73ab780a8227959170ff92769fe4927b",
+  "script_sha256": "97b9d980517f744ba1483129eef2f82f5efa9fe7a82ecdbaa0e18a372aa48e9f",
+  "manifest_sha256": "aa570010cd1fecce3629505a97fcd126601aaac9e82878e0f91531ecbfe1d246",
+  "hourly_rate_cny": 2.18,
+  "rate_is_estimate": true,
+  "budget_cny": 16,
+  "gpu": {
+    "argv": [
+      "nvidia-smi"
+    ],
+    "returncode": 0,
+    "stdout": "Sat Sep  5 21:47:12 2026       \n+-----------------------------------------------------------------------------------------+\n| NVIDIA-SMI 580.105.08             Driver Version: 580.105.08     CUDA Version: 13.0     |\n+-----------------------------------------+------------------------+----------------------+\n| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |\n| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\n|                                         |                        |               MIG M. |\n|=========================================+========================+======================|\n|   0  NVIDIA GeForce RTX 4090 D      On  |   00000000:CF:00.0 Off |                  Off |\n| 30%   29C    P8             17W /  425W |       0MiB /  24564MiB |      0%      Default |\n|                                         |                        |                  N/A |\n+-----------------------------------------+------------------------+----------------------+\n\n+-----------------------------------------------------------------------------------------+\n| Processes:                                                                              |\n|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |\n|        ID   ID                                                               Usage      |\n|=========================================================================================|\n|  No running processes found                                                             |\n+-----------------------------------------------------------------------------------------+\n",
+    "stderr": "",
+    "timed_out": false,
+    "wall_seconds": 0.18533916026353836
+  },
+  "command_line": [
+    "measure.py",
+    "run",
+    "--output",
+    "run_20260905",
+    "--batch-size",
+    "8",
+    "--max-hours",
+    "5",
+    "--hourly-rate-cny",
+    "2.18"
+  ]
+}

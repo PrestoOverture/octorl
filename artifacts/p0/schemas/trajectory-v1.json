@@ -1,0 +1,393 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://octorl.local/schema/trajectory-v1.json",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "trajectory_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "task_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "difficulty": {
+      "type": "object",
+      "properties": {
+        "source": {
+          "enum": [
+            "mutation",
+            "commit-rollback",
+            "feat-add"
+          ]
+        },
+        "type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "count": {
+          "enum": [
+            1,
+            2,
+            3
+          ]
+        },
+        "hint": {
+          "enum": [
+            "L0",
+            "L1",
+            "L2"
+          ]
+        },
+        "span": {
+          "enum": [
+            "single-function",
+            "single-file",
+            "cross-file"
+          ]
+        }
+      },
+      "required": [
+        "source",
+        "type",
+        "count",
+        "hint",
+        "span"
+      ],
+      "additionalProperties": false
+    },
+    "injector_seed": {
+      "type": "integer"
+    },
+    "sampling_seed": {
+      "type": "integer"
+    },
+    "repo_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "manifest_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "container_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "policy_version_at_generation": {
+      "type": "string",
+      "minLength": 1
+    },
+    "policy_version_at_update": {
+      "type": "string",
+      "minLength": 1
+    },
+    "behavior_logprobs": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      }
+    },
+    "policy_lineage": {
+      "type": "object",
+      "properties": {
+        "base_model_revision": {
+          "type": "string",
+          "minLength": 1
+        },
+        "adapter_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "consolidation_generation": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "base_model_revision",
+        "adapter_id",
+        "consolidation_generation"
+      ],
+      "additionalProperties": false
+    },
+    "turns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "index": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "start": {
+            "type": "number"
+          },
+          "end": {
+            "type": "number"
+          },
+          "assistant": {
+            "type": "string"
+          },
+          "tool_calls": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "arguments": {
+                  "type": "object"
+                },
+                "stdout": {
+                  "type": "string"
+                },
+                "stderr": {
+                  "type": "string"
+                },
+                "exit_code": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "name",
+                "arguments",
+                "stdout",
+                "stderr",
+                "exit_code"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "run_tests": {
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "exit_code": {
+                    "type": "integer"
+                  },
+                  "passed": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "failed": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "stdout": {
+                    "type": "string"
+                  },
+                  "stderr": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "exit_code",
+                  "passed",
+                  "failed",
+                  "stdout",
+                  "stderr"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          },
+          "token_counts": {
+            "type": "object",
+            "properties": {
+              "input": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "output": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "tool": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "required": [
+              "input",
+              "output",
+              "tool"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "index",
+          "start",
+          "end",
+          "assistant",
+          "tool_calls",
+          "run_tests",
+          "token_counts"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "token_counts": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "output": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "tool": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "input",
+        "output",
+        "tool"
+      ],
+      "additionalProperties": false
+    },
+    "wall_clock_segments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "start": {
+            "type": "number"
+          },
+          "end": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "name",
+          "start",
+          "end"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "context_augmentations": {
+      "type": "array",
+      "maxItems": 0
+    },
+    "external_memory_active": {
+      "const": false
+    },
+    "harness_version": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "episode_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "rule_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "alpha": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "beta": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "evidence_ids": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "model_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "episode_id",
+        "rule_id",
+        "alpha",
+        "beta",
+        "evidence_ids",
+        "model_id"
+      ],
+      "additionalProperties": false
+    },
+    "reward": {
+      "enum": [
+        0,
+        1
+      ]
+    },
+    "cheat_flags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "trajectory_id",
+    "task_id",
+    "difficulty",
+    "injector_seed",
+    "sampling_seed",
+    "repo_ref",
+    "manifest_ref",
+    "container_id",
+    "policy_version_at_generation",
+    "policy_version_at_update",
+    "behavior_logprobs",
+    "policy_lineage",
+    "turns",
+    "token_counts",
+    "wall_clock_segments",
+    "context_augmentations",
+    "external_memory_active",
+    "harness_version",
+    "provenance",
+    "reward",
+    "cheat_flags"
+  ],
+  "additionalProperties": false
+}
