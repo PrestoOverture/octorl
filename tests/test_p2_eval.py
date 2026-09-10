@@ -1,8 +1,11 @@
 from __future__ import annotations
 
 import importlib.util
+import json
 from pathlib import Path
 from types import SimpleNamespace
+
+import pytest
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -61,3 +64,52 @@ def test_assistant_turn_format_requires_tools_and_valid_json():
         "total_turns": 1, "tool_call_turns": 1, "valid_json_turns": 1}
     assert module.assistant_turn_format(one_invalid) == {
         "total_turns": 1, "tool_call_turns": 1, "valid_json_turns": 0}
+
+
+def test_derive_seed_is_stable_and_turn_specific():
+    module = _load_script("baseline_eval.py")
+    first = module.derive_seed(20260910, "repo|bucket|11", 2, 3)
+    assert first == module.derive_seed(20260910, "repo|bucket|11", 2, 3)
+    assert 0 <= first < 2**31
+    assert first != module.derive_seed(20260910, "repo|bucket|11", 2, 4)
+    assert first != module.derive_seed(20260910, "repo|bucket|11", 3, 3)
+
+
+def test_request_args_are_explicit_and_seed_is_optional():
+    module = _load_script("baseline_eval.py")
+    common = dict(top_k=20, top_p=0.95, task_key="repo|bucket|11",
+                  rollout_index=2, turn_index=3)
+    unseeded, no_seed = module.build_request_args(
+        "model", [], sampling_master_seed=None, **common)
+    assert no_seed is None and "seed" not in unseeded
+    assert unseeded["temperature"] == 1.0
+    assert unseeded["top_p"] == 0.95
+    assert unseeded["extra_body"] == {"top_k": 20}
+
+    seeded, seed = module.build_request_args(
+        "model", [], sampling_master_seed=20260910, **common)
+    assert seeded["seed"] == seed == module.derive_seed(
+        20260910, "repo|bucket|11", 2, 3)
+
+
+def test_checkpoint_metadata_and_compatibility(tmp_path, capsys):
+    module = _load_script("baseline_eval.py")
+    path = tmp_path / "eval.ckpt"
+    metadata = {
+        "model_path": "model", "request_params": module.request_params(20, 0.95),
+        "enforce_eager": True,
+    }
+    assert module.load_checkpoint(path, metadata) == {}
+    assert json.loads(path.read_text().splitlines()[0]) == {"run_metadata": metadata}
+
+    with path.open("a") as stream:
+        stream.write(json.dumps({"key": "repo|bucket|11", "rollout_details": []}) + "\n")
+    assert "repo|bucket|11" in module.load_checkpoint(path, metadata)
+
+    mismatched = {**metadata, "enforce_eager": False}
+    with pytest.raises(ValueError, match="enforce_eager"):
+        module.load_checkpoint(path, mismatched)
+
+    path.write_text(json.dumps({"key": "old", "rewards": [0.0]}) + "\n")
+    assert module.load_checkpoint(path, metadata) == {}
+    assert "deprecated checkpoint without run_metadata" in capsys.readouterr().err

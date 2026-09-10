@@ -12,8 +12,11 @@ instances whose defect no test detects (see artifacts/p1/findings.md, F1).
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import statistics
+import struct
+import subprocess
 import sys
 import tempfile
 import time
@@ -102,9 +105,90 @@ def assistant_turn_format(msg) -> dict[str, int]:
     }
 
 
+def derive_seed(master: int, task_key: str, rollout_index: int,
+                turn_index: int) -> int:
+    """Derive a stable per-request seed without Python's salted hash()."""
+    payload = f"{master}|{task_key}|{rollout_index}|{turn_index}".encode()
+    h = hashlib.sha256(payload)
+    return struct.unpack(">I", h.digest()[:4])[0] % (2**31)
+
+
+def request_params(top_k: int, top_p: float) -> dict:
+    return {"temperature": 1.0, "top_k": top_k, "top_p": top_p}
+
+
+def build_request_args(model: str, messages: list[dict], *, top_k: int,
+                       top_p: float, sampling_master_seed: int | None,
+                       task_key: str, rollout_index: int,
+                       turn_index: int) -> tuple[dict, int | None]:
+    """Build an explicit OpenAI request, omitting seed for legacy unseeded runs."""
+    api_args = {
+        "model": model,
+        "messages": messages,
+        "tools": TOOL_SCHEMAS,
+        "temperature": 1.0,
+        "top_p": top_p,
+        "extra_body": {"top_k": top_k},
+    }
+    turn_seed = None
+    if sampling_master_seed is not None:
+        turn_seed = derive_seed(sampling_master_seed, task_key,
+                                rollout_index, turn_index)
+        api_args["seed"] = turn_seed
+    return api_args, turn_seed
+
+
+def build_run_metadata(args) -> dict:
+    git_commit = subprocess.check_output(
+        ["git", "rev-parse", "--short", "HEAD"], cwd=ROOT, text=True
+    ).strip()
+    injector_seed: int | list[int]
+    injector_seed = args.seeds[0] if len(args.seeds) == 1 else args.seeds
+    return {
+        "git_commit": git_commit,
+        "model_path": args.model,
+        "base_url": args.base_url,
+        "request_params": request_params(args.top_k, args.top_p),
+        "sampling_master_seed": args.sampling_seed,
+        "injector_seed": injector_seed,
+        "rollouts_per_instance": args.rollouts,
+        "enforce_eager": args.enforce_eager,
+    }
+
+
+def load_checkpoint(path: Path, metadata: dict) -> dict[str, dict]:
+    """Load only checkpoint rows proven compatible with this run."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    if not path.exists():
+        path.write_text(json.dumps({"run_metadata": metadata}) + "\n")
+        return {}
+
+    records = [json.loads(line) for line in path.read_text().splitlines() if line.strip()]
+    if not records or "run_metadata" not in records[0]:
+        print("WARNING: deprecated checkpoint without run_metadata ignored", file=sys.stderr)
+        path.write_text(json.dumps({"run_metadata": metadata}) + "\n")
+        return {}
+
+    stored = records[0]["run_metadata"]
+    compared = ("model_path", "request_params", "enforce_eager")
+    mismatches = [name for name in compared if stored.get(name) != metadata.get(name)]
+    if mismatches:
+        raise ValueError("checkpoint run_metadata mismatch: " + ", ".join(mismatches))
+
+    done = {}
+    for record in records[1:]:
+        if "key" not in record or "rollout_details" not in record:
+            print("WARNING: deprecated checkpoint record ignored", file=sys.stderr)
+            continue
+        done[record["key"]] = record
+    return done
+
+
 def run_rollout(client, model: str, sandbox, instance,
-                session: ToolSession) -> tuple[float, dict[str, int]]:
-    """Run one agent rollout and return its reward and tool-format counts."""
+                session: ToolSession, *, task_key: str, rollout_index: int,
+                sampling_master_seed: int | None, top_k: int,
+                top_p: float) -> dict:
+    """Run one agent rollout and return its auditable result details."""
     issue = instance.prompt_instance()
     messages = [
         {"role": "system", "content": SYSTEM_PROMPT},
@@ -115,15 +199,21 @@ def run_rollout(client, model: str, sandbox, instance,
         "tool_call_turns": 0,
         "valid_json_turns": 0,
     }
+    sampling_seeds: list[int] = []
+    termination = "max_steps"
 
-    for _step in range(ToolSession.MAX_STEPS):
+    for turn_index in range(ToolSession.MAX_STEPS):
+        api_args, turn_seed = build_request_args(
+            model, messages, top_k=top_k, top_p=top_p,
+            sampling_master_seed=sampling_master_seed, task_key=task_key,
+            rollout_index=rollout_index, turn_index=turn_index)
+        if turn_seed is not None:
+            sampling_seeds.append(turn_seed)
         try:
-            response = client.chat.completions.create(
-                model=model, messages=messages, tools=TOOL_SCHEMAS,
-                temperature=1.0,
-            )
+            response = client.chat.completions.create(**api_args)
         except Exception as exc:
             print(f"    API error: {exc}", flush=True)
+            termination = "api_error"
             break
 
         choice = response.choices[0]
@@ -134,6 +224,7 @@ def run_rollout(client, model: str, sandbox, instance,
 
         if not msg.tool_calls:
             messages.append({"role": "assistant", "content": msg.content or ""})
+            termination = "stop"
             break
 
         assistant_msg = {"role": "assistant", "content": msg.content or None, "tool_calls": [
@@ -153,9 +244,11 @@ def run_rollout(client, model: str, sandbox, instance,
             messages.append({"role": "tool", "tool_call_id": tc.id, "content": output[:8000]})
 
         if session.steps >= ToolSession.MAX_STEPS:
+            termination = "max_steps"
             break
 
         if choice.finish_reason == "stop":
+            termination = "stop"
             break
 
     patched = {name: (sandbox.root / name).read_text(errors="replace")
@@ -165,12 +258,20 @@ def run_rollout(client, model: str, sandbox, instance,
                      tool_cheat_flags=session.cheat_flags,
                      seed=instance.verification_seed,
                      expected_tests=instance.expected_tests)
-    return float(outcome.reward), format_counts
+    return {
+        "reward": float(outcome.reward),
+        "format_validity": format_counts,
+        "turn_count": format_counts["total_turns"],
+        "termination": termination,
+        "changed_files": sorted(session.changed),
+        "sampling_seeds": sampling_seeds,
+    }
 
 
 def _run_single_rollout(client, model: str, spec: dict, pool, workspace: Path,
-                        g: int) -> tuple[int, float, dict[str, int]]:
-    """Run one rollout, return (index, reward, format counts)."""
+                        g: int, sampling_master_seed: int | None,
+                        top_k: int, top_p: float) -> tuple[int, dict]:
+    """Run one rollout and return its index and auditable details."""
     dest = workspace / f"{spec['repo_name']}-{spec['bucket']}-{spec['injector_seed']}-r{g}"
     instance = package(Path(spec["repo"]), Difficulty(**spec["difficulty"]),
                        spec["injector_seed"], dest)
@@ -180,37 +281,50 @@ def _run_single_rollout(client, model: str, spec: dict, pool, workspace: Path,
         prepare_grading(instance, sandbox)
         session = ToolSession(sandbox, seed=instance.verification_seed,
                               affected_tests=instance.affected_tests)
-        reward, format_counts = run_rollout(client, model, sandbox, instance, session)
-        return g, reward, format_counts
+        task_key = f"{spec['repo_name']}|{spec['bucket']}|{spec['injector_seed']}"
+        details = run_rollout(
+            client, model, sandbox, instance, session, task_key=task_key,
+            rollout_index=g, sampling_master_seed=sampling_master_seed,
+            top_k=top_k, top_p=top_p)
+        return g, details
     except Exception as exc:
         print(f"    rollout {g} error: {exc}", flush=True)
-        return g, 0.0, {"total_turns": 0, "tool_call_turns": 0,
-                        "valid_json_turns": 0}
+        return g, {
+            "reward": 0.0,
+            "format_validity": {"total_turns": 0, "tool_call_turns": 0,
+                                "valid_json_turns": 0},
+            "turn_count": 0,
+            "termination": "api_error",
+            "changed_files": [],
+            "sampling_seeds": [],
+        }
     finally:
         lease.__exit__(None, None, None)
 
 
 def evaluate_instance(client, model: str, spec: dict, pool, workspace: Path,
-                      rollouts: int, concurrency: int = 1
-                      ) -> tuple[list[float], list[dict[str, int]]]:
-    """Run G rollouts for one admitted instance. Return rewards and format counts."""
-    rewards = [0.0] * rollouts
-    format_counts = [dict() for _ in range(rollouts)]
+                      rollouts: int, concurrency: int = 1,
+                      sampling_master_seed: int | None = None,
+                      top_k: int = 20, top_p: float = 0.95) -> list[dict]:
+    """Run G rollouts for one admitted instance and return indexed details."""
+    details = [dict() for _ in range(rollouts)]
     workers = min(concurrency, rollouts)
     if workers <= 1:
         for g in range(rollouts):
-            _, reward, counts = _run_single_rollout(client, model, spec, pool, workspace, g)
-            rewards[g] = reward
-            format_counts[g] = counts
-        return rewards, format_counts
+            _, result = _run_single_rollout(
+                client, model, spec, pool, workspace, g,
+                sampling_master_seed, top_k, top_p)
+            details[g] = result
+        return details
     with ThreadPoolExecutor(max_workers=workers) as executor:
-        futures = {executor.submit(_run_single_rollout, client, model, spec, pool, workspace, g): g
+        futures = {executor.submit(
+            _run_single_rollout, client, model, spec, pool, workspace, g,
+            sampling_master_seed, top_k, top_p): g
                    for g in range(rollouts)}
         for future in as_completed(futures):
-            g, reward, counts = future.result()
-            rewards[g] = reward
-            format_counts[g] = counts
-    return rewards, format_counts
+            g, result = future.result()
+            details[g] = result
+    return details
 
 
 def main() -> int:
@@ -226,6 +340,12 @@ def main() -> int:
     parser.add_argument("--model", default=None)
     parser.add_argument("--rollouts", type=int, default=8, help="G rollouts per instance")
     parser.add_argument("--concurrency", type=int, default=4)
+    parser.add_argument("--sampling-seed", type=int, default=None,
+                        help="master seed for stable per-request sampling")
+    parser.add_argument("--top-k", type=int, default=20)
+    parser.add_argument("--top-p", type=float, default=0.95)
+    parser.add_argument("--enforce-eager", action="store_true",
+                        help="record that the external server uses enforce_eager")
     parser.add_argument("--out", default=str(ROOT / "artifacts/p1/baseline_eval.json"))
     args = parser.parse_args()
 
@@ -267,48 +387,53 @@ def main() -> int:
             from openai import OpenAI
             client = OpenAI(base_url=args.base_url, api_key=args.api_key)
 
+            run_metadata = build_run_metadata(args)
+            report["run_metadata"] = run_metadata
             ckpt_path = Path(args.out + ".ckpt")
-            done: dict[str, dict] = {}
-            if ckpt_path.exists():
-                for line in ckpt_path.read_text().splitlines():
-                    rec = json.loads(line)
-                    if "format_validity" in rec:
-                        done[rec["key"]] = rec
+            done = load_checkpoint(ckpt_path, run_metadata)
+            if done:
                 print(f"\n  Resuming from checkpoint: {len(done)}/{len(specs)} instances done", flush=True)
 
             print(f"\n=== Evaluation ({len(specs)} instances × {args.rollouts} rollouts) ===", flush=True)
             per_bucket: dict[tuple[str, str], list[float]] = defaultdict(list)
             all_rewards: list[float] = []
             instance_format_validity: dict[str, list[dict[str, int]]] = {}
+            rollout_details: dict[str, list[dict]] = {}
             all_format_counts: list[dict[str, int]] = []
             eval_start = time.monotonic()
 
             for i, spec in enumerate(specs):
                 key = f"{spec['repo_name']}|{spec['bucket']}|{spec['injector_seed']}"
                 if key in done:
-                    rewards = done[key]["rewards"]
-                    format_counts = done[key]["format_validity"]
+                    details = done[key]["rollout_details"]
+                    rewards = [row["reward"] for row in details]
+                    format_counts = [row["format_validity"] for row in details]
                     per_bucket[(spec["repo_name"], spec["bucket"])].extend(rewards)
                     all_rewards.extend(rewards)
                     instance_format_validity[key] = format_counts
+                    rollout_details[key] = details
                     all_format_counts.extend(format_counts)
                     mean = statistics.mean(rewards) if rewards else 0.0
                     print(f"  [{i+1}/{len(specs)}] {spec['repo_name']:20} {spec['bucket']:24} "
                           f"mean={mean:.3f} (checkpoint)", flush=True)
                     continue
                 print(f"  [{i+1}/{len(specs)}] {spec['repo_name']:20} {spec['bucket']:24} ", end="", flush=True)
-                rewards, format_counts = evaluate_instance(
+                details = evaluate_instance(
                     client, args.model, spec, pool, workspace, args.rollouts,
-                    concurrency=args.concurrency)
+                    concurrency=args.concurrency,
+                    sampling_master_seed=args.sampling_seed,
+                    top_k=args.top_k, top_p=args.top_p)
+                rewards = [row["reward"] for row in details]
+                format_counts = [row["format_validity"] for row in details]
                 per_bucket[(spec["repo_name"], spec["bucket"])].extend(rewards)
                 all_rewards.extend(rewards)
                 instance_format_validity[key] = format_counts
+                rollout_details[key] = details
                 all_format_counts.extend(format_counts)
                 mean = statistics.mean(rewards) if rewards else 0.0
                 print(f"mean={mean:.3f} ({sum(r > 0 for r in rewards)}/{len(rewards)} pass)", flush=True)
                 with open(ckpt_path, "a") as f:
-                    f.write(json.dumps({"key": key, "rewards": rewards,
-                                        "format_validity": format_counts}) + "\n")
+                    f.write(json.dumps({"key": key, "rollout_details": details}) + "\n")
 
             elapsed = time.monotonic() - eval_start
             report["model"] = {"base_url": args.base_url, "model": args.model,
@@ -321,6 +446,7 @@ def main() -> int:
             valid_turns = sum(row["valid_json_turns"] for row in all_format_counts)
             total_turns = sum(row["total_turns"] for row in all_format_counts)
             report["instance_format_validity"] = instance_format_validity
+            report["rollout_details"] = rollout_details
             report["format_validity"] = {
                 "valid_turns": valid_turns,
                 "total_turns": total_turns,
