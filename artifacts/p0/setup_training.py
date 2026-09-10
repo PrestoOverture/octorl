@@ -36,10 +36,10 @@ pd.DataFrame(rows).to_parquet(ROOT/'train.parquet')
 (ROOT/'reward.py').write_text('def compute_score(**kwargs):\n    return 0.0\n')
 p=Path('/root/autodl-tmp/s5/run_a.sh').read_text()
 p=p.replace('cd /root/Agent-R1','export PYTHONPATH=/root/autodl-tmp/p0:/root/Agent-R1\ncd /root/Agent-R1')
-replacements={'/root/data/gsm8k_tool/train.parquet':str(ROOT/'train.parquet'),'/root/data/gsm8k_tool/test.parquet':str(ROOT/'train.parquet'),'actor_rollout_ref.actor.use_kl_loss=False':'actor_rollout_ref.actor.use_kl_loss=True','actor_rollout_ref.actor.entropy_coeff=0':'actor_rollout_ref.actor.entropy_coeff=0.001','/root/Agent-R1/recipes/gsm8k/base.yaml':str(ROOT/'flow.yaml'),'default_agent_flow=gsm8k_tool':'default_agent_flow=octorl_toy','agent.max_steps=12':'agent.max_steps=3','custom_reward_function.path=recipes/gsm8k/reward_fn.py':'custom_reward_function.path='+str(ROOT/'reward.py'),'trainer.project_name=s5':'trainer.project_name=p0','trainer.save_freq=-1':'trainer.save_freq=5','/root/autodl-tmp/s5/checkpoints/':'/root/autodl-tmp/p0/checkpoints/'}
+replacements={'/root/data/gsm8k_tool/train.parquet':str(ROOT/'train.parquet'),'/root/data/gsm8k_tool/test.parquet':str(ROOT/'train.parquet'),'actor_rollout_ref.actor.entropy_coeff=0':'actor_rollout_ref.actor.entropy_coeff=0.001','/root/Agent-R1/recipes/gsm8k/base.yaml':str(ROOT/'flow.yaml'),'default_agent_flow=gsm8k_tool':'default_agent_flow=octorl_toy','agent.max_steps=12':'agent.max_steps=3','custom_reward_function.path=recipes/gsm8k/reward_fn.py':'custom_reward_function.path='+str(ROOT/'reward.py'),'trainer.project_name=s5':'trainer.project_name=p0','trainer.save_freq=-1':'trainer.save_freq=5','/root/autodl-tmp/s5/checkpoints/':'/root/autodl-tmp/p0/checkpoints/'}
 for a,b in replacements.items():
     assert a in p,a
     p=p.replace(a,b)
-p=p.replace('    actor_rollout_ref.rollout.agent.num_workers=$WORKERS','    actor_rollout_ref.rollout.agent.num_workers=$WORKERS \\\n    actor_rollout_ref.rollout.calculate_log_probs=True \\\n    actor_rollout_ref.actor.kl_loss_coef=0.001')
+p=p.replace('    actor_rollout_ref.rollout.agent.num_workers=$WORKERS','    actor_rollout_ref.rollout.agent.num_workers=$WORKERS \\\n    actor_rollout_ref.rollout.calculate_log_probs=True \\\n    actor_rollout_ref.actor.kl_loss_coef=0.0')
 (ROOT/'run_train.sh').write_text(p)
 print('Setup complete; schema must already have been validated before invoking run_train.sh')

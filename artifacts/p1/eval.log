@@ -1,0 +1,232 @@
+=== Admission ===
+  config_parser        c1-L0-single-function    condition-inversion          admitted
+  config_parser        c1-L1-single-function    condition-inversion          admitted
+  config_parser        c1-L2-single-function    condition-inversion          admitted
+  config_parser        c2-L0-single-function    condition-inversion          admitted
+  config_parser        c2-L1-single-function    condition-inversion          admitted
+  config_parser        c2-L2-single-function    condition-inversion          admitted
+  config_parser        c3-L0-single-function    condition-inversion          admitted
+  config_parser        c3-L1-single-function    condition-inversion          admitted
+  config_parser        c3-L2-single-function    condition-inversion          admitted
+  config_parser        c2-L0-single-file        condition-inversion          admitted
+  config_parser        c2-L1-single-file        condition-inversion          admitted
+  config_parser        c2-L2-single-file        condition-inversion          admitted
+  config_parser        c3-L0-single-file        condition-inversion          admitted
+  config_parser        c3-L1-single-file        condition-inversion          admitted
+  config_parser        c3-L2-single-file        condition-inversion          admitted
+  metric_aggregator    c1-L0-single-function    condition-inversion          admitted
+  metric_aggregator    c1-L1-single-function    condition-inversion          admitted
+  metric_aggregator    c1-L2-single-function    condition-inversion          admitted
+  metric_aggregator    c2-L0-single-function    condition-inversion          admitted
+  metric_aggregator    c2-L1-single-function    condition-inversion          admitted
+  metric_aggregator    c2-L2-single-function    condition-inversion          admitted
+  metric_aggregator    c3-L0-single-function    condition-inversion          REJECTED edit_0:no_genuine_test_failure
+  metric_aggregator    c3-L1-single-function    condition-inversion          REJECTED edit_0:no_genuine_test_failure
+  metric_aggregator    c3-L2-single-function    condition-inversion          REJECTED edit_0:no_genuine_test_failure
+  metric_aggregator    c2-L0-single-file        condition-inversion          admitted
+  metric_aggregator    c2-L1-single-file        condition-inversion          admitted
+  metric_aggregator    c2-L2-single-file        condition-inversion          admitted
+  metric_aggregator    c3-L0-single-file        condition-inversion          admitted
+  metric_aggregator    c3-L1-single-file        condition-inversion          admitted
+  metric_aggregator    c3-L2-single-file        condition-inversion          admitted
+  parcel_ledger        c1-L0-single-function    condition-inversion          REJECTED buggy:no_genuine_test_failure
+  parcel_ledger        c1-L1-single-function    condition-inversion          REJECTED buggy:no_genuine_test_failure
+  parcel_ledger        c1-L2-single-function    condition-inversion          REJECTED buggy:no_genuine_test_failure
+  parcel_ledger        c2-L0-single-function    condition-inversion          REJECTED buggy:no_genuine_test_failure;edit_0:no_
+  parcel_ledger        c2-L1-single-function    condition-inversion          REJECTED buggy:no_genuine_test_failure;edit_0:no_
+  parcel_ledger        c2-L2-single-function    condition-inversion          REJECTED buggy:no_genuine_test_failure;edit_0:no_
+  parcel_ledger        c3-L0-single-function    condition-inversion          REJECTED buggy:no_genuine_test_failure;edit_0:no_
+  parcel_ledger        c3-L1-single-function    condition-inversion          REJECTED buggy:no_genuine_test_failure;edit_0:no_
+  parcel_ledger        c3-L2-single-function    condition-inversion          REJECTED buggy:no_genuine_test_failure;edit_0:no_
+  parcel_ledger        c2-L0-single-file        condition-inversion          REJECTED buggy:no_genuine_test_failure;edit_0:no_
+  parcel_ledger        c2-L1-single-file        condition-inversion          REJECTED buggy:no_genuine_test_failure;edit_0:no_
+  parcel_ledger        c2-L2-single-file        condition-inversion          REJECTED buggy:no_genuine_test_failure;edit_0:no_
+  parcel_ledger        c3-L0-single-file        condition-inversion          REJECTED buggy:no_genuine_test_failure;edit_0:no_
+  parcel_ledger        c3-L1-single-file        condition-inversion          REJECTED buggy:no_genuine_test_failure;edit_0:no_
+  parcel_ledger        c3-L2-single-file        condition-inversion          REJECTED buggy:no_genuine_test_failure;edit_0:no_
+  record_index         c1-L0-single-function    condition-inversion          admitted
+  record_index         c1-L1-single-function    condition-inversion          admitted
+  record_index         c1-L2-single-function    condition-inversion          admitted
+  record_index         c2-L0-single-function    condition-inversion          admitted
+  record_index         c2-L1-single-function    condition-inversion          admitted
+  record_index         c2-L2-single-function    condition-inversion          admitted
+  record_index         c3-L0-single-function    condition-inversion          admitted
+  record_index         c3-L1-single-function    condition-inversion          admitted
+  record_index         c3-L2-single-function    condition-inversion          admitted
+  record_index         c2-L0-single-file        condition-inversion          admitted
+  record_index         c2-L1-single-file        condition-inversion          admitted
+  record_index         c2-L2-single-file        condition-inversion          admitted
+  record_index         c3-L0-single-file        condition-inversion          admitted
+  record_index         c3-L1-single-file        condition-inversion          admitted
+  record_index         c3-L2-single-file        condition-inversion          admitted
+  slot_planner         c1-L0-single-function    condition-inversion          admitted
+  slot_planner         c1-L1-single-function    condition-inversion          admitted
+  slot_planner         c1-L2-single-function    condition-inversion          admitted
+  slot_planner         c2-L0-single-function    condition-inversion          admitted
+  slot_planner         c2-L1-single-function    condition-inversion          admitted
+  slot_planner         c2-L2-single-function    condition-inversion          admitted
+  slot_planner         c3-L0-single-function    condition-inversion          admitted
+  slot_planner         c3-L1-single-function    condition-inversion          admitted
+  slot_planner         c3-L2-single-function    condition-inversion          admitted
+  slot_planner         c2-L0-single-file        condition-inversion          admitted
+  slot_planner         c2-L1-single-file        condition-inversion          admitted
+  slot_planner         c2-L2-single-file        condition-inversion          admitted
+  slot_planner         c3-L0-single-file        condition-inversion          admitted
+  slot_planner         c3-L1-single-file        condition-inversion          admitted
+  slot_planner         c3-L2-single-file        condition-inversion          admitted
+  task_scheduler       c1-L0-single-function    condition-inversion          admitted
+  task_scheduler       c1-L1-single-function    condition-inversion          admitted
+  task_scheduler       c1-L2-single-function    condition-inversion          admitted
+  task_scheduler       c2-L0-single-function    condition-inversion          admitted
+  task_scheduler       c2-L1-single-function    condition-inversion          admitted
+  task_scheduler       c2-L2-single-function    condition-inversion          admitted
+  task_scheduler       c3-L0-single-function    condition-inversion          REJECTED buggy:no_genuine_test_failure;edit_1:no_
+  task_scheduler       c3-L1-single-function    condition-inversion          REJECTED buggy:no_genuine_test_failure;edit_1:no_
+  task_scheduler       c3-L2-single-function    condition-inversion          REJECTED buggy:no_genuine_test_failure;edit_1:no_
+  task_scheduler       c2-L0-single-file        condition-inversion          admitted
+  task_scheduler       c2-L1-single-file        condition-inversion          admitted
+  task_scheduler       c2-L2-single-file        condition-inversion          admitted
+  task_scheduler       c3-L0-single-file        condition-inversion          admitted
+  task_scheduler       c3-L1-single-file        condition-inversion          admitted
+  task_scheduler       c3-L2-single-file        condition-inversion          admitted
+  route_graph          c1-L0-single-function    condition-inversion          admitted
+  route_graph          c1-L1-single-function    condition-inversion          admitted
+  route_graph          c1-L2-single-function    condition-inversion          admitted
+  route_graph          c2-L0-single-function    condition-inversion          admitted
+  route_graph          c2-L1-single-function    condition-inversion          admitted
+  route_graph          c2-L2-single-function    condition-inversion          admitted
+  route_graph          c3-L0-single-function    condition-inversion          admitted
+  route_graph          c3-L1-single-function    condition-inversion          admitted
+  route_graph          c3-L2-single-function    condition-inversion          admitted
+  route_graph          c2-L0-single-file        condition-inversion          admitted
+  route_graph          c2-L1-single-file        condition-inversion          admitted
+  route_graph          c2-L2-single-file        condition-inversion          admitted
+  route_graph          c3-L0-single-file        condition-inversion          admitted
+  route_graph          c3-L1-single-file        condition-inversion          admitted
+  route_graph          c3-L2-single-file        condition-inversion          admitted
+  stock_reservations   c1-L0-single-function    condition-inversion          admitted
+  stock_reservations   c1-L1-single-function    condition-inversion          admitted
+  stock_reservations   c1-L2-single-function    condition-inversion          admitted
+  stock_reservations   c2-L0-single-function    condition-inversion          admitted
+  stock_reservations   c2-L1-single-function    condition-inversion          admitted
+  stock_reservations   c2-L2-single-function    condition-inversion          admitted
+  stock_reservations   c3-L0-single-function    condition-inversion          admitted
+  stock_reservations   c3-L1-single-function    condition-inversion          admitted
+  stock_reservations   c3-L2-single-function    condition-inversion          admitted
+  stock_reservations   c2-L0-single-file        condition-inversion          admitted
+  stock_reservations   c2-L1-single-file        condition-inversion          admitted
+  stock_reservations   c2-L2-single-file        condition-inversion          admitted
+  stock_reservations   c3-L0-single-file        condition-inversion          admitted
+  stock_reservations   c3-L1-single-file        condition-inversion          admitted
+  stock_reservations   c3-L2-single-file        condition-inversion          admitted
+
+  Resuming from checkpoint: 17/99 instances done
+
+=== Evaluation (99 instances × 8 rollouts) ===
+  [1/99] config_parser        c1-L0-single-function    mean=0.000 (checkpoint)
+  [2/99] config_parser        c1-L1-single-function    mean=0.000 (checkpoint)
+  [3/99] config_parser        c1-L2-single-function    mean=0.000 (checkpoint)
+  [4/99] config_parser        c2-L0-single-function    mean=0.000 (checkpoint)
+  [5/99] config_parser        c2-L1-single-function    mean=0.000 (checkpoint)
+  [6/99] config_parser        c2-L2-single-function    mean=0.000 (checkpoint)
+  [7/99] config_parser        c3-L0-single-function    mean=0.000 (checkpoint)
+  [8/99] config_parser        c3-L1-single-function    mean=0.000 (checkpoint)
+  [9/99] config_parser        c3-L2-single-function    mean=0.000 (checkpoint)
+  [10/99] config_parser        c2-L0-single-file        mean=0.125 (checkpoint)
+  [11/99] config_parser        c2-L1-single-file        mean=0.125 (checkpoint)
+  [12/99] config_parser        c2-L2-single-file        mean=0.000 (checkpoint)
+  [13/99] config_parser        c3-L0-single-file        mean=0.000 (checkpoint)
+  [14/99] config_parser        c3-L1-single-file        mean=0.000 (checkpoint)
+  [15/99] config_parser        c3-L2-single-file        mean=0.125 (checkpoint)
+  [16/99] metric_aggregator    c1-L0-single-function    mean=0.125 (checkpoint)
+  [17/99] metric_aggregator    c1-L1-single-function    mean=0.000 (checkpoint)
+  [18/99] metric_aggregator    c1-L2-single-function    mean=0.000 (0/8 pass)
+  [19/99] metric_aggregator    c2-L0-single-function    mean=0.000 (0/8 pass)
+  [20/99] metric_aggregator    c2-L1-single-function    mean=0.000 (0/8 pass)
+  [21/99] metric_aggregator    c2-L2-single-function    mean=0.000 (0/8 pass)
+  [22/99] metric_aggregator    c2-L0-single-file        mean=0.000 (0/8 pass)
+  [23/99] metric_aggregator    c2-L1-single-file        mean=0.000 (0/8 pass)
+  [24/99] metric_aggregator    c2-L2-single-file        mean=0.000 (0/8 pass)
+  [25/99] metric_aggregator    c3-L0-single-file        mean=0.000 (0/8 pass)
+  [26/99] metric_aggregator    c3-L1-single-file        mean=0.000 (0/8 pass)
+  [27/99] metric_aggregator    c3-L2-single-file        mean=0.000 (0/8 pass)
+  [28/99] record_index         c1-L0-single-function    mean=0.000 (0/8 pass)
+  [29/99] record_index         c1-L1-single-function    mean=0.000 (0/8 pass)
+  [30/99] record_index         c1-L2-single-function    mean=0.000 (0/8 pass)
+  [31/99] record_index         c2-L0-single-function    mean=0.000 (0/8 pass)
+  [32/99] record_index         c2-L1-single-function    mean=0.000 (0/8 pass)
+  [33/99] record_index         c2-L2-single-function    mean=0.000 (0/8 pass)
+  [34/99] record_index         c3-L0-single-function    mean=0.125 (1/8 pass)
+  [35/99] record_index         c3-L1-single-function    mean=0.000 (0/8 pass)
+  [36/99] record_index         c3-L2-single-function    mean=0.000 (0/8 pass)
+  [37/99] record_index         c2-L0-single-file        mean=0.000 (0/8 pass)
+  [38/99] record_index         c2-L1-single-file        mean=0.000 (0/8 pass)
+  [39/99] record_index         c2-L2-single-file        mean=0.000 (0/8 pass)
+  [40/99] record_index         c3-L0-single-file        mean=0.125 (1/8 pass)
+  [41/99] record_index         c3-L1-single-file        mean=0.000 (0/8 pass)
+  [42/99] record_index         c3-L2-single-file        mean=0.000 (0/8 pass)
+  [43/99] slot_planner         c1-L0-single-function    mean=0.250 (2/8 pass)
+  [44/99] slot_planner         c1-L1-single-function    mean=0.000 (0/8 pass)
+  [45/99] slot_planner         c1-L2-single-function    mean=0.000 (0/8 pass)
+  [46/99] slot_planner         c2-L0-single-function    mean=0.125 (1/8 pass)
+  [47/99] slot_planner         c2-L1-single-function    mean=0.000 (0/8 pass)
+  [48/99] slot_planner         c2-L2-single-function    mean=0.000 (0/8 pass)
+  [49/99] slot_planner         c3-L0-single-function    mean=0.000 (0/8 pass)
+  [50/99] slot_planner         c3-L1-single-function    mean=0.000 (0/8 pass)
+  [51/99] slot_planner         c3-L2-single-function    mean=0.000 (0/8 pass)
+  [52/99] slot_planner         c2-L0-single-file        mean=0.000 (0/8 pass)
+  [53/99] slot_planner         c2-L1-single-file        mean=0.000 (0/8 pass)
+  [54/99] slot_planner         c2-L2-single-file        mean=0.000 (0/8 pass)
+  [55/99] slot_planner         c3-L0-single-file        mean=0.000 (0/8 pass)
+  [56/99] slot_planner         c3-L1-single-file        mean=0.000 (0/8 pass)
+  [57/99] slot_planner         c3-L2-single-file        mean=0.000 (0/8 pass)
+  [58/99] task_scheduler       c1-L0-single-function    mean=0.375 (3/8 pass)
+  [59/99] task_scheduler       c1-L1-single-function    mean=0.000 (0/8 pass)
+  [60/99] task_scheduler       c1-L2-single-function    mean=0.000 (0/8 pass)
+  [61/99] task_scheduler       c2-L0-single-function    mean=0.000 (0/8 pass)
+  [62/99] task_scheduler       c2-L1-single-function    mean=0.000 (0/8 pass)
+  [63/99] task_scheduler       c2-L2-single-function    mean=0.000 (0/8 pass)
+  [64/99] task_scheduler       c2-L0-single-file        mean=0.000 (0/8 pass)
+  [65/99] task_scheduler       c2-L1-single-file        mean=0.000 (0/8 pass)
+  [66/99] task_scheduler       c2-L2-single-file        mean=0.000 (0/8 pass)
+  [67/99] task_scheduler       c3-L0-single-file        mean=0.000 (0/8 pass)
+  [68/99] task_scheduler       c3-L1-single-file        mean=0.000 (0/8 pass)
+  [69/99] task_scheduler       c3-L2-single-file        mean=0.000 (0/8 pass)
+  [70/99] route_graph          c1-L0-single-function    mean=0.125 (1/8 pass)
+  [71/99] route_graph          c1-L1-single-function    mean=0.000 (0/8 pass)
+  [72/99] route_graph          c1-L2-single-function    mean=0.000 (0/8 pass)
+  [73/99] route_graph          c2-L0-single-function    mean=0.000 (0/8 pass)
+  [74/99] route_graph          c2-L1-single-function    mean=0.000 (0/8 pass)
+  [75/99] route_graph          c2-L2-single-function        API error: Error code: 400 - {'error': {'message': "This model's maximum context length is 16384 tokens. However, your request has 16386 input tokens. Please reduce the length of the input messages. None", 'type': 'BadRequestError', 'param': None, 'code': 400}}
+mean=0.000 (0/8 pass)
+  [76/99] route_graph          c3-L0-single-function    mean=0.000 (0/8 pass)
+  [77/99] route_graph          c3-L1-single-function    mean=0.000 (0/8 pass)
+  [78/99] route_graph          c3-L2-single-function    mean=0.000 (0/8 pass)
+  [79/99] route_graph          c2-L0-single-file        mean=0.000 (0/8 pass)
+  [80/99] route_graph          c2-L1-single-file        mean=0.000 (0/8 pass)
+  [81/99] route_graph          c2-L2-single-file            API error: Error code: 400 - {'error': {'message': "This model's maximum context length is 16384 tokens. However, your request has 16696 input tokens. Please reduce the length of the input messages. None", 'type': 'BadRequestError', 'param': None, 'code': 400}}
+mean=0.000 (0/8 pass)
+  [82/99] route_graph          c3-L0-single-file        mean=0.000 (0/8 pass)
+  [83/99] route_graph          c3-L1-single-file        mean=0.000 (0/8 pass)
+  [84/99] route_graph          c3-L2-single-file        mean=0.000 (0/8 pass)
+  [85/99] stock_reservations   c1-L0-single-function    mean=0.000 (0/8 pass)
+  [86/99] stock_reservations   c1-L1-single-function    mean=0.000 (0/8 pass)
+  [87/99] stock_reservations   c1-L2-single-function    mean=0.000 (0/8 pass)
+  [88/99] stock_reservations   c2-L0-single-function    mean=0.000 (0/8 pass)
+  [89/99] stock_reservations   c2-L1-single-function    mean=0.000 (0/8 pass)
+  [90/99] stock_reservations   c2-L2-single-function    mean=0.000 (0/8 pass)
+  [91/99] stock_reservations   c3-L0-single-function    mean=0.000 (0/8 pass)
+  [92/99] stock_reservations   c3-L1-single-function    mean=0.000 (0/8 pass)
+  [93/99] stock_reservations   c3-L2-single-function    mean=0.000 (0/8 pass)
+  [94/99] stock_reservations   c2-L0-single-file        mean=0.000 (0/8 pass)
+  [95/99] stock_reservations   c2-L1-single-file        mean=0.000 (0/8 pass)
+  [96/99] stock_reservations   c2-L2-single-file        mean=0.000 (0/8 pass)
+  [97/99] stock_reservations   c3-L0-single-file        mean=0.000 (0/8 pass)
+  [98/99] stock_reservations   c3-L1-single-file        mean=0.000 (0/8 pass)
+  [99/99] stock_reservations   c3-L2-single-file        mean=0.000 (0/8 pass)
+
+admitted 99/120  (rejected 21)
+rejections: {'edit_0:no_genuine_test_failure': 15, 'buggy:no_genuine_test_failure': 18, 'edit_1:no_genuine_test_failure': 15, 'edit_2:no_genuine_test_failure': 6}
+overall mean reward: 0.016
+eval wall time: 28129s  (792 rollouts)
+wrote /root/octorl/artifacts/p1/baseline_eval.json
