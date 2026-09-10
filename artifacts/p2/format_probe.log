@@ -1,0 +1,24 @@
+=== Admission ===
+  config_parser        c1-L0-single-function    condition-inversion          admitted
+  metric_aggregator    c1-L0-single-function    condition-inversion          admitted
+  parcel_ledger        c1-L0-single-function    condition-inversion          REJECTED buggy:no_genuine_test_failure
+  record_index         c1-L0-single-function    condition-inversion          admitted
+  slot_planner         c1-L0-single-function    condition-inversion          admitted
+  task_scheduler       c1-L0-single-function    condition-inversion          admitted
+  route_graph          c1-L0-single-function    condition-inversion          admitted
+  stock_reservations   c1-L0-single-function    condition-inversion          admitted
+
+=== Evaluation (7 instances × 8 rollouts) ===
+  [1/7] config_parser        c1-L0-single-function    mean=0.000 (0/8 pass)
+  [2/7] metric_aggregator    c1-L0-single-function    mean=0.000 (0/8 pass)
+  [3/7] record_index         c1-L0-single-function    mean=0.125 (1/8 pass)
+  [4/7] slot_planner         c1-L0-single-function    mean=0.000 (0/8 pass)
+  [5/7] task_scheduler       c1-L0-single-function    mean=0.000 (0/8 pass)
+  [6/7] route_graph          c1-L0-single-function    mean=0.000 (0/8 pass)
+  [7/7] stock_reservations   c1-L0-single-function    mean=0.000 (0/8 pass)
+
+admitted 7/8  (rejected 1)
+rejections: {'buggy:no_genuine_test_failure': 1}
+overall mean reward: 0.018
+eval wall time: 1991s  (56 rollouts)
+wrote artifacts/p2/format_probe.json

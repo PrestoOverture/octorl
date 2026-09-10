@@ -1,0 +1,26 @@
+{
+  "evidence_sources": [
+    "artifacts/p1/baseline_eval.json",
+    "artifacts/p2/format_probe.json",
+    "docs/prd.md#49-sft--a-gate-not-a-phase"
+  ],
+  "format_validity_rate": 0.9904912836767037,
+  "gate_decision": "skip_sft_straight_to_rl",
+  "gate_rule_branch": "format >85% AND non-zero success AND mixed groups appear",
+  "mixed_groups_exist": true,
+  "nonzero_success": true,
+  "p1_24_easy_bucket": {
+    "mixed_groups": 4,
+    "n_instances": 7,
+    "pass_at_1": 0.125,
+    "successful_rollouts": 7,
+    "total_rollouts": 56
+  },
+  "probe_easy_bucket": {
+    "mixed_groups": 1,
+    "n_instances": 7,
+    "pass_at_1": 0.017857142857142856,
+    "successful_rollouts": 1,
+    "total_rollouts": 56
+  }
+}

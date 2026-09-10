@@ -86,13 +86,35 @@ def satisfiable(repo: Path, bucket, seed: int, source: str) -> Difficulty | None
     return None
 
 
-def run_rollout(client, model: str, sandbox, instance, session: ToolSession) -> float:
-    """Run one agent rollout. Returns reward (0.0 or 1.0)."""
+def assistant_turn_format(msg) -> dict[str, int]:
+    """Classify one model response for the SFT tool-format gate."""
+    tool_calls = msg.tool_calls or []
+    valid_json = bool(tool_calls)
+    for tc in tool_calls:
+        try:
+            json.loads(tc.function.arguments)
+        except (json.JSONDecodeError, TypeError):
+            valid_json = False
+    return {
+        "total_turns": 1,
+        "tool_call_turns": int(bool(tool_calls)),
+        "valid_json_turns": int(valid_json),
+    }
+
+
+def run_rollout(client, model: str, sandbox, instance,
+                session: ToolSession) -> tuple[float, dict[str, int]]:
+    """Run one agent rollout and return its reward and tool-format counts."""
     issue = instance.prompt_instance()
     messages = [
         {"role": "system", "content": SYSTEM_PROMPT},
         {"role": "user", "content": json.dumps(issue, sort_keys=True)},
     ]
+    format_counts = {
+        "total_turns": 0,
+        "tool_call_turns": 0,
+        "valid_json_turns": 0,
+    }
 
     for _step in range(ToolSession.MAX_STEPS):
         try:
@@ -106,6 +128,9 @@ def run_rollout(client, model: str, sandbox, instance, session: ToolSession) -> 
 
         choice = response.choices[0]
         msg = choice.message
+        turn_counts = assistant_turn_format(msg)
+        for name, count in turn_counts.items():
+            format_counts[name] += count
 
         if not msg.tool_calls:
             messages.append({"role": "assistant", "content": msg.content or ""})
@@ -140,12 +165,12 @@ def run_rollout(client, model: str, sandbox, instance, session: ToolSession) -> 
                      tool_cheat_flags=session.cheat_flags,
                      seed=instance.verification_seed,
                      expected_tests=instance.expected_tests)
-    return float(outcome.reward)
+    return float(outcome.reward), format_counts
 
 
 def _run_single_rollout(client, model: str, spec: dict, pool, workspace: Path,
-                        g: int) -> tuple[int, float]:
-    """Run one rollout, return (index, reward)."""
+                        g: int) -> tuple[int, float, dict[str, int]]:
+    """Run one rollout, return (index, reward, format counts)."""
     dest = workspace / f"{spec['repo_name']}-{spec['bucket']}-{spec['injector_seed']}-r{g}"
     instance = package(Path(spec["repo"]), Difficulty(**spec["difficulty"]),
                        spec["injector_seed"], dest)
@@ -155,32 +180,37 @@ def _run_single_rollout(client, model: str, spec: dict, pool, workspace: Path,
         prepare_grading(instance, sandbox)
         session = ToolSession(sandbox, seed=instance.verification_seed,
                               affected_tests=instance.affected_tests)
-        reward = run_rollout(client, model, sandbox, instance, session)
-        return g, reward
+        reward, format_counts = run_rollout(client, model, sandbox, instance, session)
+        return g, reward, format_counts
     except Exception as exc:
         print(f"    rollout {g} error: {exc}", flush=True)
-        return g, 0.0
+        return g, 0.0, {"total_turns": 0, "tool_call_turns": 0,
+                        "valid_json_turns": 0}
     finally:
         lease.__exit__(None, None, None)
 
 
 def evaluate_instance(client, model: str, spec: dict, pool, workspace: Path,
-                      rollouts: int, concurrency: int = 1) -> list[float]:
-    """Run G rollouts for one admitted instance. Returns list of rewards."""
+                      rollouts: int, concurrency: int = 1
+                      ) -> tuple[list[float], list[dict[str, int]]]:
+    """Run G rollouts for one admitted instance. Return rewards and format counts."""
     rewards = [0.0] * rollouts
+    format_counts = [dict() for _ in range(rollouts)]
     workers = min(concurrency, rollouts)
     if workers <= 1:
         for g in range(rollouts):
-            _, reward = _run_single_rollout(client, model, spec, pool, workspace, g)
+            _, reward, counts = _run_single_rollout(client, model, spec, pool, workspace, g)
             rewards[g] = reward
-        return rewards
+            format_counts[g] = counts
+        return rewards, format_counts
     with ThreadPoolExecutor(max_workers=workers) as executor:
         futures = {executor.submit(_run_single_rollout, client, model, spec, pool, workspace, g): g
                    for g in range(rollouts)}
         for future in as_completed(futures):
-            g, reward = future.result()
+            g, reward, counts = future.result()
             rewards[g] = reward
-    return rewards
+            format_counts[g] = counts
+    return rewards, format_counts
 
 
 def main() -> int:
@@ -238,37 +268,47 @@ def main() -> int:
             client = OpenAI(base_url=args.base_url, api_key=args.api_key)
 
             ckpt_path = Path(args.out + ".ckpt")
-            done: dict[str, list[float]] = {}
+            done: dict[str, dict] = {}
             if ckpt_path.exists():
                 for line in ckpt_path.read_text().splitlines():
                     rec = json.loads(line)
-                    done[rec["key"]] = rec["rewards"]
+                    if "format_validity" in rec:
+                        done[rec["key"]] = rec
                 print(f"\n  Resuming from checkpoint: {len(done)}/{len(specs)} instances done", flush=True)
 
             print(f"\n=== Evaluation ({len(specs)} instances × {args.rollouts} rollouts) ===", flush=True)
             per_bucket: dict[tuple[str, str], list[float]] = defaultdict(list)
             all_rewards: list[float] = []
+            instance_format_validity: dict[str, list[dict[str, int]]] = {}
+            all_format_counts: list[dict[str, int]] = []
             eval_start = time.monotonic()
 
             for i, spec in enumerate(specs):
                 key = f"{spec['repo_name']}|{spec['bucket']}|{spec['injector_seed']}"
                 if key in done:
-                    rewards = done[key]
+                    rewards = done[key]["rewards"]
+                    format_counts = done[key]["format_validity"]
                     per_bucket[(spec["repo_name"], spec["bucket"])].extend(rewards)
                     all_rewards.extend(rewards)
+                    instance_format_validity[key] = format_counts
+                    all_format_counts.extend(format_counts)
                     mean = statistics.mean(rewards) if rewards else 0.0
                     print(f"  [{i+1}/{len(specs)}] {spec['repo_name']:20} {spec['bucket']:24} "
                           f"mean={mean:.3f} (checkpoint)", flush=True)
                     continue
                 print(f"  [{i+1}/{len(specs)}] {spec['repo_name']:20} {spec['bucket']:24} ", end="", flush=True)
-                rewards = evaluate_instance(client, args.model, spec, pool, workspace, args.rollouts,
-                                            concurrency=args.concurrency)
+                rewards, format_counts = evaluate_instance(
+                    client, args.model, spec, pool, workspace, args.rollouts,
+                    concurrency=args.concurrency)
                 per_bucket[(spec["repo_name"], spec["bucket"])].extend(rewards)
                 all_rewards.extend(rewards)
+                instance_format_validity[key] = format_counts
+                all_format_counts.extend(format_counts)
                 mean = statistics.mean(rewards) if rewards else 0.0
                 print(f"mean={mean:.3f} ({sum(r > 0 for r in rewards)}/{len(rewards)} pass)", flush=True)
                 with open(ckpt_path, "a") as f:
-                    f.write(json.dumps({"key": key, "rewards": rewards}) + "\n")
+                    f.write(json.dumps({"key": key, "rewards": rewards,
+                                        "format_validity": format_counts}) + "\n")
 
             elapsed = time.monotonic() - eval_start
             report["model"] = {"base_url": args.base_url, "model": args.model,
@@ -278,6 +318,14 @@ def main() -> int:
                 "mixed_group": 0 < sum(values) < len(values)}
                 for (repo, bucket), values in sorted(per_bucket.items())}
             report["overall_mean_reward"] = statistics.mean(all_rewards) if all_rewards else 0.0
+            valid_turns = sum(row["valid_json_turns"] for row in all_format_counts)
+            total_turns = sum(row["total_turns"] for row in all_format_counts)
+            report["instance_format_validity"] = instance_format_validity
+            report["format_validity"] = {
+                "valid_turns": valid_turns,
+                "total_turns": total_turns,
+                "rate": valid_turns / total_turns if total_turns else 0.0,
+            }
             report["eval_wall_time_s"] = round(elapsed, 1)
             report["total_rollouts"] = len(all_rewards)
             if ckpt_path.exists():
