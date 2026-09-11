@@ -1,0 +1,77 @@
+structural feasibility: 48/96 cells satisfiable
+resuming admission: 325/4800 triples complete
+admission 400/4800; admitted=87
+admission 500/4800; admitted=137
+admission 600/4800; admitted=137
+admission 700/4800; admitted=187
+admission 800/4800; admitted=233
+admission 900/4800; admitted=233
+admission 1000/4800; admitted=280
+admission 1100/4800; admitted=324
+admission 1200/4800; admitted=324
+admission 1300/4800; admitted=374
+admission 1400/4800; admitted=416
+admission 1500/4800; admitted=416
+admission 1600/4800; admitted=416
+admission 1700/4800; admitted=463
+admission 1800/4800; admitted=463
+admission 1900/4800; admitted=513
+admission 2000/4800; admitted=559
+admission 2100/4800; admitted=559
+admission 2200/4800; admitted=607
+admission 2300/4800; admitted=651
+admission 2400/4800; admitted=651
+admission 2500/4800; admitted=751
+admission 2600/4800; admitted=847
+admission 2700/4800; admitted=947
+admission 2800/4800; admitted=1000
+admission 2900/4800; admitted=1098
+admission 3000/4800; admitted=1198
+admission 3100/4800; admitted=1298
+admission 3200/4800; admitted=1398
+admission 3300/4800; admitted=1498
+admission 3400/4800; admitted=1548
+admission 3500/4800; admitted=1646
+admission 3600/4800; admitted=1746
+admission 3700/4800; admitted=1796
+admission 3800/4800; admitted=1830
+admission 3900/4800; admitted=1830
+admission 4000/4800; admitted=1830
+admission 4100/4800; admitted=1880
+admission 4200/4800; admitted=1880
+admission 4300/4800; admitted=1930
+admission 4400/4800; admitted=1968
+admission 4500/4800; admitted=1968
+admission 4600/4800; admitted=2013
+admission 4700/4800; admitted=2045
+admission 4800/4800; admitted=2045
+pool sizes: {'c2-L0-single-function': 324, 'c3-L0-single-file': 327, 'c1-L0-single-function': 1095, 'c3-L0-single-function': 299}
+c2-L0-single-function 1/200 K=0 infra_ok=True
+c2-L0-single-function 2/200 K=0 infra_ok=True
+c2-L0-single-function 3/200 K=0 infra_ok=True
+c2-L0-single-function 4/200 K=2 infra_ok=True
+c2-L0-single-function 5/200 K=0 infra_ok=True
+c2-L0-single-function 6/200 K=0 infra_ok=True
+c2-L0-single-function 7/200 K=0 infra_ok=True
+c2-L0-single-function 8/200 K=2 infra_ok=True
+c2-L0-single-function 9/200 K=0 infra_ok=True
+c2-L0-single-function 10/200 K=0 infra_ok=True
+c2-L0-single-function 11/200 K=0 infra_ok=True
+c2-L0-single-function 12/200 K=0 infra_ok=True
+c2-L0-single-function 13/200 K=0 infra_ok=True
+c2-L0-single-function 14/200 K=0 infra_ok=True
+c2-L0-single-function 15/200 K=0 infra_ok=True
+c2-L0-single-function 16/200 K=0 infra_ok=True
+c2-L0-single-function 17/200 K=0 infra_ok=True
+c2-L0-single-function 18/200 K=0 infra_ok=True
+c2-L0-single-function 19/200 K=0 infra_ok=True
+c2-L0-single-function 20/200 K=0 infra_ok=True
+c2-L0-single-function 21/200 K=0 infra_ok=True
+c2-L0-single-function 22/200 K=0 infra_ok=True
+c2-L0-single-function 23/200 K=0 infra_ok=True
+c2-L0-single-function 24/200 K=0 infra_ok=True
+c2-L0-single-function 25/200 K=0 infra_ok=True
+c2-L0-single-function 26/200 K=0 infra_ok=True
+c2-L0-single-function 27/200 K=1 infra_ok=True
+c2-L0-single-function 28/200 K=0 infra_ok=True
+c2-L0-single-function 29/200 K=0 infra_ok=True

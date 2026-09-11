@@ -1,0 +1,58 @@
+[
+  {
+    "T": 200,
+    "a_bar_pass": false,
+    "bootstrap_ci_hi": 0.06167604801581117,
+    "bootstrap_ci_lo": -0.0027099321108886095,
+    "bucket_id": "c2-L0-single-function",
+    "f_mu_hat": 0.15787957585534373,
+    "gap_hat": 0.02787957585534373,
+    "infra_failures": 0,
+    "mu_hat": 0.02125,
+    "n_pool": 324,
+    "n_repos_observed": 7,
+    "q_emp": 0.13
+  },
+  {
+    "T": 200,
+    "a_bar_pass": false,
+    "bootstrap_ci_hi": 0.045449960495182365,
+    "bootstrap_ci_lo": -0.0017151809236442828,
+    "bucket_id": "c3-L0-single-file",
+    "f_mu_hat": 0.15787957585534373,
+    "gap_hat": 0.022879575855343726,
+    "infra_failures": 2,
+    "mu_hat": 0.02125,
+    "n_pool": 327,
+    "n_repos_observed": 7,
+    "q_emp": 0.135
+  },
+  {
+    "T": 75,
+    "a_bar_pass": false,
+    "bootstrap_ci_hi": 0.03849668548016605,
+    "bootstrap_ci_lo": -0.012855992339015548,
+    "bucket_id": "c1-L0-single-function",
+    "f_mu_hat": 0.2269651806041164,
+    "gap_hat": 0.013631847270783065,
+    "infra_failures": 0,
+    "mu_hat": 0.03166666666666667,
+    "n_pool": 1095,
+    "n_repos_observed": 8,
+    "q_emp": 0.21333333333333335
+  },
+  {
+    "T": 75,
+    "a_bar_pass": false,
+    "bootstrap_ci_hi": 0.07919097070201991,
+    "bootstrap_ci_lo": -0.008152665004619919,
+    "bucket_id": "c3-L0-single-function",
+    "f_mu_hat": 0.16074331952859833,
+    "gap_hat": 0.027409986195264996,
+    "infra_failures": 0,
+    "mu_hat": 0.021666666666666667,
+    "n_pool": 299,
+    "n_repos_observed": 7,
+    "q_emp": 0.13333333333333333
+  }
+]

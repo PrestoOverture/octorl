@@ -1,0 +1,13 @@
+{
+  "hard_buckets": [
+    {
+      "bucket_id": "c2-L0-single-function",
+      "pass": false
+    },
+    {
+      "bucket_id": "c3-L0-single-file",
+      "pass": false
+    }
+  ],
+  "overall_a_bar_pass": false
+}

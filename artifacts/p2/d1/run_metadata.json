@@ -1,0 +1,47 @@
+{
+  "G": 8,
+  "base_url": "http://127.0.0.1:8000/v1",
+  "bootstrap_resamples": 10000,
+  "bootstrap_seed": 20260911,
+  "bucket_plan": {
+    "c1-L0-single-function": 75,
+    "c2-L0-single-function": 200,
+    "c3-L0-single-file": 200,
+    "c3-L0-single-function": 75
+  },
+  "catalog_history_replacements": {
+    "10031d1b02aef986324579f500405f3733ab7c91": "a7fbe1649b3e257952d785933c9eab9d8c66f02e",
+    "19aec6744e5ec27b42f825321da50f130b702459": "6b59a202d088f51cc04432a6e0c3b1f15182fef7",
+    "3941633c84eb8caca622bb567520d254e7e75537": "6a7a442a3e2377c467138d2e8c09dfa783028a25",
+    "3b8a069c5e91287ef7541dd8602fb27f1382f678": "65756fd7dfbb402f5c3a05e4c242f91fb1b456f1",
+    "47239fae9ba24b183b1d1c230062d79c0bddfdfd": "db3a85433a9887d0321ee35c502a0b91d0821124",
+    "48aaf0943f58dd6cad83851e609d7b3ce1818029": "86dff69883ad0a92ef0337bc5b81c2d0f9bb9e48",
+    "4b91a9a6b65012b68204622c5fca1e8d18ac5938": "0b7b31fdb0b8a2c7bc47c0bc55bf742b93749453",
+    "4eb3a139b519eeac87a59ffc01cb12082665d64d": "ee7f46dc54883d7e04a9c3c5537b6fe6fe58afe2",
+    "62a22e3e7d9de247bf96b09b521fb81aa0bd1235": "8918bf6cc8c373298f4fcf9c27f72d6df4276fdd",
+    "731bcb6fc89d06d941c495ffac3978b8fb825f30": "62fb0f0f2218ab203067208f127815f8be255517",
+    "a1167a694ebaf2950966c6c30dde6f0768f0f117": "6c14b92454eb38abc23cb288bc85126bc233ba33",
+    "a1471ec2d2be77f77bfa4338979f2828294ca70d": "3f5a74cae54590e305f020b8ef186b3c82ce4633",
+    "a948b8fa587e3a78b1c758c736c158ad9604b3f5": "be014ed8e32ef0a85bcc3a32370933cddbaa6b25",
+    "d9fbca8005c2ba52fa1b1e2aa59d0fd850446f5e": "e6558fbf689d8f0d34f346ea2d28216b0f080c69",
+    "fb1c651e15b96f61aec539d9096a8a28633afa59": "01972d47bee80b252622d1d1427da67ef1c10f35"
+  },
+  "code_sha256": {
+    "scripts/baseline_eval.py": "c4ab41c99787883a967e59d4416b75364cbfb232490ef41be3dcdb4934e887f5",
+    "scripts/p2_d1_gap.py": "a937d179ffa67615c8059405f7ba837641333831524cb78fdc85fb6c6ff54f20"
+  },
+  "git_commit": "882d1340caa72330706c1181ec7ee9916db103e7",
+  "model": "/root/autodl-tmp/models/Qwen3-4B",
+  "pool_seeds": [
+    0,
+    49
+  ],
+  "pool_sources": [
+    "mutation",
+    "commit-rollback",
+    "feat-add"
+  ],
+  "sampling_master_seed": 20260910,
+  "top_k": 20,
+  "top_p": 0.95
+}
