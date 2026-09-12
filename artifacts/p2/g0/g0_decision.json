@@ -1,0 +1,148 @@
+{
+  "record_type": "proposed_fork_decision",
+  "generated_at_date": "2026-09-12",
+  "implementation_commit": "77d65cd680a3f51b3b496a6dbbdb68f2b61e0e76",
+  "g0_status": "unmet",
+  "g0_reason": "fewer_than_two_eligible_buckets",
+  "required_cells": 2,
+  "eligible_cells": [
+    "c1-L0-single-function"
+  ],
+  "g0_input_policy": "designated_p2_4_table_unchanged",
+  "g1_status": "not_run",
+  "g2_status": "not_run",
+  "t2_status": "parked_under_current_design",
+  "a_gate_status": "fail_as_recorded",
+  "recommended_fork": "infra_eval_exit",
+  "new_model_rollouts": 0,
+  "new_api_calls": 0,
+  "new_gpu_hours": 0,
+  "registered_constants_preserved": {
+    "g0_required_cells": 2,
+    "g0_pass_at_1_interval": [
+      0.05,
+      0.25
+    ],
+    "g2_a_min_discordance": 0.1,
+    "g2_b_min_greedy_fresh_commits": 30,
+    "g2_b_min_greedy_stored_commits": 3,
+    "g2_seeds_per_cell": 2,
+    "g2_greedy_rounds": 30
+  },
+  "diagnostic_evidence": {
+    "designated_original": {
+      "successes": 7,
+      "rollouts": 56,
+      "pass_at_1": 0.125
+    },
+    "replication": {
+      "successes": 2,
+      "rollouts": 56,
+      "pass_at_1": 0.03571428571428571
+    },
+    "three_cohort_descriptive_total": {
+      "successes": 10,
+      "rollouts": 168,
+      "pass_at_1": 0.05952380952380952
+    },
+    "d1": {
+      "c1-L0-single-function": {
+        "groups": 75,
+        "rollouts": 600,
+        "successes": 19,
+        "mean_reward": 0.03166666666666667,
+        "all_pairs_disagreement": 0.060476190476190475,
+        "unique_tasks": 73,
+        "infrastructure_failure_groups": 0
+      },
+      "c3-L0-single-function": {
+        "groups": 75,
+        "rollouts": 600,
+        "successes": 13,
+        "mean_reward": 0.021666666666666667,
+        "all_pairs_disagreement": 0.039523809523809524,
+        "unique_tasks": 62,
+        "infrastructure_failure_groups": 0
+      },
+      "c2-L0-single-function": {
+        "groups": 200,
+        "rollouts": 1600,
+        "successes": 34,
+        "mean_reward": 0.02125,
+        "all_pairs_disagreement": 0.03857142857142857,
+        "unique_tasks": 151,
+        "infrastructure_failure_groups": 0
+      },
+      "c3-L0-single-file": {
+        "groups": 200,
+        "rollouts": 1600,
+        "successes": 34,
+        "mean_reward": 0.02125,
+        "all_pairs_disagreement": 0.04,
+        "unique_tasks": 145,
+        "infrastructure_failure_groups": 2
+      },
+      "c1-L0-single-function_mutation_only": {
+        "groups": 17,
+        "rollouts": 136,
+        "successes": 7,
+        "mean_reward": 0.051470588235294115,
+        "all_pairs_disagreement": 0.09873949579831932,
+        "unique_tasks": 16,
+        "infrastructure_failure_groups": 0
+      },
+      "equal_cell_pool_c1_c3_single_function": {
+        "all_pairs_disagreement": 0.05
+      },
+      "equal_cell_pool_c1_mutation_only_c3_single_function": {
+        "all_pairs_disagreement": 0.06913165266106443
+      }
+    }
+  },
+  "population_notes": {
+    "original_screen": "mutation / condition-inversion / injector seed 11",
+    "d1": "broader injector-seed pool; c1 also includes commit-rollback and feat-add",
+    "dependence": "tasks repeat across groups and the 28 within-group rollout pairs are not independent task draws"
+  },
+  "sensitivity_analysis": {
+    "path": "artifacts/research/g0_decision_20260912/analysis.json",
+    "status": "descriptive sensitivity, not a G2 outcome or preregistered test",
+    "master_seed": 20260912,
+    "simulation_samples": 20000,
+    "assumptions": {
+      "n_dev": 40,
+      "rounds": 30
+    },
+    "synthetic_checks": {
+      "seed": 20260912,
+      "null_mu": 0.025,
+      "null_samples": 200000,
+      "expected_discordance": 0.04875,
+      "measured_discordance": 0.04876339285714285,
+      "SE": 0.00023541593075641277,
+      "within_one_SE": true,
+      "greedy_exact_check": true,
+      "deterministic_check": true
+    },
+    "interpretation": "descriptive operating characteristics only; not an observed G2 or an e-process validity/power simulation"
+  },
+  "input_sha256": {
+    "docs/progress.md": "077d6b59e5406f51ebd75cbd826d29e5152a30444d4fa3d21496d9bcbf9f94bf",
+    "docs/roadmap.md": "d5220c71fe166eff6bf241e86eab42f7cf257176660b9c2edd08bf4108c75192",
+    "misc/v2_7_delta_2026-09-02.md": "483685af599972a6e26b2b3af0916fa1e6d61504f83f26fc9632fc81b14319f2",
+    "artifacts/p2/bucket_table.json": "a7e77f002003d43939e07aecbfbddc2f28f06bfed46ade37774d9eedd5637b7d",
+    "artifacts/p1/baseline_eval.json": "ba1fae61857806ea8b510ac414a65a3695cbf5abc25430fa1be96b981b8e962a",
+    "artifacts/p2/replication.json": "e0b8a350994e35b45729cbcbbc646c9921bfa534bbb6c1ed8c572906f53c14d0",
+    "artifacts/p2/replication_summary.md": "f4ae91c0b0bba7f06a4782813bce8e0e6efb4e0eece7de507c145cca4a328758",
+    "artifacts/p2/gate_review_2026-09-10.md": "9527c8c6d949fbb7ba0f9f7e5ae46ef7a6fa3f9e2f920ab3f678e8168af8d4e7",
+    "artifacts/p2/d1/d1_summary.json": "2e019e9825f55f20556642c56a91a5639b694614bc5ba944b09a013ef07fa144",
+    "artifacts/p2/d1/run_metadata.json": "6d7b8fab882a96ebefd1008e20b8a822a6a8ea6be6be62a86469bd6b6d1c7e3f",
+    "artifacts/p2/d1/prequential_groups_c1-L0-single-function.jsonl": "9c428cfbf88f0c5e03324670fe4d6e205c0950b8f8bdb38b26119767d04c7e03",
+    "artifacts/p2/d1/prequential_groups_c2-L0-single-function.jsonl": "c29c1f5046c31a83911a9174954ab0079296c486223726b781e587267fc853f7",
+    "artifacts/p2/d1/prequential_groups_c3-L0-single-file.jsonl": "3dc9a32a62f7ff36d50a61bb275ae4ceea1a15e319f314cee42b58e84bcebec2",
+    "artifacts/p2/d1/prequential_groups_c3-L0-single-function.jsonl": "32958d60845b05af3dc177be8d5500a6a7f42ec6ee04176a4f6141d830076755",
+    "scripts/null_gate_power.py": "3a6f98cd6c68d9d24c9bc7de77c697ba0d09dacc8e389e4c012166b375c46d9f",
+    "artifacts/research/g0_decision_20260912/analyze.py": "a9a4de2cb31959ec390051e23ccea51f7b36417e600e0c854cc6f8ad71a7f172",
+    "artifacts/research/g0_decision_20260912/analysis.json": "3af4369d5ecbc700dccbdaf48baeab691bcf1ec6c6b4ea345090b629ca35d970"
+  }
+}

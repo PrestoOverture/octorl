@@ -1,0 +1,385 @@
+{
+  "record_type": "g0_selection_table",
+  "input": "artifacts/p2/bucket_table.json",
+  "underlying_rewards": "artifacts/p1/baseline_eval.json",
+  "eligibility_interval": {
+    "lower": 0.05,
+    "upper": 0.25,
+    "inclusive": true
+  },
+  "required_distinct_buckets": 2,
+  "rows": [
+    {
+      "bucket_id": "c1-L0-single-function",
+      "successes": 7,
+      "rollouts": 56,
+      "pass_at_1": 0.125,
+      "instances": 7,
+      "train_instances": 5,
+      "held_out_instances": 2,
+      "source_population": {
+        "source": "mutation",
+        "difficulty_type": "condition-inversion",
+        "injector_seed": 11,
+        "repositories": [
+          "config_parser",
+          "metric_aggregator",
+          "record_index",
+          "route_graph",
+          "slot_planner",
+          "stock_reservations",
+          "task_scheduler"
+        ]
+      },
+      "eligible": true,
+      "eligibility_reason": "within_inclusive_0.05_0.25"
+    },
+    {
+      "bucket_id": "c1-L1-single-function",
+      "successes": 0,
+      "rollouts": 56,
+      "pass_at_1": 0.0,
+      "instances": 7,
+      "train_instances": 5,
+      "held_out_instances": 2,
+      "source_population": {
+        "source": "mutation",
+        "difficulty_type": "condition-inversion",
+        "injector_seed": 11,
+        "repositories": [
+          "config_parser",
+          "metric_aggregator",
+          "record_index",
+          "route_graph",
+          "slot_planner",
+          "stock_reservations",
+          "task_scheduler"
+        ]
+      },
+      "eligible": false,
+      "eligibility_reason": "below_0.05"
+    },
+    {
+      "bucket_id": "c1-L2-single-function",
+      "successes": 0,
+      "rollouts": 56,
+      "pass_at_1": 0.0,
+      "instances": 7,
+      "train_instances": 5,
+      "held_out_instances": 2,
+      "source_population": {
+        "source": "mutation",
+        "difficulty_type": "condition-inversion",
+        "injector_seed": 11,
+        "repositories": [
+          "config_parser",
+          "metric_aggregator",
+          "record_index",
+          "route_graph",
+          "slot_planner",
+          "stock_reservations",
+          "task_scheduler"
+        ]
+      },
+      "eligible": false,
+      "eligibility_reason": "below_0.05"
+    },
+    {
+      "bucket_id": "c2-L0-single-file",
+      "successes": 1,
+      "rollouts": 56,
+      "pass_at_1": 0.017857142857142856,
+      "instances": 7,
+      "train_instances": 5,
+      "held_out_instances": 2,
+      "source_population": {
+        "source": "mutation",
+        "difficulty_type": "condition-inversion",
+        "injector_seed": 11,
+        "repositories": [
+          "config_parser",
+          "metric_aggregator",
+          "record_index",
+          "route_graph",
+          "slot_planner",
+          "stock_reservations",
+          "task_scheduler"
+        ]
+      },
+      "eligible": false,
+      "eligibility_reason": "below_0.05"
+    },
+    {
+      "bucket_id": "c2-L0-single-function",
+      "successes": 1,
+      "rollouts": 56,
+      "pass_at_1": 0.017857142857142856,
+      "instances": 7,
+      "train_instances": 5,
+      "held_out_instances": 2,
+      "source_population": {
+        "source": "mutation",
+        "difficulty_type": "condition-inversion",
+        "injector_seed": 11,
+        "repositories": [
+          "config_parser",
+          "metric_aggregator",
+          "record_index",
+          "route_graph",
+          "slot_planner",
+          "stock_reservations",
+          "task_scheduler"
+        ]
+      },
+      "eligible": false,
+      "eligibility_reason": "below_0.05"
+    },
+    {
+      "bucket_id": "c2-L1-single-file",
+      "successes": 1,
+      "rollouts": 56,
+      "pass_at_1": 0.017857142857142856,
+      "instances": 7,
+      "train_instances": 5,
+      "held_out_instances": 2,
+      "source_population": {
+        "source": "mutation",
+        "difficulty_type": "condition-inversion",
+        "injector_seed": 11,
+        "repositories": [
+          "config_parser",
+          "metric_aggregator",
+          "record_index",
+          "route_graph",
+          "slot_planner",
+          "stock_reservations",
+          "task_scheduler"
+        ]
+      },
+      "eligible": false,
+      "eligibility_reason": "below_0.05"
+    },
+    {
+      "bucket_id": "c2-L1-single-function",
+      "successes": 0,
+      "rollouts": 56,
+      "pass_at_1": 0.0,
+      "instances": 7,
+      "train_instances": 5,
+      "held_out_instances": 2,
+      "source_population": {
+        "source": "mutation",
+        "difficulty_type": "condition-inversion",
+        "injector_seed": 11,
+        "repositories": [
+          "config_parser",
+          "metric_aggregator",
+          "record_index",
+          "route_graph",
+          "slot_planner",
+          "stock_reservations",
+          "task_scheduler"
+        ]
+      },
+      "eligible": false,
+      "eligibility_reason": "below_0.05"
+    },
+    {
+      "bucket_id": "c2-L2-single-file",
+      "successes": 0,
+      "rollouts": 56,
+      "pass_at_1": 0.0,
+      "instances": 7,
+      "train_instances": 5,
+      "held_out_instances": 2,
+      "source_population": {
+        "source": "mutation",
+        "difficulty_type": "condition-inversion",
+        "injector_seed": 11,
+        "repositories": [
+          "config_parser",
+          "metric_aggregator",
+          "record_index",
+          "route_graph",
+          "slot_planner",
+          "stock_reservations",
+          "task_scheduler"
+        ]
+      },
+      "eligible": false,
+      "eligibility_reason": "below_0.05"
+    },
+    {
+      "bucket_id": "c2-L2-single-function",
+      "successes": 0,
+      "rollouts": 56,
+      "pass_at_1": 0.0,
+      "instances": 7,
+      "train_instances": 5,
+      "held_out_instances": 2,
+      "source_population": {
+        "source": "mutation",
+        "difficulty_type": "condition-inversion",
+        "injector_seed": 11,
+        "repositories": [
+          "config_parser",
+          "metric_aggregator",
+          "record_index",
+          "route_graph",
+          "slot_planner",
+          "stock_reservations",
+          "task_scheduler"
+        ]
+      },
+      "eligible": false,
+      "eligibility_reason": "below_0.05"
+    },
+    {
+      "bucket_id": "c3-L0-single-file",
+      "successes": 1,
+      "rollouts": 56,
+      "pass_at_1": 0.017857142857142856,
+      "instances": 7,
+      "train_instances": 5,
+      "held_out_instances": 2,
+      "source_population": {
+        "source": "mutation",
+        "difficulty_type": "condition-inversion",
+        "injector_seed": 11,
+        "repositories": [
+          "config_parser",
+          "metric_aggregator",
+          "record_index",
+          "route_graph",
+          "slot_planner",
+          "stock_reservations",
+          "task_scheduler"
+        ]
+      },
+      "eligible": false,
+      "eligibility_reason": "below_0.05"
+    },
+    {
+      "bucket_id": "c3-L0-single-function",
+      "successes": 1,
+      "rollouts": 40,
+      "pass_at_1": 0.025,
+      "instances": 5,
+      "train_instances": 3,
+      "held_out_instances": 2,
+      "source_population": {
+        "source": "mutation",
+        "difficulty_type": "condition-inversion",
+        "injector_seed": 11,
+        "repositories": [
+          "config_parser",
+          "record_index",
+          "route_graph",
+          "slot_planner",
+          "stock_reservations"
+        ]
+      },
+      "eligible": false,
+      "eligibility_reason": "below_0.05"
+    },
+    {
+      "bucket_id": "c3-L1-single-file",
+      "successes": 0,
+      "rollouts": 56,
+      "pass_at_1": 0.0,
+      "instances": 7,
+      "train_instances": 5,
+      "held_out_instances": 2,
+      "source_population": {
+        "source": "mutation",
+        "difficulty_type": "condition-inversion",
+        "injector_seed": 11,
+        "repositories": [
+          "config_parser",
+          "metric_aggregator",
+          "record_index",
+          "route_graph",
+          "slot_planner",
+          "stock_reservations",
+          "task_scheduler"
+        ]
+      },
+      "eligible": false,
+      "eligibility_reason": "below_0.05"
+    },
+    {
+      "bucket_id": "c3-L1-single-function",
+      "successes": 0,
+      "rollouts": 40,
+      "pass_at_1": 0.0,
+      "instances": 5,
+      "train_instances": 3,
+      "held_out_instances": 2,
+      "source_population": {
+        "source": "mutation",
+        "difficulty_type": "condition-inversion",
+        "injector_seed": 11,
+        "repositories": [
+          "config_parser",
+          "record_index",
+          "route_graph",
+          "slot_planner",
+          "stock_reservations"
+        ]
+      },
+      "eligible": false,
+      "eligibility_reason": "below_0.05"
+    },
+    {
+      "bucket_id": "c3-L2-single-file",
+      "successes": 1,
+      "rollouts": 56,
+      "pass_at_1": 0.017857142857142856,
+      "instances": 7,
+      "train_instances": 5,
+      "held_out_instances": 2,
+      "source_population": {
+        "source": "mutation",
+        "difficulty_type": "condition-inversion",
+        "injector_seed": 11,
+        "repositories": [
+          "config_parser",
+          "metric_aggregator",
+          "record_index",
+          "route_graph",
+          "slot_planner",
+          "stock_reservations",
+          "task_scheduler"
+        ]
+      },
+      "eligible": false,
+      "eligibility_reason": "below_0.05"
+    },
+    {
+      "bucket_id": "c3-L2-single-function",
+      "successes": 0,
+      "rollouts": 40,
+      "pass_at_1": 0.0,
+      "instances": 5,
+      "train_instances": 3,
+      "held_out_instances": 2,
+      "source_population": {
+        "source": "mutation",
+        "difficulty_type": "condition-inversion",
+        "injector_seed": 11,
+        "repositories": [
+          "config_parser",
+          "record_index",
+          "route_graph",
+          "slot_planner",
+          "stock_reservations"
+        ]
+      },
+      "eligible": false,
+      "eligibility_reason": "below_0.05"
+    }
+  ],
+  "eligible_cells": [
+    "c1-L0-single-function"
+  ]
+}
