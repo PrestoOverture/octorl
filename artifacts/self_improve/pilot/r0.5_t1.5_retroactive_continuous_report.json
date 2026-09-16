@@ -1,0 +1,116 @@
+{
+  "binary_fcr": 0.55,
+  "binary_mixed_fault_groups": 2,
+  "binary_mixed_fault_task_ids": [
+    "monitoring_service_100040_missing_dependency",
+    "monitoring_service_100055_missing_dependency"
+  ],
+  "binary_mixed_reward_group_fraction": 0.05,
+  "binary_npr": 0.25,
+  "binary_per_fault_type": {
+    "constraint_violation": {
+      "reward_rate": 0.7333333333333333,
+      "rollouts": 30
+    },
+    "missing_dependency": {
+      "reward_rate": 0.07692307692307693,
+      "rollouts": 26
+    },
+    "stale_version": {
+      "reward_rate": 0.8333333333333334,
+      "rollouts": 24
+    }
+  },
+  "different_final_config_fault_groups": 7,
+  "different_final_config_fault_task_ids": [
+    "monitoring_service_100012_constraint_violation",
+    "monitoring_service_100023_constraint_violation",
+    "monitoring_service_100027_missing_dependency",
+    "monitoring_service_100030_missing_dependency",
+    "monitoring_service_100040_missing_dependency",
+    "monitoring_service_100044_missing_dependency",
+    "monitoring_service_100055_missing_dependency"
+  ],
+  "fault_group_count": 40,
+  "gate": {
+    "mixed_group_at_least_15_percent": true,
+    "mixed_group_threshold": 0.15,
+    "r3_ready": true
+  },
+  "group_size": 2,
+  "instance_count": 50,
+  "mean_continuous_fault_reward": 0.9393973821669384,
+  "mean_continuous_normal_reward": 0.9583867554190135,
+  "mean_continuous_reward": 0.9431952568173534,
+  "mixed_fault_groups": 7,
+  "mixed_fault_task_ids": [
+    "monitoring_service_100012_constraint_violation",
+    "monitoring_service_100023_constraint_violation",
+    "monitoring_service_100027_missing_dependency",
+    "monitoring_service_100030_missing_dependency",
+    "monitoring_service_100040_missing_dependency",
+    "monitoring_service_100044_missing_dependency",
+    "monitoring_service_100055_missing_dependency"
+  ],
+  "mixed_reward_group_fraction": 0.175,
+  "mixed_reward_tolerance": 1e-09,
+  "model": "/root/autodl-tmp/models/Qwen3-4B",
+  "new_model_inference_performed": false,
+  "per_fault_type": {
+    "constraint_violation": {
+      "max_reward": 1.0,
+      "mean_reward": 0.9631463443963444,
+      "min_reward": 0.8472222222222222,
+      "rollouts": 30
+    },
+    "missing_dependency": {
+      "max_reward": 1.0,
+      "mean_reward": 0.8738601232472192,
+      "min_reward": 0.8576700052714813,
+      "rollouts": 26
+    },
+    "stale_version": {
+      "max_reward": 1.0,
+      "mean_reward": 0.9807098765432098,
+      "min_reward": 0.8518518518518517,
+      "rollouts": 24
+    }
+  },
+  "replay_is_deterministic": true,
+  "report_type": "retroactive_continuous_reward_replay",
+  "reward_definition": {
+    "aggregation": "mean over fields in golden_config",
+    "exact_match_score": 1.0,
+    "extra_fields": "ignored",
+    "missing_field_score": 0.0,
+    "wrong_boolean_or_string_score": 0.0,
+    "wrong_integer_score": "1 / (1 + abs(final - golden))"
+  },
+  "reward_mode": "continuous",
+  "reward_protocol_version": "r2.0",
+  "rollout_count": 100,
+  "sampling": {
+    "manifest": "r0.5_manifest.json",
+    "max_steps": 5,
+    "model_sampling_seeds": [
+      0,
+      1
+    ],
+    "temperature": 1.5,
+    "top_p": 0.95
+  },
+  "source_artifacts": {
+    "binary_report": "artifacts/self_improve/pilot/r0.5_t1.5_pilot_report.json",
+    "binary_results": "artifacts/self_improve/pilot/r0.5_t1.5_results.json",
+    "manifest": "artifacts/self_improve/pilot/r0.5_manifest.json",
+    "trajectories": "artifacts/self_improve/pilot/r0.5_t1.5_trajectories.jsonl"
+  },
+  "source_pilot_wall_time_seconds": 50.29587606713176,
+  "source_protocol_version": "r0.5",
+  "source_sha256": {
+    "binary_report": "96c9744b0601ad0b9a2ae4a6d03ac3840f73f62811622473ab227611cf917c81",
+    "binary_results": "76dc96cb2c3b6512d2840351cac6a34c7085d9b1c2b8c68fd0b7a7af67650011",
+    "manifest": "b0cc4b2ec88c626c3797c2809d949caddcaf94e6a7a5689e9312193c80a1d3e6",
+    "trajectories": "067880b5589f0c459a5f56411f7c8fd76501304249642e1e61a9d6211e635951"
+  }
+}
