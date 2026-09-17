@@ -1,0 +1,4 @@
+seed,update,continuous_reward_mean,binary_fcr,binary_npr,mixed_group_fraction,rollout_count,wall_time_seconds,manifest_sha256,lora_path
+base,base,0.9430378927293203,0.63125,0.075,0.5,200,59.34492368623614,b865c8f79e4498fd342946da7273c8722deca24536a50673b802f8bf5a913ca9,
+seed_42,1,0.9441040385543946,0.64375,0.075,0.425,200,167.29211736097932,b865c8f79e4498fd342946da7273c8722deca24536a50673b802f8bf5a913ca9,/root/autodl-tmp/octorl_r3/seed_42/checkpoints/global_step_1/actor/lora_adapter
+seed_42,5,0.9456602824262026,0.65625,0.075,0.45,200,67.75543513149023,b865c8f79e4498fd342946da7273c8722deca24536a50673b802f8bf5a913ca9,/root/autodl-tmp/octorl_r3/seed_42/checkpoints/global_step_5/actor/lora_adapter

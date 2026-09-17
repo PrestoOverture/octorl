@@ -1,0 +1,1751 @@
+{
+  "duplicate_seeds": [],
+  "generated_count": 50,
+  "generator_version": "r2.0",
+  "instances": [
+    {
+      "external_state": {
+        "monitoring.agg_window_base": 15,
+        "monitoring.alert_version": 3,
+        "monitoring.panel_columns": 4,
+        "monitoring.retention_factor": 1,
+        "monitoring.sample_pool": 5000,
+        "monitoring.scrape_base": 26,
+        "monitoring.severity_threshold": 4
+      },
+      "family": "monitoring_service",
+      "fault_type": "normal",
+      "faulted_field": null,
+      "fingerprint": "aae484dc64bb57e7",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "agg_window_minutes": 30,
+        "aggregation_method": "histogram",
+        "alerting_enabled": true,
+        "data_retention_days": 5,
+        "sample_rate": 1000,
+        "scrape_interval_seconds": 7,
+        "widget_columns": 12
+      },
+      "presented_config": {
+        "agg_window_minutes": 30,
+        "aggregation_method": "histogram",
+        "alerting_enabled": true,
+        "data_retention_days": 5,
+        "sample_rate": 1000,
+        "scrape_interval_seconds": 7,
+        "widget_columns": 12
+      },
+      "seed": 100000,
+      "task_id": "monitoring_service_100000_normal"
+    },
+    {
+      "external_state": {
+        "scheduler.concurrency_cap": 24,
+        "scheduler.cron_base": 10,
+        "scheduler.grace_base": 60,
+        "scheduler.priority_levels": 5,
+        "scheduler.queue_depth": 25,
+        "scheduler.retry_version": 3,
+        "scheduler.worker_pool": 128
+      },
+      "family": "scheduler_service",
+      "fault_type": "normal",
+      "faulted_field": null,
+      "fingerprint": "421a19ab4fbb2363",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "cron_resolution_minutes": 150,
+        "executor_threads": 16,
+        "grace_period_seconds": 300,
+        "max_concurrent": 12,
+        "max_pending_jobs": 3,
+        "priority_buckets": 10,
+        "retry_strategy": "exponential"
+      },
+      "presented_config": {
+        "cron_resolution_minutes": 150,
+        "executor_threads": 16,
+        "grace_period_seconds": 300,
+        "max_concurrent": 12,
+        "max_pending_jobs": 3,
+        "priority_buckets": 10,
+        "retry_strategy": "exponential"
+      },
+      "seed": 100001,
+      "task_id": "scheduler_service_100001_normal"
+    },
+    {
+      "external_state": {
+        "scheduler.concurrency_cap": 8,
+        "scheduler.cron_base": 5,
+        "scheduler.grace_base": 60,
+        "scheduler.priority_levels": 5,
+        "scheduler.queue_depth": 37,
+        "scheduler.retry_version": 3,
+        "scheduler.worker_pool": 16
+      },
+      "family": "scheduler_service",
+      "fault_type": "normal",
+      "faulted_field": null,
+      "fingerprint": "fe817d5941b11d1f",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "cron_resolution_minutes": 75,
+        "executor_threads": 2,
+        "grace_period_seconds": 300,
+        "max_concurrent": 4,
+        "max_pending_jobs": 7,
+        "priority_buckets": 10,
+        "retry_strategy": "exponential"
+      },
+      "presented_config": {
+        "cron_resolution_minutes": 75,
+        "executor_threads": 2,
+        "grace_period_seconds": 300,
+        "max_concurrent": 4,
+        "max_pending_jobs": 7,
+        "priority_buckets": 10,
+        "retry_strategy": "exponential"
+      },
+      "seed": 100002,
+      "task_id": "scheduler_service_100002_normal"
+    },
+    {
+      "external_state": {
+        "scheduler.concurrency_cap": 4,
+        "scheduler.cron_base": 3,
+        "scheduler.grace_base": 30,
+        "scheduler.priority_levels": 3,
+        "scheduler.queue_depth": 25,
+        "scheduler.retry_version": 1,
+        "scheduler.worker_pool": 16
+      },
+      "family": "scheduler_service",
+      "fault_type": "normal",
+      "faulted_field": null,
+      "fingerprint": "52ff57ce1aeb3a95",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "cron_resolution_minutes": 45,
+        "executor_threads": 2,
+        "max_concurrent": 2,
+        "max_pending_jobs": 3,
+        "priority_buckets": 6,
+        "retry_strategy": "linear"
+      },
+      "presented_config": {
+        "cron_resolution_minutes": 45,
+        "executor_threads": 2,
+        "max_concurrent": 2,
+        "max_pending_jobs": 3,
+        "priority_buckets": 6,
+        "retry_strategy": "linear"
+      },
+      "seed": 100003,
+      "task_id": "scheduler_service_100003_normal"
+    },
+    {
+      "external_state": {
+        "monitoring.agg_window_base": 15,
+        "monitoring.alert_version": 2,
+        "monitoring.panel_columns": 3,
+        "monitoring.retention_factor": 1,
+        "monitoring.sample_pool": 500,
+        "monitoring.scrape_base": 19,
+        "monitoring.severity_threshold": 1
+      },
+      "family": "monitoring_service",
+      "fault_type": "normal",
+      "faulted_field": null,
+      "fingerprint": "65f930e5336a409f",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "aggregation_method": "counter",
+        "alerting_enabled": false,
+        "data_retention_days": 5,
+        "sample_rate": 100,
+        "scrape_interval_seconds": 6,
+        "widget_columns": 9
+      },
+      "presented_config": {
+        "aggregation_method": "counter",
+        "alerting_enabled": false,
+        "data_retention_days": 5,
+        "sample_rate": 100,
+        "scrape_interval_seconds": 6,
+        "widget_columns": 9
+      },
+      "seed": 100004,
+      "task_id": "monitoring_service_100004_normal"
+    },
+    {
+      "external_state": {
+        "scheduler.concurrency_cap": 8,
+        "scheduler.cron_base": 5,
+        "scheduler.grace_base": 10,
+        "scheduler.priority_levels": 7,
+        "scheduler.queue_depth": 50,
+        "scheduler.retry_version": 2,
+        "scheduler.worker_pool": 16
+      },
+      "family": "scheduler_service",
+      "fault_type": "normal",
+      "faulted_field": null,
+      "fingerprint": "125cfc92860515d6",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "cron_resolution_minutes": 75,
+        "executor_threads": 2,
+        "max_concurrent": 4,
+        "max_pending_jobs": 4,
+        "priority_buckets": 14,
+        "retry_strategy": "linear"
+      },
+      "presented_config": {
+        "cron_resolution_minutes": 75,
+        "executor_threads": 2,
+        "max_concurrent": 4,
+        "max_pending_jobs": 4,
+        "priority_buckets": 14,
+        "retry_strategy": "linear"
+      },
+      "seed": 100005,
+      "task_id": "scheduler_service_100005_normal"
+    },
+    {
+      "external_state": {
+        "monitoring.agg_window_base": 15,
+        "monitoring.alert_version": 2,
+        "monitoring.panel_columns": 2,
+        "monitoring.retention_factor": 1,
+        "monitoring.sample_pool": 500,
+        "monitoring.scrape_base": 26,
+        "monitoring.severity_threshold": 3
+      },
+      "family": "monitoring_service",
+      "fault_type": "normal",
+      "faulted_field": null,
+      "fingerprint": "e16e80c5b953e1e5",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "aggregation_method": "counter",
+        "alerting_enabled": true,
+        "data_retention_days": 5,
+        "sample_rate": 100,
+        "scrape_interval_seconds": 7,
+        "widget_columns": 6
+      },
+      "presented_config": {
+        "aggregation_method": "counter",
+        "alerting_enabled": true,
+        "data_retention_days": 5,
+        "sample_rate": 100,
+        "scrape_interval_seconds": 7,
+        "widget_columns": 6
+      },
+      "seed": 100006,
+      "task_id": "monitoring_service_100006_normal"
+    },
+    {
+      "external_state": {
+        "monitoring.agg_window_base": 5,
+        "monitoring.alert_version": 1,
+        "monitoring.panel_columns": 2,
+        "monitoring.retention_factor": 1,
+        "monitoring.sample_pool": 1000,
+        "monitoring.scrape_base": 19,
+        "monitoring.severity_threshold": 1
+      },
+      "family": "monitoring_service",
+      "fault_type": "normal",
+      "faulted_field": null,
+      "fingerprint": "5ce69cd56e904972",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "aggregation_method": "counter",
+        "alerting_enabled": false,
+        "data_retention_days": 5,
+        "sample_rate": 200,
+        "scrape_interval_seconds": 6,
+        "widget_columns": 6
+      },
+      "presented_config": {
+        "aggregation_method": "counter",
+        "alerting_enabled": false,
+        "data_retention_days": 5,
+        "sample_rate": 200,
+        "scrape_interval_seconds": 6,
+        "widget_columns": 6
+      },
+      "seed": 100007,
+      "task_id": "monitoring_service_100007_normal"
+    },
+    {
+      "external_state": {
+        "monitoring.agg_window_base": 30,
+        "monitoring.alert_version": 2,
+        "monitoring.panel_columns": 6,
+        "monitoring.retention_factor": 3,
+        "monitoring.sample_pool": 100,
+        "monitoring.scrape_base": 13,
+        "monitoring.severity_threshold": 2
+      },
+      "family": "monitoring_service",
+      "fault_type": "normal",
+      "faulted_field": null,
+      "fingerprint": "a37683a4a08907fe",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "aggregation_method": "counter",
+        "alerting_enabled": false,
+        "data_retention_days": 15,
+        "sample_rate": 20,
+        "scrape_interval_seconds": 6,
+        "widget_columns": 18
+      },
+      "presented_config": {
+        "aggregation_method": "counter",
+        "alerting_enabled": false,
+        "data_retention_days": 15,
+        "sample_rate": 20,
+        "scrape_interval_seconds": 6,
+        "widget_columns": 18
+      },
+      "seed": 100008,
+      "task_id": "monitoring_service_100008_normal"
+    },
+    {
+      "external_state": {
+        "monitoring.agg_window_base": 10,
+        "monitoring.alert_version": 2,
+        "monitoring.panel_columns": 6,
+        "monitoring.retention_factor": 14,
+        "monitoring.sample_pool": 1000,
+        "monitoring.scrape_base": 8,
+        "monitoring.severity_threshold": 3
+      },
+      "family": "monitoring_service",
+      "fault_type": "normal",
+      "faulted_field": null,
+      "fingerprint": "b806c6cf6640a776",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "aggregation_method": "counter",
+        "alerting_enabled": true,
+        "data_retention_days": 70,
+        "sample_rate": 200,
+        "scrape_interval_seconds": 7,
+        "widget_columns": 18
+      },
+      "presented_config": {
+        "aggregation_method": "counter",
+        "alerting_enabled": true,
+        "data_retention_days": 70,
+        "sample_rate": 200,
+        "scrape_interval_seconds": 7,
+        "widget_columns": 18
+      },
+      "seed": 100009,
+      "task_id": "monitoring_service_100009_normal"
+    },
+    {
+      "external_state": {
+        "scheduler.concurrency_cap": 12,
+        "scheduler.cron_base": 5,
+        "scheduler.grace_base": 60,
+        "scheduler.priority_levels": 5,
+        "scheduler.queue_depth": 12,
+        "scheduler.retry_version": 1,
+        "scheduler.worker_pool": 128
+      },
+      "family": "scheduler_service",
+      "fault_type": "constraint_violation",
+      "faulted_field": "executor_threads",
+      "fingerprint": "91c586e0749cfb9e",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "cron_resolution_minutes": 75,
+        "executor_threads": 16,
+        "max_concurrent": 6,
+        "max_pending_jobs": 6,
+        "priority_buckets": 10,
+        "retry_strategy": "linear"
+      },
+      "presented_config": {
+        "cron_resolution_minutes": 75,
+        "executor_threads": 6,
+        "max_concurrent": 6,
+        "max_pending_jobs": 6,
+        "priority_buckets": 10,
+        "retry_strategy": "linear"
+      },
+      "seed": 100010,
+      "task_id": "scheduler_service_100010_constraint_violation"
+    },
+    {
+      "external_state": {
+        "scheduler.concurrency_cap": 24,
+        "scheduler.cron_base": 2,
+        "scheduler.grace_base": 60,
+        "scheduler.priority_levels": 5,
+        "scheduler.queue_depth": 12,
+        "scheduler.retry_version": 3,
+        "scheduler.worker_pool": 64
+      },
+      "family": "scheduler_service",
+      "fault_type": "constraint_violation",
+      "faulted_field": "max_concurrent",
+      "fingerprint": "9cf59f98e4c051bf",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "cron_resolution_minutes": 30,
+        "executor_threads": 8,
+        "grace_period_seconds": 300,
+        "max_concurrent": 12,
+        "max_pending_jobs": 6,
+        "priority_buckets": 10,
+        "retry_strategy": "exponential"
+      },
+      "presented_config": {
+        "cron_resolution_minutes": 30,
+        "executor_threads": 8,
+        "grace_period_seconds": 300,
+        "max_concurrent": 3,
+        "max_pending_jobs": 6,
+        "priority_buckets": 10,
+        "retry_strategy": "exponential"
+      },
+      "seed": 100011,
+      "task_id": "scheduler_service_100011_constraint_violation"
+    },
+    {
+      "external_state": {
+        "monitoring.agg_window_base": 30,
+        "monitoring.alert_version": 1,
+        "monitoring.panel_columns": 2,
+        "monitoring.retention_factor": 3,
+        "monitoring.sample_pool": 5000,
+        "monitoring.scrape_base": 13,
+        "monitoring.severity_threshold": 4
+      },
+      "family": "monitoring_service",
+      "fault_type": "constraint_violation",
+      "faulted_field": "scrape_interval_seconds",
+      "fingerprint": "a26c11a36174faea",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "aggregation_method": "counter",
+        "alerting_enabled": true,
+        "data_retention_days": 15,
+        "sample_rate": 1000,
+        "scrape_interval_seconds": 6,
+        "widget_columns": 6
+      },
+      "presented_config": {
+        "aggregation_method": "counter",
+        "alerting_enabled": true,
+        "data_retention_days": 15,
+        "sample_rate": 1000,
+        "scrape_interval_seconds": 3,
+        "widget_columns": 6
+      },
+      "seed": 100012,
+      "task_id": "monitoring_service_100012_constraint_violation"
+    },
+    {
+      "external_state": {
+        "monitoring.agg_window_base": 5,
+        "monitoring.alert_version": 2,
+        "monitoring.panel_columns": 3,
+        "monitoring.retention_factor": 3,
+        "monitoring.sample_pool": 5000,
+        "monitoring.scrape_base": 26,
+        "monitoring.severity_threshold": 1
+      },
+      "family": "monitoring_service",
+      "fault_type": "constraint_violation",
+      "faulted_field": "widget_columns",
+      "fingerprint": "68c270c4b980d67c",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "aggregation_method": "counter",
+        "alerting_enabled": false,
+        "data_retention_days": 15,
+        "sample_rate": 1000,
+        "scrape_interval_seconds": 7,
+        "widget_columns": 9
+      },
+      "presented_config": {
+        "aggregation_method": "counter",
+        "alerting_enabled": false,
+        "data_retention_days": 15,
+        "sample_rate": 1000,
+        "scrape_interval_seconds": 7,
+        "widget_columns": 24
+      },
+      "seed": 100013,
+      "task_id": "monitoring_service_100013_constraint_violation"
+    },
+    {
+      "external_state": {
+        "monitoring.agg_window_base": 10,
+        "monitoring.alert_version": 1,
+        "monitoring.panel_columns": 2,
+        "monitoring.retention_factor": 14,
+        "monitoring.sample_pool": 1000,
+        "monitoring.scrape_base": 19,
+        "monitoring.severity_threshold": 1
+      },
+      "family": "monitoring_service",
+      "fault_type": "constraint_violation",
+      "faulted_field": "data_retention_days",
+      "fingerprint": "737e6adcd91186dc",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "aggregation_method": "counter",
+        "alerting_enabled": false,
+        "data_retention_days": 70,
+        "sample_rate": 200,
+        "scrape_interval_seconds": 6,
+        "widget_columns": 6
+      },
+      "presented_config": {
+        "aggregation_method": "counter",
+        "alerting_enabled": false,
+        "data_retention_days": 10,
+        "sample_rate": 200,
+        "scrape_interval_seconds": 6,
+        "widget_columns": 6
+      },
+      "seed": 100014,
+      "task_id": "monitoring_service_100014_constraint_violation"
+    },
+    {
+      "external_state": {
+        "scheduler.concurrency_cap": 12,
+        "scheduler.cron_base": 3,
+        "scheduler.grace_base": 60,
+        "scheduler.priority_levels": 5,
+        "scheduler.queue_depth": 12,
+        "scheduler.retry_version": 1,
+        "scheduler.worker_pool": 64
+      },
+      "family": "scheduler_service",
+      "fault_type": "constraint_violation",
+      "faulted_field": "cron_resolution_minutes",
+      "fingerprint": "4cfc2b866161fd79",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "cron_resolution_minutes": 45,
+        "executor_threads": 8,
+        "max_concurrent": 6,
+        "max_pending_jobs": 6,
+        "priority_buckets": 10,
+        "retry_strategy": "linear"
+      },
+      "presented_config": {
+        "cron_resolution_minutes": 5,
+        "executor_threads": 8,
+        "max_concurrent": 6,
+        "max_pending_jobs": 6,
+        "priority_buckets": 10,
+        "retry_strategy": "linear"
+      },
+      "seed": 100015,
+      "task_id": "scheduler_service_100015_constraint_violation"
+    },
+    {
+      "external_state": {
+        "scheduler.concurrency_cap": 12,
+        "scheduler.cron_base": 10,
+        "scheduler.grace_base": 120,
+        "scheduler.priority_levels": 9,
+        "scheduler.queue_depth": 25,
+        "scheduler.retry_version": 2,
+        "scheduler.worker_pool": 128
+      },
+      "family": "scheduler_service",
+      "fault_type": "constraint_violation",
+      "faulted_field": "cron_resolution_minutes",
+      "fingerprint": "ef703a08525d00bc",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "cron_resolution_minutes": 150,
+        "executor_threads": 16,
+        "max_concurrent": 6,
+        "max_pending_jobs": 3,
+        "priority_buckets": 18,
+        "retry_strategy": "linear"
+      },
+      "presented_config": {
+        "cron_resolution_minutes": 20,
+        "executor_threads": 16,
+        "max_concurrent": 6,
+        "max_pending_jobs": 3,
+        "priority_buckets": 18,
+        "retry_strategy": "linear"
+      },
+      "seed": 100016,
+      "task_id": "scheduler_service_100016_constraint_violation"
+    },
+    {
+      "external_state": {
+        "monitoring.agg_window_base": 5,
+        "monitoring.alert_version": 1,
+        "monitoring.panel_columns": 2,
+        "monitoring.retention_factor": 1,
+        "monitoring.sample_pool": 1000,
+        "monitoring.scrape_base": 13,
+        "monitoring.severity_threshold": 1
+      },
+      "family": "monitoring_service",
+      "fault_type": "constraint_violation",
+      "faulted_field": "data_retention_days",
+      "fingerprint": "866c4d5e99bd47bd",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "aggregation_method": "counter",
+        "alerting_enabled": false,
+        "data_retention_days": 5,
+        "sample_rate": 200,
+        "scrape_interval_seconds": 6,
+        "widget_columns": 6
+      },
+      "presented_config": {
+        "aggregation_method": "counter",
+        "alerting_enabled": false,
+        "data_retention_days": 28,
+        "sample_rate": 200,
+        "scrape_interval_seconds": 6,
+        "widget_columns": 6
+      },
+      "seed": 100017,
+      "task_id": "monitoring_service_100017_constraint_violation"
+    },
+    {
+      "external_state": {
+        "monitoring.agg_window_base": 15,
+        "monitoring.alert_version": 3,
+        "monitoring.panel_columns": 3,
+        "monitoring.retention_factor": 7,
+        "monitoring.sample_pool": 100,
+        "monitoring.scrape_base": 19,
+        "monitoring.severity_threshold": 2
+      },
+      "family": "monitoring_service",
+      "fault_type": "constraint_violation",
+      "faulted_field": "scrape_interval_seconds",
+      "fingerprint": "35d41313727b6bf8",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "agg_window_minutes": 30,
+        "aggregation_method": "histogram",
+        "alerting_enabled": false,
+        "data_retention_days": 35,
+        "sample_rate": 20,
+        "scrape_interval_seconds": 6,
+        "widget_columns": 9
+      },
+      "presented_config": {
+        "agg_window_minutes": 30,
+        "aggregation_method": "histogram",
+        "alerting_enabled": false,
+        "data_retention_days": 35,
+        "sample_rate": 20,
+        "scrape_interval_seconds": 3,
+        "widget_columns": 9
+      },
+      "seed": 100018,
+      "task_id": "monitoring_service_100018_constraint_violation"
+    },
+    {
+      "external_state": {
+        "monitoring.agg_window_base": 10,
+        "monitoring.alert_version": 3,
+        "monitoring.panel_columns": 4,
+        "monitoring.retention_factor": 7,
+        "monitoring.sample_pool": 1000,
+        "monitoring.scrape_base": 26,
+        "monitoring.severity_threshold": 4
+      },
+      "family": "monitoring_service",
+      "fault_type": "constraint_violation",
+      "faulted_field": "data_retention_days",
+      "fingerprint": "bb41333979e31ece",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "agg_window_minutes": 20,
+        "aggregation_method": "histogram",
+        "alerting_enabled": true,
+        "data_retention_days": 35,
+        "sample_rate": 200,
+        "scrape_interval_seconds": 7,
+        "widget_columns": 12
+      },
+      "presented_config": {
+        "agg_window_minutes": 20,
+        "aggregation_method": "histogram",
+        "alerting_enabled": true,
+        "data_retention_days": 3,
+        "sample_rate": 200,
+        "scrape_interval_seconds": 7,
+        "widget_columns": 12
+      },
+      "seed": 100019,
+      "task_id": "monitoring_service_100019_constraint_violation"
+    },
+    {
+      "external_state": {
+        "monitoring.agg_window_base": 30,
+        "monitoring.alert_version": 2,
+        "monitoring.panel_columns": 2,
+        "monitoring.retention_factor": 3,
+        "monitoring.sample_pool": 5000,
+        "monitoring.scrape_base": 19,
+        "monitoring.severity_threshold": 2
+      },
+      "family": "monitoring_service",
+      "fault_type": "constraint_violation",
+      "faulted_field": "data_retention_days",
+      "fingerprint": "d028c7eba4b7bc58",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "aggregation_method": "counter",
+        "alerting_enabled": false,
+        "data_retention_days": 15,
+        "sample_rate": 1000,
+        "scrape_interval_seconds": 6,
+        "widget_columns": 6
+      },
+      "presented_config": {
+        "aggregation_method": "counter",
+        "alerting_enabled": false,
+        "data_retention_days": 28,
+        "sample_rate": 1000,
+        "scrape_interval_seconds": 6,
+        "widget_columns": 6
+      },
+      "seed": 100020,
+      "task_id": "monitoring_service_100020_constraint_violation"
+    },
+    {
+      "external_state": {
+        "monitoring.agg_window_base": 10,
+        "monitoring.alert_version": 1,
+        "monitoring.panel_columns": 2,
+        "monitoring.retention_factor": 3,
+        "monitoring.sample_pool": 100,
+        "monitoring.scrape_base": 26,
+        "monitoring.severity_threshold": 1
+      },
+      "family": "monitoring_service",
+      "fault_type": "constraint_violation",
+      "faulted_field": "scrape_interval_seconds",
+      "fingerprint": "c6c57ac4f0e313fc",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "aggregation_method": "counter",
+        "alerting_enabled": false,
+        "data_retention_days": 15,
+        "sample_rate": 20,
+        "scrape_interval_seconds": 7,
+        "widget_columns": 6
+      },
+      "presented_config": {
+        "aggregation_method": "counter",
+        "alerting_enabled": false,
+        "data_retention_days": 15,
+        "sample_rate": 20,
+        "scrape_interval_seconds": 9,
+        "widget_columns": 6
+      },
+      "seed": 100021,
+      "task_id": "monitoring_service_100021_constraint_violation"
+    },
+    {
+      "external_state": {
+        "scheduler.concurrency_cap": 12,
+        "scheduler.cron_base": 2,
+        "scheduler.grace_base": 10,
+        "scheduler.priority_levels": 5,
+        "scheduler.queue_depth": 50,
+        "scheduler.retry_version": 3,
+        "scheduler.worker_pool": 32
+      },
+      "family": "scheduler_service",
+      "fault_type": "constraint_violation",
+      "faulted_field": "max_concurrent",
+      "fingerprint": "f3f83d57b63ce30e",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "cron_resolution_minutes": 30,
+        "executor_threads": 4,
+        "grace_period_seconds": 50,
+        "max_concurrent": 6,
+        "max_pending_jobs": 4,
+        "priority_buckets": 10,
+        "retry_strategy": "exponential"
+      },
+      "presented_config": {
+        "cron_resolution_minutes": 30,
+        "executor_threads": 4,
+        "grace_period_seconds": 50,
+        "max_concurrent": 8,
+        "max_pending_jobs": 4,
+        "priority_buckets": 10,
+        "retry_strategy": "exponential"
+      },
+      "seed": 100022,
+      "task_id": "scheduler_service_100022_constraint_violation"
+    },
+    {
+      "external_state": {
+        "monitoring.agg_window_base": 10,
+        "monitoring.alert_version": 1,
+        "monitoring.panel_columns": 2,
+        "monitoring.retention_factor": 14,
+        "monitoring.sample_pool": 1000,
+        "monitoring.scrape_base": 13,
+        "monitoring.severity_threshold": 2
+      },
+      "family": "monitoring_service",
+      "fault_type": "constraint_violation",
+      "faulted_field": "scrape_interval_seconds",
+      "fingerprint": "c0a7f761d0d1d6a5",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "aggregation_method": "counter",
+        "alerting_enabled": false,
+        "data_retention_days": 70,
+        "sample_rate": 200,
+        "scrape_interval_seconds": 6,
+        "widget_columns": 6
+      },
+      "presented_config": {
+        "aggregation_method": "counter",
+        "alerting_enabled": false,
+        "data_retention_days": 70,
+        "sample_rate": 200,
+        "scrape_interval_seconds": 9,
+        "widget_columns": 6
+      },
+      "seed": 100023,
+      "task_id": "monitoring_service_100023_constraint_violation"
+    },
+    {
+      "external_state": {
+        "monitoring.agg_window_base": 5,
+        "monitoring.alert_version": 2,
+        "monitoring.panel_columns": 2,
+        "monitoring.retention_factor": 3,
+        "monitoring.sample_pool": 5000,
+        "monitoring.scrape_base": 26,
+        "monitoring.severity_threshold": 1
+      },
+      "family": "monitoring_service",
+      "fault_type": "constraint_violation",
+      "faulted_field": "alerting_enabled",
+      "fingerprint": "7046a84d7d41217a",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "aggregation_method": "counter",
+        "alerting_enabled": false,
+        "data_retention_days": 15,
+        "sample_rate": 1000,
+        "scrape_interval_seconds": 7,
+        "widget_columns": 6
+      },
+      "presented_config": {
+        "aggregation_method": "counter",
+        "alerting_enabled": true,
+        "data_retention_days": 15,
+        "sample_rate": 1000,
+        "scrape_interval_seconds": 7,
+        "widget_columns": 6
+      },
+      "seed": 100024,
+      "task_id": "monitoring_service_100024_constraint_violation"
+    },
+    {
+      "external_state": {
+        "monitoring.agg_window_base": 30,
+        "monitoring.alert_version": 3,
+        "monitoring.panel_columns": 2,
+        "monitoring.retention_factor": 14,
+        "monitoring.sample_pool": 1000,
+        "monitoring.scrape_base": 13,
+        "monitoring.severity_threshold": 1
+      },
+      "family": "monitoring_service",
+      "fault_type": "missing_dependency",
+      "faulted_field": "agg_window_minutes",
+      "fingerprint": "1f9c02c6b479eb85",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "agg_window_minutes": 60,
+        "aggregation_method": "histogram",
+        "alerting_enabled": false,
+        "data_retention_days": 70,
+        "sample_rate": 200,
+        "scrape_interval_seconds": 6,
+        "widget_columns": 6
+      },
+      "presented_config": {
+        "aggregation_method": "histogram",
+        "alerting_enabled": false,
+        "data_retention_days": 70,
+        "sample_rate": 200,
+        "scrape_interval_seconds": 6,
+        "widget_columns": 6
+      },
+      "seed": 100027,
+      "task_id": "monitoring_service_100027_missing_dependency"
+    },
+    {
+      "external_state": {
+        "scheduler.concurrency_cap": 24,
+        "scheduler.cron_base": 5,
+        "scheduler.grace_base": 10,
+        "scheduler.priority_levels": 9,
+        "scheduler.queue_depth": 50,
+        "scheduler.retry_version": 3,
+        "scheduler.worker_pool": 128
+      },
+      "family": "scheduler_service",
+      "fault_type": "missing_dependency",
+      "faulted_field": "grace_period_seconds",
+      "fingerprint": "96e7fb0ad33cecd4",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "cron_resolution_minutes": 75,
+        "executor_threads": 16,
+        "grace_period_seconds": 50,
+        "max_concurrent": 12,
+        "max_pending_jobs": 4,
+        "priority_buckets": 18,
+        "retry_strategy": "exponential"
+      },
+      "presented_config": {
+        "cron_resolution_minutes": 75,
+        "executor_threads": 16,
+        "max_concurrent": 12,
+        "max_pending_jobs": 4,
+        "priority_buckets": 18,
+        "retry_strategy": "exponential"
+      },
+      "seed": 100028,
+      "task_id": "scheduler_service_100028_missing_dependency"
+    },
+    {
+      "external_state": {
+        "monitoring.agg_window_base": 10,
+        "monitoring.alert_version": 3,
+        "monitoring.panel_columns": 2,
+        "monitoring.retention_factor": 14,
+        "monitoring.sample_pool": 1000,
+        "monitoring.scrape_base": 19,
+        "monitoring.severity_threshold": 3
+      },
+      "family": "monitoring_service",
+      "fault_type": "missing_dependency",
+      "faulted_field": "agg_window_minutes",
+      "fingerprint": "01823dd69f6e878e",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "agg_window_minutes": 20,
+        "aggregation_method": "histogram",
+        "alerting_enabled": true,
+        "data_retention_days": 70,
+        "sample_rate": 200,
+        "scrape_interval_seconds": 6,
+        "widget_columns": 6
+      },
+      "presented_config": {
+        "aggregation_method": "histogram",
+        "alerting_enabled": true,
+        "data_retention_days": 70,
+        "sample_rate": 200,
+        "scrape_interval_seconds": 6,
+        "widget_columns": 6
+      },
+      "seed": 100030,
+      "task_id": "monitoring_service_100030_missing_dependency"
+    },
+    {
+      "external_state": {
+        "monitoring.agg_window_base": 15,
+        "monitoring.alert_version": 3,
+        "monitoring.panel_columns": 2,
+        "monitoring.retention_factor": 1,
+        "monitoring.sample_pool": 5000,
+        "monitoring.scrape_base": 19,
+        "monitoring.severity_threshold": 2
+      },
+      "family": "monitoring_service",
+      "fault_type": "missing_dependency",
+      "faulted_field": "agg_window_minutes",
+      "fingerprint": "cb6f9a9f080e57c0",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "agg_window_minutes": 30,
+        "aggregation_method": "histogram",
+        "alerting_enabled": false,
+        "data_retention_days": 5,
+        "sample_rate": 1000,
+        "scrape_interval_seconds": 6,
+        "widget_columns": 6
+      },
+      "presented_config": {
+        "aggregation_method": "histogram",
+        "alerting_enabled": false,
+        "data_retention_days": 5,
+        "sample_rate": 1000,
+        "scrape_interval_seconds": 6,
+        "widget_columns": 6
+      },
+      "seed": 100033,
+      "task_id": "monitoring_service_100033_missing_dependency"
+    },
+    {
+      "external_state": {
+        "scheduler.concurrency_cap": 8,
+        "scheduler.cron_base": 10,
+        "scheduler.grace_base": 60,
+        "scheduler.priority_levels": 5,
+        "scheduler.queue_depth": 25,
+        "scheduler.retry_version": 3,
+        "scheduler.worker_pool": 16
+      },
+      "family": "scheduler_service",
+      "fault_type": "missing_dependency",
+      "faulted_field": "grace_period_seconds",
+      "fingerprint": "ae39e2cd8f760101",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "cron_resolution_minutes": 150,
+        "executor_threads": 2,
+        "grace_period_seconds": 300,
+        "max_concurrent": 4,
+        "max_pending_jobs": 3,
+        "priority_buckets": 10,
+        "retry_strategy": "exponential"
+      },
+      "presented_config": {
+        "cron_resolution_minutes": 150,
+        "executor_threads": 2,
+        "max_concurrent": 4,
+        "max_pending_jobs": 3,
+        "priority_buckets": 10,
+        "retry_strategy": "exponential"
+      },
+      "seed": 100039,
+      "task_id": "scheduler_service_100039_missing_dependency"
+    },
+    {
+      "external_state": {
+        "monitoring.agg_window_base": 5,
+        "monitoring.alert_version": 3,
+        "monitoring.panel_columns": 6,
+        "monitoring.retention_factor": 7,
+        "monitoring.sample_pool": 5000,
+        "monitoring.scrape_base": 8,
+        "monitoring.severity_threshold": 2
+      },
+      "family": "monitoring_service",
+      "fault_type": "missing_dependency",
+      "faulted_field": "agg_window_minutes",
+      "fingerprint": "150af09ddb4058be",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "agg_window_minutes": 10,
+        "aggregation_method": "histogram",
+        "alerting_enabled": false,
+        "data_retention_days": 35,
+        "sample_rate": 1000,
+        "scrape_interval_seconds": 7,
+        "widget_columns": 18
+      },
+      "presented_config": {
+        "aggregation_method": "histogram",
+        "alerting_enabled": false,
+        "data_retention_days": 35,
+        "sample_rate": 1000,
+        "scrape_interval_seconds": 7,
+        "widget_columns": 18
+      },
+      "seed": 100040,
+      "task_id": "monitoring_service_100040_missing_dependency"
+    },
+    {
+      "external_state": {
+        "scheduler.concurrency_cap": 4,
+        "scheduler.cron_base": 3,
+        "scheduler.grace_base": 30,
+        "scheduler.priority_levels": 7,
+        "scheduler.queue_depth": 50,
+        "scheduler.retry_version": 3,
+        "scheduler.worker_pool": 32
+      },
+      "family": "scheduler_service",
+      "fault_type": "missing_dependency",
+      "faulted_field": "grace_period_seconds",
+      "fingerprint": "5b9582c873c429fe",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "cron_resolution_minutes": 45,
+        "executor_threads": 4,
+        "grace_period_seconds": 150,
+        "max_concurrent": 2,
+        "max_pending_jobs": 4,
+        "priority_buckets": 14,
+        "retry_strategy": "exponential"
+      },
+      "presented_config": {
+        "cron_resolution_minutes": 45,
+        "executor_threads": 4,
+        "max_concurrent": 2,
+        "max_pending_jobs": 4,
+        "priority_buckets": 14,
+        "retry_strategy": "exponential"
+      },
+      "seed": 100043,
+      "task_id": "scheduler_service_100043_missing_dependency"
+    },
+    {
+      "external_state": {
+        "monitoring.agg_window_base": 5,
+        "monitoring.alert_version": 3,
+        "monitoring.panel_columns": 4,
+        "monitoring.retention_factor": 1,
+        "monitoring.sample_pool": 100,
+        "monitoring.scrape_base": 26,
+        "monitoring.severity_threshold": 4
+      },
+      "family": "monitoring_service",
+      "fault_type": "missing_dependency",
+      "faulted_field": "agg_window_minutes",
+      "fingerprint": "3bcded86dd199185",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "agg_window_minutes": 10,
+        "aggregation_method": "histogram",
+        "alerting_enabled": true,
+        "data_retention_days": 5,
+        "sample_rate": 20,
+        "scrape_interval_seconds": 7,
+        "widget_columns": 12
+      },
+      "presented_config": {
+        "aggregation_method": "histogram",
+        "alerting_enabled": true,
+        "data_retention_days": 5,
+        "sample_rate": 20,
+        "scrape_interval_seconds": 7,
+        "widget_columns": 12
+      },
+      "seed": 100044,
+      "task_id": "monitoring_service_100044_missing_dependency"
+    },
+    {
+      "external_state": {
+        "scheduler.concurrency_cap": 4,
+        "scheduler.cron_base": 2,
+        "scheduler.grace_base": 10,
+        "scheduler.priority_levels": 7,
+        "scheduler.queue_depth": 12,
+        "scheduler.retry_version": 3,
+        "scheduler.worker_pool": 128
+      },
+      "family": "scheduler_service",
+      "fault_type": "missing_dependency",
+      "faulted_field": "grace_period_seconds",
+      "fingerprint": "fa495d487a73a2ff",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "cron_resolution_minutes": 30,
+        "executor_threads": 16,
+        "grace_period_seconds": 50,
+        "max_concurrent": 2,
+        "max_pending_jobs": 6,
+        "priority_buckets": 14,
+        "retry_strategy": "exponential"
+      },
+      "presented_config": {
+        "cron_resolution_minutes": 30,
+        "executor_threads": 16,
+        "max_concurrent": 2,
+        "max_pending_jobs": 6,
+        "priority_buckets": 14,
+        "retry_strategy": "exponential"
+      },
+      "seed": 100048,
+      "task_id": "scheduler_service_100048_missing_dependency"
+    },
+    {
+      "external_state": {
+        "scheduler.concurrency_cap": 12,
+        "scheduler.cron_base": 3,
+        "scheduler.grace_base": 10,
+        "scheduler.priority_levels": 5,
+        "scheduler.queue_depth": 12,
+        "scheduler.retry_version": 3,
+        "scheduler.worker_pool": 64
+      },
+      "family": "scheduler_service",
+      "fault_type": "missing_dependency",
+      "faulted_field": "grace_period_seconds",
+      "fingerprint": "06aea4c796f1248b",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "cron_resolution_minutes": 45,
+        "executor_threads": 8,
+        "grace_period_seconds": 50,
+        "max_concurrent": 6,
+        "max_pending_jobs": 6,
+        "priority_buckets": 10,
+        "retry_strategy": "exponential"
+      },
+      "presented_config": {
+        "cron_resolution_minutes": 45,
+        "executor_threads": 8,
+        "max_concurrent": 6,
+        "max_pending_jobs": 6,
+        "priority_buckets": 10,
+        "retry_strategy": "exponential"
+      },
+      "seed": 100049,
+      "task_id": "scheduler_service_100049_missing_dependency"
+    },
+    {
+      "external_state": {
+        "monitoring.agg_window_base": 15,
+        "monitoring.alert_version": 3,
+        "monitoring.panel_columns": 3,
+        "monitoring.retention_factor": 14,
+        "monitoring.sample_pool": 1000,
+        "monitoring.scrape_base": 8,
+        "monitoring.severity_threshold": 2
+      },
+      "family": "monitoring_service",
+      "fault_type": "missing_dependency",
+      "faulted_field": "agg_window_minutes",
+      "fingerprint": "279a53f36f0ce030",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "agg_window_minutes": 30,
+        "aggregation_method": "histogram",
+        "alerting_enabled": false,
+        "data_retention_days": 70,
+        "sample_rate": 200,
+        "scrape_interval_seconds": 7,
+        "widget_columns": 9
+      },
+      "presented_config": {
+        "aggregation_method": "histogram",
+        "alerting_enabled": false,
+        "data_retention_days": 70,
+        "sample_rate": 200,
+        "scrape_interval_seconds": 7,
+        "widget_columns": 9
+      },
+      "seed": 100055,
+      "task_id": "monitoring_service_100055_missing_dependency"
+    },
+    {
+      "external_state": {
+        "scheduler.concurrency_cap": 4,
+        "scheduler.cron_base": 2,
+        "scheduler.grace_base": 30,
+        "scheduler.priority_levels": 9,
+        "scheduler.queue_depth": 37,
+        "scheduler.retry_version": 3,
+        "scheduler.worker_pool": 128
+      },
+      "family": "scheduler_service",
+      "fault_type": "missing_dependency",
+      "faulted_field": "grace_period_seconds",
+      "fingerprint": "5a28a6e19f944c9d",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "cron_resolution_minutes": 30,
+        "executor_threads": 16,
+        "grace_period_seconds": 150,
+        "max_concurrent": 2,
+        "max_pending_jobs": 7,
+        "priority_buckets": 18,
+        "retry_strategy": "exponential"
+      },
+      "presented_config": {
+        "cron_resolution_minutes": 30,
+        "executor_threads": 16,
+        "max_concurrent": 2,
+        "max_pending_jobs": 7,
+        "priority_buckets": 18,
+        "retry_strategy": "exponential"
+      },
+      "seed": 100060,
+      "task_id": "scheduler_service_100060_missing_dependency"
+    },
+    {
+      "external_state": {
+        "scheduler.concurrency_cap": 12,
+        "scheduler.cron_base": 2,
+        "scheduler.grace_base": 30,
+        "scheduler.priority_levels": 7,
+        "scheduler.queue_depth": 50,
+        "scheduler.retry_version": 3,
+        "scheduler.worker_pool": 32
+      },
+      "family": "scheduler_service",
+      "fault_type": "missing_dependency",
+      "faulted_field": "grace_period_seconds",
+      "fingerprint": "4c61e56e782f6a13",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "cron_resolution_minutes": 30,
+        "executor_threads": 4,
+        "grace_period_seconds": 150,
+        "max_concurrent": 6,
+        "max_pending_jobs": 4,
+        "priority_buckets": 14,
+        "retry_strategy": "exponential"
+      },
+      "presented_config": {
+        "cron_resolution_minutes": 30,
+        "executor_threads": 4,
+        "max_concurrent": 6,
+        "max_pending_jobs": 4,
+        "priority_buckets": 14,
+        "retry_strategy": "exponential"
+      },
+      "seed": 100063,
+      "task_id": "scheduler_service_100063_missing_dependency"
+    },
+    {
+      "external_state": {
+        "monitoring.agg_window_base": 15,
+        "monitoring.alert_version": 2,
+        "monitoring.panel_columns": 3,
+        "monitoring.retention_factor": 1,
+        "monitoring.sample_pool": 1000,
+        "monitoring.scrape_base": 13,
+        "monitoring.severity_threshold": 4
+      },
+      "family": "monitoring_service",
+      "fault_type": "stale_version",
+      "faulted_field": "data_retention_days",
+      "fingerprint": "67bfaae727ae5591",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "aggregation_method": "counter",
+        "alerting_enabled": true,
+        "data_retention_days": 5,
+        "sample_rate": 200,
+        "scrape_interval_seconds": 6,
+        "widget_columns": 9
+      },
+      "presented_config": {
+        "aggregation_method": "counter",
+        "alerting_enabled": true,
+        "data_retention_days": 35,
+        "sample_rate": 200,
+        "scrape_interval_seconds": 6,
+        "widget_columns": 9
+      },
+      "seed": 100064,
+      "task_id": "monitoring_service_100064_stale_version"
+    },
+    {
+      "external_state": {
+        "scheduler.concurrency_cap": 4,
+        "scheduler.cron_base": 3,
+        "scheduler.grace_base": 120,
+        "scheduler.priority_levels": 9,
+        "scheduler.queue_depth": 25,
+        "scheduler.retry_version": 2,
+        "scheduler.worker_pool": 64
+      },
+      "family": "scheduler_service",
+      "fault_type": "stale_version",
+      "faulted_field": "priority_buckets",
+      "fingerprint": "df74f94464d14be7",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "cron_resolution_minutes": 45,
+        "executor_threads": 8,
+        "max_concurrent": 2,
+        "max_pending_jobs": 3,
+        "priority_buckets": 18,
+        "retry_strategy": "linear"
+      },
+      "presented_config": {
+        "cron_resolution_minutes": 45,
+        "executor_threads": 8,
+        "max_concurrent": 2,
+        "max_pending_jobs": 3,
+        "priority_buckets": 10,
+        "retry_strategy": "linear"
+      },
+      "seed": 100065,
+      "task_id": "scheduler_service_100065_stale_version"
+    },
+    {
+      "external_state": {
+        "monitoring.agg_window_base": 15,
+        "monitoring.alert_version": 2,
+        "monitoring.panel_columns": 3,
+        "monitoring.retention_factor": 7,
+        "monitoring.sample_pool": 1000,
+        "monitoring.scrape_base": 26,
+        "monitoring.severity_threshold": 3
+      },
+      "family": "monitoring_service",
+      "fault_type": "stale_version",
+      "faulted_field": "data_retention_days",
+      "fingerprint": "772cba0edf3f5a1a",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "aggregation_method": "counter",
+        "alerting_enabled": true,
+        "data_retention_days": 35,
+        "sample_rate": 200,
+        "scrape_interval_seconds": 7,
+        "widget_columns": 9
+      },
+      "presented_config": {
+        "aggregation_method": "counter",
+        "alerting_enabled": true,
+        "data_retention_days": 70,
+        "sample_rate": 200,
+        "scrape_interval_seconds": 7,
+        "widget_columns": 9
+      },
+      "seed": 100066,
+      "task_id": "monitoring_service_100066_stale_version"
+    },
+    {
+      "external_state": {
+        "scheduler.concurrency_cap": 12,
+        "scheduler.cron_base": 2,
+        "scheduler.grace_base": 60,
+        "scheduler.priority_levels": 9,
+        "scheduler.queue_depth": 12,
+        "scheduler.retry_version": 2,
+        "scheduler.worker_pool": 64
+      },
+      "family": "scheduler_service",
+      "fault_type": "stale_version",
+      "faulted_field": "executor_threads",
+      "fingerprint": "b9ab577e24bba072",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "cron_resolution_minutes": 30,
+        "executor_threads": 8,
+        "max_concurrent": 6,
+        "max_pending_jobs": 6,
+        "priority_buckets": 18,
+        "retry_strategy": "linear"
+      },
+      "presented_config": {
+        "cron_resolution_minutes": 30,
+        "executor_threads": 2,
+        "max_concurrent": 6,
+        "max_pending_jobs": 6,
+        "priority_buckets": 18,
+        "retry_strategy": "linear"
+      },
+      "seed": 100067,
+      "task_id": "scheduler_service_100067_stale_version"
+    },
+    {
+      "external_state": {
+        "monitoring.agg_window_base": 5,
+        "monitoring.alert_version": 3,
+        "monitoring.panel_columns": 2,
+        "monitoring.retention_factor": 7,
+        "monitoring.sample_pool": 500,
+        "monitoring.scrape_base": 19,
+        "monitoring.severity_threshold": 4
+      },
+      "family": "monitoring_service",
+      "fault_type": "stale_version",
+      "faulted_field": "data_retention_days",
+      "fingerprint": "ab8536877f11a5ab",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "agg_window_minutes": 10,
+        "aggregation_method": "histogram",
+        "alerting_enabled": true,
+        "data_retention_days": 35,
+        "sample_rate": 100,
+        "scrape_interval_seconds": 6,
+        "widget_columns": 6
+      },
+      "presented_config": {
+        "agg_window_minutes": 10,
+        "aggregation_method": "histogram",
+        "alerting_enabled": true,
+        "data_retention_days": 5,
+        "sample_rate": 100,
+        "scrape_interval_seconds": 6,
+        "widget_columns": 6
+      },
+      "seed": 100068,
+      "task_id": "monitoring_service_100068_stale_version"
+    },
+    {
+      "external_state": {
+        "scheduler.concurrency_cap": 12,
+        "scheduler.cron_base": 3,
+        "scheduler.grace_base": 30,
+        "scheduler.priority_levels": 3,
+        "scheduler.queue_depth": 12,
+        "scheduler.retry_version": 1,
+        "scheduler.worker_pool": 128
+      },
+      "family": "scheduler_service",
+      "fault_type": "stale_version",
+      "faulted_field": "max_concurrent",
+      "fingerprint": "f65e157434c45b60",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "cron_resolution_minutes": 45,
+        "executor_threads": 16,
+        "max_concurrent": 6,
+        "max_pending_jobs": 6,
+        "priority_buckets": 6,
+        "retry_strategy": "linear"
+      },
+      "presented_config": {
+        "cron_resolution_minutes": 45,
+        "executor_threads": 16,
+        "max_concurrent": 4,
+        "max_pending_jobs": 6,
+        "priority_buckets": 6,
+        "retry_strategy": "linear"
+      },
+      "seed": 100069,
+      "task_id": "scheduler_service_100069_stale_version"
+    },
+    {
+      "external_state": {
+        "scheduler.concurrency_cap": 12,
+        "scheduler.cron_base": 10,
+        "scheduler.grace_base": 120,
+        "scheduler.priority_levels": 9,
+        "scheduler.queue_depth": 12,
+        "scheduler.retry_version": 1,
+        "scheduler.worker_pool": 64
+      },
+      "family": "scheduler_service",
+      "fault_type": "stale_version",
+      "faulted_field": "max_pending_jobs",
+      "fingerprint": "befc61eea4cfbf7c",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "cron_resolution_minutes": 150,
+        "executor_threads": 8,
+        "max_concurrent": 6,
+        "max_pending_jobs": 6,
+        "priority_buckets": 18,
+        "retry_strategy": "linear"
+      },
+      "presented_config": {
+        "cron_resolution_minutes": 150,
+        "executor_threads": 8,
+        "max_concurrent": 6,
+        "max_pending_jobs": 7,
+        "priority_buckets": 18,
+        "retry_strategy": "linear"
+      },
+      "seed": 100071,
+      "task_id": "scheduler_service_100071_stale_version"
+    },
+    {
+      "external_state": {
+        "scheduler.concurrency_cap": 24,
+        "scheduler.cron_base": 3,
+        "scheduler.grace_base": 60,
+        "scheduler.priority_levels": 3,
+        "scheduler.queue_depth": 12,
+        "scheduler.retry_version": 1,
+        "scheduler.worker_pool": 128
+      },
+      "family": "scheduler_service",
+      "fault_type": "stale_version",
+      "faulted_field": "executor_threads",
+      "fingerprint": "3d51fdfd1cc7e56c",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "cron_resolution_minutes": 45,
+        "executor_threads": 16,
+        "max_concurrent": 12,
+        "max_pending_jobs": 6,
+        "priority_buckets": 6,
+        "retry_strategy": "linear"
+      },
+      "presented_config": {
+        "cron_resolution_minutes": 45,
+        "executor_threads": 2,
+        "max_concurrent": 12,
+        "max_pending_jobs": 6,
+        "priority_buckets": 6,
+        "retry_strategy": "linear"
+      },
+      "seed": 100072,
+      "task_id": "scheduler_service_100072_stale_version"
+    },
+    {
+      "external_state": {
+        "monitoring.agg_window_base": 15,
+        "monitoring.alert_version": 3,
+        "monitoring.panel_columns": 3,
+        "monitoring.retention_factor": 3,
+        "monitoring.sample_pool": 500,
+        "monitoring.scrape_base": 19,
+        "monitoring.severity_threshold": 1
+      },
+      "family": "monitoring_service",
+      "fault_type": "stale_version",
+      "faulted_field": "widget_columns",
+      "fingerprint": "c7d7dba5145258f6",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "agg_window_minutes": 30,
+        "aggregation_method": "histogram",
+        "alerting_enabled": false,
+        "data_retention_days": 15,
+        "sample_rate": 100,
+        "scrape_interval_seconds": 6,
+        "widget_columns": 9
+      },
+      "presented_config": {
+        "agg_window_minutes": 30,
+        "aggregation_method": "histogram",
+        "alerting_enabled": false,
+        "data_retention_days": 15,
+        "sample_rate": 100,
+        "scrape_interval_seconds": 6,
+        "widget_columns": 6
+      },
+      "seed": 100073,
+      "task_id": "monitoring_service_100073_stale_version"
+    },
+    {
+      "external_state": {
+        "scheduler.concurrency_cap": 8,
+        "scheduler.cron_base": 10,
+        "scheduler.grace_base": 30,
+        "scheduler.priority_levels": 7,
+        "scheduler.queue_depth": 12,
+        "scheduler.retry_version": 2,
+        "scheduler.worker_pool": 128
+      },
+      "family": "scheduler_service",
+      "fault_type": "stale_version",
+      "faulted_field": "executor_threads",
+      "fingerprint": "0f88992447cbc47b",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "cron_resolution_minutes": 150,
+        "executor_threads": 16,
+        "max_concurrent": 4,
+        "max_pending_jobs": 6,
+        "priority_buckets": 14,
+        "retry_strategy": "linear"
+      },
+      "presented_config": {
+        "cron_resolution_minutes": 150,
+        "executor_threads": 4,
+        "max_concurrent": 4,
+        "max_pending_jobs": 6,
+        "priority_buckets": 14,
+        "retry_strategy": "linear"
+      },
+      "seed": 100074,
+      "task_id": "scheduler_service_100074_stale_version"
+    },
+    {
+      "external_state": {
+        "monitoring.agg_window_base": 30,
+        "monitoring.alert_version": 3,
+        "monitoring.panel_columns": 2,
+        "monitoring.retention_factor": 14,
+        "monitoring.sample_pool": 100,
+        "monitoring.scrape_base": 13,
+        "monitoring.severity_threshold": 1
+      },
+      "family": "monitoring_service",
+      "fault_type": "stale_version",
+      "faulted_field": "sample_rate",
+      "fingerprint": "9c529525223c14ca",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "agg_window_minutes": 60,
+        "aggregation_method": "histogram",
+        "alerting_enabled": false,
+        "data_retention_days": 70,
+        "sample_rate": 20,
+        "scrape_interval_seconds": 6,
+        "widget_columns": 6
+      },
+      "presented_config": {
+        "agg_window_minutes": 60,
+        "aggregation_method": "histogram",
+        "alerting_enabled": false,
+        "data_retention_days": 70,
+        "sample_rate": 1000,
+        "scrape_interval_seconds": 6,
+        "widget_columns": 6
+      },
+      "seed": 100075,
+      "task_id": "monitoring_service_100075_stale_version"
+    },
+    {
+      "external_state": {
+        "monitoring.agg_window_base": 30,
+        "monitoring.alert_version": 2,
+        "monitoring.panel_columns": 4,
+        "monitoring.retention_factor": 7,
+        "monitoring.sample_pool": 1000,
+        "monitoring.scrape_base": 8,
+        "monitoring.severity_threshold": 1
+      },
+      "family": "monitoring_service",
+      "fault_type": "stale_version",
+      "faulted_field": "data_retention_days",
+      "fingerprint": "4cf2954273cde575",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "aggregation_method": "counter",
+        "alerting_enabled": false,
+        "data_retention_days": 35,
+        "sample_rate": 200,
+        "scrape_interval_seconds": 7,
+        "widget_columns": 12
+      },
+      "presented_config": {
+        "aggregation_method": "counter",
+        "alerting_enabled": false,
+        "data_retention_days": 15,
+        "sample_rate": 200,
+        "scrape_interval_seconds": 7,
+        "widget_columns": 12
+      },
+      "seed": 100076,
+      "task_id": "monitoring_service_100076_stale_version"
+    }
+  ],
+  "rejections": [],
+  "requested_count": 50,
+  "slot_allocation": {
+    "constraint_violation": 15,
+    "missing_dependency": 13,
+    "normal": 10,
+    "stale_version": 12
+  },
+  "split": "dev",
+  "start_seed": 100000,
+  "warnings": []
+}

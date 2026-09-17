@@ -1,0 +1,58 @@
+{
+  "completed_seeds": {
+    "137": 0,
+    "42": 5
+  },
+  "cost": {
+    "budget_ceiling_cny": 50.0,
+    "hourly_cny": 2.18,
+    "observed_remote_window_cny": 2.944816666666667,
+    "observed_remote_window_finish": "2026-09-16T19:18:51+08:00",
+    "observed_remote_window_hours": 1.3508333333333333,
+    "observed_remote_window_start": "2026-09-16T17:57:48+08:00",
+    "projected_dev_cny_from_observed_mean": 1.4855916621980982,
+    "projected_dev_hours_from_observed_mean": 0.6814640652284853,
+    "projected_total_cny": 59.11475493816099,
+    "projected_training_cny": 54.629163275962895,
+    "projected_training_hours": 25.05924920915729,
+    "reserved_final_test_cny": 3.0
+  },
+  "dev": {
+    "base_binary_fcr": 0.63125,
+    "base_continuous_reward_mean": 0.9430378927293203,
+    "u1_continuous_reward_mean": 0.9441040385543946,
+    "u5_binary_fcr": 0.65625,
+    "u5_binary_fcr_delta_vs_base": 0.025000000000000022,
+    "u5_continuous_reward_mean": 0.9456602824262026,
+    "u5_delta_vs_base": 0.0026223896968823324
+  },
+  "diagnostics": [
+    "Initial U3 attempt hit the FSDP2 CPU-gradient/CUDA-parameter mismatch with policy offload.",
+    "A policy-offload-disabled retry could not start vLLM because the resident actor reduced free VRAM.",
+    "The successful U3-U5 retry used manual parameter and optimizer offload with policy offload disabled.",
+    "A dataloader worker was killed during shutdown after U5 was saved; the trainer exited 0.",
+    "The framework logs one pre-clip global grad norm; clipped norm is derived as min(norm, 1.0)."
+  ],
+  "recommendation": "no improvement (provisional; smoke-only, seed 137 not run due budget stop)",
+  "remote_checkpoint_root": "/root/autodl-tmp/octorl_r3/seed_42/checkpoints",
+  "remote_checkpoints": [
+    "/root/autodl-tmp/octorl_r3/seed_42/checkpoints/global_step_1",
+    "/root/autodl-tmp/octorl_r3/seed_42/checkpoints/global_step_2",
+    "/root/autodl-tmp/octorl_r3/seed_42/checkpoints/global_step_3",
+    "/root/autodl-tmp/octorl_r3/seed_42/checkpoints/global_step_4",
+    "/root/autodl-tmp/octorl_r3/seed_42/checkpoints/global_step_5"
+  ],
+  "smoke": {
+    "all_metrics_finite": true,
+    "max_grad_norm": 0.19422030448913574,
+    "nan_observed": false,
+    "peak_vram_mib": 21476.0,
+    "rollouts": 80,
+    "rollouts_per_hour": 127.69736129327602,
+    "step_wall_time_seconds": 2255.3324288241565,
+    "updates": 5,
+    "updates_per_hour": 7.981085080829751
+  },
+  "status": "stopped_at_smoke_gate",
+  "stop_reason": "projected_cost_exceeds_50_cny"
+}

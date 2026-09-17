@@ -1,0 +1,4 @@
+{"bytes": 8177742939, "removed": "/root/autodl-tmp/octorl_r3/seed_42/checkpoints/global_step_1/actor/model_world_size_1_rank_0.pt", "step": 1}
+{"bytes": 8177742939, "removed": "/root/autodl-tmp/octorl_r3/seed_42/checkpoints/global_step_2/actor/model_world_size_1_rank_0.pt", "step": 2}
+{"bytes": 8177758299, "removed": "/root/autodl-tmp/octorl_r3/seed_42/checkpoints/global_step_3/actor/model_world_size_1_rank_0.pt", "step": 3}
+{"bytes": 8177758299, "removed": "/root/autodl-tmp/octorl_r3/seed_42/checkpoints/global_step_4/actor/model_world_size_1_rank_0.pt", "step": 4}

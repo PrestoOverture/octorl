@@ -1,0 +1,1763 @@
+{
+  "duplicate_seeds": [],
+  "generated_count": 50,
+  "generator_version": "r2.0",
+  "instances": [
+    {
+      "external_state": {
+        "deployment.canary_weight_base": 10,
+        "deployment.health_factor": 5,
+        "deployment.healthy_pct_base": 2,
+        "deployment.instance_capacity": 500,
+        "deployment.pipeline_stages": 6,
+        "deployment.rollback_base": 30,
+        "deployment.strategy_version": 1
+      },
+      "family": "deployment_service",
+      "fault_type": "normal",
+      "faulted_field": null,
+      "fingerprint": "5d93d98edea33bbb",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "deploy_strategy": "rolling",
+        "health_check_interval": 50,
+        "max_replicas": 100,
+        "min_healthy_percent": 50,
+        "parallel_stages": 2,
+        "rollback_timeout_minutes": 180
+      },
+      "presented_config": {
+        "deploy_strategy": "rolling",
+        "health_check_interval": 50,
+        "max_replicas": 100,
+        "min_healthy_percent": 50,
+        "parallel_stages": 2,
+        "rollback_timeout_minutes": 180
+      },
+      "seed": 200000,
+      "task_id": "deployment_service_200000_normal"
+    },
+    {
+      "external_state": {
+        "notification.batch_window": 9,
+        "notification.channel_count": 3,
+        "notification.cooldown_base": 30,
+        "notification.escalation_base": 3,
+        "notification.priority_version": 3,
+        "notification.rate_base": 10,
+        "notification.template_version": 2
+      },
+      "family": "notification_service",
+      "fault_type": "normal",
+      "faulted_field": null,
+      "fingerprint": "e58a103602153b36",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "batch_delay_seconds": 2,
+        "channel_priority": "urgent",
+        "cooldown_enabled": false,
+        "escalation_timeout_minutes": 12,
+        "max_recipients": 60,
+        "rate_limit_per_minute": 5,
+        "template_format": "html"
+      },
+      "presented_config": {
+        "batch_delay_seconds": 2,
+        "channel_priority": "urgent",
+        "cooldown_enabled": false,
+        "escalation_timeout_minutes": 12,
+        "max_recipients": 60,
+        "rate_limit_per_minute": 5,
+        "template_format": "html"
+      },
+      "seed": 200001,
+      "task_id": "notification_service_200001_normal"
+    },
+    {
+      "external_state": {
+        "deployment.canary_weight_base": 10,
+        "deployment.health_factor": 5,
+        "deployment.healthy_pct_base": 2,
+        "deployment.instance_capacity": 500,
+        "deployment.pipeline_stages": 6,
+        "deployment.rollback_base": 30,
+        "deployment.strategy_version": 4
+      },
+      "family": "deployment_service",
+      "fault_type": "normal",
+      "faulted_field": null,
+      "fingerprint": "18e2970eab2ba6fe",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "canary_weight_percent": 20,
+        "deploy_strategy": "canary",
+        "health_check_interval": 50,
+        "max_replicas": 100,
+        "min_healthy_percent": 50,
+        "parallel_stages": 2,
+        "rollback_timeout_minutes": 180
+      },
+      "presented_config": {
+        "canary_weight_percent": 20,
+        "deploy_strategy": "canary",
+        "health_check_interval": 50,
+        "max_replicas": 100,
+        "min_healthy_percent": 50,
+        "parallel_stages": 2,
+        "rollback_timeout_minutes": 180
+      },
+      "seed": 200002,
+      "task_id": "deployment_service_200002_normal"
+    },
+    {
+      "external_state": {
+        "notification.batch_window": 14,
+        "notification.channel_count": 5,
+        "notification.cooldown_base": 300,
+        "notification.escalation_base": 3,
+        "notification.priority_version": 3,
+        "notification.rate_base": 50,
+        "notification.template_version": 4
+      },
+      "family": "notification_service",
+      "fault_type": "normal",
+      "faulted_field": null,
+      "fingerprint": "7743cd0e80c8822e",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "batch_delay_seconds": 3,
+        "channel_priority": "urgent",
+        "cooldown_enabled": true,
+        "escalation_timeout_minutes": 12,
+        "max_recipients": 100,
+        "rate_limit_per_minute": 25,
+        "template_format": "rich"
+      },
+      "presented_config": {
+        "batch_delay_seconds": 3,
+        "channel_priority": "urgent",
+        "cooldown_enabled": true,
+        "escalation_timeout_minutes": 12,
+        "max_recipients": 100,
+        "rate_limit_per_minute": 25,
+        "template_format": "rich"
+      },
+      "seed": 200003,
+      "task_id": "notification_service_200003_normal"
+    },
+    {
+      "external_state": {
+        "notification.batch_window": 9,
+        "notification.channel_count": 8,
+        "notification.cooldown_base": 30,
+        "notification.escalation_base": 15,
+        "notification.priority_version": 1,
+        "notification.rate_base": 500,
+        "notification.template_version": 3
+      },
+      "family": "notification_service",
+      "fault_type": "normal",
+      "faulted_field": null,
+      "fingerprint": "7df7afc7ca6ad3c8",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "batch_delay_seconds": 2,
+        "channel_priority": "normal",
+        "cooldown_enabled": false,
+        "max_recipients": 160,
+        "rate_limit_per_minute": 250,
+        "template_format": "markdown"
+      },
+      "presented_config": {
+        "batch_delay_seconds": 2,
+        "channel_priority": "normal",
+        "cooldown_enabled": false,
+        "max_recipients": 160,
+        "rate_limit_per_minute": 250,
+        "template_format": "markdown"
+      },
+      "seed": 200004,
+      "task_id": "notification_service_200004_normal"
+    },
+    {
+      "external_state": {
+        "deployment.canary_weight_base": 25,
+        "deployment.health_factor": 5,
+        "deployment.healthy_pct_base": 2,
+        "deployment.instance_capacity": 500,
+        "deployment.pipeline_stages": 24,
+        "deployment.rollback_base": 10,
+        "deployment.strategy_version": 3
+      },
+      "family": "deployment_service",
+      "fault_type": "normal",
+      "faulted_field": null,
+      "fingerprint": "b13a817267fcf4c3",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "canary_weight_percent": 50,
+        "deploy_strategy": "canary",
+        "health_check_interval": 50,
+        "max_replicas": 100,
+        "min_healthy_percent": 50,
+        "parallel_stages": 5,
+        "rollback_timeout_minutes": 60
+      },
+      "presented_config": {
+        "canary_weight_percent": 50,
+        "deploy_strategy": "canary",
+        "health_check_interval": 50,
+        "max_replicas": 100,
+        "min_healthy_percent": 50,
+        "parallel_stages": 5,
+        "rollback_timeout_minutes": 60
+      },
+      "seed": 200005,
+      "task_id": "deployment_service_200005_normal"
+    },
+    {
+      "external_state": {
+        "notification.batch_window": 9,
+        "notification.channel_count": 12,
+        "notification.cooldown_base": 30,
+        "notification.escalation_base": 15,
+        "notification.priority_version": 3,
+        "notification.rate_base": 50,
+        "notification.template_version": 1
+      },
+      "family": "notification_service",
+      "fault_type": "normal",
+      "faulted_field": null,
+      "fingerprint": "7a7e04461d3f628d",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "batch_delay_seconds": 2,
+        "channel_priority": "urgent",
+        "cooldown_enabled": false,
+        "escalation_timeout_minutes": 60,
+        "max_recipients": 240,
+        "rate_limit_per_minute": 25,
+        "template_format": "text"
+      },
+      "presented_config": {
+        "batch_delay_seconds": 2,
+        "channel_priority": "urgent",
+        "cooldown_enabled": false,
+        "escalation_timeout_minutes": 60,
+        "max_recipients": 240,
+        "rate_limit_per_minute": 25,
+        "template_format": "text"
+      },
+      "seed": 200006,
+      "task_id": "notification_service_200006_normal"
+    },
+    {
+      "external_state": {
+        "notification.batch_window": 33,
+        "notification.channel_count": 12,
+        "notification.cooldown_base": 30,
+        "notification.escalation_base": 3,
+        "notification.priority_version": 3,
+        "notification.rate_base": 100,
+        "notification.template_version": 4
+      },
+      "family": "notification_service",
+      "fault_type": "normal",
+      "faulted_field": null,
+      "fingerprint": "f7c4d9e629412929",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "batch_delay_seconds": 2,
+        "channel_priority": "urgent",
+        "cooldown_enabled": false,
+        "escalation_timeout_minutes": 12,
+        "max_recipients": 240,
+        "rate_limit_per_minute": 50,
+        "template_format": "rich"
+      },
+      "presented_config": {
+        "batch_delay_seconds": 2,
+        "channel_priority": "urgent",
+        "cooldown_enabled": false,
+        "escalation_timeout_minutes": 12,
+        "max_recipients": 240,
+        "rate_limit_per_minute": 50,
+        "template_format": "rich"
+      },
+      "seed": 200007,
+      "task_id": "notification_service_200007_normal"
+    },
+    {
+      "external_state": {
+        "deployment.canary_weight_base": 5,
+        "deployment.health_factor": 8,
+        "deployment.healthy_pct_base": 1,
+        "deployment.instance_capacity": 100,
+        "deployment.pipeline_stages": 6,
+        "deployment.rollback_base": 15,
+        "deployment.strategy_version": 1
+      },
+      "family": "deployment_service",
+      "fault_type": "normal",
+      "faulted_field": null,
+      "fingerprint": "b025b7da515d25d3",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "deploy_strategy": "rolling",
+        "health_check_interval": 80,
+        "max_replicas": 20,
+        "min_healthy_percent": 25,
+        "parallel_stages": 2,
+        "rollback_timeout_minutes": 90
+      },
+      "presented_config": {
+        "deploy_strategy": "rolling",
+        "health_check_interval": 80,
+        "max_replicas": 20,
+        "min_healthy_percent": 25,
+        "parallel_stages": 2,
+        "rollback_timeout_minutes": 90
+      },
+      "seed": 200008,
+      "task_id": "deployment_service_200008_normal"
+    },
+    {
+      "external_state": {
+        "notification.batch_window": 9,
+        "notification.channel_count": 8,
+        "notification.cooldown_base": 300,
+        "notification.escalation_base": 10,
+        "notification.priority_version": 3,
+        "notification.rate_base": 500,
+        "notification.template_version": 3
+      },
+      "family": "notification_service",
+      "fault_type": "normal",
+      "faulted_field": null,
+      "fingerprint": "d2a6820181cd5f00",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "batch_delay_seconds": 2,
+        "channel_priority": "urgent",
+        "cooldown_enabled": true,
+        "escalation_timeout_minutes": 40,
+        "max_recipients": 160,
+        "rate_limit_per_minute": 250,
+        "template_format": "markdown"
+      },
+      "presented_config": {
+        "batch_delay_seconds": 2,
+        "channel_priority": "urgent",
+        "cooldown_enabled": true,
+        "escalation_timeout_minutes": 40,
+        "max_recipients": 160,
+        "rate_limit_per_minute": 250,
+        "template_format": "markdown"
+      },
+      "seed": 200009,
+      "task_id": "notification_service_200009_normal"
+    },
+    {
+      "external_state": {
+        "deployment.canary_weight_base": 5,
+        "deployment.health_factor": 2,
+        "deployment.healthy_pct_base": 4,
+        "deployment.instance_capacity": 500,
+        "deployment.pipeline_stages": 17,
+        "deployment.rollback_base": 5,
+        "deployment.strategy_version": 3
+      },
+      "family": "deployment_service",
+      "fault_type": "constraint_violation",
+      "faulted_field": "parallel_stages",
+      "fingerprint": "606b9eedf8242c65",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "canary_weight_percent": 10,
+        "deploy_strategy": "canary",
+        "health_check_interval": 20,
+        "max_replicas": 100,
+        "min_healthy_percent": 100,
+        "parallel_stages": 3,
+        "rollback_timeout_minutes": 30
+      },
+      "presented_config": {
+        "canary_weight_percent": 10,
+        "deploy_strategy": "canary",
+        "health_check_interval": 20,
+        "max_replicas": 100,
+        "min_healthy_percent": 100,
+        "parallel_stages": 8,
+        "rollback_timeout_minutes": 30
+      },
+      "seed": 200010,
+      "task_id": "deployment_service_200010_constraint_violation"
+    },
+    {
+      "external_state": {
+        "notification.batch_window": 14,
+        "notification.channel_count": 12,
+        "notification.cooldown_base": 120,
+        "notification.escalation_base": 3,
+        "notification.priority_version": 2,
+        "notification.rate_base": 100,
+        "notification.template_version": 3
+      },
+      "family": "notification_service",
+      "fault_type": "constraint_violation",
+      "faulted_field": "template_format",
+      "fingerprint": "2eccf0ae39c27b87",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "batch_delay_seconds": 3,
+        "channel_priority": "normal",
+        "cooldown_enabled": true,
+        "max_recipients": 240,
+        "rate_limit_per_minute": 50,
+        "template_format": "markdown"
+      },
+      "presented_config": {
+        "batch_delay_seconds": 3,
+        "channel_priority": "normal",
+        "cooldown_enabled": true,
+        "max_recipients": 240,
+        "rate_limit_per_minute": 50,
+        "template_format": "xml"
+      },
+      "seed": 200011,
+      "task_id": "notification_service_200011_constraint_violation"
+    },
+    {
+      "external_state": {
+        "deployment.canary_weight_base": 10,
+        "deployment.health_factor": 2,
+        "deployment.healthy_pct_base": 2,
+        "deployment.instance_capacity": 500,
+        "deployment.pipeline_stages": 24,
+        "deployment.rollback_base": 5,
+        "deployment.strategy_version": 1
+      },
+      "family": "deployment_service",
+      "fault_type": "constraint_violation",
+      "faulted_field": "max_replicas",
+      "fingerprint": "5431bff1d3b1c5af",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "deploy_strategy": "rolling",
+        "health_check_interval": 20,
+        "max_replicas": 100,
+        "min_healthy_percent": 50,
+        "parallel_stages": 5,
+        "rollback_timeout_minutes": 30
+      },
+      "presented_config": {
+        "deploy_strategy": "rolling",
+        "health_check_interval": 20,
+        "max_replicas": 75,
+        "min_healthy_percent": 50,
+        "parallel_stages": 5,
+        "rollback_timeout_minutes": 30
+      },
+      "seed": 200012,
+      "task_id": "deployment_service_200012_constraint_violation"
+    },
+    {
+      "external_state": {
+        "deployment.canary_weight_base": 5,
+        "deployment.health_factor": 2,
+        "deployment.healthy_pct_base": 1,
+        "deployment.instance_capacity": 1000,
+        "deployment.pipeline_stages": 17,
+        "deployment.rollback_base": 15,
+        "deployment.strategy_version": 2
+      },
+      "family": "deployment_service",
+      "fault_type": "constraint_violation",
+      "faulted_field": "min_healthy_percent",
+      "fingerprint": "26dc1ac797dcd22f",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "deploy_strategy": "rolling",
+        "health_check_interval": 20,
+        "max_replicas": 200,
+        "min_healthy_percent": 25,
+        "parallel_stages": 3,
+        "rollback_timeout_minutes": 90
+      },
+      "presented_config": {
+        "deploy_strategy": "rolling",
+        "health_check_interval": 20,
+        "max_replicas": 200,
+        "min_healthy_percent": 60,
+        "parallel_stages": 3,
+        "rollback_timeout_minutes": 90
+      },
+      "seed": 200013,
+      "task_id": "deployment_service_200013_constraint_violation"
+    },
+    {
+      "external_state": {
+        "deployment.canary_weight_base": 10,
+        "deployment.health_factor": 8,
+        "deployment.healthy_pct_base": 3,
+        "deployment.instance_capacity": 1000,
+        "deployment.pipeline_stages": 6,
+        "deployment.rollback_base": 15,
+        "deployment.strategy_version": 2
+      },
+      "family": "deployment_service",
+      "fault_type": "constraint_violation",
+      "faulted_field": "rollback_timeout_minutes",
+      "fingerprint": "6cce8746dd520b82",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "deploy_strategy": "rolling",
+        "health_check_interval": 80,
+        "max_replicas": 200,
+        "min_healthy_percent": 75,
+        "parallel_stages": 2,
+        "rollback_timeout_minutes": 90
+      },
+      "presented_config": {
+        "deploy_strategy": "rolling",
+        "health_check_interval": 80,
+        "max_replicas": 200,
+        "min_healthy_percent": 75,
+        "parallel_stages": 2,
+        "rollback_timeout_minutes": 120
+      },
+      "seed": 200014,
+      "task_id": "deployment_service_200014_constraint_violation"
+    },
+    {
+      "external_state": {
+        "notification.batch_window": 9,
+        "notification.channel_count": 5,
+        "notification.cooldown_base": 60,
+        "notification.escalation_base": 3,
+        "notification.priority_version": 1,
+        "notification.rate_base": 50,
+        "notification.template_version": 3
+      },
+      "family": "notification_service",
+      "fault_type": "constraint_violation",
+      "faulted_field": "batch_delay_seconds",
+      "fingerprint": "aa02c5fb46db5f2a",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "batch_delay_seconds": 2,
+        "channel_priority": "normal",
+        "cooldown_enabled": false,
+        "max_recipients": 100,
+        "rate_limit_per_minute": 25,
+        "template_format": "markdown"
+      },
+      "presented_config": {
+        "batch_delay_seconds": 10,
+        "channel_priority": "normal",
+        "cooldown_enabled": false,
+        "max_recipients": 100,
+        "rate_limit_per_minute": 25,
+        "template_format": "markdown"
+      },
+      "seed": 200015,
+      "task_id": "notification_service_200015_constraint_violation"
+    },
+    {
+      "external_state": {
+        "deployment.canary_weight_base": 25,
+        "deployment.health_factor": 5,
+        "deployment.healthy_pct_base": 4,
+        "deployment.instance_capacity": 100,
+        "deployment.pipeline_stages": 24,
+        "deployment.rollback_base": 30,
+        "deployment.strategy_version": 4
+      },
+      "family": "deployment_service",
+      "fault_type": "constraint_violation",
+      "faulted_field": "min_healthy_percent",
+      "fingerprint": "3a8367facc730404",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "canary_weight_percent": 50,
+        "deploy_strategy": "canary",
+        "health_check_interval": 50,
+        "max_replicas": 20,
+        "min_healthy_percent": 100,
+        "parallel_stages": 5,
+        "rollback_timeout_minutes": 180
+      },
+      "presented_config": {
+        "canary_weight_percent": 50,
+        "deploy_strategy": "canary",
+        "health_check_interval": 50,
+        "max_replicas": 20,
+        "min_healthy_percent": 90,
+        "parallel_stages": 5,
+        "rollback_timeout_minutes": 180
+      },
+      "seed": 200016,
+      "task_id": "deployment_service_200016_constraint_violation"
+    },
+    {
+      "external_state": {
+        "deployment.canary_weight_base": 25,
+        "deployment.health_factor": 2,
+        "deployment.healthy_pct_base": 4,
+        "deployment.instance_capacity": 250,
+        "deployment.pipeline_stages": 6,
+        "deployment.rollback_base": 10,
+        "deployment.strategy_version": 3
+      },
+      "family": "deployment_service",
+      "fault_type": "constraint_violation",
+      "faulted_field": "rollback_timeout_minutes",
+      "fingerprint": "9013b65629ade4d9",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "canary_weight_percent": 50,
+        "deploy_strategy": "canary",
+        "health_check_interval": 20,
+        "max_replicas": 50,
+        "min_healthy_percent": 100,
+        "parallel_stages": 2,
+        "rollback_timeout_minutes": 60
+      },
+      "presented_config": {
+        "canary_weight_percent": 50,
+        "deploy_strategy": "canary",
+        "health_check_interval": 20,
+        "max_replicas": 50,
+        "min_healthy_percent": 100,
+        "parallel_stages": 2,
+        "rollback_timeout_minutes": 120
+      },
+      "seed": 200017,
+      "task_id": "deployment_service_200017_constraint_violation"
+    },
+    {
+      "external_state": {
+        "deployment.canary_weight_base": 5,
+        "deployment.health_factor": 2,
+        "deployment.healthy_pct_base": 2,
+        "deployment.instance_capacity": 500,
+        "deployment.pipeline_stages": 11,
+        "deployment.rollback_base": 10,
+        "deployment.strategy_version": 2
+      },
+      "family": "deployment_service",
+      "fault_type": "constraint_violation",
+      "faulted_field": "health_check_interval",
+      "fingerprint": "ad8945d99cd8c7ee",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "deploy_strategy": "rolling",
+        "health_check_interval": 20,
+        "max_replicas": 100,
+        "min_healthy_percent": 50,
+        "parallel_stages": 2,
+        "rollback_timeout_minutes": 60
+      },
+      "presented_config": {
+        "deploy_strategy": "rolling",
+        "health_check_interval": 40,
+        "max_replicas": 100,
+        "min_healthy_percent": 50,
+        "parallel_stages": 2,
+        "rollback_timeout_minutes": 60
+      },
+      "seed": 200018,
+      "task_id": "deployment_service_200018_constraint_violation"
+    },
+    {
+      "external_state": {
+        "notification.batch_window": 33,
+        "notification.channel_count": 3,
+        "notification.cooldown_base": 300,
+        "notification.escalation_base": 15,
+        "notification.priority_version": 1,
+        "notification.rate_base": 100,
+        "notification.template_version": 3
+      },
+      "family": "notification_service",
+      "fault_type": "constraint_violation",
+      "faulted_field": "rate_limit_per_minute",
+      "fingerprint": "155f280972e3042f",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "batch_delay_seconds": 2,
+        "channel_priority": "normal",
+        "cooldown_enabled": true,
+        "max_recipients": 60,
+        "rate_limit_per_minute": 50,
+        "template_format": "markdown"
+      },
+      "presented_config": {
+        "batch_delay_seconds": 2,
+        "channel_priority": "normal",
+        "cooldown_enabled": true,
+        "max_recipients": 60,
+        "rate_limit_per_minute": 3,
+        "template_format": "markdown"
+      },
+      "seed": 200019,
+      "task_id": "notification_service_200019_constraint_violation"
+    },
+    {
+      "external_state": {
+        "deployment.canary_weight_base": 10,
+        "deployment.health_factor": 8,
+        "deployment.healthy_pct_base": 3,
+        "deployment.instance_capacity": 250,
+        "deployment.pipeline_stages": 11,
+        "deployment.rollback_base": 15,
+        "deployment.strategy_version": 1
+      },
+      "family": "deployment_service",
+      "fault_type": "constraint_violation",
+      "faulted_field": "max_replicas",
+      "fingerprint": "0b07cc79aeb119d9",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "deploy_strategy": "rolling",
+        "health_check_interval": 80,
+        "max_replicas": 50,
+        "min_healthy_percent": 75,
+        "parallel_stages": 2,
+        "rollback_timeout_minutes": 90
+      },
+      "presented_config": {
+        "deploy_strategy": "rolling",
+        "health_check_interval": 80,
+        "max_replicas": 30,
+        "min_healthy_percent": 75,
+        "parallel_stages": 2,
+        "rollback_timeout_minutes": 90
+      },
+      "seed": 200020,
+      "task_id": "deployment_service_200020_constraint_violation"
+    },
+    {
+      "external_state": {
+        "notification.batch_window": 9,
+        "notification.channel_count": 8,
+        "notification.cooldown_base": 300,
+        "notification.escalation_base": 10,
+        "notification.priority_version": 3,
+        "notification.rate_base": 50,
+        "notification.template_version": 3
+      },
+      "family": "notification_service",
+      "fault_type": "constraint_violation",
+      "faulted_field": "rate_limit_per_minute",
+      "fingerprint": "7f308a1d62d02e34",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "batch_delay_seconds": 2,
+        "channel_priority": "urgent",
+        "cooldown_enabled": true,
+        "escalation_timeout_minutes": 40,
+        "max_recipients": 160,
+        "rate_limit_per_minute": 25,
+        "template_format": "markdown"
+      },
+      "presented_config": {
+        "batch_delay_seconds": 2,
+        "channel_priority": "urgent",
+        "cooldown_enabled": true,
+        "escalation_timeout_minutes": 40,
+        "max_recipients": 160,
+        "rate_limit_per_minute": 15,
+        "template_format": "markdown"
+      },
+      "seed": 200021,
+      "task_id": "notification_service_200021_constraint_violation"
+    },
+    {
+      "external_state": {
+        "notification.batch_window": 22,
+        "notification.channel_count": 5,
+        "notification.cooldown_base": 300,
+        "notification.escalation_base": 10,
+        "notification.priority_version": 3,
+        "notification.rate_base": 500,
+        "notification.template_version": 1
+      },
+      "family": "notification_service",
+      "fault_type": "constraint_violation",
+      "faulted_field": "batch_delay_seconds",
+      "fingerprint": "c473a90970b44dca",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "batch_delay_seconds": 3,
+        "channel_priority": "urgent",
+        "cooldown_enabled": true,
+        "escalation_timeout_minutes": 40,
+        "max_recipients": 100,
+        "rate_limit_per_minute": 250,
+        "template_format": "text"
+      },
+      "presented_config": {
+        "batch_delay_seconds": 10,
+        "channel_priority": "urgent",
+        "cooldown_enabled": true,
+        "escalation_timeout_minutes": 40,
+        "max_recipients": 100,
+        "rate_limit_per_minute": 250,
+        "template_format": "text"
+      },
+      "seed": 200022,
+      "task_id": "notification_service_200022_constraint_violation"
+    },
+    {
+      "external_state": {
+        "notification.batch_window": 9,
+        "notification.channel_count": 8,
+        "notification.cooldown_base": 300,
+        "notification.escalation_base": 10,
+        "notification.priority_version": 1,
+        "notification.rate_base": 500,
+        "notification.template_version": 3
+      },
+      "family": "notification_service",
+      "fault_type": "constraint_violation",
+      "faulted_field": "max_recipients",
+      "fingerprint": "ca6075fa4f46ec37",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "batch_delay_seconds": 2,
+        "channel_priority": "normal",
+        "cooldown_enabled": true,
+        "max_recipients": 160,
+        "rate_limit_per_minute": 250,
+        "template_format": "markdown"
+      },
+      "presented_config": {
+        "batch_delay_seconds": 2,
+        "channel_priority": "normal",
+        "cooldown_enabled": true,
+        "max_recipients": 200,
+        "rate_limit_per_minute": 250,
+        "template_format": "markdown"
+      },
+      "seed": 200023,
+      "task_id": "notification_service_200023_constraint_violation"
+    },
+    {
+      "external_state": {
+        "deployment.canary_weight_base": 10,
+        "deployment.health_factor": 2,
+        "deployment.healthy_pct_base": 3,
+        "deployment.instance_capacity": 1000,
+        "deployment.pipeline_stages": 24,
+        "deployment.rollback_base": 15,
+        "deployment.strategy_version": 1
+      },
+      "family": "deployment_service",
+      "fault_type": "constraint_violation",
+      "faulted_field": "rollback_timeout_minutes",
+      "fingerprint": "cec46d9a1230f350",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "deploy_strategy": "rolling",
+        "health_check_interval": 20,
+        "max_replicas": 200,
+        "min_healthy_percent": 75,
+        "parallel_stages": 5,
+        "rollback_timeout_minutes": 90
+      },
+      "presented_config": {
+        "deploy_strategy": "rolling",
+        "health_check_interval": 20,
+        "max_replicas": 200,
+        "min_healthy_percent": 75,
+        "parallel_stages": 5,
+        "rollback_timeout_minutes": 240
+      },
+      "seed": 200024,
+      "task_id": "deployment_service_200024_constraint_violation"
+    },
+    {
+      "external_state": {
+        "deployment.canary_weight_base": 15,
+        "deployment.health_factor": 5,
+        "deployment.healthy_pct_base": 4,
+        "deployment.instance_capacity": 1000,
+        "deployment.pipeline_stages": 11,
+        "deployment.rollback_base": 30,
+        "deployment.strategy_version": 3
+      },
+      "family": "deployment_service",
+      "fault_type": "missing_dependency",
+      "faulted_field": "canary_weight_percent",
+      "fingerprint": "8094ff3db5f113ea",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "canary_weight_percent": 30,
+        "deploy_strategy": "canary",
+        "health_check_interval": 50,
+        "max_replicas": 200,
+        "min_healthy_percent": 100,
+        "parallel_stages": 2,
+        "rollback_timeout_minutes": 180
+      },
+      "presented_config": {
+        "deploy_strategy": "canary",
+        "health_check_interval": 50,
+        "max_replicas": 200,
+        "min_healthy_percent": 100,
+        "parallel_stages": 2,
+        "rollback_timeout_minutes": 180
+      },
+      "seed": 200026,
+      "task_id": "deployment_service_200026_missing_dependency"
+    },
+    {
+      "external_state": {
+        "notification.batch_window": 22,
+        "notification.channel_count": 3,
+        "notification.cooldown_base": 300,
+        "notification.escalation_base": 3,
+        "notification.priority_version": 3,
+        "notification.rate_base": 10,
+        "notification.template_version": 1
+      },
+      "family": "notification_service",
+      "fault_type": "missing_dependency",
+      "faulted_field": "escalation_timeout_minutes",
+      "fingerprint": "f125c919e425f23e",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "batch_delay_seconds": 3,
+        "channel_priority": "urgent",
+        "cooldown_enabled": true,
+        "escalation_timeout_minutes": 12,
+        "max_recipients": 60,
+        "rate_limit_per_minute": 5,
+        "template_format": "text"
+      },
+      "presented_config": {
+        "batch_delay_seconds": 3,
+        "channel_priority": "urgent",
+        "cooldown_enabled": true,
+        "max_recipients": 60,
+        "rate_limit_per_minute": 5,
+        "template_format": "text"
+      },
+      "seed": 200027,
+      "task_id": "notification_service_200027_missing_dependency"
+    },
+    {
+      "external_state": {
+        "notification.batch_window": 14,
+        "notification.channel_count": 8,
+        "notification.cooldown_base": 120,
+        "notification.escalation_base": 15,
+        "notification.priority_version": 3,
+        "notification.rate_base": 10,
+        "notification.template_version": 2
+      },
+      "family": "notification_service",
+      "fault_type": "missing_dependency",
+      "faulted_field": "escalation_timeout_minutes",
+      "fingerprint": "9c73b0285c94d738",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "batch_delay_seconds": 3,
+        "channel_priority": "urgent",
+        "cooldown_enabled": true,
+        "escalation_timeout_minutes": 60,
+        "max_recipients": 160,
+        "rate_limit_per_minute": 5,
+        "template_format": "html"
+      },
+      "presented_config": {
+        "batch_delay_seconds": 3,
+        "channel_priority": "urgent",
+        "cooldown_enabled": true,
+        "max_recipients": 160,
+        "rate_limit_per_minute": 5,
+        "template_format": "html"
+      },
+      "seed": 200028,
+      "task_id": "notification_service_200028_missing_dependency"
+    },
+    {
+      "external_state": {
+        "notification.batch_window": 33,
+        "notification.channel_count": 12,
+        "notification.cooldown_base": 60,
+        "notification.escalation_base": 10,
+        "notification.priority_version": 3,
+        "notification.rate_base": 500,
+        "notification.template_version": 3
+      },
+      "family": "notification_service",
+      "fault_type": "missing_dependency",
+      "faulted_field": "escalation_timeout_minutes",
+      "fingerprint": "5281fc71a4c8b16e",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "batch_delay_seconds": 2,
+        "channel_priority": "urgent",
+        "cooldown_enabled": false,
+        "escalation_timeout_minutes": 40,
+        "max_recipients": 240,
+        "rate_limit_per_minute": 250,
+        "template_format": "markdown"
+      },
+      "presented_config": {
+        "batch_delay_seconds": 2,
+        "channel_priority": "urgent",
+        "cooldown_enabled": false,
+        "max_recipients": 240,
+        "rate_limit_per_minute": 250,
+        "template_format": "markdown"
+      },
+      "seed": 200029,
+      "task_id": "notification_service_200029_missing_dependency"
+    },
+    {
+      "external_state": {
+        "deployment.canary_weight_base": 25,
+        "deployment.health_factor": 5,
+        "deployment.healthy_pct_base": 2,
+        "deployment.instance_capacity": 1000,
+        "deployment.pipeline_stages": 17,
+        "deployment.rollback_base": 5,
+        "deployment.strategy_version": 4
+      },
+      "family": "deployment_service",
+      "fault_type": "missing_dependency",
+      "faulted_field": "canary_weight_percent",
+      "fingerprint": "fda4797bc6d73f63",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "canary_weight_percent": 50,
+        "deploy_strategy": "canary",
+        "health_check_interval": 50,
+        "max_replicas": 200,
+        "min_healthy_percent": 50,
+        "parallel_stages": 3,
+        "rollback_timeout_minutes": 30
+      },
+      "presented_config": {
+        "deploy_strategy": "canary",
+        "health_check_interval": 50,
+        "max_replicas": 200,
+        "min_healthy_percent": 50,
+        "parallel_stages": 3,
+        "rollback_timeout_minutes": 30
+      },
+      "seed": 200032,
+      "task_id": "deployment_service_200032_missing_dependency"
+    },
+    {
+      "external_state": {
+        "deployment.canary_weight_base": 25,
+        "deployment.health_factor": 2,
+        "deployment.healthy_pct_base": 4,
+        "deployment.instance_capacity": 1000,
+        "deployment.pipeline_stages": 17,
+        "deployment.rollback_base": 10,
+        "deployment.strategy_version": 3
+      },
+      "family": "deployment_service",
+      "fault_type": "missing_dependency",
+      "faulted_field": "canary_weight_percent",
+      "fingerprint": "38c9391cb5971e93",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "canary_weight_percent": 50,
+        "deploy_strategy": "canary",
+        "health_check_interval": 20,
+        "max_replicas": 200,
+        "min_healthy_percent": 100,
+        "parallel_stages": 3,
+        "rollback_timeout_minutes": 60
+      },
+      "presented_config": {
+        "deploy_strategy": "canary",
+        "health_check_interval": 20,
+        "max_replicas": 200,
+        "min_healthy_percent": 100,
+        "parallel_stages": 3,
+        "rollback_timeout_minutes": 60
+      },
+      "seed": 200033,
+      "task_id": "deployment_service_200033_missing_dependency"
+    },
+    {
+      "external_state": {
+        "notification.batch_window": 14,
+        "notification.channel_count": 12,
+        "notification.cooldown_base": 60,
+        "notification.escalation_base": 15,
+        "notification.priority_version": 3,
+        "notification.rate_base": 100,
+        "notification.template_version": 3
+      },
+      "family": "notification_service",
+      "fault_type": "missing_dependency",
+      "faulted_field": "escalation_timeout_minutes",
+      "fingerprint": "b414fbd8b20ca102",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "batch_delay_seconds": 3,
+        "channel_priority": "urgent",
+        "cooldown_enabled": false,
+        "escalation_timeout_minutes": 60,
+        "max_recipients": 240,
+        "rate_limit_per_minute": 50,
+        "template_format": "markdown"
+      },
+      "presented_config": {
+        "batch_delay_seconds": 3,
+        "channel_priority": "urgent",
+        "cooldown_enabled": false,
+        "max_recipients": 240,
+        "rate_limit_per_minute": 50,
+        "template_format": "markdown"
+      },
+      "seed": 200034,
+      "task_id": "notification_service_200034_missing_dependency"
+    },
+    {
+      "external_state": {
+        "notification.batch_window": 22,
+        "notification.channel_count": 12,
+        "notification.cooldown_base": 60,
+        "notification.escalation_base": 3,
+        "notification.priority_version": 3,
+        "notification.rate_base": 50,
+        "notification.template_version": 4
+      },
+      "family": "notification_service",
+      "fault_type": "missing_dependency",
+      "faulted_field": "escalation_timeout_minutes",
+      "fingerprint": "f15947979ca79781",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "batch_delay_seconds": 3,
+        "channel_priority": "urgent",
+        "cooldown_enabled": false,
+        "escalation_timeout_minutes": 12,
+        "max_recipients": 240,
+        "rate_limit_per_minute": 25,
+        "template_format": "rich"
+      },
+      "presented_config": {
+        "batch_delay_seconds": 3,
+        "channel_priority": "urgent",
+        "cooldown_enabled": false,
+        "max_recipients": 240,
+        "rate_limit_per_minute": 25,
+        "template_format": "rich"
+      },
+      "seed": 200037,
+      "task_id": "notification_service_200037_missing_dependency"
+    },
+    {
+      "external_state": {
+        "deployment.canary_weight_base": 15,
+        "deployment.health_factor": 8,
+        "deployment.healthy_pct_base": 1,
+        "deployment.instance_capacity": 500,
+        "deployment.pipeline_stages": 24,
+        "deployment.rollback_base": 15,
+        "deployment.strategy_version": 3
+      },
+      "family": "deployment_service",
+      "fault_type": "missing_dependency",
+      "faulted_field": "canary_weight_percent",
+      "fingerprint": "5a1b4d99500fa24b",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "canary_weight_percent": 30,
+        "deploy_strategy": "canary",
+        "health_check_interval": 80,
+        "max_replicas": 100,
+        "min_healthy_percent": 25,
+        "parallel_stages": 5,
+        "rollback_timeout_minutes": 90
+      },
+      "presented_config": {
+        "deploy_strategy": "canary",
+        "health_check_interval": 80,
+        "max_replicas": 100,
+        "min_healthy_percent": 25,
+        "parallel_stages": 5,
+        "rollback_timeout_minutes": 90
+      },
+      "seed": 200039,
+      "task_id": "deployment_service_200039_missing_dependency"
+    },
+    {
+      "external_state": {
+        "deployment.canary_weight_base": 5,
+        "deployment.health_factor": 8,
+        "deployment.healthy_pct_base": 2,
+        "deployment.instance_capacity": 100,
+        "deployment.pipeline_stages": 17,
+        "deployment.rollback_base": 10,
+        "deployment.strategy_version": 3
+      },
+      "family": "deployment_service",
+      "fault_type": "missing_dependency",
+      "faulted_field": "canary_weight_percent",
+      "fingerprint": "17ae84ea11da862d",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "canary_weight_percent": 10,
+        "deploy_strategy": "canary",
+        "health_check_interval": 80,
+        "max_replicas": 20,
+        "min_healthy_percent": 50,
+        "parallel_stages": 3,
+        "rollback_timeout_minutes": 60
+      },
+      "presented_config": {
+        "deploy_strategy": "canary",
+        "health_check_interval": 80,
+        "max_replicas": 20,
+        "min_healthy_percent": 50,
+        "parallel_stages": 3,
+        "rollback_timeout_minutes": 60
+      },
+      "seed": 200041,
+      "task_id": "deployment_service_200041_missing_dependency"
+    },
+    {
+      "external_state": {
+        "deployment.canary_weight_base": 5,
+        "deployment.health_factor": 2,
+        "deployment.healthy_pct_base": 2,
+        "deployment.instance_capacity": 250,
+        "deployment.pipeline_stages": 24,
+        "deployment.rollback_base": 10,
+        "deployment.strategy_version": 3
+      },
+      "family": "deployment_service",
+      "fault_type": "missing_dependency",
+      "faulted_field": "canary_weight_percent",
+      "fingerprint": "acf75098bd9e1e1c",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "canary_weight_percent": 10,
+        "deploy_strategy": "canary",
+        "health_check_interval": 20,
+        "max_replicas": 50,
+        "min_healthy_percent": 50,
+        "parallel_stages": 5,
+        "rollback_timeout_minutes": 60
+      },
+      "presented_config": {
+        "deploy_strategy": "canary",
+        "health_check_interval": 20,
+        "max_replicas": 50,
+        "min_healthy_percent": 50,
+        "parallel_stages": 5,
+        "rollback_timeout_minutes": 60
+      },
+      "seed": 200042,
+      "task_id": "deployment_service_200042_missing_dependency"
+    },
+    {
+      "external_state": {
+        "notification.batch_window": 9,
+        "notification.channel_count": 12,
+        "notification.cooldown_base": 60,
+        "notification.escalation_base": 3,
+        "notification.priority_version": 3,
+        "notification.rate_base": 100,
+        "notification.template_version": 1
+      },
+      "family": "notification_service",
+      "fault_type": "missing_dependency",
+      "faulted_field": "escalation_timeout_minutes",
+      "fingerprint": "74d1a779647a829b",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "batch_delay_seconds": 2,
+        "channel_priority": "urgent",
+        "cooldown_enabled": false,
+        "escalation_timeout_minutes": 12,
+        "max_recipients": 240,
+        "rate_limit_per_minute": 50,
+        "template_format": "text"
+      },
+      "presented_config": {
+        "batch_delay_seconds": 2,
+        "channel_priority": "urgent",
+        "cooldown_enabled": false,
+        "max_recipients": 240,
+        "rate_limit_per_minute": 50,
+        "template_format": "text"
+      },
+      "seed": 200043,
+      "task_id": "notification_service_200043_missing_dependency"
+    },
+    {
+      "external_state": {
+        "deployment.canary_weight_base": 5,
+        "deployment.health_factor": 2,
+        "deployment.healthy_pct_base": 3,
+        "deployment.instance_capacity": 1000,
+        "deployment.pipeline_stages": 24,
+        "deployment.rollback_base": 30,
+        "deployment.strategy_version": 4
+      },
+      "family": "deployment_service",
+      "fault_type": "missing_dependency",
+      "faulted_field": "canary_weight_percent",
+      "fingerprint": "96dd1d5150d110af",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "canary_weight_percent": 10,
+        "deploy_strategy": "canary",
+        "health_check_interval": 20,
+        "max_replicas": 200,
+        "min_healthy_percent": 75,
+        "parallel_stages": 5,
+        "rollback_timeout_minutes": 180
+      },
+      "presented_config": {
+        "deploy_strategy": "canary",
+        "health_check_interval": 20,
+        "max_replicas": 200,
+        "min_healthy_percent": 75,
+        "parallel_stages": 5,
+        "rollback_timeout_minutes": 180
+      },
+      "seed": 200046,
+      "task_id": "deployment_service_200046_missing_dependency"
+    },
+    {
+      "external_state": {
+        "notification.batch_window": 9,
+        "notification.channel_count": 5,
+        "notification.cooldown_base": 300,
+        "notification.escalation_base": 15,
+        "notification.priority_version": 2,
+        "notification.rate_base": 100,
+        "notification.template_version": 4
+      },
+      "family": "notification_service",
+      "fault_type": "stale_version",
+      "faulted_field": "cooldown_enabled",
+      "fingerprint": "98a6b3f42db459d6",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "batch_delay_seconds": 2,
+        "channel_priority": "normal",
+        "cooldown_enabled": true,
+        "max_recipients": 100,
+        "rate_limit_per_minute": 50,
+        "template_format": "rich"
+      },
+      "presented_config": {
+        "batch_delay_seconds": 2,
+        "channel_priority": "normal",
+        "cooldown_enabled": false,
+        "max_recipients": 100,
+        "rate_limit_per_minute": 50,
+        "template_format": "rich"
+      },
+      "seed": 200047,
+      "task_id": "notification_service_200047_stale_version"
+    },
+    {
+      "external_state": {
+        "notification.batch_window": 22,
+        "notification.channel_count": 12,
+        "notification.cooldown_base": 120,
+        "notification.escalation_base": 5,
+        "notification.priority_version": 1,
+        "notification.rate_base": 100,
+        "notification.template_version": 2
+      },
+      "family": "notification_service",
+      "fault_type": "stale_version",
+      "faulted_field": "template_format",
+      "fingerprint": "bdf21e4b2f09686f",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "batch_delay_seconds": 3,
+        "channel_priority": "normal",
+        "cooldown_enabled": true,
+        "max_recipients": 240,
+        "rate_limit_per_minute": 50,
+        "template_format": "html"
+      },
+      "presented_config": {
+        "batch_delay_seconds": 3,
+        "channel_priority": "normal",
+        "cooldown_enabled": true,
+        "max_recipients": 240,
+        "rate_limit_per_minute": 50,
+        "template_format": "markdown"
+      },
+      "seed": 200049,
+      "task_id": "notification_service_200049_stale_version"
+    },
+    {
+      "external_state": {
+        "notification.batch_window": 22,
+        "notification.channel_count": 8,
+        "notification.cooldown_base": 60,
+        "notification.escalation_base": 5,
+        "notification.priority_version": 1,
+        "notification.rate_base": 500,
+        "notification.template_version": 1
+      },
+      "family": "notification_service",
+      "fault_type": "stale_version",
+      "faulted_field": "cooldown_enabled",
+      "fingerprint": "5baaa506610eda2c",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "batch_delay_seconds": 3,
+        "channel_priority": "normal",
+        "cooldown_enabled": false,
+        "max_recipients": 160,
+        "rate_limit_per_minute": 250,
+        "template_format": "text"
+      },
+      "presented_config": {
+        "batch_delay_seconds": 3,
+        "channel_priority": "normal",
+        "cooldown_enabled": true,
+        "max_recipients": 160,
+        "rate_limit_per_minute": 250,
+        "template_format": "text"
+      },
+      "seed": 200050,
+      "task_id": "notification_service_200050_stale_version"
+    },
+    {
+      "external_state": {
+        "deployment.canary_weight_base": 25,
+        "deployment.health_factor": 3,
+        "deployment.healthy_pct_base": 1,
+        "deployment.instance_capacity": 100,
+        "deployment.pipeline_stages": 11,
+        "deployment.rollback_base": 30,
+        "deployment.strategy_version": 3
+      },
+      "family": "deployment_service",
+      "fault_type": "stale_version",
+      "faulted_field": "min_healthy_percent",
+      "fingerprint": "95e670dac782a5f4",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "canary_weight_percent": 50,
+        "deploy_strategy": "canary",
+        "health_check_interval": 30,
+        "max_replicas": 20,
+        "min_healthy_percent": 25,
+        "parallel_stages": 2,
+        "rollback_timeout_minutes": 180
+      },
+      "presented_config": {
+        "canary_weight_percent": 50,
+        "deploy_strategy": "canary",
+        "health_check_interval": 30,
+        "max_replicas": 20,
+        "min_healthy_percent": 50,
+        "parallel_stages": 2,
+        "rollback_timeout_minutes": 180
+      },
+      "seed": 200051,
+      "task_id": "deployment_service_200051_stale_version"
+    },
+    {
+      "external_state": {
+        "notification.batch_window": 14,
+        "notification.channel_count": 5,
+        "notification.cooldown_base": 300,
+        "notification.escalation_base": 3,
+        "notification.priority_version": 3,
+        "notification.rate_base": 50,
+        "notification.template_version": 3
+      },
+      "family": "notification_service",
+      "fault_type": "stale_version",
+      "faulted_field": "max_recipients",
+      "fingerprint": "e456af2d399e67aa",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "batch_delay_seconds": 3,
+        "channel_priority": "urgent",
+        "cooldown_enabled": true,
+        "escalation_timeout_minutes": 12,
+        "max_recipients": 100,
+        "rate_limit_per_minute": 25,
+        "template_format": "markdown"
+      },
+      "presented_config": {
+        "batch_delay_seconds": 3,
+        "channel_priority": "urgent",
+        "cooldown_enabled": true,
+        "escalation_timeout_minutes": 12,
+        "max_recipients": 240,
+        "rate_limit_per_minute": 25,
+        "template_format": "markdown"
+      },
+      "seed": 200052,
+      "task_id": "notification_service_200052_stale_version"
+    },
+    {
+      "external_state": {
+        "notification.batch_window": 33,
+        "notification.channel_count": 12,
+        "notification.cooldown_base": 60,
+        "notification.escalation_base": 10,
+        "notification.priority_version": 3,
+        "notification.rate_base": 500,
+        "notification.template_version": 3
+      },
+      "family": "notification_service",
+      "fault_type": "stale_version",
+      "faulted_field": "max_recipients",
+      "fingerprint": "6ec2067185dc76d5",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "batch_delay_seconds": 2,
+        "channel_priority": "urgent",
+        "cooldown_enabled": false,
+        "escalation_timeout_minutes": 40,
+        "max_recipients": 240,
+        "rate_limit_per_minute": 250,
+        "template_format": "markdown"
+      },
+      "presented_config": {
+        "batch_delay_seconds": 2,
+        "channel_priority": "urgent",
+        "cooldown_enabled": false,
+        "escalation_timeout_minutes": 40,
+        "max_recipients": 160,
+        "rate_limit_per_minute": 250,
+        "template_format": "markdown"
+      },
+      "seed": 200053,
+      "task_id": "notification_service_200053_stale_version"
+    },
+    {
+      "external_state": {
+        "notification.batch_window": 33,
+        "notification.channel_count": 5,
+        "notification.cooldown_base": 30,
+        "notification.escalation_base": 15,
+        "notification.priority_version": 1,
+        "notification.rate_base": 10,
+        "notification.template_version": 1
+      },
+      "family": "notification_service",
+      "fault_type": "stale_version",
+      "faulted_field": "cooldown_enabled",
+      "fingerprint": "482b8582a6cb1373",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "batch_delay_seconds": 2,
+        "channel_priority": "normal",
+        "cooldown_enabled": false,
+        "max_recipients": 100,
+        "rate_limit_per_minute": 5,
+        "template_format": "text"
+      },
+      "presented_config": {
+        "batch_delay_seconds": 2,
+        "channel_priority": "normal",
+        "cooldown_enabled": true,
+        "max_recipients": 100,
+        "rate_limit_per_minute": 5,
+        "template_format": "text"
+      },
+      "seed": 200054,
+      "task_id": "notification_service_200054_stale_version"
+    },
+    {
+      "external_state": {
+        "deployment.canary_weight_base": 10,
+        "deployment.health_factor": 5,
+        "deployment.healthy_pct_base": 4,
+        "deployment.instance_capacity": 250,
+        "deployment.pipeline_stages": 24,
+        "deployment.rollback_base": 5,
+        "deployment.strategy_version": 1
+      },
+      "family": "deployment_service",
+      "fault_type": "stale_version",
+      "faulted_field": "rollback_timeout_minutes",
+      "fingerprint": "e3fc690b66bb854d",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "deploy_strategy": "rolling",
+        "health_check_interval": 50,
+        "max_replicas": 50,
+        "min_healthy_percent": 100,
+        "parallel_stages": 5,
+        "rollback_timeout_minutes": 30
+      },
+      "presented_config": {
+        "deploy_strategy": "rolling",
+        "health_check_interval": 50,
+        "max_replicas": 50,
+        "min_healthy_percent": 100,
+        "parallel_stages": 5,
+        "rollback_timeout_minutes": 90
+      },
+      "seed": 200055,
+      "task_id": "deployment_service_200055_stale_version"
+    },
+    {
+      "external_state": {
+        "deployment.canary_weight_base": 25,
+        "deployment.health_factor": 5,
+        "deployment.healthy_pct_base": 2,
+        "deployment.instance_capacity": 500,
+        "deployment.pipeline_stages": 6,
+        "deployment.rollback_base": 10,
+        "deployment.strategy_version": 2
+      },
+      "family": "deployment_service",
+      "fault_type": "stale_version",
+      "faulted_field": "health_check_interval",
+      "fingerprint": "4f1097183435e04e",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "deploy_strategy": "rolling",
+        "health_check_interval": 50,
+        "max_replicas": 100,
+        "min_healthy_percent": 50,
+        "parallel_stages": 2,
+        "rollback_timeout_minutes": 60
+      },
+      "presented_config": {
+        "deploy_strategy": "rolling",
+        "health_check_interval": 80,
+        "max_replicas": 100,
+        "min_healthy_percent": 50,
+        "parallel_stages": 2,
+        "rollback_timeout_minutes": 60
+      },
+      "seed": 200056,
+      "task_id": "deployment_service_200056_stale_version"
+    },
+    {
+      "external_state": {
+        "notification.batch_window": 14,
+        "notification.channel_count": 12,
+        "notification.cooldown_base": 120,
+        "notification.escalation_base": 10,
+        "notification.priority_version": 3,
+        "notification.rate_base": 100,
+        "notification.template_version": 4
+      },
+      "family": "notification_service",
+      "fault_type": "stale_version",
+      "faulted_field": "rate_limit_per_minute",
+      "fingerprint": "733d5582b1d30c2a",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "batch_delay_seconds": 3,
+        "channel_priority": "urgent",
+        "cooldown_enabled": true,
+        "escalation_timeout_minutes": 40,
+        "max_recipients": 240,
+        "rate_limit_per_minute": 50,
+        "template_format": "rich"
+      },
+      "presented_config": {
+        "batch_delay_seconds": 3,
+        "channel_priority": "urgent",
+        "cooldown_enabled": true,
+        "escalation_timeout_minutes": 40,
+        "max_recipients": 240,
+        "rate_limit_per_minute": 250,
+        "template_format": "rich"
+      },
+      "seed": 200057,
+      "task_id": "notification_service_200057_stale_version"
+    },
+    {
+      "external_state": {
+        "notification.batch_window": 33,
+        "notification.channel_count": 5,
+        "notification.cooldown_base": 120,
+        "notification.escalation_base": 10,
+        "notification.priority_version": 1,
+        "notification.rate_base": 500,
+        "notification.template_version": 2
+      },
+      "family": "notification_service",
+      "fault_type": "stale_version",
+      "faulted_field": "batch_delay_seconds",
+      "fingerprint": "ebb3bb5d0f3d1829",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "batch_delay_seconds": 2,
+        "channel_priority": "normal",
+        "cooldown_enabled": true,
+        "max_recipients": 100,
+        "rate_limit_per_minute": 250,
+        "template_format": "html"
+      },
+      "presented_config": {
+        "batch_delay_seconds": 3,
+        "channel_priority": "normal",
+        "cooldown_enabled": true,
+        "max_recipients": 100,
+        "rate_limit_per_minute": 250,
+        "template_format": "html"
+      },
+      "seed": 200058,
+      "task_id": "notification_service_200058_stale_version"
+    },
+    {
+      "external_state": {
+        "deployment.canary_weight_base": 5,
+        "deployment.health_factor": 2,
+        "deployment.healthy_pct_base": 4,
+        "deployment.instance_capacity": 1000,
+        "deployment.pipeline_stages": 17,
+        "deployment.rollback_base": 30,
+        "deployment.strategy_version": 1
+      },
+      "family": "deployment_service",
+      "fault_type": "stale_version",
+      "faulted_field": "max_replicas",
+      "fingerprint": "5a9a7441068c48f5",
+      "generator_version": "r2.0",
+      "golden_config": {
+        "deploy_strategy": "rolling",
+        "health_check_interval": 20,
+        "max_replicas": 200,
+        "min_healthy_percent": 100,
+        "parallel_stages": 3,
+        "rollback_timeout_minutes": 180
+      },
+      "presented_config": {
+        "deploy_strategy": "rolling",
+        "health_check_interval": 20,
+        "max_replicas": 50,
+        "min_healthy_percent": 100,
+        "parallel_stages": 3,
+        "rollback_timeout_minutes": 180
+      },
+      "seed": 200059,
+      "task_id": "deployment_service_200059_stale_version"
+    }
+  ],
+  "rejections": [],
+  "requested_count": 50,
+  "slot_allocation": {
+    "constraint_violation": 15,
+    "missing_dependency": 13,
+    "normal": 10,
+    "stale_version": 12
+  },
+  "split": "test",
+  "start_seed": 200000,
+  "warnings": []
+}

@@ -1,0 +1,29 @@
+{
+  "content_fingerprint_overlap": 0,
+  "splits": {
+    "dev": {
+      "count": 50,
+      "manifest": "artifacts/self_improve/r3/data/dev_manifest.json",
+      "manifest_sha256": "b865c8f79e4498fd342946da7273c8722deca24536a50673b802f8bf5a913ca9",
+      "parquet": "artifacts/self_improve/r3/data/dev.parquet",
+      "parquet_sha256": "12e6fe2f97903ca4db90371b41221c6284a79668a6133fef45cdbebc7f79a45b",
+      "start_seed": 100000
+    },
+    "test": {
+      "count": 50,
+      "manifest": "artifacts/self_improve/r3/data/test_manifest.json",
+      "manifest_sha256": "072e6fe876c34d2ec03055b9b1fef6d7a0ff6f8ac8ff924bbc26fab5ee720f88",
+      "parquet": "artifacts/self_improve/r3/data/test.parquet",
+      "parquet_sha256": "9fdce76a44d3dc79178f4b8066f9b94cff30f40fdc5a30553e19d85ba006aac7",
+      "start_seed": 200000
+    },
+    "train": {
+      "count": 400,
+      "manifest": "artifacts/self_improve/r3/data/train_manifest.json",
+      "manifest_sha256": "ea4dafa969dcf92b9748e9e81d784f55a85c563c6fdafdee1007cc5ea3aea110",
+      "parquet": "artifacts/self_improve/r3/data/train.parquet",
+      "parquet_sha256": "30aa9dfcdaa7ea0a473f504191b817d46751cf3442eb39b7e641fb313924f275",
+      "start_seed": 0
+    }
+  }
+}
