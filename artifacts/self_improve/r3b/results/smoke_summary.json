@@ -1,0 +1,85 @@
+{
+  "artifacts": {
+    "framework_patch": "artifacts/self_improve/r3b/agent_r1_sign_advantage.patch",
+    "remote_checkpoint": "/root/autodl-tmp/octorl_r3b/seed_42/checkpoints/global_step_20",
+    "remote_run_root": "/root/autodl-tmp/octorl_r3b/seed_42"
+  },
+  "cost": {
+    "base_eval_reused_new_cost_cny": 0.0,
+    "budget_ceiling_cny": 8.0,
+    "experiment_window_cny": 2.977516666666667,
+    "experiment_window_finish": "2026-09-17T16:42:45+08:00",
+    "experiment_window_seconds": 4917.0,
+    "experiment_window_start": "2026-09-17T15:20:48+08:00",
+    "hourly_cny": 2.18,
+    "within_budget": true
+  },
+  "dev": {
+    "base_binary_mixed_group_fraction": 0.36,
+    "base_eval_reused_from_r3": true,
+    "base_fault_only_binary_fcr": 0.63125,
+    "base_full_dev_binary_pass_rate": 0.52,
+    "base_full_dev_continuous_reward_mean": 0.9430378927293203,
+    "eval_seed": 310000,
+    "fault_only_binary_delta": 0.050000000000000044,
+    "full_dev_binary_delta": 0.03500000000000003,
+    "full_dev_continuous_delta": 0.004524886223698621,
+    "manifest_instance_count": 50,
+    "u20_binary_mixed_group_fraction": 0.34,
+    "u20_fault_only_binary_fcr": 0.68125,
+    "u20_full_dev_binary_pass_rate": 0.555,
+    "u20_full_dev_continuous_reward_mean": 0.9475627789530189
+  },
+  "diagnostics": [
+    "The trainer completed and logged all 20 updates, saved U=20, and exited 0.",
+    "A DataLoader worker emitted a killed-at-shutdown traceback after U=20 was saved; the final checkpoint subsequently loaded successfully for dev evaluation.",
+    "No NaN or non-finite training metric was observed.",
+    "The anticipated ~6% fault pass rate was inconsistent with the frozen base dev fault FCR (63.125%) and observed training batches (71.5625% mean)."
+  ],
+  "experiment": {
+    "advantage_estimator": "sign",
+    "advantage_formula": "2 * binary_reward - 1",
+    "base_checkpoint": "/root/autodl-tmp/models/Qwen3-4B",
+    "group_size": 4,
+    "name": "R3b fault-only binary Sign pilot",
+    "rollouts": 320,
+    "seed": 42,
+    "training_distribution": "fault_only",
+    "updates": 20
+  },
+  "r3_signal_comparison": {
+    "assessment": "Sign advantage delivered materially more consistent optimizer signal: 20/20 nonzero-gradient updates versus 4/5 in R3, with a higher mean gradient norm. Peak gradient magnitude was similar.",
+    "r3_reference": {
+      "max_grad_norm": 0.19422030448913574,
+      "mean_grad_norm": 0.105099917948246,
+      "mean_mixed_group_fraction": 0.35,
+      "nonzero_grad_fraction": 0.8,
+      "source": "artifacts/self_improve/r3/results/update_metrics.csv",
+      "updates": 5
+    },
+    "r3b_max_grad_norm": 0.19596904516220093,
+    "r3b_mean_grad_norm": 0.17283819541335105,
+    "r3b_mean_mixed_group_fraction": 0.625,
+    "r3b_nonzero_grad_fraction": 1.0,
+    "r3b_to_r3_mean_grad_norm_ratio": 1.6445131336682983
+  },
+  "recommendation": "R3b passes the optimizer-signal pilot and improves fault-only dev binary FCR by 5.0 percentage points at U=20. This is single-seed pilot evidence, not yet a two-seed capability-improvement conclusion.",
+  "signal": {
+    "advantages_exactly_sign": true,
+    "all_grad_norms_nonzero": true,
+    "all_metrics_finite": true,
+    "max_grad_norm": 0.19596904516220093,
+    "mean_advantage_abs_mean": 1.0,
+    "mean_all_fail_frac": 0.0375,
+    "mean_all_pass_frac": 0.3375,
+    "mean_binary_reward": 0.715625,
+    "mean_grad_norm": 0.17283819541335105,
+    "mean_mixed_group_fraction": 0.625,
+    "min_grad_norm": 0.14958834648132324,
+    "u1_advantage_abs_mean": 1.0,
+    "u1_advantage_max": 1.0,
+    "u1_advantage_mean": 0.375,
+    "u1_advantage_min": -1.0
+  },
+  "status": "completed"
+}

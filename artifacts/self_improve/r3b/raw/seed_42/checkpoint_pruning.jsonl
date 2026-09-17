@@ -1,0 +1,3 @@
+{"bytes": 8177758299, "removed": "/root/autodl-tmp/octorl_r3b/seed_42/checkpoints/global_step_5/actor/model_world_size_1_rank_0.pt", "step": 5}
+{"bytes": 8177758299, "removed": "/root/autodl-tmp/octorl_r3b/seed_42/checkpoints/global_step_10/actor/model_world_size_1_rank_0.pt", "step": 10}
+{"bytes": 8177758299, "removed": "/root/autodl-tmp/octorl_r3b/seed_42/checkpoints/global_step_15/actor/model_world_size_1_rank_0.pt", "step": 15}

@@ -1,0 +1,7 @@
+checkpoint,update,scope,instance_count,rollout_count,continuous_reward_mean,binary_pass_rate,binary_mixed_group_fraction,eval_seed,manifest_sha256,lora_path,wall_time_seconds
+base,base,full_dev,50,200,0.9430378927293203,0.52,0.36,310000,b865c8f79e4498fd342946da7273c8722deca24536a50673b802f8bf5a913ca9,,59.34492368623614
+base,base,fault_only,40,160,0.9507481307606007,0.63125,0.4,310000,b865c8f79e4498fd342946da7273c8722deca24536a50673b802f8bf5a913ca9,,59.34492368623614
+base,base,normal_only,10,40,0.9121969406041985,0.075,0.2,310000,b865c8f79e4498fd342946da7273c8722deca24536a50673b802f8bf5a913ca9,,59.34492368623614
+seed_42_u20,20,full_dev,50,200,0.9475627789530189,0.555,0.34,310000,b865c8f79e4498fd342946da7273c8722deca24536a50673b802f8bf5a913ca9,/root/autodl-tmp/octorl_r3b/seed_42/checkpoints/global_step_20/actor/lora_adapter,99.93923225998878
+seed_42_u20,20,fault_only,40,160,0.9573599263709118,0.68125,0.375,310000,b865c8f79e4498fd342946da7273c8722deca24536a50673b802f8bf5a913ca9,/root/autodl-tmp/octorl_r3b/seed_42/checkpoints/global_step_20/actor/lora_adapter,99.93923225998878
+seed_42_u20,20,normal_only,10,40,0.9083741892814473,0.05,0.2,310000,b865c8f79e4498fd342946da7273c8722deca24536a50673b802f8bf5a913ca9,/root/autodl-tmp/octorl_r3b/seed_42/checkpoints/global_step_20/actor/lora_adapter,99.93923225998878

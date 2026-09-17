@@ -151,6 +151,13 @@ def test_max_steps_reads_environment_reward(adapter, tmp_path):
     assert env.core.termination_reason == "max_steps"
 
 
+def test_r3b_flow_uses_binary_reward(adapter):
+    source = open(adapter.__file__, encoding="utf-8").read()
+    assert "_, binary = env.final_scores()" in source
+    assert "final_reward = float(binary)" in source
+    assert "return float(self.core.reward)" in source
+
+
 def test_generated_token_only_mask_and_logprob_alignment(adapter):
     prompt_ids = [10, 11, 12, 13]
     response_ids = [20, 21, 22]

@@ -1,0 +1,151 @@
+diff --git a/agent_r1/trainer/ppo/core_algos.py b/agent_r1/trainer/ppo/core_algos.py
+--- a/agent_r1/trainer/ppo/core_algos.py
++++ b/agent_r1/trainer/ppo/core_algos.py
+@@ -35,6 +35,7 @@ class AgentAdvantageEstimator(str, Enum):
+     REMAX = "remax"
+     RLOO = "rloo"
+     GIGPO = "gigpo"
++    SIGN = "sign"
+ 
+ 
+ def _to_hashable(value):
+@@ -350,6 +351,53 @@ def compute_grpo_outcome_advantage(
+     return scores, scores
+ 
+ 
++def compute_sign_outcome_advantage(
++    token_level_rewards: torch.Tensor,
++    response_mask: torch.Tensor,
++    index: np.ndarray,
++    trajectory_uids: np.ndarray,
++) -> tuple[torch.Tensor, torch.Tensor]:
++    """Use the fixed-reference binary advantage ``2 * reward - 1``.
++
++    Unlike GRPO, this estimator neither centers nor normalizes within prompt
++    groups.  It therefore preserves a learning signal for homogeneous G=4
++    groups.  Binary reward validation is intentionally strict so a wiring
++    regression cannot silently create intermediate advantages.
++    """
++    with torch.no_grad():
++        step_scores, traj2total_score, _ = _trajectory_total_scores(
++            token_level_rewards=token_level_rewards,
++            response_mask=response_mask,
++            index=index,
++            trajectory_uids=trajectory_uids,
++        )
++
++        traj2adv: dict[object, torch.Tensor] = {}
++        for traj_uid, total_score in traj2total_score.items():
++            if not torch.isfinite(total_score):
++                raise ValueError(f"non-finite Sign reward for trajectory {traj_uid!r}")
++            rounded = torch.round(total_score)
++            if not torch.isclose(total_score, rounded, atol=1e-6, rtol=0.0) or not (
++                0.0 <= rounded.item() <= 1.0
++            ):
++                raise ValueError(
++                    "Sign advantage requires binary trajectory rewards in {0, 1}; "
++                    f"trajectory {traj_uid!r} has {total_score.item()}"
++                )
++            traj2adv[traj_uid] = 2.0 * rounded - 1.0
++
++        scores = step_scores.clone()
++        for row in range(step_scores.shape[0]):
++            scores[row] = traj2adv[trajectory_uids[row]]
++        scores = scores.unsqueeze(-1) * response_mask
++
++        valid = scores[response_mask.to(dtype=torch.bool)]
++        if valid.numel() == 0 or not torch.all((valid == -1.0) | (valid == 1.0)):
++            raise AssertionError("Sign advantages must be exactly -1 or +1")
++
++    return scores, scores
++
++
+ def compute_reinforce_outcome_advantage(
+     token_level_rewards: torch.Tensor,
+     response_mask: torch.Tensor,
+diff --git a/agent_r1/trainer/ppo/metric_utils.py b/agent_r1/trainer/ppo/metric_utils.py
+--- a/agent_r1/trainer/ppo/metric_utils.py
++++ b/agent_r1/trainer/ppo/metric_utils.py
+@@ -1,3 +1,4 @@
++from collections import defaultdict
+ from typing import Any
+ 
+ import numpy as np
+@@ -49,6 +50,29 @@ def compute_data_metrics(batch: DataProto, use_critic: bool = True) -> dict[str,
+     traj_rewards = torch.zeros(num_trajectories, device=sequence_reward.device)
+     traj_rewards.scatter_add_(0, trajectory_indices_torch, sequence_reward)
+ 
++    # Fixed-reference Sign diagnostics, computed at trajectory granularity.
++    response_mask = batch.batch["response_mask"]
++    step_token_counts = response_mask.sum(dim=-1).clamp_min(1)
++    step_advantages = (batch.batch["advantages"] * response_mask).sum(dim=-1) / step_token_counts
++    traj_advantage_sums = torch.zeros(num_trajectories, device=step_advantages.device)
++    traj_advantage_sums.scatter_add_(0, trajectory_indices_torch, step_advantages)
++    traj_step_counts = torch.zeros(num_trajectories, device=step_advantages.device)
++    traj_step_counts.scatter_add_(0, trajectory_indices_torch, torch.ones_like(step_advantages))
++    traj_advantages = traj_advantage_sums / traj_step_counts.clamp_min(1)
++
++    group_uids: dict[object, list[float]] = defaultdict(list)
++    prompt_uids = batch.non_tensor_batch["uid"]
++    trajectory_group: list[object | None] = [None] * num_trajectories
++    for row, trajectory_index in enumerate(trajectory_indices):
++        if trajectory_group[trajectory_index] is None:
++            trajectory_group[trajectory_index] = prompt_uids[row]
++    for trajectory_index, group_uid in enumerate(trajectory_group):
++        group_uids[group_uid].append(float(traj_rewards[trajectory_index].item()))
++    mixed_groups = sum(min(rewards) != max(rewards) for rewards in group_uids.values())
++    all_pass_groups = sum(min(rewards) == 1.0 for rewards in group_uids.values())
++    all_fail_groups = sum(max(rewards) == 0.0 for rewards in group_uids.values())
++    group_count = len(group_uids)
++
+     # Add trajectory-level metrics
+     metrics.update(
+         {
+@@ -75,6 +99,18 @@ def compute_data_metrics(batch: DataProto, use_critic: bool = True) -> dict[str,
+             "critic/rewards/trajectory/mean": traj_rewards.mean().item(),
+             "critic/rewards/trajectory/max": traj_rewards.max().item(),
+             "critic/rewards/trajectory/min": traj_rewards.min().item(),
++            # R3b Sign-advantage diagnostics.
++            "r3b/reward_mean": traj_rewards.mean().item(),
++            "r3b/reward_std": traj_rewards.std(unbiased=False).item(),
++            "r3b/mixed_group_fraction": mixed_groups / group_count,
++            "r3b/all_pass_frac": all_pass_groups / group_count,
++            "r3b/all_fail_frac": all_fail_groups / group_count,
++            "r3b/advantage_mean": traj_advantages.mean().item(),
++            "r3b/advantage_abs_mean": traj_advantages.abs().mean().item(),
++            "r3b/advantage_min": traj_advantages.min().item(),
++            "r3b/advantage_max": traj_advantages.max().item(),
++            "r3b/advantage_zero_frac": (traj_advantages == 0).float().mean().item(),
++            "r3b/advantage_non_sign_frac": (traj_advantages.abs() != 1).float().mean().item(),
+         }
+     )
+ 
+diff --git a/agent_r1/trainer/ppo/ray_trainer.py b/agent_r1/trainer/ppo/ray_trainer.py
+--- a/agent_r1/trainer/ppo/ray_trainer.py
++++ b/agent_r1/trainer/ppo/ray_trainer.py
+@@ -295,5 +295,16 @@ def compute_advantage(
+         advantages[valid_mask] = valid_advantages
+         returns[valid_mask] = valid_returns
++    elif adv_estimator == AgentAdvantageEstimator.SIGN:
++        from agent_r1.trainer.ppo.core_algos import compute_sign_outcome_advantage
++
++        valid_advantages, valid_returns = compute_sign_outcome_advantage(
++            token_level_rewards=valid_data.batch["token_level_rewards"],
++            response_mask=valid_data.batch["response_mask"],
++            index=valid_data.non_tensor_batch["uid"],
++            trajectory_uids=valid_data.non_tensor_batch["trajectory_uids"],
++        )
++        advantages[valid_mask] = valid_advantages
++        returns[valid_mask] = valid_returns
+     elif adv_estimator == AgentAdvantageEstimator.REINFORCE:
+         from agent_r1.trainer.ppo.core_algos import compute_reinforce_outcome_advantage
+ 
+@@ -352,7 +364,7 @@ def compute_advantage(
+     else:
+         raise ValueError(
+             f"Unsupported agent PPO advantage estimator: {adv_estimator!r}. "
+-            "Supported: gae, token_gae, grpo, reinforce, rloo, gigpo."
++            "Supported: gae, token_gae, grpo, sign, reinforce, rloo, gigpo."
+         )
+ 
+     data.batch["advantages"] = advantages

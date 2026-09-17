@@ -164,7 +164,7 @@ class ToolRecoveryAgentEnv(AgentEnv):
         }
 
     def final_scores(self) -> tuple[float, int]:
-        """Return the frozen R3 training reward and the binary diagnostic."""
+        """Return the continuous diagnostic and frozen binary verifier score."""
         if self.core is None:
             raise RuntimeError("reset must be called before reading rewards")
         training_reward = continuous_reward(
@@ -183,9 +183,9 @@ class ToolRecoveryAgentEnv(AgentEnv):
             self.core.termination_reason = "max_steps"
             self.core.record.termination_reason = "max_steps"
             self.core.record.diagnostic_flags = set(self.core.diagnostic_flags)
-        training_reward, _ = self.final_scores()
-        self.core.record.reward = training_reward
-        return training_reward
+        continuous, _ = self.final_scores()
+        self.core.record.reward = continuous
+        return float(self.core.reward)
 
     def trajectory(self) -> dict[str, Any]:
         if self.core is None:
@@ -253,7 +253,8 @@ class ToolRecoveryAgentFlow(AgentEnvLoop):
                     )
                 )
                 if done:
-                    final_reward, _ = env.final_scores()
+                    _, binary = env.final_scores()
+                    final_reward = float(binary)
                     break
                 if step_index == self.max_steps - 1:
                     final_reward = float(env.force_max_steps())
