@@ -1,0 +1,57 @@
+{
+  "experiment": "R3c",
+  "seed": 42,
+  "training_updates_completed": 80,
+  "training_updates_target": 100,
+  "training_note": "Training stopped at U80 due to reproducible vLLM EngineCore crash on resume. Cosine LR was ~4e-6 by U73, so last 20 updates would have minimal impact.",
+  "eval_date": "2026-09-18",
+  "eval_checkpoints": ["U20", "U50", "U80"],
+  "pre_registered_gates": {
+    "primary": {"metric": "fault_only_binary_fcr", "threshold": 0.7125, "description": "fault FCR >= base (66.25%) + 5pp"},
+    "guardrail": {"metric": "normal_guardrail_binary_npr", "threshold": 0.0333, "description": "normal guardrail NPR >= base (8.33%) - 5pp"}
+  },
+  "baselines": {
+    "dev_fault_fcr": 0.6625,
+    "dev_normal_npr": 0.05,
+    "normal_guardrail_npr": 0.08333333333333333
+  },
+  "results": {
+    "U20": {
+      "dev_fault_fcr": 0.66875,
+      "dev_fault_fcr_delta_pp": 0.625,
+      "dev_normal_npr": 0.075,
+      "dev_full_binary_pass_rate": 0.55,
+      "dev_continuous_reward": 0.9467676037931326,
+      "dev_binary_mixed_group_fraction": 0.34,
+      "normal_guardrail_npr": 0.08333333333333333,
+      "normal_guardrail_continuous": 0.9230080167327972,
+      "primary_gate": "FAIL",
+      "guardrail_gate": "PASS"
+    },
+    "U50": {
+      "dev_fault_fcr": 0.70625,
+      "dev_fault_fcr_delta_pp": 4.375,
+      "dev_normal_npr": 0.1,
+      "dev_full_binary_pass_rate": 0.585,
+      "dev_continuous_reward": 0.9508514872065104,
+      "dev_binary_mixed_group_fraction": 0.32,
+      "normal_guardrail_npr": 0.1,
+      "normal_guardrail_continuous": 0.9217156460210716,
+      "primary_gate": "FAIL",
+      "guardrail_gate": "PASS"
+    },
+    "U80": {
+      "dev_fault_fcr": 0.7125,
+      "dev_fault_fcr_delta_pp": 5.0,
+      "dev_normal_npr": 0.1,
+      "dev_full_binary_pass_rate": 0.59,
+      "dev_continuous_reward": 0.9515594597894829,
+      "dev_binary_mixed_group_fraction": 0.30,
+      "normal_guardrail_npr": 0.08333333333333333,
+      "normal_guardrail_continuous": 0.9221809739030662,
+      "primary_gate": "PASS",
+      "guardrail_gate": "PASS"
+    }
+  },
+  "seed_42_verdict": "PASS at U80 (primary 71.25% == threshold, guardrail 8.33% >> 3.33%)"
+}

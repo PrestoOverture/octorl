@@ -1,0 +1,44 @@
+{
+  "experiment": "R3c",
+  "checkpoint": "base",
+  "eval_date": "2026-09-17",
+  "dev_50_instances": {
+    "manifest": "artifacts/self_improve/r3/data/dev_manifest.json",
+    "eval_seed": 310000,
+    "instance_count": 50,
+    "fault_instance_count": 40,
+    "normal_instance_count": 10,
+    "rollout_count": 200,
+    "fault_only_binary_fcr": 0.6625,
+    "normal_only_binary_pass_rate": 0.05,
+    "full_dev_binary_pass_rate": 0.54,
+    "continuous_reward_mean": 0.9462113804158704
+  },
+  "normal_guardrail_30_instances": {
+    "manifest": "artifacts/self_improve/r3c/data/dev_normal_guardrail_manifest.json",
+    "eval_seed": 320000,
+    "instance_count": 30,
+    "fault_instance_count": 0,
+    "normal_instance_count": 30,
+    "rollout_count": 120,
+    "normal_only_binary_pass_rate": 0.08333333333333333,
+    "continuous_reward_mean": 0.922717194908249
+  },
+  "pre_registered_gates": {
+    "primary": {
+      "metric": "fault_only_binary_fcr",
+      "threshold": 0.7125,
+      "description": "fault FCR >= base (66.25%) + 5pp at best of U20/U50/U100, both seeds individually"
+    },
+    "guardrail": {
+      "metric": "normal_guardrail_binary_npr",
+      "threshold": 0.0333,
+      "description": "normal guardrail NPR >= base (8.33%) - 5pp at the primary-passing checkpoint"
+    },
+    "stop_rules": {
+      "budget_ceiling_cny_per_seed": 30,
+      "zero_gradient_consecutive_max": 20
+    }
+  },
+  "note": "Base fault FCR differs from R3b (0.63125) due to different eval seed stochasticity across runs. Both use eval_seed 310000 but vLLM version/GPU state may differ. Within-run comparisons (base vs trained) are the valid comparison."
+}

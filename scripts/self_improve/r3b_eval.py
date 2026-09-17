@@ -37,11 +37,11 @@ def add_r3b_metrics(result: dict) -> dict:
     result.update(
         {
             "full_dev_binary_pass_rate": mean(row["binary_reward"] for row in rollouts),
-            "fault_only_binary_fcr": mean(row["binary_reward"] for row in fault_rows),
-            "normal_only_binary_pass_rate": mean(row["binary_reward"] for row in normal_rows),
+            "fault_only_binary_fcr": mean(row["binary_reward"] for row in fault_rows) if fault_rows else None,
+            "normal_only_binary_pass_rate": mean(row["binary_reward"] for row in normal_rows) if normal_rows else None,
             "binary_mixed_group_fraction": binary_mixed_groups / len(groups),
             "binary_mixed_fault_group_fraction": (
-                binary_mixed_fault_groups / len(fault_groups)
+                binary_mixed_fault_groups / len(fault_groups) if fault_groups else None
             ),
             "full_dev_instance_count": len(groups),
             "fault_instance_count": len(fault_groups),
@@ -79,10 +79,11 @@ def main() -> None:
         "continuous_reward_mean",
         "full_dev_binary_pass_rate",
         "fault_only_binary_fcr",
+        "normal_only_binary_pass_rate",
         "binary_mixed_group_fraction",
         "total_wall_time_seconds",
     )
-    print(json.dumps({key: result[key] for key in summary_keys}, sort_keys=True))
+    print(json.dumps({key: result.get(key) for key in summary_keys}, sort_keys=True))
 
 
 if __name__ == "__main__":
