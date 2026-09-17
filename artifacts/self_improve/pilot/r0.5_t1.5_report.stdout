@@ -1,0 +1,42 @@
+{
+  "fault_group_count": 40,
+  "fcr": 0.55,
+  "gate": {
+    "fcr_in_5_to_60_percent": true,
+    "mixed_group_at_least_15_percent": false,
+    "r3_ready": false
+  },
+  "instance_count": 50,
+  "mixed_fault_groups": 2,
+  "mixed_reward_group_fraction": 0.05,
+  "model": "/root/autodl-tmp/models/Qwen3-4B",
+  "modular_stratum": {
+    "reward_rate": 0.0,
+    "rollouts": 10
+  },
+  "npr": 0.25,
+  "per_fault_type": {
+    "constraint_violation": {
+      "reward_rate": 0.7333333333333333,
+      "rollouts": 30
+    },
+    "missing_dependency": {
+      "reward_rate": 0.07692307692307693,
+      "rollouts": 26
+    },
+    "stale_version": {
+      "reward_rate": 0.8333333333333334,
+      "rollouts": 24
+    }
+  },
+  "rollout_count": 100,
+  "tool_call_summary": {
+    "diagnostic_flags": {},
+    "mean_calls_per_episode": 3.2,
+    "termination_reasons": {
+      "text_response": 100
+    }
+  },
+  "total_tokens_generated": 17369,
+  "total_wall_time_seconds": 50.29587606713176
+}

@@ -1,4 +1,4 @@
-"""Acceptance and structural tests for the r0.4 tool-recovery protocol."""
+"""Acceptance and structural tests for the r2.0 tool-recovery protocol."""
 
 from __future__ import annotations
 
@@ -16,6 +16,7 @@ from src.tasks.tool_recovery.generator import (
     is_modular,
 )
 from src.tasks.tool_recovery.records import Instance
+from src.tasks.tool_recovery.reward import binary_reward, continuous_reward
 from src.tasks.tool_recovery.verifier import verify
 
 
@@ -55,11 +56,14 @@ def test_walkthrough_11_1() -> None:
     presented = dict(golden, max_memory_mb=8192)
     env = ToolRecoveryEnvironment(cache_instance("constraint_violation", "max_memory_mb", CACHE_STATE, golden, presented))
     read, _, _ = env.step("read_config", {})
-    assert read["errors"] == [{"field": "max_memory_mb", "message": "value does not satisfy constraint", "code": "CONSTRAINT_VIOLATION"}]
+    assert read["config"] == presented
+    assert read["status"] == "error"
+    assert read["errors"] == [
+        {"field": "max_memory_mb", "message": "value does not satisfy constraint", "code": "CONSTRAINT_VIOLATION"}
+    ]
     info, _, _ = env.step("query_info", {"topic": "max_memory_mb"})
     assert info["dependencies"] == ["system.total_memory_mb"]
-    state, _, _ = env.step("query_info", {"topic": "system.total_memory_mb"})
-    assert state["value"] == 16384
+    assert info["current_value"] == {"system.total_memory_mb": 16384}
     result, _, _ = env.step("submit_fix", {"field": "max_memory_mb", "value": 4096})
     assert result == {"status": "ok", "message": "Field updated."}
     assert finish(env) == 1
@@ -81,11 +85,14 @@ def test_walkthrough_11_3() -> None:
     del presented["frequency_window_seconds"]
     env = ToolRecoveryEnvironment(cache_instance("missing_dependency", "frequency_window_seconds", state, golden, presented))
     read, _, _ = env.step("read_config", {})
-    assert read["errors"][0]["code"] == "MISSING_FIELD"
+    assert read["config"] == presented
+    assert read["status"] == "error"
+    assert read["errors"] == [
+        {"field": "frequency_window_seconds", "message": "required field is missing", "code": "MISSING_FIELD"}
+    ]
     info, _, _ = env.step("query_info", {"topic": "frequency_window_seconds"})
     assert info["conditional"] == "required when eviction_policy == 'lfu'"
-    queried, _, _ = env.step("query_info", {"topic": "cache.freq_base"})
-    assert queried["value"] == 30
+    assert info["current_value"] == {"cache.freq_base": 30}
     env.step("submit_fix", {"field": "frequency_window_seconds", "value": 120})
     assert finish(env) == 1
 
@@ -111,11 +118,14 @@ def stale_compression_instance() -> Instance:
 def test_walkthrough_11_5() -> None:
     env = ToolRecoveryEnvironment(stale_compression_instance())
     read, _, _ = env.step("read_config", {})
-    assert read["errors"][0]["code"] == "STALE_DEPENDENCY"
+    assert read["config"] == env.instance.presented_config
+    assert read["status"] == "error"
+    assert read["errors"] == [
+        {"field": "compression_enabled", "message": "value is stale after dependency update", "code": "STALE_DEPENDENCY"}
+    ]
     info, _, _ = env.step("query_info", {"topic": "compression_enabled"})
     assert info["dependencies"] == ["backend.compression_level"]
-    queried, _, _ = env.step("query_info", {"topic": "backend.compression_level"})
-    assert queried["value"] == 2
+    assert info["current_value"] == {"backend.compression_level": 2}
     env.step("submit_fix", {"field": "compression_enabled", "value": True})
     assert finish(env) == 1
 
@@ -131,7 +141,7 @@ def test_walkthrough_11_7() -> None:
     golden = base_cache(CACHE_STATE)
     env = ToolRecoveryEnvironment(cache_instance("normal", None, CACHE_STATE, golden, golden))
     read, _, _ = env.step("read_config", {})
-    assert read["status"] == "ok" and read["errors"] == []
+    assert read == {"config": golden, "errors": [], "status": "ok"}
     assert finish(env) == 1
 
 
@@ -141,6 +151,42 @@ def test_walkthrough_11_8() -> None:
     env.step("read_config", {})
     env.step("submit_fix", {"field": "max_memory_mb", "value": 9999})
     assert finish(env) == 0
+
+
+def test_query_info_r05_includes_dependency_current_value() -> None:
+    state = dict(CACHE_STATE, **{"backend.cache_version": 3})
+    golden = base_cache(state)
+    instance = cache_instance("normal", None, state, golden, golden)
+    env = ToolRecoveryEnvironment(instance)
+
+    main = env.query_info("max_memory_mb")
+    assert main["current_value"] == {"system.total_memory_mb": 16384}
+
+    conditional = env.query_info("frequency_window_seconds")
+    assert conditional["current_value"] == {"cache.freq_base": 30}
+    assert conditional["conditional"] == "required when eviction_policy == 'lfu'"
+
+    state_variable = env.query_info("system.total_memory_mb")
+    assert state_variable == {"name": "system.total_memory_mb", "value": 16384}
+
+
+def test_r20_protocol_and_r05_environment_limits() -> None:
+    assert PROTOCOL_VERSION == "r2.0"
+    assert ToolRecoveryEnvironment.TOOL_CALL_LIMIT == 5
+
+
+def test_read_config_includes_field_level_errors() -> None:
+    golden = base_cache(CACHE_STATE)
+    presented = dict(golden, max_memory_mb=8192)
+    env = ToolRecoveryEnvironment(cache_instance("constraint_violation", "max_memory_mb", CACHE_STATE, golden, presented))
+
+    response = env.read_config()
+
+    assert response["config"] == presented
+    assert response["status"] == "error"
+    assert response["errors"] == [
+        {"field": "max_memory_mb", "message": "value does not satisfy constraint", "code": "CONSTRAINT_VIOLATION"}
+    ]
 
 
 def test_isolation_invariant() -> None:
@@ -227,7 +273,6 @@ def test_solvability_200_instances() -> None:
             continue
         field = env.family.get_field(instance.faulted_field)
         env.step("query_info", {"topic": field.name})
-        env.step("query_info", {"topic": field.state_var})
         env.step("submit_fix", {"field": field.name, "value": instance.golden_config[field.name]})
         assert finish(env) == 1
 
@@ -263,6 +308,93 @@ def test_strict_type_checking() -> None:
     assert verify(final, instance.golden_config, instance.presented_config, instance.fault_type, instance.faulted_field, CACHE_SERVICE, instance.external_state) == 0
 
 
+def test_binary_reward_preserves_verifier_result() -> None:
+    instance = stale_compression_instance()
+    args = (
+        instance.golden_config,
+        instance.golden_config,
+        instance.presented_config,
+        instance.fault_type,
+        instance.faulted_field,
+        CACHE_SERVICE,
+        instance.external_state,
+    )
+    assert binary_reward(*args) == verify(*args) == 1
+
+
+def test_continuous_reward_exact_match_is_one() -> None:
+    golden = base_cache(CACHE_STATE)
+    assert continuous_reward(golden, golden, CACHE_SERVICE) == 1.0
+
+
+def test_environment_exposes_binary_and_continuous_rewards() -> None:
+    golden = base_cache(CACHE_STATE)
+    presented = dict(golden, max_memory_mb=8192)
+    env = ToolRecoveryEnvironment(
+        cache_instance("constraint_violation", "max_memory_mb", CACHE_STATE, golden, presented)
+    )
+    assert env.reward == 0
+    assert env.continuous_reward == continuous_reward(presented, golden, CACHE_SERVICE)
+    assert 0.0 < env.continuous_reward < 1.0
+
+
+def test_continuous_reward_all_wrong_is_near_zero() -> None:
+    golden = base_cache(CACHE_STATE)
+    wrong = {
+        name: value + 10**9 if type(value) is int else (not value if type(value) is bool else "definitely-wrong")
+        for name, value in golden.items()
+    }
+    assert 0.0 <= continuous_reward(wrong, golden, CACHE_SERVICE) < 1e-6
+
+
+def test_continuous_reward_closer_integer_scores_higher() -> None:
+    golden = {"size": 16}
+    farther = continuous_reward({"size": 8}, golden, CACHE_SERVICE)
+    closer = continuous_reward({"size": 12}, golden, CACHE_SERVICE)
+    assert closer > farther
+
+
+def test_continuous_reward_two_wrong_integers_differ() -> None:
+    golden = {"size": 16}
+    assert continuous_reward({"size": 8}, golden, CACHE_SERVICE) != continuous_reward(
+        {"size": 12}, golden, CACHE_SERVICE
+    )
+
+
+def test_continuous_reward_bool_and_string_require_exact_match() -> None:
+    golden = {"enabled": True, "mode": "safe"}
+    assert continuous_reward({"enabled": False, "mode": "fast"}, golden, CACHE_SERVICE) == 0.0
+    assert continuous_reward({"enabled": True, "mode": "safe"}, golden, CACHE_SERVICE) == 1.0
+    assert continuous_reward({"enabled": 1, "mode": "safe"}, golden, CACHE_SERVICE) == 0.5
+
+
+def test_continuous_reward_missing_field_scores_zero() -> None:
+    golden = {"first": 10, "second": 20}
+    assert continuous_reward({"first": 10}, golden, CACHE_SERVICE) == 0.5
+
+
+def test_continuous_reward_known_seven_field_answer() -> None:
+    golden = {
+        "integer": 16,
+        "second": 4,
+        "third": 9,
+        "enabled": True,
+        "mode": "safe",
+        "policy": "lru",
+        "optional": False,
+    }
+    submitted = dict(golden, integer=3)
+    expected = (6.0 + 1.0 / (1.0 + abs(3 - 16))) / 7.0
+    assert continuous_reward(submitted, golden, CACHE_SERVICE) == pytest.approx(expected, abs=1e-15)
+
+
+def test_continuous_reward_is_bounded_for_generated_inputs() -> None:
+    for instance in generate_dataset("dev", 100, 100000).instances:
+        family = next(item for item in FAMILIES if item.name == instance.family)
+        for final in (instance.golden_config, instance.presented_config, {}):
+            assert 0.0 <= continuous_reward(final, instance.golden_config, family) <= 1.0
+
+
 def test_unknown_field_does_not_mutate_state() -> None:
     golden = base_cache(CACHE_STATE)
     env = ToolRecoveryEnvironment(cache_instance("normal", None, CACHE_STATE, golden, golden))
@@ -290,6 +422,7 @@ def test_termination_and_diagnostic_rules() -> None:
     for topic in ("fields", "max_memory_mb", "system.total_memory_mb", "unknown"):
         _, terminated, _ = limited.step("query_info", {"topic": topic})
         assert not terminated
-    _, terminated, reward = limited.step("read_config", {})
+    _, terminated, reward = limited.step("query_info", {"topic": "shard_count"})
     assert terminated and reward == 1 and limited.termination_reason == "tool_call_limit"
+    assert limited.tool_calls == 5
     assert "excessive_queries" in limited.diagnostic_flags

@@ -1,4 +1,4 @@
-"""Pure-Python state machine for protocol r0.4's three tools."""
+"""Pure-Python state machine for the tool-recovery protocol's three tools."""
 
 from __future__ import annotations
 
@@ -7,7 +7,7 @@ from typing import Any
 
 from .generator import FAMILY_BY_NAME, ConditionalFieldDef, FieldDef
 from .records import Instance, TrajectoryRecord, TrajectoryStep
-from .verifier import verify
+from .reward import binary_reward, continuous_reward
 
 
 class ToolRecoveryEnvironment:
@@ -35,7 +35,19 @@ class ToolRecoveryEnvironment:
 
     @property
     def reward(self) -> int:
-        return verify(self.config, self.instance.golden_config, self.instance.presented_config, self.instance.fault_type, self.instance.faulted_field, self.family, self.instance.external_state)
+        return binary_reward(
+            self.config,
+            self.instance.golden_config,
+            self.instance.presented_config,
+            self.instance.fault_type,
+            self.instance.faulted_field,
+            self.family,
+            self.instance.external_state,
+        )
+
+    @property
+    def continuous_reward(self) -> float:
+        return continuous_reward(self.config, self.instance.golden_config, self.family)
 
     def _finish(self, reason: str) -> tuple[dict[str, Any], bool, int]:
         self.terminated = True
@@ -109,7 +121,7 @@ class ToolRecoveryEnvironment:
     def read_config(self) -> dict[str, Any]:
         self.has_read_config = True
         errors = [error for field in [*self.family.fields, *self.family.conditional_fields] if (error := self._field_error(field))]
-        return {"config": dict(self.config), "status": "error" if errors else "ok", "errors": errors}
+        return {"config": dict(self.config), "errors": errors, "status": "error" if errors else "ok"}
 
     def query_info(self, topic: str) -> dict[str, Any]:
         self.query_calls += 1
@@ -119,11 +131,24 @@ class ToolRecoveryEnvironment:
             return {"fields": [{"name": field.name, "type": field.type} for field in [*self.family.fields, *self.family.conditional_fields]]}
         for field in self.family.fields:
             if field.name == topic:
-                return {"name": field.name, "type": field.type, "constraint": field.constraint_text, "dependencies": [field.state_var]}
+                return {
+                    "name": field.name,
+                    "type": field.type,
+                    "constraint": field.constraint_text,
+                    "dependencies": [field.state_var],
+                    "current_value": {field.state_var: self.instance.external_state[field.state_var]},
+                }
         for field in self.family.conditional_fields:
             if field.name == topic:
                 trigger = repr(field.trigger_value) if isinstance(field.trigger_value, str) else json.dumps(field.trigger_value)
-                return {"name": field.name, "type": field.type, "constraint": field.constraint_text, "dependencies": [field.state_var], "conditional": f"required when {field.trigger_field} == {trigger}"}
+                return {
+                    "name": field.name,
+                    "type": field.type,
+                    "constraint": field.constraint_text,
+                    "dependencies": [field.state_var],
+                    "current_value": {field.state_var: self.instance.external_state[field.state_var]},
+                    "conditional": f"required when {field.trigger_field} == {trigger}",
+                }
         for state_var in self.family.state_vars:
             if state_var.name == topic:
                 return {"name": state_var.name, "value": self.instance.external_state[state_var.name]}

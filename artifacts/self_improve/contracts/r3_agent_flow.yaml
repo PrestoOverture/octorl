@@ -1,0 +1,5 @@
+- name: octorl_tool_recovery
+  _target_: src.adapters.tool_recovery_agent_r1.ToolRecoveryAgentFlow
+  env_type: octorl_tool_recovery
+  trajectory_path: ${oc.env:R3_TRAJECTORY_PATH}
+

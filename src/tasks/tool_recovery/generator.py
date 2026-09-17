@@ -12,7 +12,7 @@ from typing import Any
 from .records import GenerationManifest, Instance, RejectionRecord
 from .verifier import verify, verify_golden
 
-PROTOCOL_VERSION = "r0.4"
+PROTOCOL_VERSION = "r2.0"
 FAULT_TYPES = ("normal", "constraint_violation", "missing_dependency", "stale_version")
 
 

@@ -1,8 +1,8 @@
 # R0 Task and Experiment Protocol
 
-**Version:** r0.4
-**Date:** 2026-09-12
-**Status:** Revised per fourth Codex review
+**Version:** r2.0
+**Date:** 2026-09-16
+**Status:** Revised — r2.0 reverts to r0.5 task behavior + adds continuous reward module
 
 ## 1. Overview
 
@@ -43,7 +43,7 @@ Each task instance presents a fictional service with a flat JSON configuration (
 
 ### 3.1 `read_config`
 
-Reads the current configuration and reports validation errors.
+Reads the current configuration and reports whether it is valid, without identifying erroneous fields.
 
 ```json
 {
@@ -64,14 +64,7 @@ Reads the current configuration and reports validation errors.
 ```json
 {
   "config": {"field_name": "value", "...": "..."},
-  "status": "ok | error",
-  "errors": [
-    {
-      "field": "field_name",
-      "message": "human-readable description (does NOT reveal correct value or state variable value)",
-      "code": "CONSTRAINT_VIOLATION | MISSING_FIELD | STALE_DEPENDENCY"
-    }
-  ]
+  "status": "ok | error"
 }
 ```
 
@@ -107,6 +100,7 @@ Queries field constraints, state variable values, or the field list.
   "type": "integer",
   "constraint": "must equal floor(system.total_memory_mb / 4)",
   "dependencies": ["system.total_memory_mb"],
+  "current_value": {"system.total_memory_mb": 16384},
   "default": null
 }
 ```
@@ -182,7 +176,7 @@ Value validation does NOT happen at submission — only at episode end by the ve
 
 | Condition | Behavior |
 |---|---|
-| Tool call limit | 5 calls total across all turns. Each call counts separately. |
+| Tool call limit | 6 calls total across all turns. Each call counts separately. |
 | Token limit | 4096 output tokens per model turn. |
 | Text-only response | Agent responds without a tool call → episode ends. |
 | Duplicate detection | 2 consecutive tool calls with identical (name, arguments) → episode ends. |
@@ -201,7 +195,7 @@ Each fault rule is a 4-tuple: (trigger_condition, state_change, remaining_count,
 **Every field depends on exactly one state variable, and no two fields share a state variable.** This isolation is a structural invariant of all content families (§5). It guarantees:
 - No cross-field value inference (the correct value of any faulted field cannot be derived from other visible config values).
 - No cascade on state variable change (bumping one state variable affects exactly one field).
-- The 4-call solvability invariant holds for all faulted fields.
+- Every faulted instance is solvable if the agent investigates the faulted field within the call budget; field identification is intentionally search-dependent.
 
 ### 4.2 constraint_violation
 
@@ -211,7 +205,7 @@ Each fault rule is a 4-tuple: (trigger_condition, state_change, remaining_count,
 | State change | `config[F]` set to a value sampled from `F.values_for_invalid`, **excluding the correct value**. The generator asserts that the presented config fails verification before any repair. |
 | Count | 1 per instance |
 | Eligible fields | Main fields that are **NOT trigger fields**. Trigger fields are excluded because the presence/absence of the conditional field would reveal the trigger's correct value, leaking structural information that bypasses the isolation guarantee. |
-| Recovery | `read_config()` → identify F → `query_info(F)` → learn constraint and dependency S → `query_info(S)` → compute V → `submit_fix(F, V)` |
+| Recovery | `read_config()` → investigate candidate fields with `query_info(field)` → find F and its current dependency value → compute V → `submit_fix(F, V)` |
 
 ### 4.3 missing_dependency
 
@@ -221,7 +215,7 @@ Each fault rule is a 4-tuple: (trigger_condition, state_change, remaining_count,
 | State change | `del config[F]` (field removed from config dict) |
 | Count | 1 per instance |
 | Eligible fields | Conditional fields whose trigger condition is satisfied in the golden config |
-| Recovery | `read_config()` → error says F missing → `query_info(F)` → learn F's constraint and dependency S → `query_info(S)` → compute V → `submit_fix(F, V)` |
+| Recovery | `read_config()` → compare the visible config with candidate field definitions → `query_info(F)` → compute V from `current_value` → `submit_fix(F, V)` |
 
 If no conditional field's trigger is satisfied for a given state, the generator rejects this (family, seed) for missing_dependency and retries with a new seed (see §6.3).
 
@@ -233,7 +227,7 @@ If no conditional field's trigger is satisfied for a given state, the generator 
 | State change | `external_state[S] = new_value`; config unchanged |
 | Count | 1 per instance |
 | Eligible fields | Main fields whose state variable is NOT a dependency of any trigger field. This prevents cascade: changing S cannot make a new conditional field required. |
-| Recovery | `read_config()` → error on F → `query_info(F)` → learn constraint depends on S → `query_info(S)` → compute new V → `submit_fix(F, new_value)` |
+| Recovery | `read_config()` → investigate candidate fields with `query_info(field)` → find stale F → compute from `current_value` → `submit_fix(F, new_value)` |
 
 The generator also verifies that the old and new golden values for F actually differ — if the state variable change doesn't affect F's computed value, the instance is rejected.
 
@@ -250,25 +244,25 @@ The isolation requirement prevents deriving faulted-field values from other visi
 | Conditional presence | If a trigger field were faulted, conditional field presence would leak the correct value. Eliminated by excluding trigger fields from faulting (§4.2, §4.4). | 0% (structurally prevented) |
 
 **Scripted baseline definition:** A no-`query_info` scripted agent that executes the best deterministic strategy from the table above. This agent:
-- Calls `read_config()` to identify the faulted field.
+- Calls `read_config()` to obtain the status, visible config, and field-level errors (r2.0 restores the `errors` array from r0.5).
 - Has access to **static schema metadata** for the family: field names, field types (boolean / string-enum / integer), and the set of **reachable output values** for each field (i.e., the values the field's `compute()` function can produce across the full state-variable range — NOT the state-variable range itself). This metadata is derived from the family definition and does not require `query_info`.
+- Selects a candidate field from the static field list using the recorded RNG because field identity is hidden.
 - For booleans: submits the opposite value (deterministic). For enums: guesses uniformly from reachable values excluding the presented value (seeded RNG). For integers: guesses uniformly from reachable values excluding the presented value (seeded RNG).
 - Does NOT call `query_info` — its entire advantage comes from schema-aware guessing.
 - Uses a **recorded seed** (`random.Random(baseline_seed)`) so its guesses are reproducible. The seed is logged in the pilot manifest.
 
 **R1 acceptance threshold:** The scripted baseline's FCR must be **measured** on the dev split (50 instances, 100 rollouts). If measured FCR ≥ 15%, the family designs must be revised (e.g., reduce boolean faultable fields, widen integer ranges). The 15% threshold is a design target, not an analytical claim — it must be empirically confirmed in R1.
 
-### 4.6 Solvability Invariant
+### 4.6 Search-Dependent Solvability Invariant
 
-Every generated fault instance is solvable in **exactly 4 tool calls** (because each faulted field has exactly one state variable dependency):
-1. `read_config()` — learn which field is wrong
-2. `query_info(field)` — learn the constraint and its single dependency
-3. `query_info(state_var)` — learn the current state value
-4. `submit_fix(field, value)` — apply the fix
+Every generated fault instance is solvable **if the agent investigates the faulted field within its call budget**. Once the correct field is selected, the best-case repair path is 3 calls:
+1. `read_config()` — learn only that some field is wrong
+2. `query_info(faulted_field)` — learn its constraint and dependency's `current_value`
+3. `submit_fix(faulted_field, value)` — apply the fix
 
-Normal instances are "solvable" with 1 call (`read_config` returns no errors, agent stops).
+The 6-call budget permits `read_config`, up to four candidate-field investigations, and one `submit_fix`. Exhaustively checking all seven fields and then submitting would require 9 calls and exceed the limit. Normal instances remain solvable with 1 call (`read_config` returns `status: "ok"`, then the agent stops).
 
-The generator MUST validate this invariant for every produced instance by simulating the 4-call oracle solution and confirming it yields reward = 1.
+The generator MUST validate the known-field oracle repair for every produced instance and confirm that it yields reward = 1. Search success is a policy property and is measured by the pilot rather than guaranteed by generation.
 
 ---
 
@@ -505,7 +499,7 @@ All randomness derives from `random.Random(seed)` where `seed` is an explicit in
 ### 6.2 Canonical Generation Algorithm
 
 ```python
-PROTOCOL_VERSION = "r0.4"
+PROTOCOL_VERSION = "r2.0"
 
 def generate_instance(
     master_seed: int,
@@ -583,7 +577,7 @@ def generate_instance(
         # Pre-repair check: the presented config MUST fail verification.
         assert verify(presented, golden, presented, target_fault, faulted_field,
                       family, faulted_state) == 0, "fault did not break verification"
-        # Oracle check: the 4-call repair sequence yields reward = 1.
+        # Oracle check: a known-field repair yields reward = 1.
         assert simulate_oracle(presented, faulted_state, faulted_field, family) == 1
 
     # Step 7: compute content fingerprint
@@ -821,7 +815,7 @@ The pilot runs the base Qwen3-4B model (no training) to measure:
 
 | Parameter | Initial value | Adjustment range | Trigger |
 |---|---|---|---|
-| Tool call limit | 5 | 5-8 | Base model needs more steps |
+| Tool call limit | 6 | 6-8 | Base model needs more investigation steps |
 | Token limit per turn | 4096 | 4096-8192 | Thinking tokens too compressed |
 | Constraint complexity | As specified | Simplify compute functions | FCR < 5% across all fault types OR mixed-group fraction < 15% |
 | Fault-type distribution | 20/30/25/25 | Rebalance within ±10pp | One type dominates failures |
@@ -930,19 +924,15 @@ Fault: max_memory_mb set to 8192
 Step 1: read_config()
   → {config: {max_memory_mb: 8192, shard_count: 8, eviction_policy: "lru",
               ttl_seconds: 240, max_connections: 400, compression_enabled: true},
-     status: "error",
-     errors: [{field: "max_memory_mb", message: "value does not satisfy constraint",
-               code: "CONSTRAINT_VIOLATION"}]}
+     status: "error"}
 
-Step 2: query_info("max_memory_mb")
+Step 2: investigate max_memory_mb with query_info("max_memory_mb")
   → {name: "max_memory_mb", type: "integer",
      constraint: "must equal floor(system.total_memory_mb / 4)",
-     dependencies: ["system.total_memory_mb"]}
+     dependencies: ["system.total_memory_mb"],
+     current_value: {"system.total_memory_mb": 16384}}
 
-Step 3: query_info("system.total_memory_mb")
-  → {name: "system.total_memory_mb", value: 16384}
-
-Step 4: submit_fix("max_memory_mb", 4096)
+Step 3: submit_fix("max_memory_mb", 4096)
   → {status: "ok", message: "Field updated."}
 
 Verify: §8.1 predicate → max_memory_mb=4096=golden ✓, no regression ✓, all constraints satisfied ✓
@@ -957,7 +947,7 @@ agent cannot derive 4096 from any other config value. ✓
 ```
 Same instance as 11.1.
 
-Step 1: read_config() → sees error on max_memory_mb
+Step 1: read_config() → status: "error" (field is not identified)
 Step 2: submit_fix("max_memory_mb", 1) → {status: "ok"}
 
 Verify: max_memory_mb=1 ≠ 4096=golden → reward = 0
@@ -974,20 +964,16 @@ Fault: frequency_window_seconds removed (was required because eviction_policy=="
 Step 1: read_config()
   → {config: {max_memory_mb: 4096, shard_count: 8, eviction_policy: "lfu",
               ttl_seconds: 240, max_connections: 400, compression_enabled: true},
-     status: "error",
-     errors: [{field: "frequency_window_seconds", message: "required field is missing",
-               code: "MISSING_FIELD"}]}
+     status: "error"}
 
-Step 2: query_info("frequency_window_seconds")
+Step 2: investigate the absent frequency_window_seconds with query_info("frequency_window_seconds")
   → {name: "frequency_window_seconds", type: "integer",
      constraint: "must equal cache.freq_base × 4",
      dependencies: ["cache.freq_base"],
+     current_value: {"cache.freq_base": 30},
      conditional: "required when eviction_policy == 'lfu'"}
 
-Step 3: query_info("cache.freq_base")
-  → {name: "cache.freq_base", value: 30}
-
-Step 4: submit_fix("frequency_window_seconds", 120)
+Step 3: submit_fix("frequency_window_seconds", 120)
   → {status: "ok"}
 
 Verify: frequency_window_seconds=120=golden ✓, no regression ✓ → reward = 1
@@ -1000,7 +986,7 @@ Isolation check: no other visible field depends on cache.freq_base. ✓
 ```
 Same instance as 11.3.
 
-Step 1: read_config() → sees missing_field error
+Step 1: read_config() → status: "error" (field is not identified)
 (Agent responds with text → episode ends.)
 
 Verify: frequency_window_seconds absent, but required → §8.1 step 2 fails → reward = 0
@@ -1016,19 +1002,15 @@ Fault: compression_enabled still false in config (stale)
 
 Step 1: read_config()
   → {config: {..., compression_enabled: false},
-     status: "error",
-     errors: [{field: "compression_enabled", message: "value is stale after dependency update",
-               code: "STALE_DEPENDENCY"}]}
+     status: "error"}
 
-Step 2: query_info("compression_enabled")
+Step 2: investigate compression_enabled with query_info("compression_enabled")
   → {name: "compression_enabled", type: "boolean",
      constraint: "must be true if backend.compression_level >= 2, otherwise false",
-     dependencies: ["backend.compression_level"]}
+     dependencies: ["backend.compression_level"],
+     current_value: {"backend.compression_level": 2}}
 
-Step 3: query_info("backend.compression_level")
-  → {name: "backend.compression_level", value: 2}
-
-Step 4: submit_fix("compression_enabled", true)
+Step 3: submit_fix("compression_enabled", true)
   → {status: "ok"}
 
 Verify: compression_enabled=true=golden ✓, no regression ✓ → reward = 1
@@ -1042,7 +1024,7 @@ becomes required → no cascade. ✓
 ```
 Same instance as 11.5.
 
-Step 1: read_config() → sees stale_dependency on compression_enabled
+Step 1: read_config() → status: "error" (field is not identified)
 Step 2: submit_fix("compression_enabled", 1)  ← note: integer 1, not boolean true
 
 Verify: type(1) is int ≠ type(true) is bool → §8.1 strict type check fails → reward = 0
@@ -1054,7 +1036,7 @@ Verify: type(1) is int ≠ type(true) is bool → §8.1 strict type check fails 
 Instance: cache_service (no fault, config is valid)
 
 Step 1: read_config()
-  → {config: {...}, status: "ok", errors: []}
+  → {config: {...}, status: "ok"}
 
 (Agent responds confirming config is valid → episode ends.)
 
@@ -1156,3 +1138,32 @@ Verify: max_memory_mb=9999 ≠ golden → §8.1 step 2 fails → reward = 0
 1. **Scripted baseline precision (P2):** Baseline now explicitly granted static schema metadata (field types + reachable output values, not state-variable ranges). Enum elimination row in shortcut table updated to reflect schema access. Sampling uses seeded RNG with seed recorded in pilot manifest. "Deterministic" language replaced with "schema-aware guessing."
 
 2. **Group-size adjustment contradiction (P2):** Removed "or increase rollouts per instance" from §9.1 mixed-group instruction (contradicted frozen group size). Added mixed-group fraction < 15% as a trigger for constraint simplification in §9.2 adjustment table, alongside the existing FCR < 5% trigger.
+
+### r0.5 (2026-09-16) — Pilot-driven query response adjustment
+
+**Parameter changed:** `query_info(field_name)` response payload.
+
+- **Old value (r0.4):** Returned the field constraint and dependency name; the agent needed a separate `query_info(state_var_name)` call to obtain the dependency's current value.
+- **New value (r0.5):** Also returns `current_value`, a one-entry mapping from the dependency name to its current value. Conditional fields receive the same key; `query_info("fields")` and direct state-variable queries are unchanged.
+- **Pilot evidence:** r0.4 produced FCR = 5%, NPR = 20%, and mixed-reward-group fraction = 0%. The dominant fault-task failure pattern was skipping the state-variable query in 78 of 80 fault rollouts.
+- **Version:** r0.5.
+
+### r1.0 (2026-09-16) — Search-based task redesign
+
+**Nature:** Task redesign, escalated from the r0.5 pilot rather than counted as another arithmetic-constraint adjustment.
+
+- **Field-identification removal:** `read_config()` still computes and returns `status: "ok" | "error"`, but no longer exposes the `errors` array or the faulted field. The agent must investigate candidate fields with `query_info(field)`.
+- **Call-budget change:** Tool call limit increased from 5 to 6, permitting one `read_config`, up to four candidate-field investigations, and one `submit_fix`.
+- **Solvability change:** A faulted instance is solvable if the policy investigates the faulted field within the call budget. The known-field best-case path is 3 calls; exhaustive seven-field search plus submission exceeds the budget.
+- **Pilot evidence:** r0.5 produced FCR = 48.75% and mixed-reward-group fraction = 7.5%; 36 of 40 fault instances had identical reward pairs. The diagnosed source was deterministic arithmetic after field identity was directly exposed, so r1.0 moves difficulty to stochastic investigation order.
+- **Version:** r1.0.
+
+### r2.0 (2026-09-16) — Revert to r0.5 behavior + continuous reward
+
+**Nature:** Reward function change, informed by 5-condition pilot analysis (500 rollouts) showing binary reward as a root cause of GRPO signal failure.
+
+- **Task behavior revert:** Reverts to r0.5 behavior — `read_config()` returns `errors` array, `query_info()` returns `current_value`, tool call limit back to 5. The r1.0 search-based redesign (removing field identification) did not improve mixed groups and reduced FCR.
+- **Continuous reward module:** Added `src/tasks/tool_recovery/reward.py` with `continuous_reward(final_config, golden_config, family)` returning float in [0, 1]. Per-field score: `1/(1+|submitted−golden|)` for integer fields, exact-match 0/1 for string/boolean. Overall reward is the mean across all golden fields.
+- **Binary verifier preserved:** The original `verifier.py` and binary reward remain unchanged. Both reward modes are computed for every rollout; `--reward-mode` flag selects which is used for training.
+- **Pilot evidence:** Binary reward at T≤1.0 capped mixed groups at 7.5% (3/40). Retroactive continuous reward on T=1.5 data yields 7/40 = 17.5% mixed groups, passing the 15% gate. The combination works because T=1.5 generates 8/40 pairs with different final submit values, and continuous reward differentiates 7 of them (the 8th pair submitted different actions but reached the same final config).
+- **Version:** r2.0.

@@ -1,0 +1,104 @@
+{
+  "fault_group_count": 40,
+  "fcr": 0.325,
+  "gate": {
+    "fcr_in_5_to_60_percent": true,
+    "mixed_group_at_least_15_percent": false,
+    "r3_ready": false
+  },
+  "instance_count": 50,
+  "mixed_fault_groups": 0,
+  "mixed_reward_group_fraction": 0.0,
+  "model": "/root/autodl-tmp/models/Qwen3-4B",
+  "modular_stratum": {
+    "reward_rate": 0.0,
+    "rollouts": 10
+  },
+  "npr": 0.0,
+  "per_fault_type": {
+    "constraint_violation": {
+      "reward_rate": 0.0,
+      "rollouts": 30
+    },
+    "missing_dependency": {
+      "reward_rate": 1.0,
+      "rollouts": 26
+    },
+    "stale_version": {
+      "reward_rate": 0.0,
+      "rollouts": 24
+    }
+  },
+  "rollout_count": 100,
+  "tool_call_summary": {
+    "diagnostic_flags": {},
+    "investigation_patterns": {
+      "definition": "Ordered query_info topics that name configuration fields; schema-list and state-variable queries are excluded.",
+      "different_ordering_task_ids": [
+        "monitoring_service_100007_normal",
+        "monitoring_service_100066_stale_version"
+      ],
+      "fault_instances_with_different_orderings": 1,
+      "fault_instances_with_same_ordering": 39,
+      "fault_rollouts": 80,
+      "faulted_field_investigated_rollouts": 34,
+      "faulted_field_rank_counts": {
+        "1": 34
+      },
+      "instances_with_different_orderings": 2,
+      "instances_with_same_ordering": 48,
+      "mean_fields_investigated_per_episode": 1.0,
+      "per_fault_type": {
+        "constraint_violation": {
+          "different_orderings": 0,
+          "instances": 15
+        },
+        "missing_dependency": {
+          "different_orderings": 0,
+          "instances": 13
+        },
+        "normal": {
+          "different_orderings": 1,
+          "instances": 10
+        },
+        "stale_version": {
+          "different_orderings": 1,
+          "instances": 12
+        }
+      },
+      "top_orderings": [
+        {
+          "episodes": 34,
+          "order": [
+            "scrape_interval_seconds"
+          ]
+        },
+        {
+          "episodes": 24,
+          "order": [
+            "grace_period_seconds"
+          ]
+        },
+        {
+          "episodes": 22,
+          "order": [
+            "agg_window_minutes"
+          ]
+        },
+        {
+          "episodes": 20,
+          "order": [
+            "max_pending_jobs"
+          ]
+        }
+      ],
+      "unique_orderings": 4
+    },
+    "mean_calls_per_episode": 3.99,
+    "termination_reasons": {
+      "text_response": 100
+    }
+  },
+  "total_tokens_generated": 12097,
+  "total_wall_time_seconds": 43.96997990086675
+}

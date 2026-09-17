@@ -1,0 +1,193 @@
+{
+  "action_diversity": {
+    "definition": "Ordered structured tool calls (tool_name plus arguments); terminal text is excluded.",
+    "different_action_task_ids": [
+      "monitoring_service_100000_normal",
+      "monitoring_service_100004_normal",
+      "monitoring_service_100006_normal",
+      "monitoring_service_100007_normal",
+      "monitoring_service_100008_normal",
+      "monitoring_service_100009_normal",
+      "monitoring_service_100012_constraint_violation",
+      "monitoring_service_100023_constraint_violation",
+      "monitoring_service_100027_missing_dependency",
+      "monitoring_service_100030_missing_dependency",
+      "monitoring_service_100040_missing_dependency",
+      "monitoring_service_100044_missing_dependency",
+      "monitoring_service_100055_missing_dependency",
+      "scheduler_service_100001_normal",
+      "scheduler_service_100010_constraint_violation",
+      "scheduler_service_100015_constraint_violation",
+      "scheduler_service_100016_constraint_violation",
+      "scheduler_service_100067_stale_version",
+      "scheduler_service_100071_stale_version",
+      "scheduler_service_100072_stale_version",
+      "scheduler_service_100074_stale_version"
+    ],
+    "fault_instance_pairs_with_different_actions": 14,
+    "fault_instance_pairs_with_same_actions": 26,
+    "instance_pairs_with_different_actions": 21,
+    "instance_pairs_with_different_submit_fix": 15,
+    "instance_pairs_with_same_actions": 29
+  },
+  "fault_group_count": 40,
+  "fcr": 0.55,
+  "gate": {
+    "fcr_in_5_to_60_percent": true,
+    "mixed_group_at_least_15_percent": false,
+    "r3_ready": false
+  },
+  "instance_count": 50,
+  "mixed_fault_groups": 2,
+  "mixed_group_action_samples": [
+    {
+      "fault_type": "missing_dependency",
+      "rollouts": [
+        {
+          "actions": [
+            {
+              "arguments": {},
+              "tool_name": "read_config"
+            },
+            {
+              "arguments": {
+                "topic": "fields"
+              },
+              "tool_name": "query_info"
+            },
+            {
+              "arguments": {
+                "field": "agg_window_minutes",
+                "value": 5
+              },
+              "tool_name": "submit_fix"
+            }
+          ],
+          "model_sampling_seed": 0,
+          "reward": 0,
+          "termination_reason": "text_response"
+        },
+        {
+          "actions": [
+            {
+              "arguments": {},
+              "tool_name": "read_config"
+            },
+            {
+              "arguments": {
+                "topic": "agg_window_minutes"
+              },
+              "tool_name": "query_info"
+            },
+            {
+              "arguments": {
+                "field": "agg_window_minutes",
+                "value": 10
+              },
+              "tool_name": "submit_fix"
+            }
+          ],
+          "model_sampling_seed": 1,
+          "reward": 1,
+          "termination_reason": "text_response"
+        }
+      ],
+      "task_id": "monitoring_service_100040_missing_dependency"
+    },
+    {
+      "fault_type": "missing_dependency",
+      "rollouts": [
+        {
+          "actions": [
+            {
+              "arguments": {},
+              "tool_name": "read_config"
+            },
+            {
+              "arguments": {
+                "topic": "fields"
+              },
+              "tool_name": "query_info"
+            },
+            {
+              "arguments": {
+                "field": "agg_window_minutes",
+                "value": 5
+              },
+              "tool_name": "submit_fix"
+            }
+          ],
+          "model_sampling_seed": 0,
+          "reward": 0,
+          "termination_reason": "text_response"
+        },
+        {
+          "actions": [
+            {
+              "arguments": {},
+              "tool_name": "read_config"
+            },
+            {
+              "arguments": {
+                "topic": "fields"
+              },
+              "tool_name": "query_info"
+            },
+            {
+              "arguments": {
+                "field": "agg_window_minutes",
+                "value": 30
+              },
+              "tool_name": "submit_fix"
+            }
+          ],
+          "model_sampling_seed": 1,
+          "reward": 1,
+          "termination_reason": "text_response"
+        }
+      ],
+      "task_id": "monitoring_service_100055_missing_dependency"
+    }
+  ],
+  "mixed_reward_group_fraction": 0.05,
+  "model": "/root/autodl-tmp/models/Qwen3-4B",
+  "modular_stratum": {
+    "reward_rate": 0.0,
+    "rollouts": 10
+  },
+  "npr": 0.25,
+  "per_fault_type": {
+    "constraint_violation": {
+      "reward_rate": 0.7333333333333333,
+      "rollouts": 30
+    },
+    "missing_dependency": {
+      "reward_rate": 0.07692307692307693,
+      "rollouts": 26
+    },
+    "stale_version": {
+      "reward_rate": 0.8333333333333334,
+      "rollouts": 24
+    }
+  },
+  "rollout_count": 100,
+  "sampling": {
+    "manifest": "r0.5_manifest.json",
+    "max_steps": 5,
+    "model_sampling_seeds": [
+      0,
+      1
+    ],
+    "temperature": 1.5,
+    "top_p": 0.95
+  },
+  "tool_call_summary": {
+    "diagnostic_flags": {},
+    "mean_calls_per_episode": 3.2,
+    "termination_reasons": {
+      "text_response": 100
+    }
+  },
+  "total_tokens_generated": 17369,
+  "total_wall_time_seconds": 50.29587606713176
+}
