@@ -1,0 +1,60 @@
+{
+  "experiment": "R3c",
+  "description": "100-update fault-only binary Sign-advantage training on Qwen3-4B",
+  "conclusion_date": "2026-09-18",
+  "verdict": "PASS",
+  "protocol": {
+    "seeds": [42, 137],
+    "target_updates": 100,
+    "actual_updates": 80,
+    "actual_updates_note": "Both seeds stopped at U80 due to vLLM EngineCore crashes. Seed 42: crash on resume attempt. Seed 137: crash during continuous training at U80->U81. Cosine LR had decayed to ~2-4e-6 by U73-U80, so remaining updates would have had minimal impact.",
+    "eval_checkpoints": ["U20", "U50", "U80"],
+    "primary_gate": {"metric": "fault_only_binary_fcr", "threshold": 0.7125, "rule": "best of U20/U50/U80, both seeds individually"},
+    "guardrail_gate": {"metric": "normal_guardrail_binary_npr", "threshold": 0.0333, "rule": "at primary-passing checkpoint"},
+    "dev_instances": 50,
+    "dev_eval_seed": 310000,
+    "normal_guardrail_instances": 30,
+    "normal_guardrail_eval_seed": 320000,
+    "group_size": 4
+  },
+  "seed_results": {
+    "42": {
+      "best_checkpoint": "U80",
+      "best_fault_fcr": 0.7125,
+      "best_fault_fcr_delta_pp": 5.0,
+      "guardrail_npr_at_best": 0.08333333333333333,
+      "primary_gate": "PASS",
+      "guardrail_gate": "PASS",
+      "verdict": "PASS"
+    },
+    "137": {
+      "best_checkpoint": "U50",
+      "best_fault_fcr": 0.7875,
+      "best_fault_fcr_delta_pp": 12.5,
+      "guardrail_npr_at_best": 0.09166666666666666,
+      "primary_gate": "PASS",
+      "guardrail_gate": "PASS",
+      "verdict": "PASS"
+    }
+  },
+  "baselines": {
+    "dev_fault_fcr": 0.6625,
+    "dev_normal_npr": 0.05,
+    "normal_guardrail_npr": 0.08333333333333333
+  },
+  "key_observations": [
+    "Both seeds pass primary and guardrail gates individually — R3c succeeds.",
+    "Seed 137 peaked earlier (U50) and higher (78.75%) than seed 42 (U80, 71.25%).",
+    "Normal-task performance improved or held at all passing checkpoints (no regression).",
+    "Sign advantage (A=2r-1) eliminated the zero-gradient problem that stalled R3's GRPO on binary rewards.",
+    "vLLM EngineCore crash at ~U80 appears systematic — both seeds hit it, possibly GPU memory fragmentation over ~80 layered_summon cycles."
+  ],
+  "estimated_cost_cny": {
+    "seed_42_training": 15.26,
+    "seed_42_eval": 1.5,
+    "seed_137_training": 15.0,
+    "seed_137_eval": 1.5,
+    "total": 33.26,
+    "note": "Approximate, based on AutoDL RTX 4090 hourly rate"
+  }
+}
