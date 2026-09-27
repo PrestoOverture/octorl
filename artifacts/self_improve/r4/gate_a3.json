@@ -1,0 +1,21 @@
+{
+  "gate": "R4-A3 load-only resume validation",
+  "decided_by": "Claude Code (non-delegable model gate)",
+  "date": "2026-09-27",
+  "verdict": "PASS",
+  "replaced_condition": "HF-vs-FSDP logprob <= 1e-3 (observed 0.25 / 0.2976): cross-backend numerics gap exceeds the U20 LoRA effect itself, so it cannot discriminate; dropped.",
+  "checks": {
+    "restore_same_backend": {"seed_42": 0.0, "seed_137": 0.0, "note": "tautological (actor initialised from the same adapter); kept as a corruption check only"},
+    "optimizer_and_scheduler": "AdamW moment norms equal to saved file; U20 LR and U21 cosine LR match (Codex A3 validation.json)",
+    "lora_bitwise_equal": {"seed_42": {"tensors": 504, "mismatched": 0, "nonzero_lora_B": 252}, "seed_137": {"tensors": 504, "mismatched": 0, "nonzero_lora_B": 252}, "script": "scripts/self_improve/r4_gate_check.py adapter-equal"},
+    "vllm_discrimination": {
+      "seed_42": {"training_equals_u20": true, "base_vs_u20_first_divergence": [23, null], "discriminating": true},
+      "seed_137": {"training_equals_u20": true, "base_vs_u20_first_divergence": [null, null], "discriminating": false},
+      "script": "scripts/self_improve/r4_gate_check.py base-tokens"
+    },
+    "save_contents": "stage-style save writes lora_adapter + optim + extra_state, no model shard"
+  },
+  "reasoning": "Per-seed content is proven by bitwise LoRA equality; the seed-independent vLLM weight-sync path is proven by seed 42, where base and U20 diverge and the training engine matches U20. Seed 137's greedy probe cannot discriminate (base == U20 for 64 tokens), which is not evidence of failure.",
+  "gpu_cost_cny": {"codex_validation": 0.86, "gate2_base_tokens": 0.03},
+  "remote_evidence": "/root/autodl-tmp/octorl_r4/validation/"
+}

@@ -1,0 +1,17 @@
+--- a/agent_r1/trainer/main_agent_ppo.py
++++ b/agent_r1/trainer/main_agent_ppo.py
+@@ -354,5 +354,14 @@
+         # Initialize the workers of the trainer.
+         trainer.init_workers()
+ 
++        # R4 load-only gate: exercise the real resumed actor and synced rollout
++        # engine without entering fit() or taking an optimizer step.
++        if config.trainer.get("r4_validation_only", False):
++            import sys
++            sys.path.insert(0, "/root/octorl_r3/scripts/self_improve")
++            from r4_run_branch import validate_loaded_trainer
++            validate_loaded_trainer(trainer, config.trainer.r4_validation_output)
++            return
++
+         # Start the training process.
+         trainer.fit()

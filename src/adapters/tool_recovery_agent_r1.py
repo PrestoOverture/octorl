@@ -200,6 +200,16 @@ class ToolRecoveryAgentEnv(AgentEnv):
                 "final_config": dict(self.core.config),
             }
         )
+        # R4 identity is optional so pre-R4 trajectory bytes remain unchanged.
+        for env_name, field in (
+            ("R4_RUN_ID", "run_id"),
+            ("R4_ARM", "arm"),
+            ("R4_SEED", "seed"),
+            ("R4_STAGE", "stage"),
+        ):
+            value = os.environ.get(env_name)
+            if value is not None:
+                record[field] = int(value) if field in {"seed", "stage"} else value
         return record
 
     def log_trajectory(self) -> None:
