@@ -1,0 +1,166 @@
+contract_id: r4-failure-driven-vs-fixed-v1
+frozen_at: "2026-09-27T00:00:00+08:00"
+status: frozen_before_selector_reads_any_data
+question: "Q2: under a shared start and matched raw-rollout budget, does failure-driven task selection beat fixed-distribution GRPO on the sealed test?"
+inherits: r3-fixed-distribution-grpo-v1   # model, software, LoRA r16/a32, GRPO, sampling unless overridden below
+r3c_training_overrides_inherited:
+  algorithm.adv_estimator: sign            # A = 2r - 1 (R3b patch)
+  reward: binary_verifier
+  train_pool: artifacts/self_improve/r3/data/train_fault_only_manifest.json   # 320 fault instances
+  optimizer_schedule_total_steps: 100      # cosine curve identical to R3c; trainer stops at U80
+
+design_evidence:
+  - "R3c U80 'crash' diagnosed as dataloader exhaustion: 320 rows / batch 4 = 80 steps with total_epochs=1 (to be confirmed from logs by contract R4-A)."
+  - "Selector cells chosen from TRAIN records only (R3b seed 42, 320 rollouts): CV 0.88, MD 0.49, SV 0.76 pass rate; family spread smaller and families are disjoint from dev/test."
+  - "Dev per-rollout pairing (fixed eval seed 310000) shows base vs U80 identical binary outcome on 95% of rollouts; training-seed divergence (s42 U20 vs s137 U20: 4%) is comparable to the training effect. Hence 3 train seeds, and the frozen test is kept at its R3 size."
+
+seeds:
+  train_seeds: [42, 137, 2718]
+  warmup:
+    "42":   {source: r3c, checkpoint: /root/autodl-tmp/octorl_r3c/seed_42/checkpoints/global_step_20}
+    "137":  {source: r3c, checkpoint: /root/autodl-tmp/octorl_r3c/seed_137/checkpoints/global_step_20}
+    "2718": {source: new_run_with_r3c_config, updates: 20, data_seed: 2718}
+  selector_seed: "int(sha256(f'r4|{train_seed}|{cell}').hexdigest()[:8], 16)"   # never Python hash()
+  bootstrap_seed: 20260927
+
+arms:
+  fixed:  {rho: 1.0}
+  failure_driven: {rho: 0.4}
+  shared: [warmup_checkpoint, code_path, stage_runner, reward, prompts, tools, lr_curve, sampling, vllm_seed=train_seed, within_cell_permutation]
+
+budget:
+  unit: raw_groups_requested
+  per_branch: {start_update: 20, end_update: 80, updates: 60, groups: 240, rollouts: 960}
+  also_reported: [generated_tokens, completed_updates, gpu_hours, repeated_instance_count, distinct_instance_count]
+  gpu_hour_rate_cny: 2.18
+  hard_ceiling_cny: 80.0
+  per_branch_stop_cny: 15.0
+
+stages:
+  updates_per_stage: 10
+  groups_per_stage: 40
+  boundaries: [20, 30, 40, 50, 60, 70, 80]
+  runner: one trainer process per stage, resumed from previous stage checkpoint
+  dataloader_state_restore: forbidden        # stage parquet is new; old data.pt position must not be applied
+  shuffle: false                             # order is fixed by the selector output
+  resume_path: identical for every boundary and both arms (adapter + optimizer + scheduler step)
+  fallback_if_optimizer_state_unrecoverable: "both arms of that seed reinitialise AdamW moments identically; recorded as deviation"
+
+selector:
+  version: fd-v1
+  cells: [constraint_violation, missing_dependency, stale_version]   # fault_type; families NOT used
+  pi0: {constraint_violation: 0.375, missing_dependency: 0.3125, stale_version: 0.3125}   # train_fault_only pool shares
+  window_updates: 20                        # previous 20 updates of the SAME branch; stage 1 uses shared U1-U20
+  failure: binary_reward == 0
+  infra_excluded: "rollouts with an infra diagnostic flag are dropped from numerator and denominator and counted separately"
+  failure_rate_estimate: "f_c = (fail_c + 1) / (n_c + 2)"
+  mix: "p_c = rho * pi0_c + (1 - rho) * f_c / sum_k f_k"
+  cap: {max_p: 0.6, excess_redistribution: proportional_to_pi0_over_uncapped_cells}
+  allocation: "largest remainder of 40 * p_c; ties broken by cell order above"
+  within_cell_order: "permutation seeded by selector_seed (shared across arms); instances seen in U1-U20 of this seed go last; cycle when exhausted"
+  record: stage_distribution record per architecture.md section 7 (version, window, input record refs, per-cell n/fail/infra, f_c, p_c, counts, seed)
+
+evaluation:
+  dev_health: {updates: [50, 80], manifest: dev, eval_seed: 310000, rollouts_per_instance: 4, role: monitoring_only}
+  final_checkpoint: U80                    # no dev-based selection
+  test:
+    manifest: artifacts/self_improve/r3/data/test_manifest.json   # sha256 prefix 072e6fe876c3, never evaluated before R4
+    rollouts_per_instance: 4
+    evaluation_sampling_seed: 410000       # identical per-(instance, rollout) seeds for every model
+    models: [base, "fixed_{42,137,2718}_U80", "failure_driven_{42,137,2718}_U80"]
+    unseal_condition: all six branches finished or stopped under the rules below
+
+estimands:
+  unit: test fault instance i (40); y_{m,i,r} in {0,1}; FCR_m = mean over i, r
+  Q1_s: "FCR(fixed_s) - FCR(base)"
+  Q2_s: "FCR(failure_driven_s) - FCR(fixed_s)"
+  pooled: mean over the three seeds
+  paired_instance_difference: "d_i = mean_r (y_{A,i,r} - y_{B,i,r})"
+  interval: "95% percentile CI, instance-cluster bootstrap over the 40 fault instances, 10000 resamples, bootstrap_seed"
+  descriptive_only: "exact sign test on discordant rollout pairs (not clustered)"
+  caveat_required: "CI covers test-instance and evaluation-sampling uncertainty only; training-seed variance is not estimated (n=3)"
+  guardrail: "test normal pass rate (10 instances) of the claimed model >= base - 0.05"
+
+decision_rules:
+  Q2_failure_driven_better: "all three Q2_s > 0 AND pooled Q2 CI lower bound > 0 AND guardrail passes"
+  Q2_failure_driven_worse: "all three Q2_s < 0 AND pooled Q2 CI upper bound < 0"
+  Q2_otherwise: no_evidence_of_difference     # report MDE from synthetic power run; never phrase as 'adaptive beats GRPO'
+  Q1_fixed_improves: "all three Q1_s > 0 AND pooled Q1 CI lower bound > 0 AND guardrail passes"
+
+synthetic_controls:
+  - "equal f_c across cells -> p == pi0 exactly"
+  - "rho = 1 -> p == pi0 for any input"
+  - "cell with n_c = 0 -> f_c = 0.5, no NaN/inf"
+  - "one cell f=1, others 0 -> cap respected, every cell >= rho * pi0_c, sum p = 1 within 1e-12"
+  - "allocation sums to exactly 40 and each count within 1 of 40 * p_c"
+  - "same inputs + seed -> byte-identical stage_distribution JSON across two processes"
+  - "A/A: identical outcomes for both arms -> every d_i = 0, Q2 = 0, CI = [0, 0]"
+  - "null simulation, 1000 reps, both arms Bernoulli(p_i) with p_i drawn from base dev per-instance rates -> CI covers 0 in [0.93, 0.97] of reps"
+  - "power simulation: shift +0.05 and +0.10 -> report detection rate (defines MDE)"
+
+stops:
+  numerical: "NaN loss or grad_norm > 100 -> stop branch"
+  infra: "a stage fails to complete its 10 updates twice -> stop branch; no silent resume"
+  truncation_rule: "if any branch of a seed stops early, both arms of that seed are compared at the last stage both completed; seed reported as truncated"
+  budget: see budget
+
+amendments:
+  - id: A1-infra-definition
+    date: "2026-09-27"
+    before_any_selector_run: true
+    reason: >-
+      'infra diagnostic flag' was ambiguous. Warm-up records (R4-A1) carry model-behaviour flags
+      (field_not_in_schema, no_read_config, excessive_queries; 26/320 rollouts for seed 42, 24 of them
+      failures). Excluding every flagged rollout would drop mostly failures and bias f_c downward.
+    rule: >-
+      A rollout is infra-excluded iff 'infra_error' is in diagnostic_flags (equivalently
+      termination_reason == 'infra_error', src/tasks/tool_recovery/environment.py:86-88).
+      All other flags and terminations (invalid_action, max_steps, tool_call_limit, ...) are ordinary
+      policy outcomes and count by binary_reward.
+  - id: A1-resume-facts
+    date: "2026-09-27"
+    before_any_selector_run: true
+    reason: >-
+      R4-A1 confirmed the R3c U20 checkpoints have lora_adapter + optim + extra_state (RNG, scheduler)
+      + data.pt but NOT the model shard (pruned). The base weights are frozen, so the actor state is
+      fully determined by base model + lora_adapter.
+    rule: >-
+      stages.resume_path is realised as: actor initialised from base + lora_adapter of the previous
+      checkpoint; optimizer and extra_state loaded from that checkpoint; global_step set to the boundary;
+      data.pt never loaded. Seed 2718 warm-up and every R4 stage checkpoint use the same path.
+      The U80 'EngineCore crash' in R3c is reclassified as one-epoch dataloader exhaustion
+      (320 rows / batch 4, total_epochs=1) followed by a vLLM shutdown error after TRAIN_EXIT=0.
+  - id: A2-mix-formula
+    date: "2026-09-27"
+    before_any_selector_run_on_r4_records: true
+    reason: >-
+      Spec error (Claude Code): 'mix' normalised f_c without pi0, so equal failure rates gave
+      rho*pi0 + (1-rho)/3, contradicting the frozen control 'equal f_c -> p == pi0'. R4-A2 patched this
+      with an equality special case, which makes p discontinuous at f_1 = f_2 = f_3. The intended rule is
+      exposure-neutral reweighting of the pool distribution.
+    rule: "p_c = rho * pi0_c + (1 - rho) * pi0_c * f_c / sum_k (pi0_k * f_k)   # no special cases"
+    worked_examples:
+      r3b_rates: {f: [0.131148, 0.509434, 0.244898], p: [0.253571, 0.460261, 0.286169], counts: [10, 18, 12]}
+      stage1_seed_42_fd: {p: [0.2252, 0.4725, 0.3023], counts: [9, 19, 12]}
+      stage1_seed_137_fd: {p: [0.2886, 0.4804, 0.2311], counts: [12, 19, 9]}
+  - id: A2-stage-row-order
+    date: "2026-09-27"
+    before_any_selector_run_on_r4_records: true
+    reason: >-
+      build_stage_rows emits rows grouped by cell; with data.shuffle=False each batch would be
+      single-cell and the stage would run a hidden within-stage curriculum (CV block, then MD, then SV).
+    rule: >-
+      After selecting the 40 rows, permute them with PCG64(int(sha256(f'r4|{train_seed}|stage|{k}').hexdigest()[:8], 16)),
+      k = stage index 1..6, same seed for both arms. The parquet is written in that order; data.shuffle stays False.
+  - id: A2-power-model
+    date: "2026-09-27"
+    reason: >-
+      The 'common random numbers' power variant is degenerate: identical p_i plus a shared uniform
+      gives identical outcomes (coverage 100%, CI width 0), and under a shift every discordance is
+      upward, overstating power.
+    rule: >-
+      Replace it with a partially coupled model: per rollout, with probability q the two arms draw
+      independent uniforms, otherwise they share one. q is calibrated so the null discordance rate on
+      fault rollouts matches an observed pair of trained checkpoints; report two calibrations as bounds:
+      q_hi from dev seed_42 U20 vs seed_137 U20 and q_lo from dev seed_42 U50 vs seed_42 U80.
+      The independent variant is kept as the conservative bound.
