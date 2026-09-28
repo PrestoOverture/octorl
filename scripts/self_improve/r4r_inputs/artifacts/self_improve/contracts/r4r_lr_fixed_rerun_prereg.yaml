@@ -1,0 +1,99 @@
+contract_id: r4r-lr-fixed-rerun-v1
+frozen_at: "2026-09-28T00:00:00+08:00"
+status: frozen_before_any_r4r_training_or_test2_generation
+inherits: r4-failure-driven-vs-fixed-v1   # artifacts/self_improve/contracts/r4_failure_driven_prereg.yaml incl. amendments A1/A2
+question: "Q1/Q2 as in R4, re-run with the LR schedule that R4's prereg specified but did not realise."
+
+why_rerun:
+  deviation: >-
+    R4 prereg line 10 froze optimizer_schedule_total_steps: 100 (cosine identical to R3c). The stage runner passed
+    actor.optim.total_training_steps=100, but veRL 0.7.0 verl/trainer/ppo/ray_trainer.py:424-436 overwrites it with
+    trainer.total_training_steps (the stage target 30..80). Each stage's cosine therefore decayed to 0 within 10 updates
+    and the first update of stages 2-6 ran at LR 0. Cumulative LR over U21-U80 was 10.5% of R3c (seeds 42/137) and 7.6%
+    (seed 2718, whose 20-update warm-up also ran a 20-step horizon). The resolved-config dump is printed before the
+    overwrite, so the deviation was invisible in logs other than actor/lr.
+  found_by: "R5 offline gap audit (2026-09-28), independently recomputed by Claude Code from diagnostics CSVs"
+  other_stage_dependent_config_mutations: "none (audit of every open_dict / config assignment in veRL ray_trainer.py, fsdp_workers.py and Agent-R1 trainer)"
+  r4_verdicts_status: >-
+    R4 verdict strings are kept as the output of the as-run schedule and labelled 'protocol deviation: LR horizon'.
+    They are superseded, not averaged with R4r. The decision to re-run was taken after the R4 test was opened;
+    this is why R4r's primary endpoint is a freshly generated test sample (test2).
+
+training:
+  identical_to_r4_except: [lr_horizon, seed_2718_warmup, run_root]
+  lr_horizon: >-
+    The scheduler horizon is 100 in every process (warm-up and all stages). Reference curve = R3c seed 137 logged actor/lr
+    (artifacts/self_improve/r5/raw/octorl_r3c/seed_137/metrics_target_100.jsonl), global steps 1..80. This equals
+    2e-5 * (s-1)/5 for s-1 < 5, else 2e-5 * 0.5 * (1 + cos(pi * (s-1-5) / 95)), within 3.4e-21.
+  seed_2718_warmup: "re-run from base with the R3c config and horizon 100, data_seed 2718, 20 updates; R4's 2718 warm-up checkpoint is not used"
+  forks: {"42": r3c seed_42 global_step_20, "137": r3c seed_137 global_step_20, "2718": r4r warm-up global_step_20}
+  run_root: /root/autodl-tmp/octorl_r4r
+  selector, stages, arms, budget_unit, seeds, sampling, resume_path, dataloader_state_restore, stops: inherited unchanged
+
+gates:   # all enforced in code; any failure stops the queue, no automatic retry
+  lr_gate: "after every warm-up/stage process: each logged actor/lr at global step s equals the reference at s within 1e-12 absolute"
+  selection_identity_gate: >-
+    fixed arm, every stage, all seeds: selection.json and train.parquet task order byte-identical to R4's
+    (artifacts/self_improve/r4/remote_records/seed_*/fixed/stage_*/selection.json); failure_driven arm stage 1 for seeds
+    42 and 137 likewise. For seed 2718 this additionally requires the re-run warm-up to reproduce R4's warm-up task
+    order; if it does not, stop and escalate (do not proceed on a changed seen-set).
+  prereg_hash_gate: "queue refuses to start or continue if this file's sha256 differs from the value recorded at launch"
+  preflight_gpu: >-
+    before the queue: (a) 2 updates resumed from r3c seed_137 U20 through the R4r stage runner must log LR equal to
+    the reference at U21 and U22 and log optimizer + lr_scheduler loads; (b) 2 updates of the seed-2718 warm-up path
+    from base must log reference LR at U1 and U2. Scratch outputs, deleted after the check.
+
+budget:
+  training_hard_ceiling_cny: 80.0          # six branches + 2718 warm-up
+  per_branch_stop_cny: 15.0
+  evaluation_ceiling_cny: 4.0
+  gpu_hour_rate_cny: 2.18
+
+evaluation:
+  final_checkpoint: U80                     # no dev-based selection
+  dev_health: inherited (monitoring only)
+  primary_test:                            # 'test2'
+    families: [deployment_service, notification_service]   # the R3 held-out test families, disjoint from train/dev
+    generator_version: identical to artifacts/self_improve/r3/data/test_manifest.json
+    start_seed: 300000
+    counts: {constraint_violation: 60, missing_dependency: 52, stale_version: 48, normal: 40}   # 4x the R3 test slots
+    uniqueness: "no fingerprint shared with the train, dev or R3 test manifests; if the generator cannot reach the counts, stop and report (never shrink silently)"
+    sealed: "manifest + sha256 recorded before any model is evaluated on it; no evaluation until all six branches finish or stop"
+    rollouts_per_instance: 4
+    evaluation_sampling_seed: 510000        # identical per-(instance, rollout) seeds for every model
+    models: [base, "fixed_{42,137,2718}_U80", "failure_driven_{42,137,2718}_U80"]
+  secondary_test:
+    manifest: artifacts/self_improve/r3/data/test_manifest.json   # R4 test, already opened
+    evaluation_sampling_seed: 410000
+    models: same seven (base re-evaluated in the same session)
+    role: continuity with R4 only; no decision authority
+  exploratory:
+    models: [r3c_42_u80, r3c_137_u80]
+    on: [primary_test]
+    label: "exploratory, not pre-registered for any decision"
+
+estimands:
+  as_r4_with:
+    unit: "test2 fault instance i (160)"
+    bootstrap: "instance-cluster percentile bootstrap over the 160 fault instances, 10000 resamples"
+    bootstrap_seed: 20260928
+    guardrail: "test2 normal pass rate (40 instances) of the claimed model >= base - 0.05"
+  secondary_test_analysis: "R4 estimands unchanged (40 instances, bootstrap_seed 20260927)"
+  caveat_required: inherited
+
+decision_rules: inherited from R4 verbatim, applied to the primary test only
+
+power:   # run on CPU before any R4r training output exists; recorded in the R4r pre-launch record
+  model: "A2-power-model (independent; partially coupled with q_lo and q_hi calibrated exactly as in R4)"
+  instance_rates: "p_i for 160 instances drawn with replacement from the base dev per-instance fault pass rates, PCG64(20260928)"
+  shifts: [0.0, 0.03, 0.05, 0.10]
+  reps: 1000
+  seed: 20260928
+  report: "detection rate per condition and shift; 80%-power MDE per condition; null coverage in [0.93, 0.97]"
+  regression_control: "the generalised analysis code reproduces artifacts/self_improve/r4/r4_analysis.json exactly on the R4 inputs (n=40)"
+
+remote_storage:
+  authorised_by_user: "2026-09-28: archive old R4 checkpoints locally, then delete on the remote"
+  archive_scope: /root/autodl-tmp/octorl_r4/{seed_42,seed_137,seed_2718,validation}
+  keep_remote: /root/autodl-tmp/octorl_r4/test_eval and everything outside octorl_r4
+  deletion: "by Claude Code only, after every archived file's remote and local sha256 match"

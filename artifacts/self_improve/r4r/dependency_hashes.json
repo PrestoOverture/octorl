@@ -1,0 +1,54 @@
+{
+  "files": [
+    {
+      "path": "scripts/self_improve/r4_run_branch.py",
+      "local_sha256": "ff46f7ec0742066ddf55578f993f98329592f993400c693db0c14bf76b757b50",
+      "remote_sha256": "ff46f7ec0742066ddf55578f993f98329592f993400c693db0c14bf76b757b50",
+      "modified": false
+    },
+    {
+      "path": "scripts/self_improve/r4_train_stage.sh",
+      "local_sha256": "21af478715f5c95b851a6d7d8bc51a70b2bd181303e20b4e776eec23e8e4a3b8",
+      "remote_sha256": "21af478715f5c95b851a6d7d8bc51a70b2bd181303e20b4e776eec23e8e4a3b8",
+      "modified": false
+    },
+    {
+      "path": "scripts/self_improve/r4_warmup.sh",
+      "local_sha256": "0645dee1cef629f6c0727489c5ee820ee945effbc9a6ba9c3ee99f021e69e82c",
+      "remote_sha256": "0645dee1cef629f6c0727489c5ee820ee945effbc9a6ba9c3ee99f021e69e82c",
+      "modified": false
+    },
+    {
+      "path": "scripts/self_improve/r4_attribute_steps.py",
+      "local_sha256": "1305b09c4154f25e039af77044e64927f301b720f445b9b548a4d05eea2870b1",
+      "remote_sha256": "1305b09c4154f25e039af77044e64927f301b720f445b9b548a4d05eea2870b1",
+      "modified": false
+    },
+    {
+      "path": "src/curriculum/failure_driven.py",
+      "local_sha256": "3a1345ede37be2a6b5cd5a825e24aaf2d6d0ce8f1f2d2f73e65d86962c888b66",
+      "remote_sha256": "3a1345ede37be2a6b5cd5a825e24aaf2d6d0ce8f1f2d2f73e65d86962c888b66",
+      "modified": false
+    },
+    {
+      "path": "artifacts/self_improve/r3/data/train_fault_only.parquet",
+      "local_sha256": "be80cce2d133b215b048c207e90da8e99976723590dcb0a70d5f4dd0c1ec84d4",
+      "remote_sha256": "be80cce2d133b215b048c207e90da8e99976723590dcb0a70d5f4dd0c1ec84d4",
+      "modified": false
+    },
+    {
+      "path": "artifacts/self_improve/r4/warmup_records/seed_42.jsonl",
+      "local_sha256": "00203c6f82bd739f95e4d744388819a4ec78c9298f8742a59d8db5bf5daf39c5",
+      "remote_sha256": "00203c6f82bd739f95e4d744388819a4ec78c9298f8742a59d8db5bf5daf39c5",
+      "modified": false
+    },
+    {
+      "path": "artifacts/self_improve/r4/warmup_records/seed_137.jsonl",
+      "local_sha256": "0b3e6c91a36f173d80eac73d2eb363f1a577cd4f7a4de36c928cfb2ab1c60a48",
+      "remote_sha256": "0b3e6c91a36f173d80eac73d2eb363f1a577cd4f7a4de36c928cfb2ab1c60a48",
+      "modified": false
+    }
+  ],
+  "verl_source_sha256": "811aadb6c480a3ebd02f2242981a513d056ceb309347aebd6eff9ba5e52590ec",
+  "verl_modified": false
+}

@@ -1,0 +1,18 @@
+{
+  "files": [
+    {
+      "path": "/root/Agent-R1/agent_r1/trainer/ppo/ray_trainer.py",
+      "before_sha256": "808eff533b131ef8de0678d96a76fffadce5f04e29b83cf0b535145d6435e1f7",
+      "after_sha256": "c892431308edebf94789176ce2051d303271722da74b4e76d2b8b253587a0682"
+    },
+    {
+      "path": "/root/Agent-R1/agent_r1/workers/fsdp_workers.py",
+      "before_sha256": "e710ad4a756a7b47ba9d3d2adb3f0f651c682621d563b56d09e5cbfc37c3c9d2",
+      "after_sha256": "e2548c3be5a3983e113096a3a50a314d0f19b929c1dc9042a37319d5d919764d"
+    }
+  ],
+  "patch_sha256": "44709cd4c219526241c95fe05f754aed5e4f5ac8141bc81a86d76472339adb7a",
+  "scheduler_source_remote_path": "/root/miniconda3/lib/python3.12/site-packages/verl/utils/torch_functional.py",
+  "scheduler_source_sha256": "811aadb6c480a3ebd02f2242981a513d056ceb309347aebd6eff9ba5e52590ec",
+  "scheduler_function_sha256": "2c25eda6b36876c879f03fae087522ca0c934b46b69d384c47668d59756901f8"
+}

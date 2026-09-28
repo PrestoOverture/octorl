@@ -20,3 +20,6 @@ artifacts/s3/excluded_pilot_*/
 
 # R5 local adapter weights
 artifacts/self_improve/r5/checkpoints/
+
+# Verified local archive of old R4 (never stage checkpoint weights)
+artifacts/self_improve/r4/checkpoint_archive/

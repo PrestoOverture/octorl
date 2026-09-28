@@ -1,0 +1,76 @@
+{
+  "scheduler": {
+    "fixed_reference_steps": 80,
+    "negative_fixed137_steps": 60,
+    "negative_warmup2718_steps": 20,
+    "fixed_max_tolerance": 1e-12,
+    "negative_max_tolerance": 1e-15,
+    "state_dict_restored_at_each_boundary": true,
+    "effective_targets": [
+      20,
+      30,
+      40,
+      50,
+      60,
+      70,
+      80
+    ]
+  },
+  "lr_gate": {
+    "positive": [
+      "R3c 137 original metrics",
+      "R3c 42 reconstructed metrics"
+    ],
+    "negative_r4_stages": 36,
+    "negative_warmup": true,
+    "missing_step_rejected": true,
+    "missing_marker_rejected": true
+  },
+  "selection_gate": {
+    "positive_fixed_stages": 18,
+    "positive_fd_stage1": 2,
+    "changed_selection_rejected": true,
+    "reordered_parquet_rejected": true,
+    "warmup_step_multiset_change_rejected": true
+  },
+  "queue_cpu_stub": {
+    "all_jobs": 37,
+    "fail_stop": [
+      "lr",
+      "selection",
+      "prereg",
+      "warmup",
+      "numerical",
+      "infra",
+      "budget",
+      "preflight"
+    ],
+    "skip_done": true,
+    "refuse_half_finished": true,
+    "no_automatic_retry": true,
+    "prereg_change_between_processes_rejected": true
+  },
+  "seeds": {
+    "test2_start": 300000,
+    "power_and_bootstrap": 20260928,
+    "archive_sample": 20260928,
+    "legacy_regression": 20260927
+  },
+  "analysis_regression": {
+    "deep_equal_all_fields": true,
+    "n": 40,
+    "seed": 20260927
+  },
+  "power_null_coverage": {
+    "coupled_q_hi": true,
+    "coupled_q_lo": false,
+    "independent": true
+  },
+  "execution_boundary": {
+    "gpu_preflight": "dry-run only",
+    "training_launched": false,
+    "model_evaluation_launched": false,
+    "remote_deletion": false,
+    "commit_created": false
+  }
+}

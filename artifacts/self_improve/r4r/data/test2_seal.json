@@ -1,0 +1,32 @@
+{
+  "counts": {
+    "constraint_violation": 60,
+    "missing_dependency": 52,
+    "normal": 40,
+    "stale_version": 48
+  },
+  "dedup_evidence": {
+    "dev": {
+      "manifest_sha256": "b865c8f79e4498fd342946da7273c8722deca24536a50673b802f8bf5a913ca9",
+      "overlap_count": 0
+    },
+    "test": {
+      "manifest_sha256": "072e6fe876c34d2ec03055b9b1fef6d7a0ff6f8ac8ff924bbc26fab5ee720f88",
+      "overlap_count": 0
+    },
+    "train": {
+      "manifest_sha256": "ea4dafa969dcf92b9748e9e81d784f55a85c563c6fdafdee1007cc5ea3aea110",
+      "overlap_count": 0
+    }
+  },
+  "families": [
+    "deployment_service",
+    "notification_service"
+  ],
+  "generator_version": "r2.0",
+  "manifest_sha256": "1b729b717c3dfffde8579cf19bb2eb1fae9b446aba6890d3fd75e96f47f38bb3",
+  "model_evaluated": false,
+  "parquet_sha256": "4451801e13cb1fc1ea23626ef0d8f1b1f4a48c02f0e1b4831f73c587bccb9f4c",
+  "start_seed": 300000,
+  "unique_fingerprints": 200
+}

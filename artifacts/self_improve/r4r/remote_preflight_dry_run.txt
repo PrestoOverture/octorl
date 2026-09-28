@@ -1,0 +1,7 @@
+Prepare fixed seed-137 stage 1 with the frozen selector and verify selection identity.
+python3 /root/octorl_r3/scripts/self_improve/r4r_launch.py stage --preflight --root /root/autodl-tmp/r4r_preflight/checks 137 fixed 1 20 /root/autodl-tmp/r4r_preflight/checks/resume/seed_137/fixed/stage_1/train.parquet /root/autodl-tmp/octorl_r3c/seed_137/checkpoints/global_step_20 /root/autodl-tmp/r4r_preflight/checks/resume/seed_137/fixed/stage_1/attempt_1 > /root/autodl-tmp/r4r_preflight/checks/resume/seed_137/fixed/stage_1/attempt_1/training.log 2>&1
+python3 scripts/self_improve/r4r_lr_gate.py --metrics /root/autodl-tmp/r4r_preflight/checks/resume/seed_137/fixed/stage_1/attempt_1/metrics_target_22.jsonl --log /root/autodl-tmp/r4r_preflight/checks/resume/seed_137/fixed/stage_1/attempt_1/training.log --start 21 --end 22
+python3 /root/octorl_r3/scripts/self_improve/r4r_launch.py warmup --preflight --root /root/autodl-tmp/r4r_preflight/checks --output /root/autodl-tmp/r4r_preflight/checks/warmup > /root/autodl-tmp/r4r_preflight/checks/warmup/training.log 2>&1
+python3 scripts/self_improve/r4r_lr_gate.py --metrics /root/autodl-tmp/r4r_preflight/checks/warmup/metrics_target_2.jsonl --log /root/autodl-tmp/r4r_preflight/checks/warmup/training.log --start 1 --end 2
+Require optimizer and lr_scheduler load lines in /root/autodl-tmp/r4r_preflight/checks/resume/seed_137/fixed/stage_1/attempt_1/training.log
+Print results, then delete only scratch /root/autodl-tmp/r4r_preflight/checks

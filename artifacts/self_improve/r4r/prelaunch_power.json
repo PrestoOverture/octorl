@@ -1,0 +1,114 @@
+{
+  "aa_ci": [
+    0.0,
+    0.0
+  ],
+  "calibrations": {
+    "coupled_q_hi": {
+      "fault_rollout_pairs": 160,
+      "independent_null_discordance_rate": 0.14375,
+      "observed_discordance_rate": 0.0375,
+      "q": 0.2608695652173913
+    },
+    "coupled_q_lo": {
+      "fault_rollout_pairs": 160,
+      "independent_null_discordance_rate": 0.14375,
+      "observed_discordance_rate": 0.00625,
+      "q": 0.04347826086956522
+    }
+  },
+  "conditions": {
+    "coupled_q_hi": {
+      "q": 0.2608695652173913,
+      "shifts": {
+        "0.00": {
+          "coverage_of_zero": 0.943,
+          "detection_rate": 0.034,
+          "mean_ci_width": 0.026097539062499994
+        },
+        "0.03": {
+          "coverage_of_zero": 0.62,
+          "detection_rate": 0.38,
+          "mean_ci_width": 0.030892734374999998
+        },
+        "0.05": {
+          "coverage_of_zero": 0.27,
+          "detection_rate": 0.73,
+          "mean_ci_width": 0.03364476562499999
+        },
+        "0.10": {
+          "coverage_of_zero": 0.002,
+          "detection_rate": 0.998,
+          "mean_ci_width": 0.040764804687499996
+        }
+      }
+    },
+    "coupled_q_lo": {
+      "q": 0.04347826086956522,
+      "shifts": {
+        "0.00": {
+          "coverage_of_zero": 0.972,
+          "detection_rate": 0.014,
+          "mean_ci_width": 0.009896992187499998
+        },
+        "0.03": {
+          "coverage_of_zero": 0.261,
+          "detection_rate": 0.739,
+          "mean_ci_width": 0.020509921874999996
+        },
+        "0.05": {
+          "coverage_of_zero": 0.03,
+          "detection_rate": 0.97,
+          "mean_ci_width": 0.025141132812499994
+        },
+        "0.10": {
+          "coverage_of_zero": 0.0,
+          "detection_rate": 1.0,
+          "mean_ci_width": 0.03524308593749999
+        }
+      }
+    },
+    "independent": {
+      "q": 1.0,
+      "shifts": {
+        "0.00": {
+          "coverage_of_zero": 0.951,
+          "detection_rate": 0.027,
+          "mean_ci_width": 0.05119167968749999
+        },
+        "0.03": {
+          "coverage_of_zero": 0.849,
+          "detection_rate": 0.151,
+          "mean_ci_width": 0.05251648437499999
+        },
+        "0.05": {
+          "coverage_of_zero": 0.664,
+          "detection_rate": 0.336,
+          "mean_ci_width": 0.05342449218749999
+        },
+        "0.10": {
+          "coverage_of_zero": 0.161,
+          "detection_rate": 0.839,
+          "mean_ci_width": 0.056357382812499995
+        }
+      }
+    }
+  },
+  "instance_rate_sampling": "replacement, PCG64(20260928)",
+  "mde_at_80pct_power": {
+    "coupled_q_hi": 0.1,
+    "coupled_q_lo": 0.05,
+    "independent": 0.1
+  },
+  "n": 160,
+  "null_acceptance_rule": "independent: coverage of 0 in [0.93, 0.97]; coupled: coverage reported, Type I (shift 0 detection) <= 0.05",
+  "null_coverage_pass": {
+    "coupled_q_hi": true,
+    "coupled_q_lo": true,
+    "independent": true
+  },
+  "reps": 1000,
+  "resamples": 10000,
+  "seed": 20260928,
+  "source": "base dev per-instance fault rates"
+}
