@@ -77,6 +77,12 @@ def main():
     prereg_gate(WORKSPACE,scratch)
     print(json.dumps(results,indent=2),flush=True)
     prereg_gate(WORKSPACE,a.run_root)
+    # Keep the first-hand evidence (metrics + logs) before the scratch checkpoints are deleted.
+    evidence=a.run_root/'preflight_evidence'
+    for name,directory,end in (('resume',attempt,22),('warmup',warmup,2)):
+        (evidence/name).mkdir(parents=True,exist_ok=True)
+        for source in (directory/f'metrics_target_{end}.jsonl',directory/'training.log'):
+            shutil.copy2(source,evidence/name/source.name)
     (a.run_root/'preflight_pass.json').write_text(json.dumps(dict(prereg_sha256=EXPECTED,
         resume_steps=[21,22],warmup_steps=[1,2],optimizer_load=True,lr_scheduler_load=True,lr_gates=['PASS','PASS'],results=results),indent=2)+'\n')
     shutil.rmtree(scratch)

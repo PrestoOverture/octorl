@@ -1,0 +1,52 @@
+{
+  "prereg_sha256": "46d844d862eb55048c3be346ecf4ebc56f8f1133596e54bd4221891a256f78a4",
+  "resume_steps": [
+    21,
+    22
+  ],
+  "warmup_steps": [
+    1,
+    2
+  ],
+  "optimizer_load": true,
+  "lr_scheduler_load": true,
+  "lr_gates": [
+    "PASS",
+    "PASS"
+  ],
+  "results": [
+    {
+      "command": [
+        "python3",
+        "/root/octorl_r3/scripts/self_improve/r4r_launch.py",
+        "stage",
+        "--preflight",
+        "--root",
+        "/root/autodl-tmp/r4r_preflight/checks",
+        "137",
+        "fixed",
+        "1",
+        "20",
+        "/root/autodl-tmp/r4r_preflight/checks/resume/seed_137/fixed/stage_1/train.parquet",
+        "/root/autodl-tmp/octorl_r3c/seed_137/checkpoints/global_step_20",
+        "/root/autodl-tmp/r4r_preflight/checks/resume/seed_137/fixed/stage_1/attempt_1"
+      ],
+      "lr_gate": "PASS",
+      "loads": "PASS"
+    },
+    {
+      "command": [
+        "python3",
+        "/root/octorl_r3/scripts/self_improve/r4r_launch.py",
+        "warmup",
+        "--preflight",
+        "--root",
+        "/root/autodl-tmp/r4r_preflight/checks",
+        "--output",
+        "/root/autodl-tmp/r4r_preflight/checks/warmup"
+      ],
+      "lr_gate": "PASS",
+      "loads": "fresh base"
+    }
+  ]
+}

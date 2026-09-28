@@ -54,8 +54,8 @@
     },
     {
       "path": "scripts/self_improve/r4r_preflight.py",
-      "local_sha256": "a89878669fc4b0a4086c3cd7e8a43d8399215e3a057da4c069f3fe5f41cad648",
-      "remote_sha256": "a89878669fc4b0a4086c3cd7e8a43d8399215e3a057da4c069f3fe5f41cad648"
+      "local_sha256": "82192c66d631f8c2e76679e43065df95c5b5ab55c931ebef42b2a9990eae740b",
+      "remote_sha256": "82192c66d631f8c2e76679e43065df95c5b5ab55c931ebef42b2a9990eae740b"
     },
     {
       "path": "scripts/self_improve/r4r_preflight.sh",
