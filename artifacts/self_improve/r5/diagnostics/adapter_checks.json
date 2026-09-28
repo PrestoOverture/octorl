@@ -1,0 +1,106 @@
+[
+  {
+    "path": "/Users/kwang/projects/octorl/artifacts/self_improve/r5/checkpoints/r4_fixed_42_u80",
+    "tensor_count": 504,
+    "base_model_name_or_path": "/root/autodl-tmp/models/Qwen3-4B",
+    "revision": null,
+    "target_modules": ".*\\.(q_proj|k_proj|v_proj|o_proj|gate_proj|up_proj|down_proj)$",
+    "serialized_character_list_repaired_in_memory": true
+  },
+  {
+    "path": "/Users/kwang/projects/octorl/artifacts/self_improve/r5/checkpoints/r4_failure_driven_42_u80",
+    "tensor_count": 504,
+    "base_model_name_or_path": "/root/autodl-tmp/models/Qwen3-4B",
+    "revision": null,
+    "target_modules": ".*\\.(q_proj|k_proj|v_proj|o_proj|gate_proj|up_proj|down_proj)$",
+    "serialized_character_list_repaired_in_memory": true
+  },
+  {
+    "path": "/Users/kwang/projects/octorl/artifacts/self_improve/r5/checkpoints/r4_fixed_137_u80",
+    "tensor_count": 504,
+    "base_model_name_or_path": "/root/autodl-tmp/models/Qwen3-4B",
+    "revision": null,
+    "target_modules": ".*\\.(q_proj|k_proj|v_proj|o_proj|gate_proj|up_proj|down_proj)$",
+    "serialized_character_list_repaired_in_memory": true
+  },
+  {
+    "path": "/Users/kwang/projects/octorl/artifacts/self_improve/r5/checkpoints/r4_failure_driven_137_u80",
+    "tensor_count": 504,
+    "base_model_name_or_path": "/root/autodl-tmp/models/Qwen3-4B",
+    "revision": null,
+    "target_modules": ".*\\.(q_proj|k_proj|v_proj|o_proj|gate_proj|up_proj|down_proj)$",
+    "serialized_character_list_repaired_in_memory": true
+  },
+  {
+    "path": "/Users/kwang/projects/octorl/artifacts/self_improve/r5/checkpoints/r4_fixed_2718_u80",
+    "tensor_count": 504,
+    "base_model_name_or_path": "/root/autodl-tmp/models/Qwen3-4B",
+    "revision": null,
+    "target_modules": ".*\\.(q_proj|k_proj|v_proj|o_proj|gate_proj|up_proj|down_proj)$",
+    "serialized_character_list_repaired_in_memory": true
+  },
+  {
+    "path": "/Users/kwang/projects/octorl/artifacts/self_improve/r5/checkpoints/r4_failure_driven_2718_u80",
+    "tensor_count": 504,
+    "base_model_name_or_path": "/root/autodl-tmp/models/Qwen3-4B",
+    "revision": null,
+    "target_modules": ".*\\.(q_proj|k_proj|v_proj|o_proj|gate_proj|up_proj|down_proj)$",
+    "serialized_character_list_repaired_in_memory": true
+  },
+  {
+    "path": "/Users/kwang/projects/octorl/artifacts/self_improve/r5/checkpoints/r3c_42_u20",
+    "tensor_count": 504,
+    "base_model_name_or_path": "/root/autodl-tmp/models/Qwen3-4B",
+    "revision": null,
+    "target_modules": ".*\\.(q_proj|k_proj|v_proj|o_proj|gate_proj|up_proj|down_proj)$",
+    "serialized_character_list_repaired_in_memory": true
+  },
+  {
+    "path": "/Users/kwang/projects/octorl/artifacts/self_improve/r5/checkpoints/r3c_42_u50",
+    "tensor_count": 504,
+    "base_model_name_or_path": "/root/autodl-tmp/models/Qwen3-4B",
+    "revision": null,
+    "target_modules": ".*\\.(q_proj|k_proj|v_proj|o_proj|gate_proj|up_proj|down_proj)$",
+    "serialized_character_list_repaired_in_memory": true
+  },
+  {
+    "path": "/Users/kwang/projects/octorl/artifacts/self_improve/r5/checkpoints/r3c_42_u80",
+    "tensor_count": 504,
+    "base_model_name_or_path": "/root/autodl-tmp/models/Qwen3-4B",
+    "revision": null,
+    "target_modules": ".*\\.(q_proj|k_proj|v_proj|o_proj|gate_proj|up_proj|down_proj)$",
+    "serialized_character_list_repaired_in_memory": true
+  },
+  {
+    "path": "/Users/kwang/projects/octorl/artifacts/self_improve/r5/checkpoints/r3c_137_u20",
+    "tensor_count": 504,
+    "base_model_name_or_path": "/root/autodl-tmp/models/Qwen3-4B",
+    "revision": null,
+    "target_modules": ".*\\.(q_proj|k_proj|v_proj|o_proj|gate_proj|up_proj|down_proj)$",
+    "serialized_character_list_repaired_in_memory": true
+  },
+  {
+    "path": "/Users/kwang/projects/octorl/artifacts/self_improve/r5/checkpoints/r3c_137_u50",
+    "tensor_count": 504,
+    "base_model_name_or_path": "/root/autodl-tmp/models/Qwen3-4B",
+    "revision": null,
+    "target_modules": ".*\\.(q_proj|k_proj|v_proj|o_proj|gate_proj|up_proj|down_proj)$",
+    "serialized_character_list_repaired_in_memory": true
+  },
+  {
+    "path": "/Users/kwang/projects/octorl/artifacts/self_improve/r5/checkpoints/r3c_137_u80",
+    "tensor_count": 504,
+    "base_model_name_or_path": "/root/autodl-tmp/models/Qwen3-4B",
+    "revision": null,
+    "target_modules": ".*\\.(q_proj|k_proj|v_proj|o_proj|gate_proj|up_proj|down_proj)$",
+    "serialized_character_list_repaired_in_memory": true
+  },
+  {
+    "path": "/Users/kwang/projects/octorl/artifacts/self_improve/r5/checkpoints/r4_warmup_2718_u20",
+    "tensor_count": 504,
+    "base_model_name_or_path": "/root/autodl-tmp/models/Qwen3-4B",
+    "revision": null,
+    "target_modules": ".*\\.(q_proj|k_proj|v_proj|o_proj|gate_proj|up_proj|down_proj)$",
+    "serialized_character_list_repaired_in_memory": true
+  }
+]

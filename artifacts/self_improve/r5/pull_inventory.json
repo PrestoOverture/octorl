@@ -1,0 +1,806 @@
+{
+  "files": [
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_42/fixed/stage_1/attempt_1/metrics_target_30.jsonl",
+      "local_path": "raw/octorl_r4/seed_42/fixed/stage_1/attempt_1/metrics_target_30.jsonl",
+      "sha256": "7d09fb215e4ba605a9736823af6b7ffa279dda66fc4efeaa914bedf69b13e65d",
+      "bytes": 54984
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_42/fixed/stage_2/attempt_1/metrics_target_40.jsonl",
+      "local_path": "raw/octorl_r4/seed_42/fixed/stage_2/attempt_1/metrics_target_40.jsonl",
+      "sha256": "e47af1f821fb7d2684df947dd50cd9aae8286c1ec22308b1e292141d5c4bad15",
+      "bytes": 55250
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_42/fixed/stage_3/attempt_1/metrics_target_50.jsonl",
+      "local_path": "raw/octorl_r4/seed_42/fixed/stage_3/attempt_1/metrics_target_50.jsonl",
+      "sha256": "6da486c6c746735f451350bbe561a5b418340f974485dc49d65f4fc37160749e",
+      "bytes": 55192
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_42/fixed/stage_4/attempt_1/metrics_target_60.jsonl",
+      "local_path": "raw/octorl_r4/seed_42/fixed/stage_4/attempt_1/metrics_target_60.jsonl",
+      "sha256": "61c5857151d248be1da2d56ca0735ff3cb2f0d93997dc2cf33c18390644638b8",
+      "bytes": 55106
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_42/fixed/stage_5/attempt_1/metrics_target_70.jsonl",
+      "local_path": "raw/octorl_r4/seed_42/fixed/stage_5/attempt_1/metrics_target_70.jsonl",
+      "sha256": "123a6716bc8da33d766977b40d8a10aaf5e61f441eb6d7387902214c6a83b2c5",
+      "bytes": 55170
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_42/fixed/stage_6/attempt_1/metrics_target_80.jsonl",
+      "local_path": "raw/octorl_r4/seed_42/fixed/stage_6/attempt_1/metrics_target_80.jsonl",
+      "sha256": "f0fa31b2915b5d6f5baafa8499f82222bca20fcf41287e702020edf13a7064b2",
+      "bytes": 55166
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_1/attempt_1/metrics_target_30.jsonl",
+      "local_path": "raw/octorl_r4/seed_137/fixed/stage_1/attempt_1/metrics_target_30.jsonl",
+      "sha256": "374855bac9d451420b9adac555733e389deced42366ca826a14d708ad8416e66",
+      "bytes": 55199
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_2/attempt_1/metrics_target_40.jsonl",
+      "local_path": "raw/octorl_r4/seed_137/fixed/stage_2/attempt_1/metrics_target_40.jsonl",
+      "sha256": "0ddce6190847e4b6b2889481c24d09620ecdee81ced1a00321362e7386b686ab",
+      "bytes": 55172
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_3/attempt_1/metrics_target_50.jsonl",
+      "local_path": "raw/octorl_r4/seed_137/fixed/stage_3/attempt_1/metrics_target_50.jsonl",
+      "sha256": "456bbfa1dadd1e1a2f4a51dc5098d855609f88a037cc2a5c4331ee4b4aa448fc",
+      "bytes": 55162
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_4/attempt_1/metrics_target_60.jsonl",
+      "local_path": "raw/octorl_r4/seed_137/fixed/stage_4/attempt_1/metrics_target_60.jsonl",
+      "sha256": "8a3a26f61c6cf43f67eab1848c833c8f187acfdefb993477888d2ccd8faed763",
+      "bytes": 55154
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_5/attempt_1/metrics_target_70.jsonl",
+      "local_path": "raw/octorl_r4/seed_137/fixed/stage_5/attempt_1/metrics_target_70.jsonl",
+      "sha256": "81b1a717d83ed2ff5caaf2a68504932cca06e62fd8b1871b69268d9df59d539a",
+      "bytes": 55257
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_6/attempt_1/metrics_target_80.jsonl",
+      "local_path": "raw/octorl_r4/seed_137/fixed/stage_6/attempt_1/metrics_target_80.jsonl",
+      "sha256": "c0726f3d591f16d97ab2109487f31d477656c9a2258feaf220403508ab99ce55",
+      "bytes": 55129
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_2718/fixed/stage_1/attempt_1/metrics_target_30.jsonl",
+      "local_path": "raw/octorl_r4/seed_2718/fixed/stage_1/attempt_1/metrics_target_30.jsonl",
+      "sha256": "2f1815395ad0f45d0b1b6d784912a39f1a4f496037be3158d0c24797f1bbba05",
+      "bytes": 54972
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_2718/fixed/stage_2/attempt_1/metrics_target_40.jsonl",
+      "local_path": "raw/octorl_r4/seed_2718/fixed/stage_2/attempt_1/metrics_target_40.jsonl",
+      "sha256": "0954ed4f36f8faad5e4c3adb00302d92bd0b033dcc0fc947cc407e209ef8bb04",
+      "bytes": 55074
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_2718/fixed/stage_3/attempt_1/metrics_target_50.jsonl",
+      "local_path": "raw/octorl_r4/seed_2718/fixed/stage_3/attempt_1/metrics_target_50.jsonl",
+      "sha256": "4b054dc5baf08055c9477d960073c54a991d67c26a2d9e97626daac1ca19f343",
+      "bytes": 55229
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_2718/fixed/stage_4/attempt_1/metrics_target_60.jsonl",
+      "local_path": "raw/octorl_r4/seed_2718/fixed/stage_4/attempt_1/metrics_target_60.jsonl",
+      "sha256": "9698ed6b6c6babcbfa0869ca38282bd127e9e7ba58f6c48ea8515206d91ab6d5",
+      "bytes": 55186
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_2718/fixed/stage_5/attempt_1/metrics_target_70.jsonl",
+      "local_path": "raw/octorl_r4/seed_2718/fixed/stage_5/attempt_1/metrics_target_70.jsonl",
+      "sha256": "1874d7524f45515ed2be58d78270afff3e78b14ce05d27496117b539510fc8bf",
+      "bytes": 55226
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_2718/fixed/stage_6/attempt_1/metrics_target_80.jsonl",
+      "local_path": "raw/octorl_r4/seed_2718/fixed/stage_6/attempt_1/metrics_target_80.jsonl",
+      "sha256": "77513e5c43bbc0e13da5980e9846c1d712aa5808233f821ec8f564baac18feef",
+      "bytes": 55228
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_42/fixed/stage_1/attempt_1/training.log",
+      "local_path": "raw/octorl_r4/seed_42/fixed/stage_1/attempt_1/training.log",
+      "sha256": "6faeb55f6350cbf254c26570b13e9859d72a1b45317ac8160fe6c1e51da86b6c",
+      "bytes": 140318
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_42/fixed/stage_2/attempt_1/training.log",
+      "local_path": "raw/octorl_r4/seed_42/fixed/stage_2/attempt_1/training.log",
+      "sha256": "750547db5290cbd613a8dfd333afb1af2ef8a1dd85adbea4cbcb54f48631946b",
+      "bytes": 140408
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_42/fixed/stage_3/attempt_1/training.log",
+      "local_path": "raw/octorl_r4/seed_42/fixed/stage_3/attempt_1/training.log",
+      "sha256": "1fba98988445bd3422584e3914e71b9752e1d6a65e1b6469dfe45e04febb65fb",
+      "bytes": 140565
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_42/fixed/stage_4/attempt_1/training.log",
+      "local_path": "raw/octorl_r4/seed_42/fixed/stage_4/attempt_1/training.log",
+      "sha256": "23b68f2e44aec8af6865d5d50ebef6c119a71bb18a847a59303aed91cf80f6c1",
+      "bytes": 141154
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_42/fixed/stage_5/attempt_1/training.log",
+      "local_path": "raw/octorl_r4/seed_42/fixed/stage_5/attempt_1/training.log",
+      "sha256": "38644dd1c815427f9cadb316620f9ddefd7a266da98ddced0c399e5da0927d49",
+      "bytes": 140394
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_42/fixed/stage_6/attempt_1/training.log",
+      "local_path": "raw/octorl_r4/seed_42/fixed/stage_6/attempt_1/training.log",
+      "sha256": "c3be7668b4553db75bfec0bf6113d1d56c4b036585a9992f4c4db6d5e253a5fa",
+      "bytes": 140422
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_1/attempt_1/training.log",
+      "local_path": "raw/octorl_r4/seed_137/fixed/stage_1/attempt_1/training.log",
+      "sha256": "22f73a0337807dba263123e666e0a84e43913e8dfd2e93aa783d9dbad2ef922c",
+      "bytes": 141469
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_2/attempt_1/training.log",
+      "local_path": "raw/octorl_r4/seed_137/fixed/stage_2/attempt_1/training.log",
+      "sha256": "3bd673fd1907c09cdefd376d28d50251e395d344935a39a7be73f89ad742a4c0",
+      "bytes": 141968
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_3/attempt_1/training.log",
+      "local_path": "raw/octorl_r4/seed_137/fixed/stage_3/attempt_1/training.log",
+      "sha256": "c03bfb478d4d0558a8bb947a7beda598d1078427731f4817b7f68597dd52765a",
+      "bytes": 141611
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_4/attempt_1/training.log",
+      "local_path": "raw/octorl_r4/seed_137/fixed/stage_4/attempt_1/training.log",
+      "sha256": "daeaaa453997bd4b79140b533d714025152e2b3851fba964b369c16e14d379a9",
+      "bytes": 141226
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_5/attempt_1/training.log",
+      "local_path": "raw/octorl_r4/seed_137/fixed/stage_5/attempt_1/training.log",
+      "sha256": "45709c24fa4ad012c379b1cb7a4b77964aa2b08f86c677b59986e2512d4eb9d7",
+      "bytes": 142802
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_6/attempt_1/training.log",
+      "local_path": "raw/octorl_r4/seed_137/fixed/stage_6/attempt_1/training.log",
+      "sha256": "a2566d0c67d7e79084f373175f0a0f7947be6cda9ec50bf0c9cffcef0e9c3006",
+      "bytes": 141654
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_2718/fixed/stage_1/attempt_1/training.log",
+      "local_path": "raw/octorl_r4/seed_2718/fixed/stage_1/attempt_1/training.log",
+      "sha256": "f45ae9ebbfb2064318a9a9e734f9335a3bc283c774d7dbdec381b88e8edfc963",
+      "bytes": 141843
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_2718/fixed/stage_2/attempt_1/training.log",
+      "local_path": "raw/octorl_r4/seed_2718/fixed/stage_2/attempt_1/training.log",
+      "sha256": "34cdcaa9cfa70b0e2392b9ef63b7f10c854596528a3d08fcdd40f2a5ba713675",
+      "bytes": 142678
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_2718/fixed/stage_3/attempt_1/training.log",
+      "local_path": "raw/octorl_r4/seed_2718/fixed/stage_3/attempt_1/training.log",
+      "sha256": "6da16fc297d57c9444fa3454464a4029982f99d68e0c76dabbdc92956f05b06f",
+      "bytes": 142444
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_2718/fixed/stage_4/attempt_1/training.log",
+      "local_path": "raw/octorl_r4/seed_2718/fixed/stage_4/attempt_1/training.log",
+      "sha256": "746d7cf516cece217aa9e5c75ffdd9ec7b176ad83b87c0478086ec34dfdddcd7",
+      "bytes": 141774
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_2718/fixed/stage_5/attempt_1/training.log",
+      "local_path": "raw/octorl_r4/seed_2718/fixed/stage_5/attempt_1/training.log",
+      "sha256": "adfbcd778dc70870ecac94c4f700505910755562431c6a5b5662fc6d7af2cb76",
+      "bytes": 142539
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_2718/fixed/stage_6/attempt_1/training.log",
+      "local_path": "raw/octorl_r4/seed_2718/fixed/stage_6/attempt_1/training.log",
+      "sha256": "bda5948f61215f353ce44875c13a3970f916ff5dac3619da1a5bf40c76ec5cb2",
+      "bytes": 141403
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_42/failure_driven/stage_1/attempt_1/metrics_target_30.jsonl",
+      "local_path": "raw/octorl_r4/seed_42/failure_driven/stage_1/attempt_1/metrics_target_30.jsonl",
+      "sha256": "07b98d06412ae02277ff5b7f7b64194da78919bac8031c884ca8eeab41bdd688",
+      "bytes": 55066
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_42/failure_driven/stage_2/attempt_1/metrics_target_40.jsonl",
+      "local_path": "raw/octorl_r4/seed_42/failure_driven/stage_2/attempt_1/metrics_target_40.jsonl",
+      "sha256": "c442be4895f76e802b6e1b546ea3189b0f918fd2c1048845402f984fbe23f1ac",
+      "bytes": 55164
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_42/failure_driven/stage_3/attempt_1/metrics_target_50.jsonl",
+      "local_path": "raw/octorl_r4/seed_42/failure_driven/stage_3/attempt_1/metrics_target_50.jsonl",
+      "sha256": "d0ca7706757966019f0689a4c4ad423d93f721afc1ae3237abcf00c4c935d7ca",
+      "bytes": 55207
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_42/failure_driven/stage_4/attempt_1/metrics_target_60.jsonl",
+      "local_path": "raw/octorl_r4/seed_42/failure_driven/stage_4/attempt_1/metrics_target_60.jsonl",
+      "sha256": "7077cf2dbdc0e48a27cc5c4b16608e0024ceb67e4d81d3e18391b0a7e7a38911",
+      "bytes": 55004
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_42/failure_driven/stage_5/attempt_1/metrics_target_70.jsonl",
+      "local_path": "raw/octorl_r4/seed_42/failure_driven/stage_5/attempt_1/metrics_target_70.jsonl",
+      "sha256": "68c2b4fe7835b58e71df5a372fb22582e8df719ebdcec9f89f8c5e1951f17f27",
+      "bytes": 55091
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_42/failure_driven/stage_6/attempt_1/metrics_target_80.jsonl",
+      "local_path": "raw/octorl_r4/seed_42/failure_driven/stage_6/attempt_1/metrics_target_80.jsonl",
+      "sha256": "15cc12f4e39a0bf84c41527ad7e1a46679cb5716350f1d1f9bac4a175ad2d5ad",
+      "bytes": 55149
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_137/failure_driven/stage_1/attempt_1/metrics_target_30.jsonl",
+      "local_path": "raw/octorl_r4/seed_137/failure_driven/stage_1/attempt_1/metrics_target_30.jsonl",
+      "sha256": "5337b84f49244f325ae085969a62e1c9a41b3e74d321bad6cb7af3b9bee792dd",
+      "bytes": 55159
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_137/failure_driven/stage_2/attempt_1/metrics_target_40.jsonl",
+      "local_path": "raw/octorl_r4/seed_137/failure_driven/stage_2/attempt_1/metrics_target_40.jsonl",
+      "sha256": "5cf0450c4475f9d4cfb98ae4454e9ee65acb955b4306da7a80b644ddc8f36f3a",
+      "bytes": 55158
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_137/failure_driven/stage_3/attempt_1/metrics_target_50.jsonl",
+      "local_path": "raw/octorl_r4/seed_137/failure_driven/stage_3/attempt_1/metrics_target_50.jsonl",
+      "sha256": "a76c66545ff66e221545fede9a25765458687434d543d77804f3dbe1eb818bfa",
+      "bytes": 55190
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_137/failure_driven/stage_4/attempt_1/metrics_target_60.jsonl",
+      "local_path": "raw/octorl_r4/seed_137/failure_driven/stage_4/attempt_1/metrics_target_60.jsonl",
+      "sha256": "c97dac84fb1bab9162c0373532c25b2a6ba28ddaf8e48ff8da9b20bc6309dfdc",
+      "bytes": 55257
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_137/failure_driven/stage_5/attempt_1/metrics_target_70.jsonl",
+      "local_path": "raw/octorl_r4/seed_137/failure_driven/stage_5/attempt_1/metrics_target_70.jsonl",
+      "sha256": "bf60a7102dae6a94eba586cc55ee3695395119b86437c36d1b18d147013c9e2c",
+      "bytes": 55168
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_137/failure_driven/stage_6/attempt_1/metrics_target_80.jsonl",
+      "local_path": "raw/octorl_r4/seed_137/failure_driven/stage_6/attempt_1/metrics_target_80.jsonl",
+      "sha256": "501b2f0ef918beba07606bdd31242e1e832c9832441817e58440879101d1d71e",
+      "bytes": 55220
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_2718/failure_driven/stage_1/attempt_1/metrics_target_30.jsonl",
+      "local_path": "raw/octorl_r4/seed_2718/failure_driven/stage_1/attempt_1/metrics_target_30.jsonl",
+      "sha256": "72d4b6611aa4e58ceb0750dd42ed097552476ce7f83b1fce5de59eb68025ddaf",
+      "bytes": 55173
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_2718/failure_driven/stage_2/attempt_1/metrics_target_40.jsonl",
+      "local_path": "raw/octorl_r4/seed_2718/failure_driven/stage_2/attempt_1/metrics_target_40.jsonl",
+      "sha256": "32769e9436643be52420702b28357d2a9ea34366cd799ab60e5477ca2f9a66b1",
+      "bytes": 55173
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_2718/failure_driven/stage_3/attempt_1/metrics_target_50.jsonl",
+      "local_path": "raw/octorl_r4/seed_2718/failure_driven/stage_3/attempt_1/metrics_target_50.jsonl",
+      "sha256": "aa1dac91cc847c60cf5ca0b69dbd300e981640e18a410a35a469acbb833fdd7c",
+      "bytes": 55080
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_2718/failure_driven/stage_4/attempt_1/metrics_target_60.jsonl",
+      "local_path": "raw/octorl_r4/seed_2718/failure_driven/stage_4/attempt_1/metrics_target_60.jsonl",
+      "sha256": "cb5c652d3229d83c5e522137c648741bc9974c2ae640b3617f60cd084996e9f1",
+      "bytes": 55217
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_2718/failure_driven/stage_5/attempt_1/metrics_target_70.jsonl",
+      "local_path": "raw/octorl_r4/seed_2718/failure_driven/stage_5/attempt_1/metrics_target_70.jsonl",
+      "sha256": "c533a272ce98da576d172db6a42201b8ab7cd0e704a917c801b06302a757156f",
+      "bytes": 55151
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_2718/failure_driven/stage_6/attempt_1/metrics_target_80.jsonl",
+      "local_path": "raw/octorl_r4/seed_2718/failure_driven/stage_6/attempt_1/metrics_target_80.jsonl",
+      "sha256": "488a2f00719b09fd49680a06ca5ad9bf3a0dfe6a004766f7dd9b1726e87387a2",
+      "bytes": 55240
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_42/failure_driven/stage_1/attempt_1/training.log",
+      "local_path": "raw/octorl_r4/seed_42/failure_driven/stage_1/attempt_1/training.log",
+      "sha256": "4569aa5a6804f1eef9f678eadf240b9003a1e27745c38962b6357f79bbc7bbe6",
+      "bytes": 142363
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_42/failure_driven/stage_2/attempt_1/training.log",
+      "local_path": "raw/octorl_r4/seed_42/failure_driven/stage_2/attempt_1/training.log",
+      "sha256": "a62739574754cdf330daa2096850949c98af7536f9edac8f965f597753ba8ca2",
+      "bytes": 142235
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_42/failure_driven/stage_3/attempt_1/training.log",
+      "local_path": "raw/octorl_r4/seed_42/failure_driven/stage_3/attempt_1/training.log",
+      "sha256": "2c1100cb467014ca7666d34d31161182d6cb04e29ef418edf26a2d1ef0679725",
+      "bytes": 142431
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_42/failure_driven/stage_4/attempt_1/training.log",
+      "local_path": "raw/octorl_r4/seed_42/failure_driven/stage_4/attempt_1/training.log",
+      "sha256": "86b331feaf8f3620fc253089dbe79293b2d3011beb276cfe4cb91916fe877939",
+      "bytes": 141307
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_42/failure_driven/stage_5/attempt_1/training.log",
+      "local_path": "raw/octorl_r4/seed_42/failure_driven/stage_5/attempt_1/training.log",
+      "sha256": "de2a88eb6e7cbb41fd13f79b91661d564ce783b36b45a0f511846d41a7d5bf5a",
+      "bytes": 142435
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_42/failure_driven/stage_6/attempt_1/training.log",
+      "local_path": "raw/octorl_r4/seed_42/failure_driven/stage_6/attempt_1/training.log",
+      "sha256": "7a40765eff12fdd7ad94d1951ab42a7eff6b4ccf6cb5b320a4a01a5ae4985ca0",
+      "bytes": 142120
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_137/failure_driven/stage_1/attempt_1/training.log",
+      "local_path": "raw/octorl_r4/seed_137/failure_driven/stage_1/attempt_1/training.log",
+      "sha256": "d034dd029390ae801b11fcc3450acad3af8d8c269da72091693b3648b5bd16c2",
+      "bytes": 142438
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_137/failure_driven/stage_2/attempt_1/training.log",
+      "local_path": "raw/octorl_r4/seed_137/failure_driven/stage_2/attempt_1/training.log",
+      "sha256": "a1f0b9378ff9db3f89e23624f1250ac91af3cf5f027c3cea45ca9329b1e05a92",
+      "bytes": 142750
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_137/failure_driven/stage_3/attempt_1/training.log",
+      "local_path": "raw/octorl_r4/seed_137/failure_driven/stage_3/attempt_1/training.log",
+      "sha256": "1e4162bae0fa169ff07629113f0c099c4b2568724ac871c2e61b9b10a47c1524",
+      "bytes": 142296
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_137/failure_driven/stage_4/attempt_1/training.log",
+      "local_path": "raw/octorl_r4/seed_137/failure_driven/stage_4/attempt_1/training.log",
+      "sha256": "9cc1fdc8304113b5d595ce6c56ddde895a5a7d52e58d4be31586893ab79fab95",
+      "bytes": 142556
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_137/failure_driven/stage_5/attempt_1/training.log",
+      "local_path": "raw/octorl_r4/seed_137/failure_driven/stage_5/attempt_1/training.log",
+      "sha256": "8f1edd10107976b6afcce6c8508d40e88cecfc776eba6f38b556182fcf30004b",
+      "bytes": 141990
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_137/failure_driven/stage_6/attempt_1/training.log",
+      "local_path": "raw/octorl_r4/seed_137/failure_driven/stage_6/attempt_1/training.log",
+      "sha256": "26cb0de7346a71102b4fa6c9c6b97556ff4ef1503c29cf409b72a5c46ccb6ac8",
+      "bytes": 143497
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_2718/failure_driven/stage_1/attempt_1/training.log",
+      "local_path": "raw/octorl_r4/seed_2718/failure_driven/stage_1/attempt_1/training.log",
+      "sha256": "c395a92c11758b49b2783080c44702d5995e1a0a16d3d123c41dc8a4fb933a30",
+      "bytes": 141610
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_2718/failure_driven/stage_2/attempt_1/training.log",
+      "local_path": "raw/octorl_r4/seed_2718/failure_driven/stage_2/attempt_1/training.log",
+      "sha256": "702a47e2e5bef22fe80eeca236acd7a13bee40055f79ee99b4ddbc8bb493acd4",
+      "bytes": 142896
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_2718/failure_driven/stage_3/attempt_1/training.log",
+      "local_path": "raw/octorl_r4/seed_2718/failure_driven/stage_3/attempt_1/training.log",
+      "sha256": "de00595971c3ee128c713175bc829ce21d426bb8d6af45d883a1389d0999e477",
+      "bytes": 142450
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_2718/failure_driven/stage_4/attempt_1/training.log",
+      "local_path": "raw/octorl_r4/seed_2718/failure_driven/stage_4/attempt_1/training.log",
+      "sha256": "0a42cbb535f4602356bff0d6639e19dd4a4d06bb11101cfacddbdbc49af8f581",
+      "bytes": 141678
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_2718/failure_driven/stage_5/attempt_1/training.log",
+      "local_path": "raw/octorl_r4/seed_2718/failure_driven/stage_5/attempt_1/training.log",
+      "sha256": "8f4b825251387ad476a3278cca7d9fc68fe94e9bb4b071f3b88fa99be56695f5",
+      "bytes": 143192
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_2718/failure_driven/stage_6/attempt_1/training.log",
+      "local_path": "raw/octorl_r4/seed_2718/failure_driven/stage_6/attempt_1/training.log",
+      "sha256": "f115b246998d7ca6688123d66d1047842b37889638feecf460081266ee506819",
+      "bytes": 141558
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_2718/warmup/metrics_target_20.jsonl",
+      "local_path": "raw/octorl_r4/seed_2718/warmup/metrics_target_20.jsonl",
+      "sha256": "16bff05c57079dead095bb8117a84d1bdf5ed919836934ab06e81afbf77b85a6",
+      "bytes": 110306
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r3c/seed_42_train.log",
+      "local_path": "raw/octorl_r3c/seed_42_train.log",
+      "sha256": "ce055e7c64c09f64e5b227fd74a54a54f4326c6fc190ac8d2f843b3fb362dfdd",
+      "bytes": 723394
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r3c/seed_42_train_run4.log",
+      "local_path": "raw/octorl_r3c/seed_42_train_run4.log",
+      "sha256": "826e953667d7b90d83ce6006190ebaf6d9e01c601ed1c59afcb59eb74709053f",
+      "bytes": 80281
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r3c/seed_42_train_run5.log",
+      "local_path": "raw/octorl_r3c/seed_42_train_run5.log",
+      "sha256": "9375d23b113e922c661477ffebaeeaecc520d788c081f597625cf1439579e39e",
+      "bytes": 188
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r3c/seed_42_train_run5b.log",
+      "local_path": "raw/octorl_r3c/seed_42_train_run5b.log",
+      "sha256": "a89f9fd3a9609992b56fa8034bb46f9565149ffc387ba66fc5836e4266c0b41e",
+      "bytes": 80281
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r3c/seed_42_train_run6.log",
+      "local_path": "raw/octorl_r3c/seed_42_train_run6.log",
+      "sha256": "a16c37df10e6fd72954e4bfbb44f4b19f637c2dc6002264c0c74bfc14ee39d83",
+      "bytes": 81366
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r3c/seed_42_train_run7.log",
+      "local_path": "raw/octorl_r3c/seed_42_train_run7.log",
+      "sha256": "eeda64b94215998510733e171546d1944e4a74f6ef589991a4bc3877cd4cd2ad",
+      "bytes": 80315
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r3c/seed_42_train_run8.log",
+      "local_path": "raw/octorl_r3c/seed_42_train_run8.log",
+      "sha256": "89569f580b34f92e448c7340b89df88388ee517b6a557562bda389824d4af24d",
+      "bytes": 80315
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r3c/seed_137_train.log",
+      "local_path": "raw/octorl_r3c/seed_137_train.log",
+      "sha256": "ec129629b7e6fe33171db9b9e492536b9d8cea2161812540143d8ade26fe3e9b",
+      "bytes": 526346
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r3c/seed_137/metrics_target_100.jsonl",
+      "local_path": "raw/octorl_r3c/seed_137/metrics_target_100.jsonl",
+      "sha256": "677eb7714eff9772a108f8f90c967283ab393d14e76cc980a34923982f648342",
+      "bytes": 440281
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r3c/seed_42/exit.txt",
+      "local_path": "raw/octorl_r3c/seed_42/exit.txt",
+      "sha256": "53f1fb2a926d7e1a67f60e4283e155111c3acc294e8b9fe75f6cf88676f51485",
+      "bytes": 13
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r3c/seed_42/checkpoint_pruning.jsonl",
+      "local_path": "raw/octorl_r3c/seed_42/checkpoint_pruning.jsonl",
+      "sha256": "db10df4c7cc44cce1123228ad2ecd58e367289495a22fd37937e408962a926f0",
+      "bytes": 1604
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r3c/seed_137/checkpoint_pruning.jsonl",
+      "local_path": "raw/octorl_r3c/seed_137/checkpoint_pruning.jsonl",
+      "sha256": "440075d2c76afeb2190e3ce92b44f931ad60e2796fc579901bccf3fb0be2c016",
+      "bytes": 1029
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r3c/seed_42/checkpoints/latest_checkpointed_iteration.txt",
+      "local_path": "raw/octorl_r3c/seed_42/checkpoints/latest_checkpointed_iteration.txt",
+      "sha256": "95aebc97bc646c67fdcd923a5965b001f3c8a5c4d3a77075112e12a3a311d760",
+      "bytes": 3
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r3c/seed_137/checkpoints/latest_checkpointed_iteration.txt",
+      "local_path": "raw/octorl_r3c/seed_137/checkpoints/latest_checkpointed_iteration.txt",
+      "sha256": "48449a14a4ff7d79bb7a1b6f3d488eba397c36ef25634c111b49baf362511afc",
+      "bytes": 2
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r3c/seed_42/trajectories.jsonl",
+      "local_path": "raw/octorl_r3c/seed_42/trajectories.jsonl",
+      "sha256": "e6788b5eca3559521df3937bfb01bf7e3e0ffcab3e9a1ab0bbac0e2e05cc22dd",
+      "bytes": 3093635
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r3c/seed_137/trajectories.jsonl",
+      "local_path": "raw/octorl_r3c/seed_137/trajectories.jsonl",
+      "sha256": "64bcb6a9e1f0449902440d531d4515e3d104a016b3ccfc8ef5ae99519e648084",
+      "bytes": 2937490
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_42/fixed/stage_1/attempt_1/resume_view/lora_adapter/adapter_config.json",
+      "local_path": "raw/octorl_r4/seed_42/fixed/stage_1/attempt_1/resume_view/lora_adapter/adapter_config.json",
+      "sha256": "055e9d21c7f5d706043bb62c043480a1a5677265ffbb904eac1e64395d76aca1",
+      "bytes": 1184
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_42/fixed/stage_2/attempt_1/resume_view/lora_adapter/adapter_config.json",
+      "local_path": "raw/octorl_r4/seed_42/fixed/stage_2/attempt_1/resume_view/lora_adapter/adapter_config.json",
+      "sha256": "055e9d21c7f5d706043bb62c043480a1a5677265ffbb904eac1e64395d76aca1",
+      "bytes": 1184
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_42/fixed/stage_3/attempt_1/resume_view/lora_adapter/adapter_config.json",
+      "local_path": "raw/octorl_r4/seed_42/fixed/stage_3/attempt_1/resume_view/lora_adapter/adapter_config.json",
+      "sha256": "055e9d21c7f5d706043bb62c043480a1a5677265ffbb904eac1e64395d76aca1",
+      "bytes": 1184
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_42/fixed/stage_4/attempt_1/resume_view/lora_adapter/adapter_config.json",
+      "local_path": "raw/octorl_r4/seed_42/fixed/stage_4/attempt_1/resume_view/lora_adapter/adapter_config.json",
+      "sha256": "055e9d21c7f5d706043bb62c043480a1a5677265ffbb904eac1e64395d76aca1",
+      "bytes": 1184
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_42/fixed/stage_5/attempt_1/resume_view/lora_adapter/adapter_config.json",
+      "local_path": "raw/octorl_r4/seed_42/fixed/stage_5/attempt_1/resume_view/lora_adapter/adapter_config.json",
+      "sha256": "055e9d21c7f5d706043bb62c043480a1a5677265ffbb904eac1e64395d76aca1",
+      "bytes": 1184
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_42/fixed/stage_6/attempt_1/resume_view/lora_adapter/adapter_config.json",
+      "local_path": "raw/octorl_r4/seed_42/fixed/stage_6/attempt_1/resume_view/lora_adapter/adapter_config.json",
+      "sha256": "055e9d21c7f5d706043bb62c043480a1a5677265ffbb904eac1e64395d76aca1",
+      "bytes": 1184
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_1/attempt_1/resume_view/lora_adapter/adapter_config.json",
+      "local_path": "raw/octorl_r4/seed_137/fixed/stage_1/attempt_1/resume_view/lora_adapter/adapter_config.json",
+      "sha256": "055e9d21c7f5d706043bb62c043480a1a5677265ffbb904eac1e64395d76aca1",
+      "bytes": 1184
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_2/attempt_1/resume_view/lora_adapter/adapter_config.json",
+      "local_path": "raw/octorl_r4/seed_137/fixed/stage_2/attempt_1/resume_view/lora_adapter/adapter_config.json",
+      "sha256": "055e9d21c7f5d706043bb62c043480a1a5677265ffbb904eac1e64395d76aca1",
+      "bytes": 1184
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_3/attempt_1/resume_view/lora_adapter/adapter_config.json",
+      "local_path": "raw/octorl_r4/seed_137/fixed/stage_3/attempt_1/resume_view/lora_adapter/adapter_config.json",
+      "sha256": "055e9d21c7f5d706043bb62c043480a1a5677265ffbb904eac1e64395d76aca1",
+      "bytes": 1184
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_4/attempt_1/resume_view/lora_adapter/adapter_config.json",
+      "local_path": "raw/octorl_r4/seed_137/fixed/stage_4/attempt_1/resume_view/lora_adapter/adapter_config.json",
+      "sha256": "055e9d21c7f5d706043bb62c043480a1a5677265ffbb904eac1e64395d76aca1",
+      "bytes": 1184
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_5/attempt_1/resume_view/lora_adapter/adapter_config.json",
+      "local_path": "raw/octorl_r4/seed_137/fixed/stage_5/attempt_1/resume_view/lora_adapter/adapter_config.json",
+      "sha256": "055e9d21c7f5d706043bb62c043480a1a5677265ffbb904eac1e64395d76aca1",
+      "bytes": 1184
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_6/attempt_1/resume_view/lora_adapter/adapter_config.json",
+      "local_path": "raw/octorl_r4/seed_137/fixed/stage_6/attempt_1/resume_view/lora_adapter/adapter_config.json",
+      "sha256": "055e9d21c7f5d706043bb62c043480a1a5677265ffbb904eac1e64395d76aca1",
+      "bytes": 1184
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_2718/fixed/stage_1/attempt_1/resume_view/lora_adapter/adapter_config.json",
+      "local_path": "raw/octorl_r4/seed_2718/fixed/stage_1/attempt_1/resume_view/lora_adapter/adapter_config.json",
+      "sha256": "055e9d21c7f5d706043bb62c043480a1a5677265ffbb904eac1e64395d76aca1",
+      "bytes": 1184
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_2718/fixed/stage_2/attempt_1/resume_view/lora_adapter/adapter_config.json",
+      "local_path": "raw/octorl_r4/seed_2718/fixed/stage_2/attempt_1/resume_view/lora_adapter/adapter_config.json",
+      "sha256": "055e9d21c7f5d706043bb62c043480a1a5677265ffbb904eac1e64395d76aca1",
+      "bytes": 1184
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_2718/fixed/stage_3/attempt_1/resume_view/lora_adapter/adapter_config.json",
+      "local_path": "raw/octorl_r4/seed_2718/fixed/stage_3/attempt_1/resume_view/lora_adapter/adapter_config.json",
+      "sha256": "055e9d21c7f5d706043bb62c043480a1a5677265ffbb904eac1e64395d76aca1",
+      "bytes": 1184
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_2718/fixed/stage_4/attempt_1/resume_view/lora_adapter/adapter_config.json",
+      "local_path": "raw/octorl_r4/seed_2718/fixed/stage_4/attempt_1/resume_view/lora_adapter/adapter_config.json",
+      "sha256": "055e9d21c7f5d706043bb62c043480a1a5677265ffbb904eac1e64395d76aca1",
+      "bytes": 1184
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_2718/fixed/stage_5/attempt_1/resume_view/lora_adapter/adapter_config.json",
+      "local_path": "raw/octorl_r4/seed_2718/fixed/stage_5/attempt_1/resume_view/lora_adapter/adapter_config.json",
+      "sha256": "055e9d21c7f5d706043bb62c043480a1a5677265ffbb904eac1e64395d76aca1",
+      "bytes": 1184
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_2718/fixed/stage_6/attempt_1/resume_view/lora_adapter/adapter_config.json",
+      "local_path": "raw/octorl_r4/seed_2718/fixed/stage_6/attempt_1/resume_view/lora_adapter/adapter_config.json",
+      "sha256": "055e9d21c7f5d706043bb62c043480a1a5677265ffbb904eac1e64395d76aca1",
+      "bytes": 1184
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_42/fixed/stage_6/attempt_1/checkpoints/global_step_80/actor/lora_adapter/adapter_model.safetensors",
+      "local_path": "checkpoints/r4_fixed_42_u80/adapter_model.safetensors",
+      "sha256": "cd52e7a3c154876c390a2ac36927c24ddd0d71509431d4b1bcb9a0d82b72626e",
+      "bytes": 132187856
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_42/fixed/stage_6/attempt_1/checkpoints/global_step_80/actor/lora_adapter/adapter_config.json",
+      "local_path": "checkpoints/r4_fixed_42_u80/adapter_config.json",
+      "sha256": "c2e0cac31ab2dc4f81ebb49aa0648809a39f667cd5096c2f7f713ececaa8bd1f",
+      "bytes": 2019
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_42/failure_driven/stage_6/attempt_1/checkpoints/global_step_80/actor/lora_adapter/adapter_model.safetensors",
+      "local_path": "checkpoints/r4_failure_driven_42_u80/adapter_model.safetensors",
+      "sha256": "f0f6f8d19c002c963a6f78b3ef9a617e7f0721b49d8bc4a6badeda9e8c2c076a",
+      "bytes": 132187856
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_42/failure_driven/stage_6/attempt_1/checkpoints/global_step_80/actor/lora_adapter/adapter_config.json",
+      "local_path": "checkpoints/r4_failure_driven_42_u80/adapter_config.json",
+      "sha256": "c2e0cac31ab2dc4f81ebb49aa0648809a39f667cd5096c2f7f713ececaa8bd1f",
+      "bytes": 2019
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_6/attempt_1/checkpoints/global_step_80/actor/lora_adapter/adapter_model.safetensors",
+      "local_path": "checkpoints/r4_fixed_137_u80/adapter_model.safetensors",
+      "sha256": "98d745dde0dd1f12a4e4c90d0bfd169d463c715787c0003507d3a85d06634343",
+      "bytes": 132187856
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_6/attempt_1/checkpoints/global_step_80/actor/lora_adapter/adapter_config.json",
+      "local_path": "checkpoints/r4_fixed_137_u80/adapter_config.json",
+      "sha256": "c2e0cac31ab2dc4f81ebb49aa0648809a39f667cd5096c2f7f713ececaa8bd1f",
+      "bytes": 2019
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_137/failure_driven/stage_6/attempt_1/checkpoints/global_step_80/actor/lora_adapter/adapter_model.safetensors",
+      "local_path": "checkpoints/r4_failure_driven_137_u80/adapter_model.safetensors",
+      "sha256": "6fedd36a8b4cba4ca70383d1bb611751df2e48782ac96fef4d89c11c700b9196",
+      "bytes": 132187856
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_137/failure_driven/stage_6/attempt_1/checkpoints/global_step_80/actor/lora_adapter/adapter_config.json",
+      "local_path": "checkpoints/r4_failure_driven_137_u80/adapter_config.json",
+      "sha256": "c2e0cac31ab2dc4f81ebb49aa0648809a39f667cd5096c2f7f713ececaa8bd1f",
+      "bytes": 2019
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_2718/fixed/stage_6/attempt_1/checkpoints/global_step_80/actor/lora_adapter/adapter_model.safetensors",
+      "local_path": "checkpoints/r4_fixed_2718_u80/adapter_model.safetensors",
+      "sha256": "c75d104f2a64275703898f14a2cf533fbb5cd4d3bcfa73c6c38641dffd66f8ad",
+      "bytes": 132187856
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_2718/fixed/stage_6/attempt_1/checkpoints/global_step_80/actor/lora_adapter/adapter_config.json",
+      "local_path": "checkpoints/r4_fixed_2718_u80/adapter_config.json",
+      "sha256": "c2e0cac31ab2dc4f81ebb49aa0648809a39f667cd5096c2f7f713ececaa8bd1f",
+      "bytes": 2019
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_2718/failure_driven/stage_6/attempt_1/checkpoints/global_step_80/actor/lora_adapter/adapter_model.safetensors",
+      "local_path": "checkpoints/r4_failure_driven_2718_u80/adapter_model.safetensors",
+      "sha256": "cef415bea02048c491709d594c46a7b1a867ca4c8e2880e6b622a6eb3f6c16e7",
+      "bytes": 132187856
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_2718/failure_driven/stage_6/attempt_1/checkpoints/global_step_80/actor/lora_adapter/adapter_config.json",
+      "local_path": "checkpoints/r4_failure_driven_2718_u80/adapter_config.json",
+      "sha256": "c2e0cac31ab2dc4f81ebb49aa0648809a39f667cd5096c2f7f713ececaa8bd1f",
+      "bytes": 2019
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r3c/seed_42/checkpoints/global_step_20/actor/lora_adapter/adapter_model.safetensors",
+      "local_path": "checkpoints/r3c_42_u20/adapter_model.safetensors",
+      "sha256": "f7af949bee5feb930b589bbeeea277ae3ecbf4a3cc5a8078e8b89ca21ee25262",
+      "bytes": 132187856
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r3c/seed_42/checkpoints/global_step_20/actor/lora_adapter/adapter_config.json",
+      "local_path": "checkpoints/r3c_42_u20/adapter_config.json",
+      "sha256": "c2e0cac31ab2dc4f81ebb49aa0648809a39f667cd5096c2f7f713ececaa8bd1f",
+      "bytes": 2019
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r3c/seed_42/checkpoints/global_step_50/actor/lora_adapter/adapter_model.safetensors",
+      "local_path": "checkpoints/r3c_42_u50/adapter_model.safetensors",
+      "sha256": "8c46174265bdbc741aa96857f460fd8e9a0bb716dd89d06bc148d2a178779865",
+      "bytes": 132187856
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r3c/seed_42/checkpoints/global_step_50/actor/lora_adapter/adapter_config.json",
+      "local_path": "checkpoints/r3c_42_u50/adapter_config.json",
+      "sha256": "c2e0cac31ab2dc4f81ebb49aa0648809a39f667cd5096c2f7f713ececaa8bd1f",
+      "bytes": 2019
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r3c/seed_42/checkpoints/global_step_80/actor/lora_adapter/adapter_model.safetensors",
+      "local_path": "checkpoints/r3c_42_u80/adapter_model.safetensors",
+      "sha256": "78fab16f387539028971a9db5b6485a9308025dda5af3b1cd755dd02f329acff",
+      "bytes": 132187856
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r3c/seed_42/checkpoints/global_step_80/actor/lora_adapter/adapter_config.json",
+      "local_path": "checkpoints/r3c_42_u80/adapter_config.json",
+      "sha256": "c2e0cac31ab2dc4f81ebb49aa0648809a39f667cd5096c2f7f713ececaa8bd1f",
+      "bytes": 2019
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r3c/seed_137/checkpoints/global_step_20/actor/lora_adapter/adapter_model.safetensors",
+      "local_path": "checkpoints/r3c_137_u20/adapter_model.safetensors",
+      "sha256": "e7d68fd875e46487187d14e8554e749045145b744b3c23904243e9c577f7d316",
+      "bytes": 132187856
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r3c/seed_137/checkpoints/global_step_20/actor/lora_adapter/adapter_config.json",
+      "local_path": "checkpoints/r3c_137_u20/adapter_config.json",
+      "sha256": "c2e0cac31ab2dc4f81ebb49aa0648809a39f667cd5096c2f7f713ececaa8bd1f",
+      "bytes": 2019
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r3c/seed_137/checkpoints/global_step_50/actor/lora_adapter/adapter_model.safetensors",
+      "local_path": "checkpoints/r3c_137_u50/adapter_model.safetensors",
+      "sha256": "870731351f5e420011dbbfd0b22477025d09b916f2c374fb2b5f131fdc4a7bb8",
+      "bytes": 132187856
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r3c/seed_137/checkpoints/global_step_50/actor/lora_adapter/adapter_config.json",
+      "local_path": "checkpoints/r3c_137_u50/adapter_config.json",
+      "sha256": "c2e0cac31ab2dc4f81ebb49aa0648809a39f667cd5096c2f7f713ececaa8bd1f",
+      "bytes": 2019
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r3c/seed_137/checkpoints/global_step_80/actor/lora_adapter/adapter_model.safetensors",
+      "local_path": "checkpoints/r3c_137_u80/adapter_model.safetensors",
+      "sha256": "1b39b3d5584914d85a21baa476f8e9cc2123bb3142d47250237f650b268be751",
+      "bytes": 132187856
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r3c/seed_137/checkpoints/global_step_80/actor/lora_adapter/adapter_config.json",
+      "local_path": "checkpoints/r3c_137_u80/adapter_config.json",
+      "sha256": "c2e0cac31ab2dc4f81ebb49aa0648809a39f667cd5096c2f7f713ececaa8bd1f",
+      "bytes": 2019
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_2718/warmup/checkpoints/global_step_20/actor/lora_adapter/adapter_model.safetensors",
+      "local_path": "checkpoints/r4_warmup_2718_u20/adapter_model.safetensors",
+      "sha256": "d7bb078f73dc2fc9889fc930864fc98e939db08a10b788a85cc030316f181719",
+      "bytes": 132187856
+    },
+    {
+      "remote_path": "/root/autodl-tmp/octorl_r4/seed_2718/warmup/checkpoints/global_step_20/actor/lora_adapter/adapter_config.json",
+      "local_path": "checkpoints/r4_warmup_2718_u20/adapter_config.json",
+      "sha256": "c2e0cac31ab2dc4f81ebb49aa0648809a39f667cd5096c2f7f713ececaa8bd1f",
+      "bytes": 2019
+    }
+  ],
+  "missing": [],
+  "started_unix": 1790592949.08308,
+  "finished_unix": 1790594440.716597,
+  "remote_session_wall_seconds": 1491.6335170269012
+}

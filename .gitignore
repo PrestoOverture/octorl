@@ -17,3 +17,6 @@ AGENTS.md
 CLAUDE.md
 artifacts/s3/run_*/
 artifacts/s3/excluded_pilot_*/
+
+# R5 local adapter weights
+artifacts/self_improve/r5/checkpoints/

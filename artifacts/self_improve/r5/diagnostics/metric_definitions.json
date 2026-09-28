@@ -1,0 +1,20 @@
+{
+  "columns": {
+    "reward_mean": "r3b/reward_mean",
+    "effective_group_rate": "r3b/mixed_group_fraction",
+    "kl": "actor/kl_loss",
+    "entropy": "actor/entropy",
+    "response_length_mean": "response_length/mean",
+    "response_length_trajectory_mean": "response_length/trajectory/mean",
+    "grad_norm": "actor/grad_norm",
+    "clip_fraction": "actor/pg_clipfrac",
+    "lr": "actor/lr",
+    "step_seconds": "timing_s/step",
+    "pg_loss": "actor/pg_loss",
+    "advantage_zero_fraction": "r3b/advantage_zero_frac"
+  },
+  "effective_group_rate": "Fraction of original reward groups with non-identical rewards. This is NOT the fraction of non-zero Sign advantages: A=2r-1 remains non-zero in uniform groups.",
+  "reward_mean": "Trajectory-level binary reward, not token/turn-averaged critic/rewards/mean.",
+  "kl": "actor/kl_loss (low_var_kl), not rollout importance-sampling KL.",
+  "timing": "Only logged timing fields. No isolated offload/sync time is inferred from aggregate generation or actor time."
+}

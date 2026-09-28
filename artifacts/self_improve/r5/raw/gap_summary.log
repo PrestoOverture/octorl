@@ -1,0 +1,54 @@
+{
+  "config_diff_count": {
+    "1": 13,
+    "2": 13,
+    "3": 13,
+    "4": 13,
+    "5": 13,
+    "6": 13
+  },
+  "lr_max_difference": 1.6933514855869664e-05,
+  "distribution": {
+    "r3c": {
+      "rows": 240,
+      "unique_instances": 240,
+      "fault_share": {
+        "constraint_violation": 0.3458333333333333,
+        "missing_dependency": 0.3375,
+        "stale_version": 0.31666666666666665
+      },
+      "family_share": {
+        "auth_service": 0.15416666666666667,
+        "cache_service": 0.175,
+        "logging_service": 0.15833333333333333,
+        "network_service": 0.14166666666666666,
+        "queue_service": 0.21666666666666667,
+        "storage_service": 0.15416666666666667
+      }
+    },
+    "r4_fixed": {
+      "rows": 240,
+      "unique_instances": 240,
+      "fault_share": {
+        "constraint_violation": 0.375,
+        "missing_dependency": 0.325,
+        "stale_version": 0.3
+      },
+      "family_share": {
+        "auth_service": 0.15416666666666667,
+        "cache_service": 0.175,
+        "logging_service": 0.15833333333333333,
+        "network_service": 0.14583333333333334,
+        "queue_service": 0.2125,
+        "storage_service": 0.15416666666666667
+      }
+    },
+    "instance_overlap": 233,
+    "same_order": false,
+    "warmup_unique": 80,
+    "r3c_warmup_reused_rows": 0,
+    "r4_warmup_reused_rows": 7,
+    "r3c_order_basis": "first-seen groups in numbered dumps; within-batch dataloader order is not independently established",
+    "r3c_dump_trajectory_multiset_check": "all 80 batches match; 16 trajectories, four unique tasks with four rollouts each"
+  }
+}

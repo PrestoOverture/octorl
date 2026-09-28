@@ -1,0 +1,434 @@
+{
+  "1": {
+    "r3c_source": "artifacts/self_improve/r5/raw/octorl_r3c/seed_137_train.log:5-589",
+    "r4_source": "artifacts/self_improve/r5/raw/octorl_r4/seed_137/fixed/stage_1/attempt_1/training.log:5-586",
+    "differences": {
+      "actor_rollout_ref.actor.checkpoint.load_contents": {
+        "r3c": [
+          "model",
+          "optimizer",
+          "extra"
+        ],
+        "r4": [
+          "optimizer",
+          "extra"
+        ]
+      },
+      "actor_rollout_ref.actor.checkpoint.save_contents": {
+        "r3c": [
+          "model",
+          "optimizer",
+          "extra"
+        ],
+        "r4": [
+          "optimizer",
+          "extra"
+        ]
+      },
+      "actor_rollout_ref.model.lora_adapter_path": {
+        "r3c": null,
+        "r4": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_1/attempt_1/resume_view/lora_adapter"
+      },
+      "data.shuffle": {
+        "r3c": true,
+        "r4": false
+      },
+      "data.train_files": {
+        "r3c": "/root/octorl_r3/artifacts/self_improve/r3/data/train_fault_only.parquet",
+        "r4": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_1/train.parquet"
+      },
+      "trainer.default_local_dir": {
+        "r3c": "/root/autodl-tmp/octorl_r3c/seed_137/checkpoints",
+        "r4": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_1/attempt_1/checkpoints"
+      },
+      "trainer.experiment_name": {
+        "r3c": "r3c_seed_137",
+        "r4": "r4_seed_137_fixed_stage_1"
+      },
+      "trainer.project_name": {
+        "r3c": "octorl_r3c",
+        "r4": "octorl_r4"
+      },
+      "trainer.resume_from_path": {
+        "r3c": null,
+        "r4": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_1/attempt_1/resume_view/global_step_20"
+      },
+      "trainer.resume_mode": {
+        "r3c": "disable",
+        "r4": "resume_path"
+      },
+      "trainer.rollout_data_dir": {
+        "r3c": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts",
+        "r4": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_1/attempt_1/rollouts"
+      },
+      "trainer.total_epochs": {
+        "r3c": 1,
+        "r4": 3
+      },
+      "trainer.total_training_steps": {
+        "r3c": 100,
+        "r4": 30
+      }
+    }
+  },
+  "2": {
+    "r3c_source": "artifacts/self_improve/r5/raw/octorl_r3c/seed_137_train.log:5-589",
+    "r4_source": "artifacts/self_improve/r5/raw/octorl_r4/seed_137/fixed/stage_2/attempt_1/training.log:5-586",
+    "differences": {
+      "actor_rollout_ref.actor.checkpoint.load_contents": {
+        "r3c": [
+          "model",
+          "optimizer",
+          "extra"
+        ],
+        "r4": [
+          "optimizer",
+          "extra"
+        ]
+      },
+      "actor_rollout_ref.actor.checkpoint.save_contents": {
+        "r3c": [
+          "model",
+          "optimizer",
+          "extra"
+        ],
+        "r4": [
+          "optimizer",
+          "extra"
+        ]
+      },
+      "actor_rollout_ref.model.lora_adapter_path": {
+        "r3c": null,
+        "r4": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_2/attempt_1/resume_view/lora_adapter"
+      },
+      "data.shuffle": {
+        "r3c": true,
+        "r4": false
+      },
+      "data.train_files": {
+        "r3c": "/root/octorl_r3/artifacts/self_improve/r3/data/train_fault_only.parquet",
+        "r4": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_2/train.parquet"
+      },
+      "trainer.default_local_dir": {
+        "r3c": "/root/autodl-tmp/octorl_r3c/seed_137/checkpoints",
+        "r4": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_2/attempt_1/checkpoints"
+      },
+      "trainer.experiment_name": {
+        "r3c": "r3c_seed_137",
+        "r4": "r4_seed_137_fixed_stage_2"
+      },
+      "trainer.project_name": {
+        "r3c": "octorl_r3c",
+        "r4": "octorl_r4"
+      },
+      "trainer.resume_from_path": {
+        "r3c": null,
+        "r4": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_2/attempt_1/resume_view/global_step_30"
+      },
+      "trainer.resume_mode": {
+        "r3c": "disable",
+        "r4": "resume_path"
+      },
+      "trainer.rollout_data_dir": {
+        "r3c": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts",
+        "r4": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_2/attempt_1/rollouts"
+      },
+      "trainer.total_epochs": {
+        "r3c": 1,
+        "r4": 4
+      },
+      "trainer.total_training_steps": {
+        "r3c": 100,
+        "r4": 40
+      }
+    }
+  },
+  "3": {
+    "r3c_source": "artifacts/self_improve/r5/raw/octorl_r3c/seed_137_train.log:5-589",
+    "r4_source": "artifacts/self_improve/r5/raw/octorl_r4/seed_137/fixed/stage_3/attempt_1/training.log:5-586",
+    "differences": {
+      "actor_rollout_ref.actor.checkpoint.load_contents": {
+        "r3c": [
+          "model",
+          "optimizer",
+          "extra"
+        ],
+        "r4": [
+          "optimizer",
+          "extra"
+        ]
+      },
+      "actor_rollout_ref.actor.checkpoint.save_contents": {
+        "r3c": [
+          "model",
+          "optimizer",
+          "extra"
+        ],
+        "r4": [
+          "optimizer",
+          "extra"
+        ]
+      },
+      "actor_rollout_ref.model.lora_adapter_path": {
+        "r3c": null,
+        "r4": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_3/attempt_1/resume_view/lora_adapter"
+      },
+      "data.shuffle": {
+        "r3c": true,
+        "r4": false
+      },
+      "data.train_files": {
+        "r3c": "/root/octorl_r3/artifacts/self_improve/r3/data/train_fault_only.parquet",
+        "r4": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_3/train.parquet"
+      },
+      "trainer.default_local_dir": {
+        "r3c": "/root/autodl-tmp/octorl_r3c/seed_137/checkpoints",
+        "r4": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_3/attempt_1/checkpoints"
+      },
+      "trainer.experiment_name": {
+        "r3c": "r3c_seed_137",
+        "r4": "r4_seed_137_fixed_stage_3"
+      },
+      "trainer.project_name": {
+        "r3c": "octorl_r3c",
+        "r4": "octorl_r4"
+      },
+      "trainer.resume_from_path": {
+        "r3c": null,
+        "r4": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_3/attempt_1/resume_view/global_step_40"
+      },
+      "trainer.resume_mode": {
+        "r3c": "disable",
+        "r4": "resume_path"
+      },
+      "trainer.rollout_data_dir": {
+        "r3c": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts",
+        "r4": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_3/attempt_1/rollouts"
+      },
+      "trainer.total_epochs": {
+        "r3c": 1,
+        "r4": 5
+      },
+      "trainer.total_training_steps": {
+        "r3c": 100,
+        "r4": 50
+      }
+    }
+  },
+  "4": {
+    "r3c_source": "artifacts/self_improve/r5/raw/octorl_r3c/seed_137_train.log:5-589",
+    "r4_source": "artifacts/self_improve/r5/raw/octorl_r4/seed_137/fixed/stage_4/attempt_1/training.log:5-586",
+    "differences": {
+      "actor_rollout_ref.actor.checkpoint.load_contents": {
+        "r3c": [
+          "model",
+          "optimizer",
+          "extra"
+        ],
+        "r4": [
+          "optimizer",
+          "extra"
+        ]
+      },
+      "actor_rollout_ref.actor.checkpoint.save_contents": {
+        "r3c": [
+          "model",
+          "optimizer",
+          "extra"
+        ],
+        "r4": [
+          "optimizer",
+          "extra"
+        ]
+      },
+      "actor_rollout_ref.model.lora_adapter_path": {
+        "r3c": null,
+        "r4": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_4/attempt_1/resume_view/lora_adapter"
+      },
+      "data.shuffle": {
+        "r3c": true,
+        "r4": false
+      },
+      "data.train_files": {
+        "r3c": "/root/octorl_r3/artifacts/self_improve/r3/data/train_fault_only.parquet",
+        "r4": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_4/train.parquet"
+      },
+      "trainer.default_local_dir": {
+        "r3c": "/root/autodl-tmp/octorl_r3c/seed_137/checkpoints",
+        "r4": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_4/attempt_1/checkpoints"
+      },
+      "trainer.experiment_name": {
+        "r3c": "r3c_seed_137",
+        "r4": "r4_seed_137_fixed_stage_4"
+      },
+      "trainer.project_name": {
+        "r3c": "octorl_r3c",
+        "r4": "octorl_r4"
+      },
+      "trainer.resume_from_path": {
+        "r3c": null,
+        "r4": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_4/attempt_1/resume_view/global_step_50"
+      },
+      "trainer.resume_mode": {
+        "r3c": "disable",
+        "r4": "resume_path"
+      },
+      "trainer.rollout_data_dir": {
+        "r3c": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts",
+        "r4": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_4/attempt_1/rollouts"
+      },
+      "trainer.total_epochs": {
+        "r3c": 1,
+        "r4": 6
+      },
+      "trainer.total_training_steps": {
+        "r3c": 100,
+        "r4": 60
+      }
+    }
+  },
+  "5": {
+    "r3c_source": "artifacts/self_improve/r5/raw/octorl_r3c/seed_137_train.log:5-589",
+    "r4_source": "artifacts/self_improve/r5/raw/octorl_r4/seed_137/fixed/stage_5/attempt_1/training.log:5-586",
+    "differences": {
+      "actor_rollout_ref.actor.checkpoint.load_contents": {
+        "r3c": [
+          "model",
+          "optimizer",
+          "extra"
+        ],
+        "r4": [
+          "optimizer",
+          "extra"
+        ]
+      },
+      "actor_rollout_ref.actor.checkpoint.save_contents": {
+        "r3c": [
+          "model",
+          "optimizer",
+          "extra"
+        ],
+        "r4": [
+          "optimizer",
+          "extra"
+        ]
+      },
+      "actor_rollout_ref.model.lora_adapter_path": {
+        "r3c": null,
+        "r4": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_5/attempt_1/resume_view/lora_adapter"
+      },
+      "data.shuffle": {
+        "r3c": true,
+        "r4": false
+      },
+      "data.train_files": {
+        "r3c": "/root/octorl_r3/artifacts/self_improve/r3/data/train_fault_only.parquet",
+        "r4": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_5/train.parquet"
+      },
+      "trainer.default_local_dir": {
+        "r3c": "/root/autodl-tmp/octorl_r3c/seed_137/checkpoints",
+        "r4": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_5/attempt_1/checkpoints"
+      },
+      "trainer.experiment_name": {
+        "r3c": "r3c_seed_137",
+        "r4": "r4_seed_137_fixed_stage_5"
+      },
+      "trainer.project_name": {
+        "r3c": "octorl_r3c",
+        "r4": "octorl_r4"
+      },
+      "trainer.resume_from_path": {
+        "r3c": null,
+        "r4": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_5/attempt_1/resume_view/global_step_60"
+      },
+      "trainer.resume_mode": {
+        "r3c": "disable",
+        "r4": "resume_path"
+      },
+      "trainer.rollout_data_dir": {
+        "r3c": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts",
+        "r4": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_5/attempt_1/rollouts"
+      },
+      "trainer.total_epochs": {
+        "r3c": 1,
+        "r4": 7
+      },
+      "trainer.total_training_steps": {
+        "r3c": 100,
+        "r4": 70
+      }
+    }
+  },
+  "6": {
+    "r3c_source": "artifacts/self_improve/r5/raw/octorl_r3c/seed_137_train.log:5-589",
+    "r4_source": "artifacts/self_improve/r5/raw/octorl_r4/seed_137/fixed/stage_6/attempt_1/training.log:5-586",
+    "differences": {
+      "actor_rollout_ref.actor.checkpoint.load_contents": {
+        "r3c": [
+          "model",
+          "optimizer",
+          "extra"
+        ],
+        "r4": [
+          "optimizer",
+          "extra"
+        ]
+      },
+      "actor_rollout_ref.actor.checkpoint.save_contents": {
+        "r3c": [
+          "model",
+          "optimizer",
+          "extra"
+        ],
+        "r4": [
+          "optimizer",
+          "extra"
+        ]
+      },
+      "actor_rollout_ref.model.lora_adapter_path": {
+        "r3c": null,
+        "r4": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_6/attempt_1/resume_view/lora_adapter"
+      },
+      "data.shuffle": {
+        "r3c": true,
+        "r4": false
+      },
+      "data.train_files": {
+        "r3c": "/root/octorl_r3/artifacts/self_improve/r3/data/train_fault_only.parquet",
+        "r4": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_6/train.parquet"
+      },
+      "trainer.default_local_dir": {
+        "r3c": "/root/autodl-tmp/octorl_r3c/seed_137/checkpoints",
+        "r4": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_6/attempt_1/checkpoints"
+      },
+      "trainer.experiment_name": {
+        "r3c": "r3c_seed_137",
+        "r4": "r4_seed_137_fixed_stage_6"
+      },
+      "trainer.project_name": {
+        "r3c": "octorl_r3c",
+        "r4": "octorl_r4"
+      },
+      "trainer.resume_from_path": {
+        "r3c": null,
+        "r4": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_6/attempt_1/resume_view/global_step_70"
+      },
+      "trainer.resume_mode": {
+        "r3c": "disable",
+        "r4": "resume_path"
+      },
+      "trainer.rollout_data_dir": {
+        "r3c": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts",
+        "r4": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_6/attempt_1/rollouts"
+      },
+      "trainer.total_epochs": {
+        "r3c": 1,
+        "r4": 8
+      },
+      "trainer.total_training_steps": {
+        "r3c": 100,
+        "r4": 80
+      }
+    }
+  }
+}

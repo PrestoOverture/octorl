@@ -1,0 +1,5827 @@
+{
+  "r3c_137_rollout_rows": [
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/1.jsonl",
+      "sha256": "ef0b8232adbf69bf632b57adebab7b7ba593e05d372ba15204df9652d7cab5a9",
+      "step": 1,
+      "rows": [
+        {
+          "gts": "auth_service_153_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_153_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_390_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_89_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_251_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_89_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_251_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_251_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_251_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "cache_service_89_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_89_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_390_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_153_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_390_stale_version",
+          "score": 0.0
+        },
+        {
+          "gts": "storage_service_390_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_153_constraint_violation",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/2.jsonl",
+      "sha256": "b81e0643b17cd7d6cc04bdd3c34ee1fc4a0b0c3a34312030386b34c497aa3503",
+      "step": 2,
+      "rows": [
+        {
+          "gts": "network_service_318_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_356_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_356_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "network_service_356_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "logging_service_478_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_388_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_356_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "logging_service_478_stale_version",
+          "score": 0.0
+        },
+        {
+          "gts": "logging_service_388_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_318_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_318_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_478_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_388_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_478_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_388_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_318_missing_dependency",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/3.jsonl",
+      "sha256": "603464c18e5e3671bd7a5efbc9bc828b4e23b0de1ecb6e54fbb105fe6aa52ce3",
+      "step": 3,
+      "rows": [
+        {
+          "gts": "auth_service_476_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_476_stale_version",
+          "score": 0.0
+        },
+        {
+          "gts": "auth_service_476_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_199_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_476_stale_version",
+          "score": 0.0
+        },
+        {
+          "gts": "network_service_196_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_217_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_196_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_196_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_217_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "network_service_196_constraint_violation",
+          "score": 0.0
+        },
+        {
+          "gts": "logging_service_199_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_217_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "logging_service_217_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_199_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_199_constraint_violation",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/4.jsonl",
+      "sha256": "58820f0f8277b3753740538b3c0eec7f95260e59d5bbce59a3d5ff5d414a45ad",
+      "step": 4,
+      "rows": [
+        {
+          "gts": "queue_service_146_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_416_stale_version",
+          "score": 0.0
+        },
+        {
+          "gts": "queue_service_146_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_416_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_416_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_416_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_268_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "storage_service_268_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "storage_service_268_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_268_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_146_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_472_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_146_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_472_stale_version",
+          "score": 0.0
+        },
+        {
+          "gts": "queue_service_472_stale_version",
+          "score": 0.0
+        },
+        {
+          "gts": "queue_service_472_stale_version",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/5.jsonl",
+      "sha256": "6c59387d7dec54ea3913353d6672f96b0bd9e4214200ba40bcef8519b05ee118",
+      "step": 5,
+      "rows": [
+        {
+          "gts": "cache_service_123_constraint_violation",
+          "score": 0.0
+        },
+        {
+          "gts": "cache_service_86_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_86_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_450_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_288_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_450_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_288_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "cache_service_123_constraint_violation",
+          "score": 0.0
+        },
+        {
+          "gts": "cache_service_86_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_288_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_288_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "cache_service_450_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_86_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_450_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_123_constraint_violation",
+          "score": 0.0
+        },
+        {
+          "gts": "cache_service_123_constraint_violation",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/6.jsonl",
+      "sha256": "5054ac5037419e4755e1b677450236ffadc0d47dca215405c745d6ab85af1ffb",
+      "step": 6,
+      "rows": [
+        {
+          "gts": "logging_service_150_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_150_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_271_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "auth_service_271_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "auth_service_271_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "queue_service_117_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_117_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_117_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_155_constraint_violation",
+          "score": 0.0
+        },
+        {
+          "gts": "storage_service_155_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_150_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_155_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_150_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_155_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_117_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_271_missing_dependency",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/7.jsonl",
+      "sha256": "b3739f42bed5211ed249b31e93d8a0f68be15733d2705db1157fb4db1d6d6234",
+      "step": 7,
+      "rows": [
+        {
+          "gts": "auth_service_83_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_205_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "logging_service_109_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_109_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_166_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_166_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_166_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_166_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_205_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "auth_service_83_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_205_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_109_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_205_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "auth_service_83_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_83_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_109_constraint_violation",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/8.jsonl",
+      "sha256": "4a7f3f035c71fd2d853af219a7cb73c69edb3eba5911b8909a278ae6c7878c99",
+      "step": 8,
+      "rows": [
+        {
+          "gts": "storage_service_157_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_157_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_142_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_192_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_413_stale_version",
+          "score": 0.0
+        },
+        {
+          "gts": "logging_service_192_constraint_violation",
+          "score": 0.0
+        },
+        {
+          "gts": "network_service_413_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_192_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_157_constraint_violation",
+          "score": 0.0
+        },
+        {
+          "gts": "storage_service_142_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_157_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_142_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_413_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_192_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_413_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_142_constraint_violation",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/9.jsonl",
+      "sha256": "60e08c56176cf2af21cc639c70686b1edf22cd174b0727e81d13f6adc1ed821e",
+      "step": 9,
+      "rows": [
+        {
+          "gts": "cache_service_121_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_191_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_191_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_475_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_125_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_191_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_121_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_475_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_125_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_121_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_125_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_121_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_191_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_475_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_475_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_125_constraint_violation",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/10.jsonl",
+      "sha256": "9e7665fba54ec108faccdd615474c07ec4c29ac66f0bbd6e2a2e64cd807bdfb4",
+      "step": 10,
+      "rows": [
+        {
+          "gts": "cache_service_140_constraint_violation",
+          "score": 0.0
+        },
+        {
+          "gts": "auth_service_175_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_140_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_175_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_120_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_175_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_442_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_140_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_120_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_120_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_140_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_442_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_120_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_442_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_175_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_442_stale_version",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/11.jsonl",
+      "sha256": "f74ed66aa6d9231238c3c2a05cd9c77315a5fa0eb8b761a7cf2c74dd96498446",
+      "step": 11,
+      "rows": [
+        {
+          "gts": "auth_service_145_constraint_violation",
+          "score": 0.0
+        },
+        {
+          "gts": "auth_service_247_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "network_service_244_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "auth_service_247_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "auth_service_145_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_244_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "storage_service_409_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_409_stale_version",
+          "score": 0.0
+        },
+        {
+          "gts": "network_service_244_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "auth_service_145_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_247_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_247_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_409_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_145_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_409_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_244_missing_dependency",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/12.jsonl",
+      "sha256": "f84ac230b8620505e8fbba11c003fa47d57f254a201f5499dc23a1bf1f5c0402",
+      "step": 12,
+      "rows": [
+        {
+          "gts": "storage_service_285_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_126_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_436_stale_version",
+          "score": 0.0
+        },
+        {
+          "gts": "auth_service_436_stale_version",
+          "score": 0.0
+        },
+        {
+          "gts": "storage_service_285_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_436_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_430_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_436_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_126_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_285_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_126_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_430_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_285_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_430_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_430_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_126_constraint_violation",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/13.jsonl",
+      "sha256": "4bc3273cb995055d396a0bf483bb1db3c494cd6a0afeaefd10c75c8a2138188f",
+      "step": 13,
+      "rows": [
+        {
+          "gts": "logging_service_464_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_262_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_151_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_296_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_262_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "cache_service_296_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "logging_service_464_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_151_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_296_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "network_service_151_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_262_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_464_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_296_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "logging_service_464_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_262_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_151_constraint_violation",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/14.jsonl",
+      "sha256": "495ff5698b023aa44d0964230561765049bb2fb52daf773a8929162261c0e10f",
+      "step": 14,
+      "rows": [
+        {
+          "gts": "storage_service_445_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_81_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_400_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_445_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_81_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_335_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "storage_service_445_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_335_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "storage_service_445_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_81_constraint_violation",
+          "score": 0.0
+        },
+        {
+          "gts": "logging_service_400_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_400_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_81_constraint_violation",
+          "score": 0.0
+        },
+        {
+          "gts": "queue_service_335_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_400_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_335_missing_dependency",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/15.jsonl",
+      "sha256": "f1bcc129e653c7c8f35df0bdfeb7e40479658fca0327516c5d76324df107dd6b",
+      "step": 15,
+      "rows": [
+        {
+          "gts": "logging_service_469_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_469_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_467_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_467_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_91_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_183_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_467_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_469_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_183_constraint_violation",
+          "score": 0.0
+        },
+        {
+          "gts": "cache_service_183_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_91_constraint_violation",
+          "score": 0.0
+        },
+        {
+          "gts": "logging_service_469_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_91_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_91_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_467_stale_version",
+          "score": 0.0
+        },
+        {
+          "gts": "cache_service_183_constraint_violation",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/16.jsonl",
+      "sha256": "ca43fe5c121f27f407811a1ae6c732dcc1d47af99e6e7621e60b61ed06221ebc",
+      "step": 16,
+      "rows": [
+        {
+          "gts": "auth_service_148_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_263_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_447_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_443_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_148_constraint_violation",
+          "score": 0.0
+        },
+        {
+          "gts": "auth_service_148_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_447_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_443_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_263_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "queue_service_443_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_263_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "queue_service_443_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_447_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_148_constraint_violation",
+          "score": 0.0
+        },
+        {
+          "gts": "network_service_263_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "auth_service_447_stale_version",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/17.jsonl",
+      "sha256": "56cd290cf8be6cead379ae14dd29d786cf98f4486b8ca1b57c23d0b9af66f6ab",
+      "step": 17,
+      "rows": [
+        {
+          "gts": "logging_service_187_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_92_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_258_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "logging_service_187_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_92_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_187_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_187_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_193_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_193_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_258_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_193_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_258_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_92_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_193_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_92_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_258_missing_dependency",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/18.jsonl",
+      "sha256": "cebdd9dbe646d5083535cb107a28a530352ee8f21367d931f0a2e31774c2363a",
+      "step": 18,
+      "rows": [
+        {
+          "gts": "storage_service_197_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_197_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_479_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_479_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_465_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_186_constraint_violation",
+          "score": 0.0
+        },
+        {
+          "gts": "logging_service_186_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_479_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_465_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_186_constraint_violation",
+          "score": 0.0
+        },
+        {
+          "gts": "storage_service_197_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_465_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_197_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_465_stale_version",
+          "score": 0.0
+        },
+        {
+          "gts": "auth_service_479_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_186_constraint_violation",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/19.jsonl",
+      "sha256": "e677d65898f5e98f79b780fe212922dcc5a089a41a688e7e1e205bcab53fc597",
+      "step": 19,
+      "rows": [
+        {
+          "gts": "storage_service_94_constraint_violation",
+          "score": 0.0
+        },
+        {
+          "gts": "storage_service_229_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_229_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "storage_service_229_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "logging_service_223_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_94_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_474_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_94_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_223_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "storage_service_94_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_474_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_474_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_223_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_223_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_474_stale_version",
+          "score": 0.0
+        },
+        {
+          "gts": "storage_service_229_missing_dependency",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/20.jsonl",
+      "sha256": "26c5e8e3a2a963123abfe2b27ff62f11c8342be2ad8bcedc5f41af444c1dce93",
+      "step": 20,
+      "rows": [
+        {
+          "gts": "network_service_158_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_473_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_473_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_202_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_96_constraint_violation",
+          "score": 0.0
+        },
+        {
+          "gts": "logging_service_473_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_158_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_96_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_202_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_202_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "network_service_158_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_96_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_473_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_96_constraint_violation",
+          "score": 0.0
+        },
+        {
+          "gts": "network_service_158_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_202_missing_dependency",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/21.jsonl",
+      "sha256": "02739020ba4ee315019ec1d2c891d18967f5b5cfbfaf664a018123789fc3f5c0",
+      "step": 21,
+      "rows": [
+        {
+          "gts": "queue_service_154_constraint_violation",
+          "score": 0.0
+        },
+        {
+          "gts": "auth_service_110_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_154_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_154_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_404_stale_version",
+          "score": 0.0
+        },
+        {
+          "gts": "logging_service_321_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_404_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_110_constraint_violation",
+          "score": 0.0
+        },
+        {
+          "gts": "auth_service_110_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_321_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_321_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_110_constraint_violation",
+          "score": 0.0
+        },
+        {
+          "gts": "queue_service_154_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_404_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_404_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_321_missing_dependency",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/22.jsonl",
+      "sha256": "31536e0f5211ec514f6b3e42c4409b55345fc32e32ce009c8c424e71b4c3abe5",
+      "step": 22,
+      "rows": [
+        {
+          "gts": "network_service_135_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_85_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_135_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_134_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_134_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_134_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_135_constraint_violation",
+          "score": 0.0
+        },
+        {
+          "gts": "network_service_135_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_440_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_85_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_85_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_134_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_85_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_440_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_440_stale_version",
+          "score": 0.0
+        },
+        {
+          "gts": "cache_service_440_stale_version",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/23.jsonl",
+      "sha256": "d3a3391318e5e4e7903bddd136d9b2bc88ddd59f1359cfaa2aeebf43cb987247",
+      "step": 23,
+      "rows": [
+        {
+          "gts": "logging_service_452_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_452_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_269_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "logging_service_452_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_359_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_451_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_269_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_359_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "logging_service_452_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_269_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "cache_service_359_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_451_stale_version",
+          "score": 0.0
+        },
+        {
+          "gts": "cache_service_359_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_451_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_269_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "cache_service_451_stale_version",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/24.jsonl",
+      "sha256": "8ba1912d062e3cb7b04459f5dba1518f8498915a71b2cd9bd238bee351afe806",
+      "step": 24,
+      "rows": [
+        {
+          "gts": "auth_service_144_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_160_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_144_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_108_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_178_constraint_violation",
+          "score": 0.0
+        },
+        {
+          "gts": "cache_service_178_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_178_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_160_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_108_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_144_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_108_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_178_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_160_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_160_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_144_constraint_violation",
+          "score": 0.0
+        },
+        {
+          "gts": "queue_service_108_constraint_violation",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/25.jsonl",
+      "sha256": "4ebfd76e92f05f6f3f3c96f260d27b63c6db7158e4621c187297029f128c52dc",
+      "step": 25,
+      "rows": [
+        {
+          "gts": "queue_service_363_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "storage_service_386_stale_version",
+          "score": 0.0
+        },
+        {
+          "gts": "auth_service_279_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_386_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_106_constraint_violation",
+          "score": 0.0
+        },
+        {
+          "gts": "storage_service_386_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_106_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_386_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_279_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_279_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_279_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "queue_service_363_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_106_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_363_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_106_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_363_missing_dependency",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/26.jsonl",
+      "sha256": "12d49906466e16c4e17baa5885770987c265b9a5893e577dfdda365d78cb9cd3",
+      "step": 26,
+      "rows": [
+        {
+          "gts": "storage_service_130_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_307_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_103_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_307_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "network_service_103_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_257_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_257_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "logging_service_257_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "network_service_103_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_130_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_130_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_307_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "storage_service_130_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_257_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_307_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "network_service_103_constraint_violation",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/27.jsonl",
+      "sha256": "6e4bd8fe5fbecb3908d6885ed402e11d159a7958a31a94dbb34ae48805773dcc",
+      "step": 27,
+      "rows": [
+        {
+          "gts": "cache_service_165_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_122_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_165_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_349_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_122_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_122_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_376_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_349_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "auth_service_349_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_165_constraint_violation",
+          "score": 0.0
+        },
+        {
+          "gts": "cache_service_165_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_349_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_122_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_376_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_376_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "network_service_376_missing_dependency",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/28.jsonl",
+      "sha256": "2b9a9c0d52c117692f81a6c59bc4695d4c285394373c165c9b1b935e31b88326",
+      "step": 28,
+      "rows": [
+        {
+          "gts": "auth_service_156_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_180_constraint_violation",
+          "score": 0.0
+        },
+        {
+          "gts": "queue_service_180_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_156_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_358_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "cache_service_397_stale_version",
+          "score": 0.0
+        },
+        {
+          "gts": "cache_service_397_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_156_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_156_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_358_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_358_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "queue_service_180_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_358_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "cache_service_397_stale_version",
+          "score": 0.0
+        },
+        {
+          "gts": "queue_service_180_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_397_stale_version",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/29.jsonl",
+      "sha256": "2ea78a7d28ec9c12c7394a329eb3b4168b46dae60b3617642b411e88dc536221",
+      "step": 29,
+      "rows": [
+        {
+          "gts": "queue_service_100_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_353_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_353_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "logging_service_347_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "logging_service_347_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_373_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_373_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_100_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_347_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_100_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_373_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_353_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_373_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_353_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_347_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_100_constraint_violation",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/30.jsonl",
+      "sha256": "5f3807e115bb2108b6830bc065e0b8bcc7baf293078a39ee5679b8b69ae4e7a3",
+      "step": 30,
+      "rows": [
+        {
+          "gts": "logging_service_173_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_173_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_113_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_298_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_173_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_173_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_241_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_298_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "queue_service_298_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_241_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_113_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_113_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_241_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "network_service_241_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_298_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "cache_service_113_constraint_violation",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/31.jsonl",
+      "sha256": "7cc5390ee2c35e0d4e22b8d611a4e403cfa3adb447208a4e817a5d22324eb40a",
+      "step": 31,
+      "rows": [
+        {
+          "gts": "network_service_291_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "storage_service_313_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "logging_service_415_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_428_stale_version",
+          "score": 0.0
+        },
+        {
+          "gts": "logging_service_428_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_415_stale_version",
+          "score": 0.0
+        },
+        {
+          "gts": "network_service_291_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "storage_service_313_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "storage_service_313_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "network_service_291_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "logging_service_415_stale_version",
+          "score": 0.0
+        },
+        {
+          "gts": "logging_service_428_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_428_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_415_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_291_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_313_missing_dependency",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/32.jsonl",
+      "sha256": "4ca5c0b7c2be99cc1ff0d0e89e590d1d4252396b46d39039a7491f4cb4b88cba",
+      "step": 32,
+      "rows": [
+        {
+          "gts": "queue_service_167_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_167_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_348_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_167_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_184_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_470_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_167_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_470_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_184_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_348_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "logging_service_348_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "cache_service_470_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_470_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_184_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_184_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_348_missing_dependency",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/33.jsonl",
+      "sha256": "5b1ca276beab442d61ea9d0330d37b6b420779bce6cf89d5af0a34d44996226c",
+      "step": 33,
+      "rows": [
+        {
+          "gts": "cache_service_277_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_282_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_431_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_277_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "logging_service_454_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_431_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_282_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_277_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "cache_service_277_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_431_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_282_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "logging_service_431_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_454_stale_version",
+          "score": 0.0
+        },
+        {
+          "gts": "logging_service_454_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_282_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_454_stale_version",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/34.jsonl",
+      "sha256": "c601350281d2259d6afa0c6b8c15fd341ca8083ef77a8e0d05c4be590adbac9b",
+      "step": 34,
+      "rows": [
+        {
+          "gts": "network_service_236_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_345_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_345_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_236_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_330_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_345_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_330_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_236_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "network_service_236_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_330_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "cache_service_420_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_420_stale_version",
+          "score": 0.0
+        },
+        {
+          "gts": "cache_service_420_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_420_stale_version",
+          "score": 0.0
+        },
+        {
+          "gts": "logging_service_345_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_330_missing_dependency",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/35.jsonl",
+      "sha256": "cfa370f9e0274e105d8faf2f75f57d3051c077ce05e1be0ba2db50f24ac6e239",
+      "step": 35,
+      "rows": [
+        {
+          "gts": "cache_service_174_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_387_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_116_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_174_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_116_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_174_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_323_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_323_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_116_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_116_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_323_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_323_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "auth_service_387_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_174_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_387_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_387_stale_version",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/36.jsonl",
+      "sha256": "d7a46f83e18bedc3ef24c6a43bd7caf5d0af4ccc8ce2d671546d9797b50fa645",
+      "step": 36,
+      "rows": [
+        {
+          "gts": "storage_service_346_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_232_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_346_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_394_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_394_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_394_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_132_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_394_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_346_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_232_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_232_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "storage_service_346_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_232_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "auth_service_132_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_132_constraint_violation",
+          "score": 0.0
+        },
+        {
+          "gts": "auth_service_132_constraint_violation",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/37.jsonl",
+      "sha256": "f70793a1b305a63cbb0e314f423ce1aa277c5a7383cc09075af0136c4ac331d5",
+      "step": 37,
+      "rows": [
+        {
+          "gts": "auth_service_344_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "auth_service_344_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_310_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_310_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_220_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "auth_service_344_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "queue_service_403_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_310_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "network_service_220_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_220_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "queue_service_403_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_403_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_220_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_403_stale_version",
+          "score": 0.0
+        },
+        {
+          "gts": "auth_service_344_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "storage_service_310_missing_dependency",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/38.jsonl",
+      "sha256": "63b84e13ab7a69cd2e8a6a2b3da6cb46fc86a52deee0a038d56d5cb9f6bd8fb2",
+      "step": 38,
+      "rows": [
+        {
+          "gts": "queue_service_177_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_292_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "logging_service_448_stale_version",
+          "score": 0.0
+        },
+        {
+          "gts": "network_service_84_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_292_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_177_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_177_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_84_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_448_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_84_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_84_constraint_violation",
+          "score": 0.0
+        },
+        {
+          "gts": "logging_service_448_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_177_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_448_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_292_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_292_missing_dependency",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/39.jsonl",
+      "sha256": "cee89f2c1ad65388019862cb0e4fc34418145089b21a071e1ed8b02510525f0d",
+      "step": 39,
+      "rows": [
+        {
+          "gts": "auth_service_320_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "queue_service_138_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_259_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_320_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_179_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_138_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_259_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_179_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_179_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_138_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_138_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_320_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_259_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "queue_service_179_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_259_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_320_missing_dependency",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/40.jsonl",
+      "sha256": "0cf36fdf82c017b9a19fc957bb3bdb5ac771abf6076561abc0966b898a021876",
+      "step": 40,
+      "rows": [
+        {
+          "gts": "logging_service_276_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "storage_service_214_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_176_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_214_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_267_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_267_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_176_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_276_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_176_constraint_violation",
+          "score": 0.0
+        },
+        {
+          "gts": "logging_service_276_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_276_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "queue_service_267_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_176_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_214_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_267_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_214_missing_dependency",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/41.jsonl",
+      "sha256": "28bc0078f62b0318f792f6197dadbadc465d22dabc93738680283548d82a8aa8",
+      "step": 41,
+      "rows": [
+        {
+          "gts": "network_service_384_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_422_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_422_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_384_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_384_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_299_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "auth_service_422_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_422_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_391_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_299_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "auth_service_391_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_299_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_299_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "auth_service_391_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_384_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_391_stale_version",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/42.jsonl",
+      "sha256": "254f191258d2bac55a7acfdb076cb5104381117761876546cb93c9dd1f7642e0",
+      "step": 42,
+      "rows": [
+        {
+          "gts": "cache_service_162_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_162_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_424_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_256_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "auth_service_265_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "storage_service_424_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_424_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_256_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_265_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_162_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_265_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "storage_service_424_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_256_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_162_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_265_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_256_missing_dependency",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/43.jsonl",
+      "sha256": "5fff2ef23515f9fbe14e80bfebb4f50001b182307acaf9165bee3b1323494c5f",
+      "step": 43,
+      "rows": [
+        {
+          "gts": "auth_service_315_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_149_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_328_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_362_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_315_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_149_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_362_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_149_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_362_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_149_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_328_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_328_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "auth_service_315_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "storage_service_362_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "network_service_328_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "auth_service_315_missing_dependency",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/44.jsonl",
+      "sha256": "e29269836bd7a1a66810c7320f9f8d7b63839355da165ef07cd7258e67e74958",
+      "step": 44,
+      "rows": [
+        {
+          "gts": "storage_service_163_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_159_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_163_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_401_stale_version",
+          "score": 0.0
+        },
+        {
+          "gts": "storage_service_163_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_401_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_401_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_159_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_433_stale_version",
+          "score": 0.0
+        },
+        {
+          "gts": "auth_service_159_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_159_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_401_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_163_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_433_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_433_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_433_stale_version",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/45.jsonl",
+      "sha256": "e0dca63600db9160d3297c9fc4f0ccf9126bb66756c307bb52869578d054a210",
+      "step": 45,
+      "rows": [
+        {
+          "gts": "network_service_230_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_80_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_230_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_80_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_80_constraint_violation",
+          "score": 0.0
+        },
+        {
+          "gts": "logging_service_423_stale_version",
+          "score": 0.0
+        },
+        {
+          "gts": "logging_service_423_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_80_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_230_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_438_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_423_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_423_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_230_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "queue_service_438_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_438_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_438_stale_version",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/46.jsonl",
+      "sha256": "4c196f3d54006f4c73e3fd685d260be4d99d4d623b921fbd59a4222aed78e04d",
+      "step": 46,
+      "rows": [
+        {
+          "gts": "network_service_283_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_283_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_283_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_115_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_216_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_216_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_115_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_427_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_216_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_216_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_283_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_115_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_427_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_427_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_115_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_427_stale_version",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/47.jsonl",
+      "sha256": "9c056454c9b301f77e30d4d61bb46affb5802cc3d28bbef7d68125cdee453659",
+      "step": 47,
+      "rows": [
+        {
+          "gts": "cache_service_104_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_468_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_408_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_104_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_468_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_449_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_449_stale_version",
+          "score": 0.0
+        },
+        {
+          "gts": "cache_service_104_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_408_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_104_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_449_stale_version",
+          "score": 0.0
+        },
+        {
+          "gts": "network_service_408_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_408_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_468_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_449_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_468_stale_version",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/48.jsonl",
+      "sha256": "33ff871b41e2c79d9a30d8355249fa8c9a3044fb0bb0eb345e5845221a0cd92a",
+      "step": 48,
+      "rows": [
+        {
+          "gts": "storage_service_101_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_435_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_311_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_168_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_311_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "network_service_168_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_101_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_311_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_435_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_435_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_168_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_311_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_101_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_101_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_435_stale_version",
+          "score": 0.0
+        },
+        {
+          "gts": "network_service_168_constraint_violation",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/49.jsonl",
+      "sha256": "7312ab24ec80346ce1ef7d06169d95c3d321f4bd07e2a5741365d371e671b179",
+      "step": 49,
+      "rows": [
+        {
+          "gts": "queue_service_274_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_274_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_206_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_273_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_287_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_287_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_206_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_287_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_273_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_206_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_206_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_274_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "queue_service_274_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "storage_service_287_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_273_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_273_missing_dependency",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/50.jsonl",
+      "sha256": "9af747af1c0031a532c43b493970680f1b5c5316ee61868809e462f415b881de",
+      "step": 50,
+      "rows": [
+        {
+          "gts": "queue_service_90_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_392_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_379_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_90_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_379_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_379_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "cache_service_382_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_90_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_392_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_90_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_379_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_392_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_382_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_382_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_392_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_382_stale_version",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/51.jsonl",
+      "sha256": "93a6ddce5d7d8fce82cbd6cab7fdcfb11a87146d5131375f6b388605b13b4972",
+      "step": 51,
+      "rows": [
+        {
+          "gts": "cache_service_185_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_185_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_462_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_462_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_417_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_462_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_355_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_355_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_462_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_185_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_355_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "storage_service_417_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_417_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_417_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_355_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_185_constraint_violation",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/52.jsonl",
+      "sha256": "53bda3a15efef28a88ed87b297fab7b031b8091ea2279dca83ceb69392ab1d9e",
+      "step": 52,
+      "rows": [
+        {
+          "gts": "storage_service_136_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_136_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_361_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_343_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_128_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_128_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_136_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_128_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_361_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_343_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_361_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "storage_service_361_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_343_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_343_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "queue_service_128_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_136_constraint_violation",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/53.jsonl",
+      "sha256": "202ac2be668f8dcb92ebbec5053be21a6b8a21420a2221165796c2eb66d9fa14",
+      "step": 53,
+      "rows": [
+        {
+          "gts": "auth_service_93_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_455_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_419_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_93_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_266_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_93_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_455_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_266_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_93_constraint_violation",
+          "score": 0.0
+        },
+        {
+          "gts": "network_service_455_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_419_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_266_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_455_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_419_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_266_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_419_stale_version",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/54.jsonl",
+      "sha256": "daf1631e966769b1c4d2e25c3b8991f681d821f4da5aba0a6439de4be15bf8f8",
+      "step": 54,
+      "rows": [
+        {
+          "gts": "logging_service_460_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_446_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_398_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_398_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_102_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_460_stale_version",
+          "score": 0.0
+        },
+        {
+          "gts": "auth_service_446_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_460_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_102_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_398_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_102_constraint_violation",
+          "score": 0.0
+        },
+        {
+          "gts": "queue_service_102_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_460_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_446_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_446_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_398_stale_version",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/55.jsonl",
+      "sha256": "b5d5b0b5d2fc3517787149dd89dcdf0d254d4d5e29d593138460685a9f737d16",
+      "step": 55,
+      "rows": [
+        {
+          "gts": "queue_service_143_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_463_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_418_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_414_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_143_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_463_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_418_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_414_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_143_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_463_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_418_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_414_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_414_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_143_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_463_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_418_stale_version",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/56.jsonl",
+      "sha256": "ea39df347ac6f73ecf2bd54a5d0ec4efa6629da44e13167fd53ed43f25327879",
+      "step": 56,
+      "rows": [
+        {
+          "gts": "queue_service_82_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_82_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_437_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_233_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "cache_service_466_stale_version",
+          "score": 0.0
+        },
+        {
+          "gts": "queue_service_82_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_466_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_437_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_233_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_466_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_233_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_466_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_82_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_437_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_233_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_437_stale_version",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/57.jsonl",
+      "sha256": "f2a17080cf5c110dd499f729a7d616a063759f7f19c10078a9adf07e470e1345",
+      "step": 57,
+      "rows": [
+        {
+          "gts": "auth_service_189_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_119_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_99_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_402_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_402_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_119_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_189_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_99_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_189_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_119_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_189_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_99_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_402_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_119_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_402_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_99_constraint_violation",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/58.jsonl",
+      "sha256": "aa5eb302573d5bf2d82bb064c888e952a5384aa119ac36fc44da01667e7473b7",
+      "step": 58,
+      "rows": [
+        {
+          "gts": "logging_service_278_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_127_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_278_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "auth_service_301_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_301_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "auth_service_301_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "cache_service_378_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_378_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_278_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_127_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_378_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "logging_service_278_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "cache_service_378_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_127_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_127_constraint_violation",
+          "score": 0.0
+        },
+        {
+          "gts": "auth_service_301_missing_dependency",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/59.jsonl",
+      "sha256": "12429a8a02146eda17cee84e1687fa1b756264f02a6815536844b5088026683d",
+      "step": 59,
+      "rows": [
+        {
+          "gts": "cache_service_164_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_164_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_393_stale_version",
+          "score": 0.0
+        },
+        {
+          "gts": "logging_service_393_stale_version",
+          "score": 0.0
+        },
+        {
+          "gts": "logging_service_434_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_434_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_393_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_434_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_412_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_412_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_412_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_393_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_164_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_412_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_434_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_164_constraint_violation",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/60.jsonl",
+      "sha256": "ed41d8023b2d46e01b84efdcb0ae159ae17689b31f722ae5cab846e7dde699c0",
+      "step": 60,
+      "rows": [
+        {
+          "gts": "network_service_118_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_395_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_272_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_421_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_272_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_272_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_118_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_118_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_421_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_395_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_421_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_421_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_395_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_395_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_272_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_118_constraint_violation",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/61.jsonl",
+      "sha256": "19343e96f434424c3fa39888e5e81e2eed93b44345f4e8c0611e4313cb37413d",
+      "step": 61,
+      "rows": [
+        {
+          "gts": "storage_service_105_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_105_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_169_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_169_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_105_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_169_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_457_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_457_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_383_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_105_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_457_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_383_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_383_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_457_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_169_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_383_stale_version",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/62.jsonl",
+      "sha256": "21bc7a42c41b4640fd80dc6d29b784b1680f958e9636d98adfb651132345452b",
+      "step": 62,
+      "rows": [
+        {
+          "gts": "network_service_481_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_327_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "auth_service_480_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_481_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_182_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_182_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_182_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_480_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_182_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_481_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_481_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_480_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_327_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_327_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_480_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_327_missing_dependency",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/63.jsonl",
+      "sha256": "f728196988b5de88c22d7690106f055950a4caba3b12b75c70caa9f4b5b15f50",
+      "step": 63,
+      "rows": [
+        {
+          "gts": "queue_service_107_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_137_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_406_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_107_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_406_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_137_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_98_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_137_constraint_violation",
+          "score": 0.0
+        },
+        {
+          "gts": "logging_service_98_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_98_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_406_stale_version",
+          "score": 0.0
+        },
+        {
+          "gts": "cache_service_137_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_107_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_107_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_98_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_406_stale_version",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/64.jsonl",
+      "sha256": "aa2023c4c2cbbd7de7a2a879ed2e9952d95cef846d3283467fbb78dccf13b97c",
+      "step": 64,
+      "rows": [
+        {
+          "gts": "auth_service_152_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_439_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_439_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_439_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_152_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_389_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_389_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_389_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_425_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_425_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_152_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_425_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_439_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_389_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_152_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_425_stale_version",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/65.jsonl",
+      "sha256": "080798974e8392b937fc9985d0c1d5fc27b61ca0e26d40ae4e23477c187f3da8",
+      "step": 65,
+      "rows": [
+        {
+          "gts": "storage_service_195_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_426_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_190_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_426_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_365_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_190_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_365_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_426_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_426_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_195_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_190_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_365_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_365_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_195_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_190_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_195_constraint_violation",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/66.jsonl",
+      "sha256": "386fd3ea0c942ec16d611b70b581cc620ada4a82b5042f59e859b06fa3c6699e",
+      "step": 66,
+      "rows": [
+        {
+          "gts": "storage_service_161_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_161_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_161_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_171_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_381_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_161_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_396_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_171_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_381_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_171_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_396_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_381_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_171_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_396_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_381_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_396_stale_version",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/67.jsonl",
+      "sha256": "903b35d10f18bfb22f363f9ff7cb791a13a38b3065d5e719983423f60adece82",
+      "step": 67,
+      "rows": [
+        {
+          "gts": "auth_service_133_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_240_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "queue_service_453_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_240_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_453_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_133_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_411_stale_version",
+          "score": 0.0
+        },
+        {
+          "gts": "storage_service_240_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_411_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_240_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_453_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_411_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_133_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_453_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_411_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_133_constraint_violation",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/68.jsonl",
+      "sha256": "b88f4baa285064f28ae48c45ef95fe930afe39be6db787dacc0d31e2d240ad77",
+      "step": 68,
+      "rows": [
+        {
+          "gts": "storage_service_194_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_131_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_410_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_194_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_410_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_461_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_131_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_410_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_194_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_131_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_461_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_194_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_410_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_461_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_461_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_131_constraint_violation",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/69.jsonl",
+      "sha256": "8a08c1addd43aa9152def4d6ef0c2332c660603e9edd923d15b224b4ae6c095e",
+      "step": 69,
+      "rows": [
+        {
+          "gts": "storage_service_209_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "cache_service_198_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_198_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_209_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "queue_service_380_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_198_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_235_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_198_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_209_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_235_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "storage_service_209_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_235_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_380_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_380_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_235_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_380_missing_dependency",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/70.jsonl",
+      "sha256": "21cfaa1da3e02367a55743a56344e73ea63df3dc17836f3a95028571c88b843e",
+      "step": 70,
+      "rows": [
+        {
+          "gts": "queue_service_111_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_471_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_471_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_111_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_459_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_459_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_375_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_375_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_375_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_375_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_111_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_459_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_471_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_111_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_471_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_459_stale_version",
+          "score": 0.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/71.jsonl",
+      "sha256": "7d021d84b50a8607fcb204b6a008c489aa557aa2bb732b1caa30f2105709e324",
+      "step": 71,
+      "rows": [
+        {
+          "gts": "storage_service_147_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_147_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_432_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_172_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_432_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_95_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_172_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_95_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_172_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_147_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_432_stale_version",
+          "score": 0.0
+        },
+        {
+          "gts": "storage_service_95_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_95_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_147_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_172_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_432_stale_version",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/72.jsonl",
+      "sha256": "9fdfca2eaa4f6d01e770b20a519226f8f7da963eca80a47dd136cb886eeabd03",
+      "step": 72,
+      "rows": [
+        {
+          "gts": "logging_service_289_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_270_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_270_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_203_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_203_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_306_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_270_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "auth_service_306_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_289_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_306_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_203_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "auth_service_306_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "cache_service_203_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_270_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_289_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_289_missing_dependency",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/73.jsonl",
+      "sha256": "51f5383a7280d526cdc38c068ed4cdba569a873482b1732423450c3f457f5bf2",
+      "step": 73,
+      "rows": [
+        {
+          "gts": "queue_service_97_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_97_constraint_violation",
+          "score": 0.0
+        },
+        {
+          "gts": "queue_service_97_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_221_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_374_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_441_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_441_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_441_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_221_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_374_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_374_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "queue_service_441_stale_version",
+          "score": 0.0
+        },
+        {
+          "gts": "queue_service_221_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_221_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "queue_service_97_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_374_missing_dependency",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/74.jsonl",
+      "sha256": "3940f8519ff003e0a07d1db74c94238a125b88bc28dc9265fb170c25a2a69720",
+      "step": 74,
+      "rows": [
+        {
+          "gts": "queue_service_114_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_304_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "queue_service_114_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_304_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_213_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "queue_service_260_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_213_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_114_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_260_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_213_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "queue_service_114_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_260_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_260_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_213_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "queue_service_304_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_304_missing_dependency",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/75.jsonl",
+      "sha256": "1c071ad422422c2f5b4fa9f3793f755ec185016e7182197f530a72d6cd2b6928",
+      "step": 75,
+      "rows": [
+        {
+          "gts": "network_service_225_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "auth_service_112_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_88_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_225_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_124_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_124_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_124_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_88_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_225_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_88_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_112_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_112_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_112_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_225_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "auth_service_88_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_124_constraint_violation",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/76.jsonl",
+      "sha256": "9696d846ec45e95f274d0da6468941a07baf38312d345d1844cf434669e1029b",
+      "step": 76,
+      "rows": [
+        {
+          "gts": "network_service_188_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_336_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_336_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_477_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_477_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_477_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_456_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_477_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_188_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_456_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_456_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_336_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "network_service_188_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_456_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_336_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "network_service_188_constraint_violation",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/77.jsonl",
+      "sha256": "6f93560ccc9bc443e74397e66e13d5672f2df76b894bc0821b7ef8cecfab4c1a",
+      "step": 77,
+      "rows": [
+        {
+          "gts": "storage_service_141_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_87_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_141_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_444_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_141_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_444_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_370_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_444_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_370_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_370_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_141_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_87_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_370_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "logging_service_444_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_87_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_87_constraint_violation",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/78.jsonl",
+      "sha256": "a917f8193755d99707987f2e0e828f75bfd9d8ff0d74032a6d0c22d9fc6c0993",
+      "step": 78,
+      "rows": [
+        {
+          "gts": "storage_service_181_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_407_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_429_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_429_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_458_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_458_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_429_stale_version",
+          "score": 0.0
+        },
+        {
+          "gts": "storage_service_181_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_458_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_407_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_181_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_458_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_181_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_407_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_429_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_407_stale_version",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/79.jsonl",
+      "sha256": "a8957a0c7232b420f7ab9c82a5cc40e5faa6675cd94498382efc368e0ef8f069",
+      "step": 79,
+      "rows": [
+        {
+          "gts": "queue_service_308_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_399_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_219_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "cache_service_405_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_308_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_399_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_308_missing_dependency",
+          "score": 0.0
+        },
+        {
+          "gts": "network_service_219_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_219_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "queue_service_308_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_405_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_399_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_405_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "network_service_219_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_405_stale_version",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_399_stale_version",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r3c/seed_137/rollouts/80.jsonl",
+      "sha256": "4a7401db05557979e76141b00b84e41ff6decb13020fefc4ad37d0fbd83b3158",
+      "step": 80,
+      "rows": [
+        {
+          "gts": "logging_service_170_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_129_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_351_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_129_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_129_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_351_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_351_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_139_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_139_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_129_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_139_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "storage_service_351_missing_dependency",
+          "score": 1.0
+        },
+        {
+          "gts": "cache_service_139_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_170_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_170_constraint_violation",
+          "score": 1.0
+        },
+        {
+          "gts": "logging_service_170_constraint_violation",
+          "score": 1.0
+        }
+      ]
+    }
+  ],
+  "resume_views": [
+    {
+      "path": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_1/attempt_1/resume_view/global_step_20/actor/extra_state_world_size_1_rank_0.pt",
+      "target": "/root/autodl-tmp/octorl_r3c/seed_137/checkpoints/global_step_20/actor/extra_state_world_size_1_rank_0.pt",
+      "target_exists": true
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_1/attempt_1/resume_view/global_step_20/actor/optim_world_size_1_rank_0.pt",
+      "target": "/root/autodl-tmp/octorl_r3c/seed_137/checkpoints/global_step_20/actor/optim_world_size_1_rank_0.pt",
+      "target_exists": true
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_1/attempt_1/resume_view/lora_adapter/adapter_model.safetensors",
+      "target": "/root/autodl-tmp/octorl_r3c/seed_137/checkpoints/global_step_20/actor/lora_adapter/adapter_model.safetensors",
+      "target_exists": true
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_2/attempt_1/resume_view/global_step_30/actor/extra_state_world_size_1_rank_0.pt",
+      "target": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_1/attempt_1/checkpoints/global_step_30/actor/extra_state_world_size_1_rank_0.pt",
+      "target_exists": false
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_2/attempt_1/resume_view/global_step_30/actor/optim_world_size_1_rank_0.pt",
+      "target": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_1/attempt_1/checkpoints/global_step_30/actor/optim_world_size_1_rank_0.pt",
+      "target_exists": false
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_2/attempt_1/resume_view/lora_adapter/adapter_model.safetensors",
+      "target": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_1/attempt_1/checkpoints/global_step_30/actor/lora_adapter/adapter_model.safetensors",
+      "target_exists": true
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_3/attempt_1/resume_view/global_step_40/actor/extra_state_world_size_1_rank_0.pt",
+      "target": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_2/attempt_1/checkpoints/global_step_40/actor/extra_state_world_size_1_rank_0.pt",
+      "target_exists": false
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_3/attempt_1/resume_view/global_step_40/actor/optim_world_size_1_rank_0.pt",
+      "target": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_2/attempt_1/checkpoints/global_step_40/actor/optim_world_size_1_rank_0.pt",
+      "target_exists": false
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_3/attempt_1/resume_view/lora_adapter/adapter_model.safetensors",
+      "target": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_2/attempt_1/checkpoints/global_step_40/actor/lora_adapter/adapter_model.safetensors",
+      "target_exists": true
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_4/attempt_1/resume_view/global_step_50/actor/extra_state_world_size_1_rank_0.pt",
+      "target": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_3/attempt_1/checkpoints/global_step_50/actor/extra_state_world_size_1_rank_0.pt",
+      "target_exists": false
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_4/attempt_1/resume_view/global_step_50/actor/optim_world_size_1_rank_0.pt",
+      "target": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_3/attempt_1/checkpoints/global_step_50/actor/optim_world_size_1_rank_0.pt",
+      "target_exists": false
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_4/attempt_1/resume_view/lora_adapter/adapter_model.safetensors",
+      "target": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_3/attempt_1/checkpoints/global_step_50/actor/lora_adapter/adapter_model.safetensors",
+      "target_exists": true
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_5/attempt_1/resume_view/global_step_60/actor/extra_state_world_size_1_rank_0.pt",
+      "target": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_4/attempt_1/checkpoints/global_step_60/actor/extra_state_world_size_1_rank_0.pt",
+      "target_exists": false
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_5/attempt_1/resume_view/global_step_60/actor/optim_world_size_1_rank_0.pt",
+      "target": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_4/attempt_1/checkpoints/global_step_60/actor/optim_world_size_1_rank_0.pt",
+      "target_exists": false
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_5/attempt_1/resume_view/lora_adapter/adapter_model.safetensors",
+      "target": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_4/attempt_1/checkpoints/global_step_60/actor/lora_adapter/adapter_model.safetensors",
+      "target_exists": true
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_6/attempt_1/resume_view/global_step_70/actor/extra_state_world_size_1_rank_0.pt",
+      "target": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_5/attempt_1/checkpoints/global_step_70/actor/extra_state_world_size_1_rank_0.pt",
+      "target_exists": false
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_6/attempt_1/resume_view/global_step_70/actor/optim_world_size_1_rank_0.pt",
+      "target": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_5/attempt_1/checkpoints/global_step_70/actor/optim_world_size_1_rank_0.pt",
+      "target_exists": false
+    },
+    {
+      "path": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_6/attempt_1/resume_view/lora_adapter/adapter_model.safetensors",
+      "target": "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_5/attempt_1/checkpoints/global_step_70/actor/lora_adapter/adapter_model.safetensors",
+      "target_exists": true
+    }
+  ],
+  "checkpoint_state_files": [
+    "/root/autodl-tmp/octorl_r3c/seed_42/checkpoints/global_step_20/actor/optim_world_size_1_rank_0.pt",
+    "/root/autodl-tmp/octorl_r3c/seed_42/checkpoints/global_step_20/actor/extra_state_world_size_1_rank_0.pt",
+    "/root/autodl-tmp/octorl_r3c/seed_42/checkpoints/global_step_40/actor/optim_world_size_1_rank_0.pt",
+    "/root/autodl-tmp/octorl_r3c/seed_42/checkpoints/global_step_40/actor/extra_state_world_size_1_rank_0.pt",
+    "/root/autodl-tmp/octorl_r3c/seed_42/checkpoints/global_step_50/actor/optim_world_size_1_rank_0.pt",
+    "/root/autodl-tmp/octorl_r3c/seed_42/checkpoints/global_step_50/actor/extra_state_world_size_1_rank_0.pt",
+    "/root/autodl-tmp/octorl_r3c/seed_42/checkpoints/global_step_60/actor/optim_world_size_1_rank_0.pt",
+    "/root/autodl-tmp/octorl_r3c/seed_42/checkpoints/global_step_60/actor/extra_state_world_size_1_rank_0.pt",
+    "/root/autodl-tmp/octorl_r3c/seed_42/checkpoints/global_step_70/actor/optim_world_size_1_rank_0.pt",
+    "/root/autodl-tmp/octorl_r3c/seed_42/checkpoints/global_step_70/actor/extra_state_world_size_1_rank_0.pt",
+    "/root/autodl-tmp/octorl_r3c/seed_42/checkpoints/global_step_80/actor/optim_world_size_1_rank_0.pt",
+    "/root/autodl-tmp/octorl_r3c/seed_42/checkpoints/global_step_80/actor/extra_state_world_size_1_rank_0.pt",
+    "/root/autodl-tmp/octorl_r3c/seed_137/checkpoints/global_step_10/actor/optim_world_size_1_rank_0.pt",
+    "/root/autodl-tmp/octorl_r3c/seed_137/checkpoints/global_step_10/actor/extra_state_world_size_1_rank_0.pt",
+    "/root/autodl-tmp/octorl_r3c/seed_137/checkpoints/global_step_20/actor/optim_world_size_1_rank_0.pt",
+    "/root/autodl-tmp/octorl_r3c/seed_137/checkpoints/global_step_20/actor/extra_state_world_size_1_rank_0.pt",
+    "/root/autodl-tmp/octorl_r3c/seed_137/checkpoints/global_step_30/actor/optim_world_size_1_rank_0.pt",
+    "/root/autodl-tmp/octorl_r3c/seed_137/checkpoints/global_step_30/actor/extra_state_world_size_1_rank_0.pt",
+    "/root/autodl-tmp/octorl_r3c/seed_137/checkpoints/global_step_40/actor/optim_world_size_1_rank_0.pt",
+    "/root/autodl-tmp/octorl_r3c/seed_137/checkpoints/global_step_40/actor/extra_state_world_size_1_rank_0.pt",
+    "/root/autodl-tmp/octorl_r3c/seed_137/checkpoints/global_step_50/actor/optim_world_size_1_rank_0.pt",
+    "/root/autodl-tmp/octorl_r3c/seed_137/checkpoints/global_step_50/actor/extra_state_world_size_1_rank_0.pt",
+    "/root/autodl-tmp/octorl_r3c/seed_137/checkpoints/global_step_60/actor/optim_world_size_1_rank_0.pt",
+    "/root/autodl-tmp/octorl_r3c/seed_137/checkpoints/global_step_60/actor/extra_state_world_size_1_rank_0.pt",
+    "/root/autodl-tmp/octorl_r3c/seed_137/checkpoints/global_step_70/actor/optim_world_size_1_rank_0.pt",
+    "/root/autodl-tmp/octorl_r3c/seed_137/checkpoints/global_step_70/actor/extra_state_world_size_1_rank_0.pt",
+    "/root/autodl-tmp/octorl_r3c/seed_137/checkpoints/global_step_80/actor/optim_world_size_1_rank_0.pt",
+    "/root/autodl-tmp/octorl_r3c/seed_137/checkpoints/global_step_80/actor/extra_state_world_size_1_rank_0.pt",
+    "/root/autodl-tmp/octorl_r4/validation/seed_42/fixed/stage_1/attempt_2/checkpoints/global_step_20/actor/optim_world_size_1_rank_0.pt",
+    "/root/autodl-tmp/octorl_r4/validation/seed_42/fixed/stage_1/attempt_2/checkpoints/global_step_20/actor/extra_state_world_size_1_rank_0.pt",
+    "/root/autodl-tmp/octorl_r4/validation/seed_42/fixed/stage_1/attempt_3/checkpoints/global_step_20/actor/optim_world_size_1_rank_0.pt",
+    "/root/autodl-tmp/octorl_r4/validation/seed_42/fixed/stage_1/attempt_3/checkpoints/global_step_20/actor/extra_state_world_size_1_rank_0.pt",
+    "/root/autodl-tmp/octorl_r4/validation/seed_137/fixed/stage_1/attempt_1/checkpoints/global_step_20/actor/optim_world_size_1_rank_0.pt",
+    "/root/autodl-tmp/octorl_r4/validation/seed_137/fixed/stage_1/attempt_1/checkpoints/global_step_20/actor/extra_state_world_size_1_rank_0.pt",
+    "/root/autodl-tmp/octorl_r4/seed_42/fixed/stage_6/attempt_1/checkpoints/global_step_80/actor/optim_world_size_1_rank_0.pt",
+    "/root/autodl-tmp/octorl_r4/seed_42/fixed/stage_6/attempt_1/checkpoints/global_step_80/actor/extra_state_world_size_1_rank_0.pt",
+    "/root/autodl-tmp/octorl_r4/seed_42/failure_driven/stage_6/attempt_1/checkpoints/global_step_80/actor/optim_world_size_1_rank_0.pt",
+    "/root/autodl-tmp/octorl_r4/seed_42/failure_driven/stage_6/attempt_1/checkpoints/global_step_80/actor/extra_state_world_size_1_rank_0.pt",
+    "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_6/attempt_1/checkpoints/global_step_80/actor/optim_world_size_1_rank_0.pt",
+    "/root/autodl-tmp/octorl_r4/seed_137/fixed/stage_6/attempt_1/checkpoints/global_step_80/actor/extra_state_world_size_1_rank_0.pt",
+    "/root/autodl-tmp/octorl_r4/seed_137/failure_driven/stage_6/attempt_1/checkpoints/global_step_80/actor/optim_world_size_1_rank_0.pt",
+    "/root/autodl-tmp/octorl_r4/seed_137/failure_driven/stage_6/attempt_1/checkpoints/global_step_80/actor/extra_state_world_size_1_rank_0.pt",
+    "/root/autodl-tmp/octorl_r4/seed_2718/warmup/checkpoints/global_step_20/actor/optim_world_size_1_rank_0.pt",
+    "/root/autodl-tmp/octorl_r4/seed_2718/warmup/checkpoints/global_step_20/actor/extra_state_world_size_1_rank_0.pt",
+    "/root/autodl-tmp/octorl_r4/seed_2718/fixed/stage_6/attempt_1/checkpoints/global_step_80/actor/optim_world_size_1_rank_0.pt",
+    "/root/autodl-tmp/octorl_r4/seed_2718/fixed/stage_6/attempt_1/checkpoints/global_step_80/actor/extra_state_world_size_1_rank_0.pt",
+    "/root/autodl-tmp/octorl_r4/seed_2718/failure_driven/stage_6/attempt_1/checkpoints/global_step_80/actor/optim_world_size_1_rank_0.pt",
+    "/root/autodl-tmp/octorl_r4/seed_2718/failure_driven/stage_6/attempt_1/checkpoints/global_step_80/actor/extra_state_world_size_1_rank_0.pt"
+  ],
+  "remote_query_wall_seconds": 2.2722368240356445
+}

@@ -1,0 +1,269 @@
+/root/Agent-R1/agent_r1/trainer/ppo/ray_trainer.py
+922:         if self.config.actor_rollout_ref.rollout.get("skip_rollout", False):
+923:             rollout_skip = RolloutSkip(self.config, self.actor_rollout_wg)
+924:             rollout_skip.wrap_generate_sequences()
+925: 
+926:         # add tqdm
+927:         progress_bar = tqdm(total=self.total_training_steps, initial=self.global_steps, desc="Training Progress")
+928: 
+929:         # we start from step 1
+930:         self.global_steps += 1
+931:         last_val_metrics = None
+932:         self.max_steps_duration = 0
+933: 
+934:         prev_step_profile = False
+966:                 gen_batch.meta_info["global_steps"] = self.global_steps
+967:                 gen_batch_output = gen_batch.repeat(
+968:                     repeat_times=self.config.actor_rollout_ref.rollout.n, interleave=True
+969:                 )
+970: 
+971:                 is_last_step = self.global_steps >= self.total_training_steps
+972:                 with marked_timer("step", timing_raw):
+973:                     # generate a batch
+974:                     with marked_timer("gen", timing_raw, color="red"):
+975:                         gen_batch_output = self.async_rollout_manager.generate_sequences(gen_batch_output)
+976: 
+977:                         timing_raw.update(gen_batch_output.meta_info["timing"])
+978:                         gen_batch_output.meta_info.pop("timing", None)
+/root/Agent-R1/agent_r1/workers/fsdp_workers.py
+/root/miniconda3/lib/python3.12/site-packages/verl/trainer/ppo/ray_trainer.py
+417:         print(
+418:             f"Size of train dataloader: {len(self.train_dataloader)}, Size of val dataloader: "
+419:             f"{len(self.val_dataloader)}"
+420:         )
+421: 
+422:         total_training_steps = len(self.train_dataloader) * self.config.trainer.total_epochs
+423: 
+424:         if self.config.trainer.total_training_steps is not None:
+425:             total_training_steps = self.config.trainer.total_training_steps
+426: 
+427:         self.total_training_steps = total_training_steps
+428:         print(f"Total training steps: {self.total_training_steps}")
+429: 
+430:         try:
+431:             OmegaConf.set_struct(self.config, True)
+432:             with open_dict(self.config):
+433:                 if OmegaConf.select(self.config, "actor_rollout_ref.actor.optim"):
+434:                     self.config.actor_rollout_ref.actor.optim.total_training_steps = total_training_steps
+435:                 if OmegaConf.select(self.config, "critic.optim"):
+436:                     self.config.critic.optim.total_training_steps = total_training_steps
+437:         except Exception as e:
+438:             print(f"Warning: Could not set total_training_steps in config. Structure missing? Error: {e}")
+439: 
+440:     def _dump_generations(self, inputs, outputs, gts, scores, reward_extra_infos_dict, dump_path):
+441:         """Dump rollout/validation samples as JSONL."""
+442:         os.makedirs(dump_path, exist_ok=True)
+443:         filename = os.path.join(dump_path, f"{self.global_steps}.jsonl")
+444: 
+445:         n = len(inputs)
+1055:         # load dataloader,
+1056:         # TODO: from remote not implemented yet
+1057:         dataloader_local_path = os.path.join(global_step_folder, "data.pt")
+1058:         if os.path.exists(dataloader_local_path):
+1059:             dataloader_state_dict = torch.load(dataloader_local_path, weights_only=False)
+1060:             self.train_dataloader.load_state_dict(dataloader_state_dict)
+1061:         else:
+1062:             print(f"Warning: No dataloader state found at {dataloader_local_path}, will start from scratch")
+1063: 
+1064:     def _start_profiling(self, do_profile: bool) -> None:
+1065:         """Start profiling for all worker groups if profiling is enabled."""
+1066:         if do_profile:
+1067:             self.actor_rollout_wg.start_profile(role="e2e", profile_step=self.global_steps)
+1307:         if self.config.actor_rollout_ref.rollout.get("skip_rollout", False):
+1308:             rollout_skip = RolloutSkip(self.config, self.actor_rollout_wg)
+1309:             rollout_skip.wrap_generate_sequences()
+1310: 
+1311:         # add tqdm
+1312:         progress_bar = tqdm(total=self.total_training_steps, initial=self.global_steps, desc="Training Progress")
+1313: 
+1314:         # we start from step 1
+1315:         self.global_steps += 1
+1316:         last_val_metrics = None
+1317:         self.max_steps_duration = 0
+1318: 
+1319:         prev_step_profile = False
+1351:                 gen_batch.meta_info["global_steps"] = self.global_steps
+1352:                 gen_batch_output = gen_batch.repeat(
+1353:                     repeat_times=self.config.actor_rollout_ref.rollout.n, interleave=True
+1354:                 )
+1355: 
+1356:                 is_last_step = self.global_steps >= self.total_training_steps
+1357:                 with marked_timer("step", timing_raw):
+1358:                     # generate a batch
+1359:                     with marked_timer("gen", timing_raw, color="red"):
+1360:                         if not self.async_rollout_mode:
+1361:                             gen_batch_output = self.actor_rollout_wg.generate_sequences(gen_batch_output)
+1362:                         else:
+1363:                             gen_batch_output = self.async_rollout_manager.generate_sequences(gen_batch_output)
+/root/miniconda3/lib/python3.12/site-packages/verl/workers/fsdp_workers.py
+566:         if role == "actor" and optim_config is not None:
+567:             from verl.utils.torch_functional import get_constant_schedule_with_warmup, get_cosine_schedule_with_warmup
+568: 
+569:             actor_optimizer = build_optimizer(actor_module_fsdp.parameters(), optim_config)
+570: 
+571:             total_steps = optim_config.get("total_training_steps", 0)
+572:             num_warmup_steps = int(optim_config.get("lr_warmup_steps", -1))
+573:             lr_scheduler_type = optim_config.get("lr_scheduler_type", "constant")
+574:             min_lr_ratio = optim_config.get("min_lr_ratio", 0.0)
+575:             num_cycles = optim_config.get("num_cycles", 0.5)
+576:             if num_warmup_steps < 0:
+577:                 num_warmup_steps_ratio = optim_config.get("lr_warmup_steps_ratio", 0.0)
+578:                 num_warmup_steps = int(num_warmup_steps_ratio * total_steps)
+586:                 )
+587:             elif lr_scheduler_type == "cosine":
+588:                 actor_lr_scheduler = get_cosine_schedule_with_warmup(
+589:                     optimizer=actor_optimizer,
+590:                     num_warmup_steps=num_warmup_steps,
+591:                     num_training_steps=total_steps,
+592:                     min_lr_ratio=min_lr_ratio,
+593:                     num_cycles=num_cycles,
+594:                 )
+595:             else:
+596:                 raise NotImplementedError(f"LR scheduler type {lr_scheduler_type} is not supported")
+597: 
+598:             log_gpu_memory_usage(f"After {role} optimizer init", logger=logger)
+925:             )
+926:             metrics["perf/max_memory_allocated_gb"] = get_torch_device().max_memory_allocated() / (1024**3)
+927:             metrics["perf/max_memory_reserved_gb"] = get_torch_device().max_memory_reserved() / (1024**3)
+928:             metrics["perf/cpu_memory_used_gb"] = psutil.virtual_memory().used / (1024**3)
+929: 
+930:             lr = self.actor_lr_scheduler.get_last_lr()[0]
+931:             metrics["actor/lr"] = lr.item() if torch.is_tensor(lr) else lr
+932:             self.actor_lr_scheduler.step()
+933: 
+934:             # TODO: here, we should return all metrics
+935:             output = DataProto(meta_info={"metrics": metrics})
+936: 
+937:             output = output.to("cpu")
+938: 
+939:         if self._is_offload_param:
+1473: 
+1474:         log_gpu_memory_usage("After critic FSDP", logger=None)
+1475: 
+1476:         critic_optimizer = build_optimizer(critic_module.parameters(), config.optim)
+1477: 
+1478:         total_steps = config.optim.get("total_training_steps", 0)
+1479:         num_warmup_steps = int(config.optim.get("lr_warmup_steps", -1))
+1480: 
+1481:         lr_scheduler_type = config.optim.get("lr_scheduler_type", "constant")
+1482:         if num_warmup_steps < 0:
+1483:             num_warmup_steps_ratio = config.optim.get("lr_warmup_steps_ratio", 0.0)
+1484:             num_warmup_steps = int(num_warmup_steps_ratio * total_steps)
+1485: 
+1496:             min_lr_ratio = config.optim.get("min_lr_ratio", 0.0)
+1497:             num_cycles = config.optim.get("num_cycles", 0.5)
+1498:             critic_lr_scheduler = get_cosine_schedule_with_warmup(
+1499:                 optimizer=critic_optimizer,
+1500:                 num_warmup_steps=num_warmup_steps,
+1501:                 num_training_steps=total_steps,
+1502:                 min_lr_ratio=min_lr_ratio,
+1503:                 num_cycles=num_cycles,
+1504:             )
+1505:         else:
+1506:             raise NotImplementedError(f"LR scheduler type {lr_scheduler_type} is not supported")
+1507: 
+1508:         return critic_module, critic_optimizer, critic_lr_scheduler
+1575: 
+1576:             global_num_tokens = data.meta_info["global_token_num"]
+1577:             estimated_flops, promised_flops = self.flops_counter.estimate_flops(global_num_tokens, delta_time)
+1578:             metrics["perf/mfu/critic"] = estimated_flops * self.config.ppo_epochs / promised_flops / self.world_size
+1579: 
+1580:             lr = self.critic_lr_scheduler.get_last_lr()[0]
+1581:             metrics["critic/lr"] = lr
+1582:             self.critic_lr_scheduler.step()
+1583: 
+1584:             output = DataProto(batch=None, meta_info={"metrics": metrics})
+1585: 
+1586:         if self._is_offload_param:
+1587:             offload_fsdp_model_to_cpu(self.critic_module)
+1588:         if self._is_offload_optimizer:
+1589:             offload_fsdp_optimizer(optimizer=self.critic_optimizer)
+/root/miniconda3/lib/python3.12/site-packages/verl/utils/torch_functional.py
+683: 
+684: 
+685: def get_cosine_schedule_with_warmup(
+686:     optimizer: Optimizer,
+687:     num_warmup_steps: int,
+688:     num_training_steps: int,
+689:     min_lr_ratio: float = 0.0,
+690:     num_cycles: float = 0.5,
+691:     last_epoch: int = -1,
+692:     init_lr_ratio: float = None,
+693: ):
+694:     """
+695:     Create a schedule with a learning rate that decreases following the values of the cosine function between the
+698:     Args:
+699:         optimizer (:class:`~torch.optim.Optimizer`):
+700:             The optimizer for which to schedule the learning rate.
+701:         num_warmup_steps (:obj:`int`):
+702:             The number of steps for the warmup phase.
+703:         num_training_steps (:obj:`int`):
+704:             The total number of training steps.
+705:         min_lr_ratio (:obj:`float`, `optional`, defaults to 0.0):
+706:             The minimum lr ratio w.r.t the maximum.
+707:         num_cycles (:obj:`float`, `optional`, defaults to 0.5):
+708:             The number of waves in the cosine schedule (the defaults is to just decrease from the max value to 0
+709:             following a half-cosine).
+710:         last_epoch (:obj:`int`, `optional`, defaults to -1):
+723:     assert init_lr_ratio >= 0 and init_lr_ratio <= 1.0
+724: 
+725:     def lr_lambda(current_step):
+726:         if current_step < num_warmup_steps:
+727:             return init_lr_ratio + (1.0 - init_lr_ratio) * (float(current_step) / float(max(1, num_warmup_steps)))
+728:         progress = float(current_step - num_warmup_steps) / float(max(1, num_training_steps - num_warmup_steps))
+729:         x = math.cos(math.pi * float(num_cycles) * 2.0 * progress)
+730:         return max(min_lr_ratio, x * coef + intercept)
+731: 
+732:     return LambdaLR(optimizer, lr_lambda, last_epoch)
+733: 
+734: 
+735: def get_constant_schedule_with_warmup(
+821: 
+822: 
+823: def get_wsd_schedule_with_warmup(
+824:     optimizer: Optimizer,
+825:     num_warmup_steps: int,
+826:     num_training_steps: int,
+827:     min_lr_ratio: float = 0.0,
+828:     num_cycles: float = 0.5,
+829:     last_epoch: int = -1,
+830:     stable_ratio: float = 0.9,
+831: ):
+832:     """
+833:     Create a Warmup-Stable-Decay learning rate scheduler.
+840:     Args:
+841:         optimizer (:class:`~torch.optim.Optimizer`):
+842:             The optimizer for which to schedule the learning rate.
+843:         num_warmup_steps (:obj:`int`):
+844:             The number of steps for the warmup phase.
+845:         num_training_steps (:obj:`int`):
+846:             The total number of training steps.
+847:         min_lr_ratio (:obj:`float`, `optional`, defaults to 0.0):
+848:             The minimum learning rate ratio w.r.t the initial learning rate.
+849:         num_cycles (:obj:`float`, `optional`, defaults to 0.5):
+850:             The number of waves in the cosine schedule during decay phase.
+851:         last_epoch (:obj:`int`, `optional`, defaults to -1):
+852:             The index of the last epoch when resuming training.
+855:             Set to 0.0 to behave exactly like cosine schedule.
+856: 
+857:     Return:
+858:         :obj:`torch.optim.lr_scheduler.LambdaLR` with the appropriate schedule.
+859:     """
+860:     remaining_steps = max(0, num_training_steps - num_warmup_steps)
+861:     num_stable_steps = int(remaining_steps * stable_ratio)
+862:     num_decay_steps = remaining_steps - num_stable_steps
+863: 
+864:     def lr_lambda(current_step):
+865:         if current_step < num_warmup_steps:
+866:             return float(current_step) / float(max(1, num_warmup_steps))
+867:         if current_step < num_warmup_steps + num_stable_steps:
+868:             return 1.0
+869:         if current_step < num_training_steps:
+870:             progress = float(current_step - num_warmup_steps - num_stable_steps) / float(max(1, num_decay_steps))
+871:             value = max(0.0, 0.5 * (1.0 + math.cos(math.pi * float(num_cycles) * 2.0 * progress)))
+872:             return (1.0 - min_lr_ratio) * value + min_lr_ratio
+873:         return min_lr_ratio
+874: 
+875:     return LambdaLR(optimizer, lr_lambda, last_epoch)
+876: 
+/root/miniconda3/lib/python3.12/site-packages/verl/utils/experimental/torch_functional.py

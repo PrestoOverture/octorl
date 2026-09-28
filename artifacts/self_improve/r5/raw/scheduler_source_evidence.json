@@ -1,0 +1,1088 @@
+[
+  {
+    "path": "/root/Agent-R1/agent_r1/trainer/ppo/ray_trainer.py",
+    "sha256": "808eff533b131ef8de0678d96a76fffadce5f04e29b83cf0b535145d6435e1f7",
+    "lines": [
+      {
+        "line": 922,
+        "text": "        if self.config.actor_rollout_ref.rollout.get(\"skip_rollout\", False):"
+      },
+      {
+        "line": 923,
+        "text": "            rollout_skip = RolloutSkip(self.config, self.actor_rollout_wg)"
+      },
+      {
+        "line": 924,
+        "text": "            rollout_skip.wrap_generate_sequences()"
+      },
+      {
+        "line": 925,
+        "text": ""
+      },
+      {
+        "line": 926,
+        "text": "        # add tqdm"
+      },
+      {
+        "line": 927,
+        "text": "        progress_bar = tqdm(total=self.total_training_steps, initial=self.global_steps, desc=\"Training Progress\")"
+      },
+      {
+        "line": 928,
+        "text": ""
+      },
+      {
+        "line": 929,
+        "text": "        # we start from step 1"
+      },
+      {
+        "line": 930,
+        "text": "        self.global_steps += 1"
+      },
+      {
+        "line": 931,
+        "text": "        last_val_metrics = None"
+      },
+      {
+        "line": 932,
+        "text": "        self.max_steps_duration = 0"
+      },
+      {
+        "line": 933,
+        "text": ""
+      },
+      {
+        "line": 934,
+        "text": "        prev_step_profile = False"
+      },
+      {
+        "line": 966,
+        "text": "                gen_batch.meta_info[\"global_steps\"] = self.global_steps"
+      },
+      {
+        "line": 967,
+        "text": "                gen_batch_output = gen_batch.repeat("
+      },
+      {
+        "line": 968,
+        "text": "                    repeat_times=self.config.actor_rollout_ref.rollout.n, interleave=True"
+      },
+      {
+        "line": 969,
+        "text": "                )"
+      },
+      {
+        "line": 970,
+        "text": ""
+      },
+      {
+        "line": 971,
+        "text": "                is_last_step = self.global_steps >= self.total_training_steps"
+      },
+      {
+        "line": 972,
+        "text": "                with marked_timer(\"step\", timing_raw):"
+      },
+      {
+        "line": 973,
+        "text": "                    # generate a batch"
+      },
+      {
+        "line": 974,
+        "text": "                    with marked_timer(\"gen\", timing_raw, color=\"red\"):"
+      },
+      {
+        "line": 975,
+        "text": "                        gen_batch_output = self.async_rollout_manager.generate_sequences(gen_batch_output)"
+      },
+      {
+        "line": 976,
+        "text": ""
+      },
+      {
+        "line": 977,
+        "text": "                        timing_raw.update(gen_batch_output.meta_info[\"timing\"])"
+      },
+      {
+        "line": 978,
+        "text": "                        gen_batch_output.meta_info.pop(\"timing\", None)"
+      }
+    ]
+  },
+  {
+    "path": "/root/Agent-R1/agent_r1/workers/fsdp_workers.py",
+    "sha256": "e710ad4a756a7b47ba9d3d2adb3f0f651c682621d563b56d09e5cbfc37c3c9d2",
+    "lines": []
+  },
+  {
+    "path": "/root/miniconda3/lib/python3.12/site-packages/verl/trainer/ppo/ray_trainer.py",
+    "sha256": "7db543cb2a81172cf85fada19dee4791cb548e50e0f1e52da10dda65afda85fc",
+    "lines": [
+      {
+        "line": 417,
+        "text": "        print("
+      },
+      {
+        "line": 418,
+        "text": "            f\"Size of train dataloader: {len(self.train_dataloader)}, Size of val dataloader: \""
+      },
+      {
+        "line": 419,
+        "text": "            f\"{len(self.val_dataloader)}\""
+      },
+      {
+        "line": 420,
+        "text": "        )"
+      },
+      {
+        "line": 421,
+        "text": ""
+      },
+      {
+        "line": 422,
+        "text": "        total_training_steps = len(self.train_dataloader) * self.config.trainer.total_epochs"
+      },
+      {
+        "line": 423,
+        "text": ""
+      },
+      {
+        "line": 424,
+        "text": "        if self.config.trainer.total_training_steps is not None:"
+      },
+      {
+        "line": 425,
+        "text": "            total_training_steps = self.config.trainer.total_training_steps"
+      },
+      {
+        "line": 426,
+        "text": ""
+      },
+      {
+        "line": 427,
+        "text": "        self.total_training_steps = total_training_steps"
+      },
+      {
+        "line": 428,
+        "text": "        print(f\"Total training steps: {self.total_training_steps}\")"
+      },
+      {
+        "line": 429,
+        "text": ""
+      },
+      {
+        "line": 430,
+        "text": "        try:"
+      },
+      {
+        "line": 431,
+        "text": "            OmegaConf.set_struct(self.config, True)"
+      },
+      {
+        "line": 432,
+        "text": "            with open_dict(self.config):"
+      },
+      {
+        "line": 433,
+        "text": "                if OmegaConf.select(self.config, \"actor_rollout_ref.actor.optim\"):"
+      },
+      {
+        "line": 434,
+        "text": "                    self.config.actor_rollout_ref.actor.optim.total_training_steps = total_training_steps"
+      },
+      {
+        "line": 435,
+        "text": "                if OmegaConf.select(self.config, \"critic.optim\"):"
+      },
+      {
+        "line": 436,
+        "text": "                    self.config.critic.optim.total_training_steps = total_training_steps"
+      },
+      {
+        "line": 437,
+        "text": "        except Exception as e:"
+      },
+      {
+        "line": 438,
+        "text": "            print(f\"Warning: Could not set total_training_steps in config. Structure missing? Error: {e}\")"
+      },
+      {
+        "line": 439,
+        "text": ""
+      },
+      {
+        "line": 440,
+        "text": "    def _dump_generations(self, inputs, outputs, gts, scores, reward_extra_infos_dict, dump_path):"
+      },
+      {
+        "line": 441,
+        "text": "        \"\"\"Dump rollout/validation samples as JSONL.\"\"\""
+      },
+      {
+        "line": 442,
+        "text": "        os.makedirs(dump_path, exist_ok=True)"
+      },
+      {
+        "line": 443,
+        "text": "        filename = os.path.join(dump_path, f\"{self.global_steps}.jsonl\")"
+      },
+      {
+        "line": 444,
+        "text": ""
+      },
+      {
+        "line": 445,
+        "text": "        n = len(inputs)"
+      },
+      {
+        "line": 1055,
+        "text": "        # load dataloader,"
+      },
+      {
+        "line": 1056,
+        "text": "        # TODO: from remote not implemented yet"
+      },
+      {
+        "line": 1057,
+        "text": "        dataloader_local_path = os.path.join(global_step_folder, \"data.pt\")"
+      },
+      {
+        "line": 1058,
+        "text": "        if os.path.exists(dataloader_local_path):"
+      },
+      {
+        "line": 1059,
+        "text": "            dataloader_state_dict = torch.load(dataloader_local_path, weights_only=False)"
+      },
+      {
+        "line": 1060,
+        "text": "            self.train_dataloader.load_state_dict(dataloader_state_dict)"
+      },
+      {
+        "line": 1061,
+        "text": "        else:"
+      },
+      {
+        "line": 1062,
+        "text": "            print(f\"Warning: No dataloader state found at {dataloader_local_path}, will start from scratch\")"
+      },
+      {
+        "line": 1063,
+        "text": ""
+      },
+      {
+        "line": 1064,
+        "text": "    def _start_profiling(self, do_profile: bool) -> None:"
+      },
+      {
+        "line": 1065,
+        "text": "        \"\"\"Start profiling for all worker groups if profiling is enabled.\"\"\""
+      },
+      {
+        "line": 1066,
+        "text": "        if do_profile:"
+      },
+      {
+        "line": 1067,
+        "text": "            self.actor_rollout_wg.start_profile(role=\"e2e\", profile_step=self.global_steps)"
+      },
+      {
+        "line": 1307,
+        "text": "        if self.config.actor_rollout_ref.rollout.get(\"skip_rollout\", False):"
+      },
+      {
+        "line": 1308,
+        "text": "            rollout_skip = RolloutSkip(self.config, self.actor_rollout_wg)"
+      },
+      {
+        "line": 1309,
+        "text": "            rollout_skip.wrap_generate_sequences()"
+      },
+      {
+        "line": 1310,
+        "text": ""
+      },
+      {
+        "line": 1311,
+        "text": "        # add tqdm"
+      },
+      {
+        "line": 1312,
+        "text": "        progress_bar = tqdm(total=self.total_training_steps, initial=self.global_steps, desc=\"Training Progress\")"
+      },
+      {
+        "line": 1313,
+        "text": ""
+      },
+      {
+        "line": 1314,
+        "text": "        # we start from step 1"
+      },
+      {
+        "line": 1315,
+        "text": "        self.global_steps += 1"
+      },
+      {
+        "line": 1316,
+        "text": "        last_val_metrics = None"
+      },
+      {
+        "line": 1317,
+        "text": "        self.max_steps_duration = 0"
+      },
+      {
+        "line": 1318,
+        "text": ""
+      },
+      {
+        "line": 1319,
+        "text": "        prev_step_profile = False"
+      },
+      {
+        "line": 1351,
+        "text": "                gen_batch.meta_info[\"global_steps\"] = self.global_steps"
+      },
+      {
+        "line": 1352,
+        "text": "                gen_batch_output = gen_batch.repeat("
+      },
+      {
+        "line": 1353,
+        "text": "                    repeat_times=self.config.actor_rollout_ref.rollout.n, interleave=True"
+      },
+      {
+        "line": 1354,
+        "text": "                )"
+      },
+      {
+        "line": 1355,
+        "text": ""
+      },
+      {
+        "line": 1356,
+        "text": "                is_last_step = self.global_steps >= self.total_training_steps"
+      },
+      {
+        "line": 1357,
+        "text": "                with marked_timer(\"step\", timing_raw):"
+      },
+      {
+        "line": 1358,
+        "text": "                    # generate a batch"
+      },
+      {
+        "line": 1359,
+        "text": "                    with marked_timer(\"gen\", timing_raw, color=\"red\"):"
+      },
+      {
+        "line": 1360,
+        "text": "                        if not self.async_rollout_mode:"
+      },
+      {
+        "line": 1361,
+        "text": "                            gen_batch_output = self.actor_rollout_wg.generate_sequences(gen_batch_output)"
+      },
+      {
+        "line": 1362,
+        "text": "                        else:"
+      },
+      {
+        "line": 1363,
+        "text": "                            gen_batch_output = self.async_rollout_manager.generate_sequences(gen_batch_output)"
+      }
+    ]
+  },
+  {
+    "path": "/root/miniconda3/lib/python3.12/site-packages/verl/workers/fsdp_workers.py",
+    "sha256": "54e0cce9ca9b4e8d2430a4064798e3a47a0bd345d5102c078597395bdbe8a5ed",
+    "lines": [
+      {
+        "line": 566,
+        "text": "        if role == \"actor\" and optim_config is not None:"
+      },
+      {
+        "line": 567,
+        "text": "            from verl.utils.torch_functional import get_constant_schedule_with_warmup, get_cosine_schedule_with_warmup"
+      },
+      {
+        "line": 568,
+        "text": ""
+      },
+      {
+        "line": 569,
+        "text": "            actor_optimizer = build_optimizer(actor_module_fsdp.parameters(), optim_config)"
+      },
+      {
+        "line": 570,
+        "text": ""
+      },
+      {
+        "line": 571,
+        "text": "            total_steps = optim_config.get(\"total_training_steps\", 0)"
+      },
+      {
+        "line": 572,
+        "text": "            num_warmup_steps = int(optim_config.get(\"lr_warmup_steps\", -1))"
+      },
+      {
+        "line": 573,
+        "text": "            lr_scheduler_type = optim_config.get(\"lr_scheduler_type\", \"constant\")"
+      },
+      {
+        "line": 574,
+        "text": "            min_lr_ratio = optim_config.get(\"min_lr_ratio\", 0.0)"
+      },
+      {
+        "line": 575,
+        "text": "            num_cycles = optim_config.get(\"num_cycles\", 0.5)"
+      },
+      {
+        "line": 576,
+        "text": "            if num_warmup_steps < 0:"
+      },
+      {
+        "line": 577,
+        "text": "                num_warmup_steps_ratio = optim_config.get(\"lr_warmup_steps_ratio\", 0.0)"
+      },
+      {
+        "line": 578,
+        "text": "                num_warmup_steps = int(num_warmup_steps_ratio * total_steps)"
+      },
+      {
+        "line": 586,
+        "text": "                )"
+      },
+      {
+        "line": 587,
+        "text": "            elif lr_scheduler_type == \"cosine\":"
+      },
+      {
+        "line": 588,
+        "text": "                actor_lr_scheduler = get_cosine_schedule_with_warmup("
+      },
+      {
+        "line": 589,
+        "text": "                    optimizer=actor_optimizer,"
+      },
+      {
+        "line": 590,
+        "text": "                    num_warmup_steps=num_warmup_steps,"
+      },
+      {
+        "line": 591,
+        "text": "                    num_training_steps=total_steps,"
+      },
+      {
+        "line": 592,
+        "text": "                    min_lr_ratio=min_lr_ratio,"
+      },
+      {
+        "line": 593,
+        "text": "                    num_cycles=num_cycles,"
+      },
+      {
+        "line": 594,
+        "text": "                )"
+      },
+      {
+        "line": 595,
+        "text": "            else:"
+      },
+      {
+        "line": 596,
+        "text": "                raise NotImplementedError(f\"LR scheduler type {lr_scheduler_type} is not supported\")"
+      },
+      {
+        "line": 597,
+        "text": ""
+      },
+      {
+        "line": 598,
+        "text": "            log_gpu_memory_usage(f\"After {role} optimizer init\", logger=logger)"
+      },
+      {
+        "line": 925,
+        "text": "            )"
+      },
+      {
+        "line": 926,
+        "text": "            metrics[\"perf/max_memory_allocated_gb\"] = get_torch_device().max_memory_allocated() / (1024**3)"
+      },
+      {
+        "line": 927,
+        "text": "            metrics[\"perf/max_memory_reserved_gb\"] = get_torch_device().max_memory_reserved() / (1024**3)"
+      },
+      {
+        "line": 928,
+        "text": "            metrics[\"perf/cpu_memory_used_gb\"] = psutil.virtual_memory().used / (1024**3)"
+      },
+      {
+        "line": 929,
+        "text": ""
+      },
+      {
+        "line": 930,
+        "text": "            lr = self.actor_lr_scheduler.get_last_lr()[0]"
+      },
+      {
+        "line": 931,
+        "text": "            metrics[\"actor/lr\"] = lr.item() if torch.is_tensor(lr) else lr"
+      },
+      {
+        "line": 932,
+        "text": "            self.actor_lr_scheduler.step()"
+      },
+      {
+        "line": 933,
+        "text": ""
+      },
+      {
+        "line": 934,
+        "text": "            # TODO: here, we should return all metrics"
+      },
+      {
+        "line": 935,
+        "text": "            output = DataProto(meta_info={\"metrics\": metrics})"
+      },
+      {
+        "line": 936,
+        "text": ""
+      },
+      {
+        "line": 937,
+        "text": "            output = output.to(\"cpu\")"
+      },
+      {
+        "line": 938,
+        "text": ""
+      },
+      {
+        "line": 939,
+        "text": "        if self._is_offload_param:"
+      },
+      {
+        "line": 1473,
+        "text": ""
+      },
+      {
+        "line": 1474,
+        "text": "        log_gpu_memory_usage(\"After critic FSDP\", logger=None)"
+      },
+      {
+        "line": 1475,
+        "text": ""
+      },
+      {
+        "line": 1476,
+        "text": "        critic_optimizer = build_optimizer(critic_module.parameters(), config.optim)"
+      },
+      {
+        "line": 1477,
+        "text": ""
+      },
+      {
+        "line": 1478,
+        "text": "        total_steps = config.optim.get(\"total_training_steps\", 0)"
+      },
+      {
+        "line": 1479,
+        "text": "        num_warmup_steps = int(config.optim.get(\"lr_warmup_steps\", -1))"
+      },
+      {
+        "line": 1480,
+        "text": ""
+      },
+      {
+        "line": 1481,
+        "text": "        lr_scheduler_type = config.optim.get(\"lr_scheduler_type\", \"constant\")"
+      },
+      {
+        "line": 1482,
+        "text": "        if num_warmup_steps < 0:"
+      },
+      {
+        "line": 1483,
+        "text": "            num_warmup_steps_ratio = config.optim.get(\"lr_warmup_steps_ratio\", 0.0)"
+      },
+      {
+        "line": 1484,
+        "text": "            num_warmup_steps = int(num_warmup_steps_ratio * total_steps)"
+      },
+      {
+        "line": 1485,
+        "text": ""
+      },
+      {
+        "line": 1496,
+        "text": "            min_lr_ratio = config.optim.get(\"min_lr_ratio\", 0.0)"
+      },
+      {
+        "line": 1497,
+        "text": "            num_cycles = config.optim.get(\"num_cycles\", 0.5)"
+      },
+      {
+        "line": 1498,
+        "text": "            critic_lr_scheduler = get_cosine_schedule_with_warmup("
+      },
+      {
+        "line": 1499,
+        "text": "                optimizer=critic_optimizer,"
+      },
+      {
+        "line": 1500,
+        "text": "                num_warmup_steps=num_warmup_steps,"
+      },
+      {
+        "line": 1501,
+        "text": "                num_training_steps=total_steps,"
+      },
+      {
+        "line": 1502,
+        "text": "                min_lr_ratio=min_lr_ratio,"
+      },
+      {
+        "line": 1503,
+        "text": "                num_cycles=num_cycles,"
+      },
+      {
+        "line": 1504,
+        "text": "            )"
+      },
+      {
+        "line": 1505,
+        "text": "        else:"
+      },
+      {
+        "line": 1506,
+        "text": "            raise NotImplementedError(f\"LR scheduler type {lr_scheduler_type} is not supported\")"
+      },
+      {
+        "line": 1507,
+        "text": ""
+      },
+      {
+        "line": 1508,
+        "text": "        return critic_module, critic_optimizer, critic_lr_scheduler"
+      },
+      {
+        "line": 1575,
+        "text": ""
+      },
+      {
+        "line": 1576,
+        "text": "            global_num_tokens = data.meta_info[\"global_token_num\"]"
+      },
+      {
+        "line": 1577,
+        "text": "            estimated_flops, promised_flops = self.flops_counter.estimate_flops(global_num_tokens, delta_time)"
+      },
+      {
+        "line": 1578,
+        "text": "            metrics[\"perf/mfu/critic\"] = estimated_flops * self.config.ppo_epochs / promised_flops / self.world_size"
+      },
+      {
+        "line": 1579,
+        "text": ""
+      },
+      {
+        "line": 1580,
+        "text": "            lr = self.critic_lr_scheduler.get_last_lr()[0]"
+      },
+      {
+        "line": 1581,
+        "text": "            metrics[\"critic/lr\"] = lr"
+      },
+      {
+        "line": 1582,
+        "text": "            self.critic_lr_scheduler.step()"
+      },
+      {
+        "line": 1583,
+        "text": ""
+      },
+      {
+        "line": 1584,
+        "text": "            output = DataProto(batch=None, meta_info={\"metrics\": metrics})"
+      },
+      {
+        "line": 1585,
+        "text": ""
+      },
+      {
+        "line": 1586,
+        "text": "        if self._is_offload_param:"
+      },
+      {
+        "line": 1587,
+        "text": "            offload_fsdp_model_to_cpu(self.critic_module)"
+      },
+      {
+        "line": 1588,
+        "text": "        if self._is_offload_optimizer:"
+      },
+      {
+        "line": 1589,
+        "text": "            offload_fsdp_optimizer(optimizer=self.critic_optimizer)"
+      }
+    ]
+  },
+  {
+    "path": "/root/miniconda3/lib/python3.12/site-packages/verl/utils/torch_functional.py",
+    "sha256": "811aadb6c480a3ebd02f2242981a513d056ceb309347aebd6eff9ba5e52590ec",
+    "lines": [
+      {
+        "line": 683,
+        "text": ""
+      },
+      {
+        "line": 684,
+        "text": ""
+      },
+      {
+        "line": 685,
+        "text": "def get_cosine_schedule_with_warmup("
+      },
+      {
+        "line": 686,
+        "text": "    optimizer: Optimizer,"
+      },
+      {
+        "line": 687,
+        "text": "    num_warmup_steps: int,"
+      },
+      {
+        "line": 688,
+        "text": "    num_training_steps: int,"
+      },
+      {
+        "line": 689,
+        "text": "    min_lr_ratio: float = 0.0,"
+      },
+      {
+        "line": 690,
+        "text": "    num_cycles: float = 0.5,"
+      },
+      {
+        "line": 691,
+        "text": "    last_epoch: int = -1,"
+      },
+      {
+        "line": 692,
+        "text": "    init_lr_ratio: float = None,"
+      },
+      {
+        "line": 693,
+        "text": "):"
+      },
+      {
+        "line": 694,
+        "text": "    \"\"\""
+      },
+      {
+        "line": 695,
+        "text": "    Create a schedule with a learning rate that decreases following the values of the cosine function between the"
+      },
+      {
+        "line": 698,
+        "text": "    Args:"
+      },
+      {
+        "line": 699,
+        "text": "        optimizer (:class:`~torch.optim.Optimizer`):"
+      },
+      {
+        "line": 700,
+        "text": "            The optimizer for which to schedule the learning rate."
+      },
+      {
+        "line": 701,
+        "text": "        num_warmup_steps (:obj:`int`):"
+      },
+      {
+        "line": 702,
+        "text": "            The number of steps for the warmup phase."
+      },
+      {
+        "line": 703,
+        "text": "        num_training_steps (:obj:`int`):"
+      },
+      {
+        "line": 704,
+        "text": "            The total number of training steps."
+      },
+      {
+        "line": 705,
+        "text": "        min_lr_ratio (:obj:`float`, `optional`, defaults to 0.0):"
+      },
+      {
+        "line": 706,
+        "text": "            The minimum lr ratio w.r.t the maximum."
+      },
+      {
+        "line": 707,
+        "text": "        num_cycles (:obj:`float`, `optional`, defaults to 0.5):"
+      },
+      {
+        "line": 708,
+        "text": "            The number of waves in the cosine schedule (the defaults is to just decrease from the max value to 0"
+      },
+      {
+        "line": 709,
+        "text": "            following a half-cosine)."
+      },
+      {
+        "line": 710,
+        "text": "        last_epoch (:obj:`int`, `optional`, defaults to -1):"
+      },
+      {
+        "line": 723,
+        "text": "    assert init_lr_ratio >= 0 and init_lr_ratio <= 1.0"
+      },
+      {
+        "line": 724,
+        "text": ""
+      },
+      {
+        "line": 725,
+        "text": "    def lr_lambda(current_step):"
+      },
+      {
+        "line": 726,
+        "text": "        if current_step < num_warmup_steps:"
+      },
+      {
+        "line": 727,
+        "text": "            return init_lr_ratio + (1.0 - init_lr_ratio) * (float(current_step) / float(max(1, num_warmup_steps)))"
+      },
+      {
+        "line": 728,
+        "text": "        progress = float(current_step - num_warmup_steps) / float(max(1, num_training_steps - num_warmup_steps))"
+      },
+      {
+        "line": 729,
+        "text": "        x = math.cos(math.pi * float(num_cycles) * 2.0 * progress)"
+      },
+      {
+        "line": 730,
+        "text": "        return max(min_lr_ratio, x * coef + intercept)"
+      },
+      {
+        "line": 731,
+        "text": ""
+      },
+      {
+        "line": 732,
+        "text": "    return LambdaLR(optimizer, lr_lambda, last_epoch)"
+      },
+      {
+        "line": 733,
+        "text": ""
+      },
+      {
+        "line": 734,
+        "text": ""
+      },
+      {
+        "line": 735,
+        "text": "def get_constant_schedule_with_warmup("
+      },
+      {
+        "line": 821,
+        "text": ""
+      },
+      {
+        "line": 822,
+        "text": ""
+      },
+      {
+        "line": 823,
+        "text": "def get_wsd_schedule_with_warmup("
+      },
+      {
+        "line": 824,
+        "text": "    optimizer: Optimizer,"
+      },
+      {
+        "line": 825,
+        "text": "    num_warmup_steps: int,"
+      },
+      {
+        "line": 826,
+        "text": "    num_training_steps: int,"
+      },
+      {
+        "line": 827,
+        "text": "    min_lr_ratio: float = 0.0,"
+      },
+      {
+        "line": 828,
+        "text": "    num_cycles: float = 0.5,"
+      },
+      {
+        "line": 829,
+        "text": "    last_epoch: int = -1,"
+      },
+      {
+        "line": 830,
+        "text": "    stable_ratio: float = 0.9,"
+      },
+      {
+        "line": 831,
+        "text": "):"
+      },
+      {
+        "line": 832,
+        "text": "    \"\"\""
+      },
+      {
+        "line": 833,
+        "text": "    Create a Warmup-Stable-Decay learning rate scheduler."
+      },
+      {
+        "line": 840,
+        "text": "    Args:"
+      },
+      {
+        "line": 841,
+        "text": "        optimizer (:class:`~torch.optim.Optimizer`):"
+      },
+      {
+        "line": 842,
+        "text": "            The optimizer for which to schedule the learning rate."
+      },
+      {
+        "line": 843,
+        "text": "        num_warmup_steps (:obj:`int`):"
+      },
+      {
+        "line": 844,
+        "text": "            The number of steps for the warmup phase."
+      },
+      {
+        "line": 845,
+        "text": "        num_training_steps (:obj:`int`):"
+      },
+      {
+        "line": 846,
+        "text": "            The total number of training steps."
+      },
+      {
+        "line": 847,
+        "text": "        min_lr_ratio (:obj:`float`, `optional`, defaults to 0.0):"
+      },
+      {
+        "line": 848,
+        "text": "            The minimum learning rate ratio w.r.t the initial learning rate."
+      },
+      {
+        "line": 849,
+        "text": "        num_cycles (:obj:`float`, `optional`, defaults to 0.5):"
+      },
+      {
+        "line": 850,
+        "text": "            The number of waves in the cosine schedule during decay phase."
+      },
+      {
+        "line": 851,
+        "text": "        last_epoch (:obj:`int`, `optional`, defaults to -1):"
+      },
+      {
+        "line": 852,
+        "text": "            The index of the last epoch when resuming training."
+      },
+      {
+        "line": 855,
+        "text": "            Set to 0.0 to behave exactly like cosine schedule."
+      },
+      {
+        "line": 856,
+        "text": ""
+      },
+      {
+        "line": 857,
+        "text": "    Return:"
+      },
+      {
+        "line": 858,
+        "text": "        :obj:`torch.optim.lr_scheduler.LambdaLR` with the appropriate schedule."
+      },
+      {
+        "line": 859,
+        "text": "    \"\"\""
+      },
+      {
+        "line": 860,
+        "text": "    remaining_steps = max(0, num_training_steps - num_warmup_steps)"
+      },
+      {
+        "line": 861,
+        "text": "    num_stable_steps = int(remaining_steps * stable_ratio)"
+      },
+      {
+        "line": 862,
+        "text": "    num_decay_steps = remaining_steps - num_stable_steps"
+      },
+      {
+        "line": 863,
+        "text": ""
+      },
+      {
+        "line": 864,
+        "text": "    def lr_lambda(current_step):"
+      },
+      {
+        "line": 865,
+        "text": "        if current_step < num_warmup_steps:"
+      },
+      {
+        "line": 866,
+        "text": "            return float(current_step) / float(max(1, num_warmup_steps))"
+      },
+      {
+        "line": 867,
+        "text": "        if current_step < num_warmup_steps + num_stable_steps:"
+      },
+      {
+        "line": 868,
+        "text": "            return 1.0"
+      },
+      {
+        "line": 869,
+        "text": "        if current_step < num_training_steps:"
+      },
+      {
+        "line": 870,
+        "text": "            progress = float(current_step - num_warmup_steps - num_stable_steps) / float(max(1, num_decay_steps))"
+      },
+      {
+        "line": 871,
+        "text": "            value = max(0.0, 0.5 * (1.0 + math.cos(math.pi * float(num_cycles) * 2.0 * progress)))"
+      },
+      {
+        "line": 872,
+        "text": "            return (1.0 - min_lr_ratio) * value + min_lr_ratio"
+      },
+      {
+        "line": 873,
+        "text": "        return min_lr_ratio"
+      },
+      {
+        "line": 874,
+        "text": ""
+      },
+      {
+        "line": 875,
+        "text": "    return LambdaLR(optimizer, lr_lambda, last_epoch)"
+      },
+      {
+        "line": 876,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "path": "/root/miniconda3/lib/python3.12/site-packages/verl/utils/experimental/torch_functional.py",
+    "sha256": "ce635532bed786a9e4179f25de0925a8ff87d7574d2085d44ed8c74547fa3802",
+    "lines": []
+  }
+]

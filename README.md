@@ -144,3 +144,39 @@ docs/              PRD, architecture, roadmap, tech stack, progress
 
 See `LICENSE`. Micro-repository provenance and license records are in each repo's
 `injector_sources.json`.
+
+## Self-improve training study: dev-tool fault recovery
+
+This separate study uses a short, structured tool-recovery environment under
+`src/tasks/tool_recovery/`, with the Agent-R1 adapter in
+`src/adapters/tool_recovery_agent_r1.py`. It is distinct from the repository-repair
+environment described above. R4's pre-registered results are
+`no_evidence_of_improvement` (fixed training versus base) and
+`no_evidence_of_difference` (failure-driven versus fixed).
+
+Study entry points are `scripts/self_improve/r4_analysis.py` (offline analysis),
+`r5_diagnostics.py` (training logs), and `r5_load_adapter.py` (adapter checking or
+loading). See [the R5 report](artifacts/self_improve/r5/R5_report.md) for exact
+results, exploratory-result labels, provenance, diagnostics, costs and limitations.
+Local adapter weights are excluded from Git; acquire them using `r5_pull.py` with
+authorized key-only access to `autodl-r4`.
+
+```sh
+# Offline analysis; keep the frozen R4 outputs unchanged.
+python scripts/self_improve/r4_analysis.py \
+  --model base=artifacts/self_improve/r4/test_eval/base.json \
+  --model fixed_42=artifacts/self_improve/r4/test_eval/fixed_42.json \
+  --model fixed_137=artifacts/self_improve/r4/test_eval/fixed_137.json \
+  --model fixed_2718=artifacts/self_improve/r4/test_eval/fixed_2718.json \
+  --model failure_driven_42=artifacts/self_improve/r4/test_eval/failure_driven_42.json \
+  --model failure_driven_137=artifacts/self_improve/r4/test_eval/failure_driven_137.json \
+  --model failure_driven_2718=artifacts/self_improve/r4/test_eval/failure_driven_2718.json \
+  --out-json artifacts/self_improve/r5/reanalysis.json \
+  --out-md artifacts/self_improve/r5/reanalysis.md
+# CPU-only adapter checks, no base weights needed:
+python scripts/self_improve/r5_load_adapter.py --check-only
+python scripts/self_improve/r5_verify_report.py
+# Optional future full load; requires local base weights, torch, transformers and peft.
+# This full-load command was not run for R5.
+python scripts/self_improve/r5_load_adapter.py --adapter artifacts/self_improve/r5/checkpoints/r4_fixed_137_u80 --base /absolute/path/to/Qwen3-4B --seed 42
+```

@@ -1,0 +1,24 @@
+{
+  "success": true,
+  "pytest_command": [
+    "/Users/kwang/projects/octorl/.venv/bin/python",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/test_r4_analysis.py",
+    "tests/test_r4_runner.py",
+    "tests/test_r4_selector.py",
+    "tests/test_r5_deliverable.py"
+  ],
+  "pytest_output": "......................................................                   [100%]\n54 passed in 19.33s\n",
+  "git_status": " M .gitignore\n M README.md\n?? artifacts/self_improve/r5/\n?? scripts/self_improve/r5_diagnostics.py\n?? scripts/self_improve/r5_evidence.py\n?? scripts/self_improve/r5_gap.py\n?? scripts/self_improve/r5_load_adapter.py\n?? scripts/self_improve/r5_pull.py\n?? scripts/self_improve/r5_report.py\n?? scripts/self_improve/r5_scheduler_evidence.py\n?? scripts/self_improve/r5_verify_report.py\n?? tests/test_r5_deliverable.py\n",
+  "staged_paths": [],
+  "modified_tracked_files": [
+    ".gitignore",
+    "README.md"
+  ],
+  "pulled_files": 133,
+  "missing": [],
+  "remote_acquisition_wall_seconds": 1491.6335170269012,
+  "gpu_training_evaluation_or_full_load_run": false
+}
