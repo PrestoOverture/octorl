@@ -1,0 +1,19 @@
+{
+  "elapsed_seconds": 76.5072056343779,
+  "cost_cny": 0.046329363411928844,
+  "exit_code": 0,
+  "command": [
+    "/root/miniconda3/bin/python3",
+    "/root/octorl_r3/scripts/self_improve/r3b_eval.py",
+    "--manifest",
+    "/root/octorl_r3/artifacts/self_improve/r3/data/dev_manifest.json",
+    "--output",
+    "/root/autodl-tmp/octorl_r4/seed_42/fixed/stage_3/dev_health/dev.json",
+    "--trajectories",
+    "/root/autodl-tmp/octorl_r4/seed_42/fixed/stage_3/dev_health/trajectories.jsonl",
+    "--lora-path",
+    "/root/autodl-tmp/octorl_r4/seed_42/fixed/stage_3/attempt_1/checkpoints/global_step_50/actor/lora_adapter",
+    "--eval-seed",
+    "310000"
+  ]
+}

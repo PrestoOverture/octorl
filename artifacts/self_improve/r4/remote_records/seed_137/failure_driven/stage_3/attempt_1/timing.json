@@ -1,0 +1,16 @@
+{
+  "elapsed_seconds": 2037.7942483993247,
+  "cost_cny": 1.233997628197369,
+  "exit_code": 0,
+  "command": [
+    "bash",
+    "/root/octorl_r3/scripts/self_improve/r4_train_stage.sh",
+    "137",
+    "failure_driven",
+    "3",
+    "40",
+    "/root/autodl-tmp/octorl_r4/seed_137/failure_driven/stage_3/train.parquet",
+    "/root/autodl-tmp/octorl_r4/seed_137/failure_driven/stage_2/attempt_1/checkpoints/global_step_40",
+    "/root/autodl-tmp/octorl_r4/seed_137/failure_driven/stage_3/attempt_1"
+  ]
+}
