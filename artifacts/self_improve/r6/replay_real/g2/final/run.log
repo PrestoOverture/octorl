@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/root/autodl-tmp/octorl_r3/scripts/self_improve/r6_offline_replay.py", line 16, in <module>
+    from src.curriculum.failure_driven import CELLS, PI0
+ModuleNotFoundError: No module named 'src'

@@ -1,0 +1,82 @@
+{
+  "G1": {
+    "input_sensitivity_pass": true,
+    "pass": true,
+    "validity_pass": true
+  },
+  "adapter_sha256": {
+    "base": null,
+    "u20_137": "e7d68fd875e46487187d14e8554e749045145b744b3c23904243e9c577f7d316",
+    "u20_2718": "2e97026dbb304c052a0a4ad5a1c1fd0e36d98ca81f6e8bcd638a19affededc21",
+    "u20_42": "f7af949bee5feb930b589bbeeea277ae3ecbf4a3cc5a8078e8b89ca21ee25262",
+    "u80_137": "0576547a1161331e3300351e09d7b34ca9e2da2a8134c34edc769a43d41facc0",
+    "u80_2718": "6a5f6bb6e8712e76deee804ff54728bafabed9abec0e5bfb5f43c01bb557d8b6",
+    "u80_42": "bab5f2aa4a61b41b54ff0c98dfceb5142ad9a225dbf7b9579a8b97df978a3c1c"
+  },
+  "backend": "VllmBackend",
+  "fallback_stage_counts": {
+    "base": 0,
+    "u20_137": 0,
+    "u20_2718": 0,
+    "u20_42": 0,
+    "u80_137": 0,
+    "u80_2718": 0,
+    "u80_42": 0
+  },
+  "input_sensitivity": 0.16770833333333335,
+  "query_count": {
+    "formula": "36 * (base: 8+8+2*8; paired U20: 8+8; paired U80: 8+8) = 2304",
+    "total": 2304
+  },
+  "sample_level_validity": {
+    "base": {
+      "rate": 1.0,
+      "total": 1152,
+      "valid": 1152
+    },
+    "u20_137": {
+      "rate": 1.0,
+      "total": 192,
+      "valid": 192
+    },
+    "u20_2718": {
+      "rate": 1.0,
+      "total": 192,
+      "valid": 192
+    },
+    "u20_42": {
+      "rate": 1.0,
+      "total": 192,
+      "valid": 192
+    },
+    "u80_137": {
+      "rate": 1.0,
+      "total": 192,
+      "valid": 192
+    },
+    "u80_2718": {
+      "rate": 1.0,
+      "total": 192,
+      "valid": 192
+    },
+    "u80_42": {
+      "rate": 1.0,
+      "total": 192,
+      "valid": 192
+    }
+  },
+  "sample_stage_count": 108,
+  "schema": "r6-g1-offline-replay-v1",
+  "unnormalised_rate": {
+    "base": 0.0,
+    "u20_137": 0.0,
+    "u20_2718": 0.0,
+    "u20_42": 0.0,
+    "u80_137": 0.0,
+    "u80_2718": 0.0,
+    "u80_42": 0.0
+  },
+  "wall_time_measurement": "monotonic elapsed time including model boot",
+  "wall_time_seconds": 61.622744233347476,
+  "windows": 36
+}

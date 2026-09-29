@@ -1,0 +1,18 @@
+{
+  "adapter_sha256": {
+    "base": null,
+    "u20_137": "e7d68fd875e46487187d14e8554e749045145b744b3c23904243e9c577f7d316"
+  },
+  "choosers": [
+    "base",
+    "u20_137"
+  ],
+  "elapsed_seconds": 45.21940045710653,
+  "query_count": 16,
+  "schema": "r6-smoke-v1",
+  "window": {
+    "arm": "failure_driven",
+    "seed": 137,
+    "stage": 1
+  }
+}

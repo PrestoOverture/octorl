@@ -1,0 +1,14 @@
+{
+  "42": {
+    "u20": "/root/autodl-tmp/octorl_r3c/seed_42/checkpoints/global_step_20/actor/lora_adapter",
+    "u80": "/root/autodl-tmp/octorl_r4r/seed_42/failure_driven/stage_6/attempt_1/checkpoints/global_step_80/actor/lora_adapter"
+  },
+  "137": {
+    "u20": "/root/autodl-tmp/octorl_r3c/seed_137/checkpoints/global_step_20/actor/lora_adapter",
+    "u80": "/root/autodl-tmp/octorl_r4r/seed_137/failure_driven/stage_6/attempt_1/checkpoints/global_step_80/actor/lora_adapter"
+  },
+  "2718": {
+    "u20": "/root/autodl-tmp/octorl_r4r/seed_2718/warmup/checkpoints/global_step_20/actor/lora_adapter",
+    "u80": "/root/autodl-tmp/octorl_r4r/seed_2718/failure_driven/stage_6/attempt_1/checkpoints/global_step_80/actor/lora_adapter"
+  }
+}

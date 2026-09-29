@@ -1,0 +1,28 @@
+{
+  "G2": {
+    "identity_threshold_pass": false,
+    "noise_ratio_pass": false,
+    "pass": false
+  },
+  "TV_identity": {
+    "u20": {
+      "per_seed": {
+        "137": 0.00833333333333333,
+        "2718": 0.00520833333333333,
+        "42": 0.0015625
+      },
+      "pooled": 0.00503472222222222
+    },
+    "u80": {
+      "per_seed": {
+        "137": 0.00260416666666667,
+        "2718": 0.00520833333333333,
+        "42": 0.0015625
+      },
+      "pooled": 0.003125
+    }
+  },
+  "TV_noise": 0.00989583333333333,
+  "schema": "r6-g2-offline-replay-v1",
+  "source_completions_sha256": "43e51094f7a00a48b7250a01fbc6cbdd19392ef3cb66a84657d7c1f3a74186ec"
+}
