@@ -1,0 +1,518 @@
+{
+  "r4r_fixed_42": {
+    "1": {
+      "counts": {
+        "constraint_violation": 15,
+        "missing_dependency": 13,
+        "stale_version": 12
+      },
+      "total": 40,
+      "source": "artifacts/self_improve/r4r/remote_records/seed_42/fixed/stage_1/stage_distribution.json",
+      "probabilities": {
+        "constraint_violation": 0.375,
+        "missing_dependency": 0.3125,
+        "stale_version": 0.3125
+      }
+    },
+    "2": {
+      "counts": {
+        "constraint_violation": 15,
+        "missing_dependency": 13,
+        "stale_version": 12
+      },
+      "total": 40,
+      "source": "artifacts/self_improve/r4r/remote_records/seed_42/fixed/stage_2/stage_distribution.json",
+      "probabilities": {
+        "constraint_violation": 0.375,
+        "missing_dependency": 0.3125,
+        "stale_version": 0.3125
+      }
+    },
+    "3": {
+      "counts": {
+        "constraint_violation": 15,
+        "missing_dependency": 13,
+        "stale_version": 12
+      },
+      "total": 40,
+      "source": "artifacts/self_improve/r4r/remote_records/seed_42/fixed/stage_3/stage_distribution.json",
+      "probabilities": {
+        "constraint_violation": 0.375,
+        "missing_dependency": 0.3125,
+        "stale_version": 0.3125
+      }
+    },
+    "4": {
+      "counts": {
+        "constraint_violation": 15,
+        "missing_dependency": 13,
+        "stale_version": 12
+      },
+      "total": 40,
+      "source": "artifacts/self_improve/r4r/remote_records/seed_42/fixed/stage_4/stage_distribution.json",
+      "probabilities": {
+        "constraint_violation": 0.375,
+        "missing_dependency": 0.3125,
+        "stale_version": 0.3125
+      }
+    },
+    "5": {
+      "counts": {
+        "constraint_violation": 15,
+        "missing_dependency": 13,
+        "stale_version": 12
+      },
+      "total": 40,
+      "source": "artifacts/self_improve/r4r/remote_records/seed_42/fixed/stage_5/stage_distribution.json",
+      "probabilities": {
+        "constraint_violation": 0.375,
+        "missing_dependency": 0.3125,
+        "stale_version": 0.3125
+      }
+    },
+    "6": {
+      "counts": {
+        "constraint_violation": 15,
+        "missing_dependency": 13,
+        "stale_version": 12
+      },
+      "total": 40,
+      "source": "artifacts/self_improve/r4r/remote_records/seed_42/fixed/stage_6/stage_distribution.json",
+      "probabilities": {
+        "constraint_violation": 0.375,
+        "missing_dependency": 0.3125,
+        "stale_version": 0.3125
+      }
+    }
+  },
+  "r4r_failure_driven_42": {
+    "1": {
+      "counts": {
+        "constraint_violation": 9,
+        "missing_dependency": 19,
+        "stale_version": 12
+      },
+      "total": 40,
+      "source": "artifacts/self_improve/r4r/remote_records/seed_42/failure_driven/stage_1/stage_distribution.json",
+      "probabilities": {
+        "constraint_violation": 0.22519764377615875,
+        "missing_dependency": 0.472504262904976,
+        "stale_version": 0.3022980933188653
+      }
+    },
+    "2": {
+      "counts": {
+        "constraint_violation": 10,
+        "missing_dependency": 18,
+        "stale_version": 12
+      },
+      "total": 40,
+      "source": "artifacts/self_improve/r4r/remote_records/seed_42/failure_driven/stage_2/stage_distribution.json",
+      "probabilities": {
+        "constraint_violation": 0.26352334748332323,
+        "missing_dependency": 0.4459217707701637,
+        "stale_version": 0.290554881746513
+      }
+    },
+    "3": {
+      "counts": {
+        "constraint_violation": 11,
+        "missing_dependency": 18,
+        "stale_version": 11
+      },
+      "total": 40,
+      "source": "artifacts/self_improve/r4r/remote_records/seed_42/failure_driven/stage_3/stage_distribution.json",
+      "probabilities": {
+        "constraint_violation": 0.2625533233674846,
+        "missing_dependency": 0.452476574178729,
+        "stale_version": 0.2849701024537864
+      }
+    },
+    "4": {
+      "counts": {
+        "constraint_violation": 10,
+        "missing_dependency": 20,
+        "stale_version": 10
+      },
+      "total": 40,
+      "source": "artifacts/self_improve/r4r/remote_records/seed_42/failure_driven/stage_4/stage_distribution.json",
+      "probabilities": {
+        "constraint_violation": 0.2364225691116071,
+        "missing_dependency": 0.5067983361437437,
+        "stale_version": 0.2567790947446491
+      }
+    },
+    "5": {
+      "counts": {
+        "constraint_violation": 10,
+        "missing_dependency": 19,
+        "stale_version": 11
+      },
+      "total": 40,
+      "source": "artifacts/self_improve/r4r/remote_records/seed_42/failure_driven/stage_5/stage_distribution.json",
+      "probabilities": {
+        "constraint_violation": 0.2573170731707317,
+        "missing_dependency": 0.4745934959349593,
+        "stale_version": 0.2680894308943089
+      }
+    },
+    "6": {
+      "counts": {
+        "constraint_violation": 10,
+        "missing_dependency": 18,
+        "stale_version": 12
+      },
+      "total": 40,
+      "source": "artifacts/self_improve/r4r/remote_records/seed_42/failure_driven/stage_6/stage_distribution.json",
+      "probabilities": {
+        "constraint_violation": 0.24603524402047264,
+        "missing_dependency": 0.45727384007083355,
+        "stale_version": 0.2966909159086938
+      }
+    }
+  },
+  "r4r_fixed_137": {
+    "1": {
+      "counts": {
+        "constraint_violation": 15,
+        "missing_dependency": 13,
+        "stale_version": 12
+      },
+      "total": 40,
+      "source": "artifacts/self_improve/r4r/remote_records/seed_137/fixed/stage_1/stage_distribution.json",
+      "probabilities": {
+        "constraint_violation": 0.375,
+        "missing_dependency": 0.3125,
+        "stale_version": 0.3125
+      }
+    },
+    "2": {
+      "counts": {
+        "constraint_violation": 15,
+        "missing_dependency": 13,
+        "stale_version": 12
+      },
+      "total": 40,
+      "source": "artifacts/self_improve/r4r/remote_records/seed_137/fixed/stage_2/stage_distribution.json",
+      "probabilities": {
+        "constraint_violation": 0.375,
+        "missing_dependency": 0.3125,
+        "stale_version": 0.3125
+      }
+    },
+    "3": {
+      "counts": {
+        "constraint_violation": 15,
+        "missing_dependency": 13,
+        "stale_version": 12
+      },
+      "total": 40,
+      "source": "artifacts/self_improve/r4r/remote_records/seed_137/fixed/stage_3/stage_distribution.json",
+      "probabilities": {
+        "constraint_violation": 0.375,
+        "missing_dependency": 0.3125,
+        "stale_version": 0.3125
+      }
+    },
+    "4": {
+      "counts": {
+        "constraint_violation": 15,
+        "missing_dependency": 13,
+        "stale_version": 12
+      },
+      "total": 40,
+      "source": "artifacts/self_improve/r4r/remote_records/seed_137/fixed/stage_4/stage_distribution.json",
+      "probabilities": {
+        "constraint_violation": 0.375,
+        "missing_dependency": 0.3125,
+        "stale_version": 0.3125
+      }
+    },
+    "5": {
+      "counts": {
+        "constraint_violation": 15,
+        "missing_dependency": 13,
+        "stale_version": 12
+      },
+      "total": 40,
+      "source": "artifacts/self_improve/r4r/remote_records/seed_137/fixed/stage_5/stage_distribution.json",
+      "probabilities": {
+        "constraint_violation": 0.375,
+        "missing_dependency": 0.3125,
+        "stale_version": 0.3125
+      }
+    },
+    "6": {
+      "counts": {
+        "constraint_violation": 15,
+        "missing_dependency": 13,
+        "stale_version": 12
+      },
+      "total": 40,
+      "source": "artifacts/self_improve/r4r/remote_records/seed_137/fixed/stage_6/stage_distribution.json",
+      "probabilities": {
+        "constraint_violation": 0.375,
+        "missing_dependency": 0.3125,
+        "stale_version": 0.3125
+      }
+    }
+  },
+  "r4r_failure_driven_137": {
+    "1": {
+      "counts": {
+        "constraint_violation": 12,
+        "missing_dependency": 19,
+        "stale_version": 9
+      },
+      "total": 40,
+      "source": "artifacts/self_improve/r4r/remote_records/seed_137/failure_driven/stage_1/stage_distribution.json",
+      "probabilities": {
+        "constraint_violation": 0.288587055055297,
+        "missing_dependency": 0.4803514232187103,
+        "stale_version": 0.23106152172599265
+      }
+    },
+    "2": {
+      "counts": {
+        "constraint_violation": 12,
+        "missing_dependency": 19,
+        "stale_version": 9
+      },
+      "total": 40,
+      "source": "artifacts/self_improve/r4r/remote_records/seed_137/failure_driven/stage_2/stage_distribution.json",
+      "probabilities": {
+        "constraint_violation": 0.2966531258132738,
+        "missing_dependency": 0.4729690215586738,
+        "stale_version": 0.23037785262805227
+      }
+    },
+    "3": {
+      "counts": {
+        "constraint_violation": 10,
+        "missing_dependency": 19,
+        "stale_version": 11
+      },
+      "total": 40,
+      "source": "artifacts/self_improve/r4r/remote_records/seed_137/failure_driven/stage_3/stage_distribution.json",
+      "probabilities": {
+        "constraint_violation": 0.24199183801601004,
+        "missing_dependency": 0.49087662847276725,
+        "stale_version": 0.2671315335112227
+      }
+    },
+    "4": {
+      "counts": {
+        "constraint_violation": 10,
+        "missing_dependency": 21,
+        "stale_version": 9
+      },
+      "total": 40,
+      "source": "artifacts/self_improve/r4r/remote_records/seed_137/failure_driven/stage_4/stage_distribution.json",
+      "probabilities": {
+        "constraint_violation": 0.2463013803096164,
+        "missing_dependency": 0.5210446376369506,
+        "stale_version": 0.23265398205343296
+      }
+    },
+    "5": {
+      "counts": {
+        "constraint_violation": 9,
+        "missing_dependency": 22,
+        "stale_version": 9
+      },
+      "total": 40,
+      "source": "artifacts/self_improve/r4r/remote_records/seed_137/failure_driven/stage_5/stage_distribution.json",
+      "probabilities": {
+        "constraint_violation": 0.21996161228406913,
+        "missing_dependency": 0.5617562380038388,
+        "stale_version": 0.21828214971209214
+      }
+    },
+    "6": {
+      "counts": {
+        "constraint_violation": 8,
+        "missing_dependency": 22,
+        "stale_version": 10
+      },
+      "total": 40,
+      "source": "artifacts/self_improve/r4r/remote_records/seed_137/failure_driven/stage_6/stage_distribution.json",
+      "probabilities": {
+        "constraint_violation": 0.2018998226473908,
+        "missing_dependency": 0.5515330252055677,
+        "stale_version": 0.24656715214704145
+      }
+    }
+  },
+  "r4r_fixed_2718": {
+    "1": {
+      "counts": {
+        "constraint_violation": 15,
+        "missing_dependency": 13,
+        "stale_version": 12
+      },
+      "total": 40,
+      "source": "artifacts/self_improve/r4r/remote_records/seed_2718/fixed/stage_1/stage_distribution.json",
+      "probabilities": {
+        "constraint_violation": 0.375,
+        "missing_dependency": 0.3125,
+        "stale_version": 0.3125
+      }
+    },
+    "2": {
+      "counts": {
+        "constraint_violation": 15,
+        "missing_dependency": 13,
+        "stale_version": 12
+      },
+      "total": 40,
+      "source": "artifacts/self_improve/r4r/remote_records/seed_2718/fixed/stage_2/stage_distribution.json",
+      "probabilities": {
+        "constraint_violation": 0.375,
+        "missing_dependency": 0.3125,
+        "stale_version": 0.3125
+      }
+    },
+    "3": {
+      "counts": {
+        "constraint_violation": 15,
+        "missing_dependency": 13,
+        "stale_version": 12
+      },
+      "total": 40,
+      "source": "artifacts/self_improve/r4r/remote_records/seed_2718/fixed/stage_3/stage_distribution.json",
+      "probabilities": {
+        "constraint_violation": 0.375,
+        "missing_dependency": 0.3125,
+        "stale_version": 0.3125
+      }
+    },
+    "4": {
+      "counts": {
+        "constraint_violation": 15,
+        "missing_dependency": 13,
+        "stale_version": 12
+      },
+      "total": 40,
+      "source": "artifacts/self_improve/r4r/remote_records/seed_2718/fixed/stage_4/stage_distribution.json",
+      "probabilities": {
+        "constraint_violation": 0.375,
+        "missing_dependency": 0.3125,
+        "stale_version": 0.3125
+      }
+    },
+    "5": {
+      "counts": {
+        "constraint_violation": 15,
+        "missing_dependency": 13,
+        "stale_version": 12
+      },
+      "total": 40,
+      "source": "artifacts/self_improve/r4r/remote_records/seed_2718/fixed/stage_5/stage_distribution.json",
+      "probabilities": {
+        "constraint_violation": 0.375,
+        "missing_dependency": 0.3125,
+        "stale_version": 0.3125
+      }
+    },
+    "6": {
+      "counts": {
+        "constraint_violation": 15,
+        "missing_dependency": 13,
+        "stale_version": 12
+      },
+      "total": 40,
+      "source": "artifacts/self_improve/r4r/remote_records/seed_2718/fixed/stage_6/stage_distribution.json",
+      "probabilities": {
+        "constraint_violation": 0.375,
+        "missing_dependency": 0.3125,
+        "stale_version": 0.3125
+      }
+    }
+  },
+  "r4r_failure_driven_2718": {
+    "1": {
+      "counts": {
+        "constraint_violation": 9,
+        "missing_dependency": 18,
+        "stale_version": 13
+      },
+      "total": 40,
+      "source": "artifacts/self_improve/r4r/remote_records/seed_2718/failure_driven/stage_1/stage_distribution.json",
+      "probabilities": {
+        "constraint_violation": 0.22890241046178744,
+        "missing_dependency": 0.4391149348751411,
+        "stale_version": 0.33198265466307153
+      }
+    },
+    "2": {
+      "counts": {
+        "constraint_violation": 10,
+        "missing_dependency": 19,
+        "stale_version": 11
+      },
+      "total": 40,
+      "source": "artifacts/self_improve/r4r/remote_records/seed_2718/failure_driven/stage_2/stage_distribution.json",
+      "probabilities": {
+        "constraint_violation": 0.23877647802718938,
+        "missing_dependency": 0.4875039519443566,
+        "stale_version": 0.27371957002845404
+      }
+    },
+    "3": {
+      "counts": {
+        "constraint_violation": 10,
+        "missing_dependency": 20,
+        "stale_version": 10
+      },
+      "total": 40,
+      "source": "artifacts/self_improve/r4r/remote_records/seed_2718/failure_driven/stage_3/stage_distribution.json",
+      "probabilities": {
+        "constraint_violation": 0.2592835238360747,
+        "missing_dependency": 0.4979300250906049,
+        "stale_version": 0.2427864510733203
+      }
+    },
+    "4": {
+      "counts": {
+        "constraint_violation": 11,
+        "missing_dependency": 19,
+        "stale_version": 10
+      },
+      "total": 40,
+      "source": "artifacts/self_improve/r4r/remote_records/seed_2718/failure_driven/stage_4/stage_distribution.json",
+      "probabilities": {
+        "constraint_violation": 0.26038479243954615,
+        "missing_dependency": 0.4830519375016925,
+        "stale_version": 0.2565632700587614
+      }
+    },
+    "5": {
+      "counts": {
+        "constraint_violation": 10,
+        "missing_dependency": 19,
+        "stale_version": 11
+      },
+      "total": 40,
+      "source": "artifacts/self_improve/r4r/remote_records/seed_2718/failure_driven/stage_5/stage_distribution.json",
+      "probabilities": {
+        "constraint_violation": 0.2495509263211816,
+        "missing_dependency": 0.4862396482540767,
+        "stale_version": 0.26420942542474174
+      }
+    },
+    "6": {
+      "counts": {
+        "constraint_violation": 10,
+        "missing_dependency": 17,
+        "stale_version": 13
+      },
+      "total": 40,
+      "source": "artifacts/self_improve/r4r/remote_records/seed_2718/failure_driven/stage_6/stage_distribution.json",
+      "probabilities": {
+        "constraint_violation": 0.250362056480811,
+        "missing_dependency": 0.423913830557567,
+        "stale_version": 0.32572411296162196
+      }
+    }
+  }
+}

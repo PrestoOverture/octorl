@@ -155,5 +155,2466 @@
       "missing_dependency": 456,
       "stale_version": 244
     }
+  },
+  "r4r_fixed_42": {
+    "sources": [
+      "artifacts/self_improve/r4r/remote_records/seed_42/fixed/stage_1/attributed.jsonl",
+      "artifacts/self_improve/r4r/remote_records/seed_42/fixed/stage_2/attributed.jsonl",
+      "artifacts/self_improve/r4r/remote_records/seed_42/fixed/stage_3/attributed.jsonl",
+      "artifacts/self_improve/r4r/remote_records/seed_42/fixed/stage_4/attributed.jsonl",
+      "artifacts/self_improve/r4r/remote_records/seed_42/fixed/stage_5/attributed.jsonl",
+      "artifacts/self_improve/r4r/remote_records/seed_42/fixed/stage_6/attributed.jsonl"
+    ],
+    "rollouts": 960,
+    "groups": 240,
+    "binary_reward_mean": 0.85,
+    "effective_group_rate": 0.39166666666666666,
+    "diagnostic_flags": {
+      "field_not_in_schema": 15,
+      "no_read_config": 3
+    },
+    "fault_rollout_counts": {
+      "missing_dependency": 312,
+      "stale_version": 288,
+      "constraint_violation": 360
+    },
+    "per_step_agreement": [
+      {
+        "step": 21,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 22,
+        "reward_mean": 0.5625,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 23,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 24,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 25,
+        "reward_mean": 0.6875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 26,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 27,
+        "reward_mean": 1.0,
+        "effective_group_rate": 0.0,
+        "matches": true
+      },
+      {
+        "step": 28,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 29,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 30,
+        "reward_mean": 0.75,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 31,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 32,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 33,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 34,
+        "reward_mean": 1.0,
+        "effective_group_rate": 0.0,
+        "matches": true
+      },
+      {
+        "step": 35,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 36,
+        "reward_mean": 0.625,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 37,
+        "reward_mean": 0.75,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 38,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 39,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 40,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 41,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 42,
+        "reward_mean": 0.75,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 43,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 44,
+        "reward_mean": 0.625,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 45,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 46,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 47,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 48,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 49,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 50,
+        "reward_mean": 0.6875,
+        "effective_group_rate": 1.0,
+        "matches": true
+      },
+      {
+        "step": 51,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 52,
+        "reward_mean": 0.4375,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 53,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 54,
+        "reward_mean": 0.6875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 55,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 56,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 57,
+        "reward_mean": 1.0,
+        "effective_group_rate": 0.0,
+        "matches": true
+      },
+      {
+        "step": 58,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 59,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 60,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 61,
+        "reward_mean": 1.0,
+        "effective_group_rate": 0.0,
+        "matches": true
+      },
+      {
+        "step": 62,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 63,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 64,
+        "reward_mean": 0.75,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 65,
+        "reward_mean": 1.0,
+        "effective_group_rate": 0.0,
+        "matches": true
+      },
+      {
+        "step": 66,
+        "reward_mean": 0.6875,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 67,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 68,
+        "reward_mean": 0.5625,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 69,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 70,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 71,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 72,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 73,
+        "reward_mean": 0.75,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 74,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 75,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 76,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 77,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 78,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 79,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 80,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      }
+    ],
+    "mask_evidence": "Token-level mask correctness not established; token mask arrays absent."
+  },
+  "r4r_failure_driven_42": {
+    "sources": [
+      "artifacts/self_improve/r4r/remote_records/seed_42/failure_driven/stage_1/attributed.jsonl",
+      "artifacts/self_improve/r4r/remote_records/seed_42/failure_driven/stage_2/attributed.jsonl",
+      "artifacts/self_improve/r4r/remote_records/seed_42/failure_driven/stage_3/attributed.jsonl",
+      "artifacts/self_improve/r4r/remote_records/seed_42/failure_driven/stage_4/attributed.jsonl",
+      "artifacts/self_improve/r4r/remote_records/seed_42/failure_driven/stage_5/attributed.jsonl",
+      "artifacts/self_improve/r4r/remote_records/seed_42/failure_driven/stage_6/attributed.jsonl"
+    ],
+    "rollouts": 960,
+    "groups": 240,
+    "binary_reward_mean": 0.8458333333333333,
+    "effective_group_rate": 0.44583333333333336,
+    "diagnostic_flags": {
+      "field_not_in_schema": 8,
+      "no_read_config": 5,
+      "excessive_queries": 2
+    },
+    "fault_rollout_counts": {
+      "stale_version": 272,
+      "missing_dependency": 448,
+      "constraint_violation": 240
+    },
+    "per_step_agreement": [
+      {
+        "step": 21,
+        "reward_mean": 0.75,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 22,
+        "reward_mean": 0.625,
+        "effective_group_rate": 1.0,
+        "matches": true
+      },
+      {
+        "step": 23,
+        "reward_mean": 0.6875,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 24,
+        "reward_mean": 0.75,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 25,
+        "reward_mean": 0.625,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 26,
+        "reward_mean": 0.6875,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 27,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 28,
+        "reward_mean": 0.75,
+        "effective_group_rate": 1.0,
+        "matches": true
+      },
+      {
+        "step": 29,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 30,
+        "reward_mean": 0.75,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 31,
+        "reward_mean": 0.6875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 32,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 33,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 34,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 35,
+        "reward_mean": 1.0,
+        "effective_group_rate": 0.0,
+        "matches": true
+      },
+      {
+        "step": 36,
+        "reward_mean": 0.75,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 37,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 38,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 39,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 40,
+        "reward_mean": 1.0,
+        "effective_group_rate": 0.0,
+        "matches": true
+      },
+      {
+        "step": 41,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 42,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 43,
+        "reward_mean": 0.75,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 44,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 45,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 46,
+        "reward_mean": 1.0,
+        "effective_group_rate": 0.0,
+        "matches": true
+      },
+      {
+        "step": 47,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 48,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 49,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 50,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 51,
+        "reward_mean": 0.75,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 52,
+        "reward_mean": 0.625,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 53,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 54,
+        "reward_mean": 1.0,
+        "effective_group_rate": 0.0,
+        "matches": true
+      },
+      {
+        "step": 55,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 56,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 57,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 58,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 59,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 60,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 61,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 62,
+        "reward_mean": 1.0,
+        "effective_group_rate": 0.0,
+        "matches": true
+      },
+      {
+        "step": 63,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 64,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 65,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 66,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 67,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 68,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 69,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 70,
+        "reward_mean": 1.0,
+        "effective_group_rate": 0.0,
+        "matches": true
+      },
+      {
+        "step": 71,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 72,
+        "reward_mean": 0.75,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 73,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 74,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 75,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 76,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 77,
+        "reward_mean": 1.0,
+        "effective_group_rate": 0.0,
+        "matches": true
+      },
+      {
+        "step": 78,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 79,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 80,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      }
+    ],
+    "mask_evidence": "Token-level mask correctness not established; token mask arrays absent."
+  },
+  "r4r_fixed_137": {
+    "sources": [
+      "artifacts/self_improve/r4r/remote_records/seed_137/fixed/stage_1/attributed.jsonl",
+      "artifacts/self_improve/r4r/remote_records/seed_137/fixed/stage_2/attributed.jsonl",
+      "artifacts/self_improve/r4r/remote_records/seed_137/fixed/stage_3/attributed.jsonl",
+      "artifacts/self_improve/r4r/remote_records/seed_137/fixed/stage_4/attributed.jsonl",
+      "artifacts/self_improve/r4r/remote_records/seed_137/fixed/stage_5/attributed.jsonl",
+      "artifacts/self_improve/r4r/remote_records/seed_137/fixed/stage_6/attributed.jsonl"
+    ],
+    "rollouts": 960,
+    "groups": 240,
+    "binary_reward_mean": 0.828125,
+    "effective_group_rate": 0.42083333333333334,
+    "diagnostic_flags": {
+      "field_not_in_schema": 8,
+      "no_read_config": 13,
+      "excessive_queries": 5
+    },
+    "fault_rollout_counts": {
+      "missing_dependency": 312,
+      "constraint_violation": 360,
+      "stale_version": 288
+    },
+    "per_step_agreement": [
+      {
+        "step": 21,
+        "reward_mean": 0.5,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 22,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 23,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 24,
+        "reward_mean": 0.6875,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 25,
+        "reward_mean": 0.5625,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 26,
+        "reward_mean": 1.0,
+        "effective_group_rate": 0.0,
+        "matches": true
+      },
+      {
+        "step": 27,
+        "reward_mean": 0.75,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 28,
+        "reward_mean": 0.625,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 29,
+        "reward_mean": 0.75,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 30,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 31,
+        "reward_mean": 0.6875,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 32,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 33,
+        "reward_mean": 0.5625,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 34,
+        "reward_mean": 0.6875,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 35,
+        "reward_mean": 0.5625,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 36,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 37,
+        "reward_mean": 0.6875,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 38,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 39,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 40,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 41,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 42,
+        "reward_mean": 1.0,
+        "effective_group_rate": 0.0,
+        "matches": true
+      },
+      {
+        "step": 43,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 44,
+        "reward_mean": 0.75,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 45,
+        "reward_mean": 0.75,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 46,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 47,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 48,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 49,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 50,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 51,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 52,
+        "reward_mean": 1.0,
+        "effective_group_rate": 0.0,
+        "matches": true
+      },
+      {
+        "step": 53,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 54,
+        "reward_mean": 1.0,
+        "effective_group_rate": 0.0,
+        "matches": true
+      },
+      {
+        "step": 55,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 56,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 57,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 58,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 59,
+        "reward_mean": 0.75,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 60,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 61,
+        "reward_mean": 0.75,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 62,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 63,
+        "reward_mean": 0.75,
+        "effective_group_rate": 1.0,
+        "matches": true
+      },
+      {
+        "step": 64,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 65,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 66,
+        "reward_mean": 1.0,
+        "effective_group_rate": 0.0,
+        "matches": true
+      },
+      {
+        "step": 67,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 68,
+        "reward_mean": 0.625,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 69,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 70,
+        "reward_mean": 1.0,
+        "effective_group_rate": 0.0,
+        "matches": true
+      },
+      {
+        "step": 71,
+        "reward_mean": 1.0,
+        "effective_group_rate": 0.0,
+        "matches": true
+      },
+      {
+        "step": 72,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 73,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 74,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 75,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 76,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 77,
+        "reward_mean": 0.6875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 78,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 79,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 80,
+        "reward_mean": 0.75,
+        "effective_group_rate": 0.5,
+        "matches": true
+      }
+    ],
+    "mask_evidence": "Token-level mask correctness not established; token mask arrays absent."
+  },
+  "r4r_failure_driven_137": {
+    "sources": [
+      "artifacts/self_improve/r4r/remote_records/seed_137/failure_driven/stage_1/attributed.jsonl",
+      "artifacts/self_improve/r4r/remote_records/seed_137/failure_driven/stage_2/attributed.jsonl",
+      "artifacts/self_improve/r4r/remote_records/seed_137/failure_driven/stage_3/attributed.jsonl",
+      "artifacts/self_improve/r4r/remote_records/seed_137/failure_driven/stage_4/attributed.jsonl",
+      "artifacts/self_improve/r4r/remote_records/seed_137/failure_driven/stage_5/attributed.jsonl",
+      "artifacts/self_improve/r4r/remote_records/seed_137/failure_driven/stage_6/attributed.jsonl"
+    ],
+    "rollouts": 960,
+    "groups": 240,
+    "binary_reward_mean": 0.7302083333333333,
+    "effective_group_rate": 0.5625,
+    "diagnostic_flags": {
+      "no_read_config": 25,
+      "field_not_in_schema": 20,
+      "excessive_queries": 5
+    },
+    "fault_rollout_counts": {
+      "missing_dependency": 488,
+      "constraint_violation": 244,
+      "stale_version": 228
+    },
+    "per_step_agreement": [
+      {
+        "step": 21,
+        "reward_mean": 0.5625,
+        "effective_group_rate": 1.0,
+        "matches": true
+      },
+      {
+        "step": 22,
+        "reward_mean": 0.6875,
+        "effective_group_rate": 1.0,
+        "matches": true
+      },
+      {
+        "step": 23,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 24,
+        "reward_mean": 0.3125,
+        "effective_group_rate": 1.0,
+        "matches": true
+      },
+      {
+        "step": 25,
+        "reward_mean": 0.6875,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 26,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 27,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 28,
+        "reward_mean": 0.625,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 29,
+        "reward_mean": 0.5625,
+        "effective_group_rate": 1.0,
+        "matches": true
+      },
+      {
+        "step": 30,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 31,
+        "reward_mean": 0.4375,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 32,
+        "reward_mean": 0.6875,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 33,
+        "reward_mean": 0.75,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 34,
+        "reward_mean": 0.75,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 35,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 36,
+        "reward_mean": 0.625,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 37,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 38,
+        "reward_mean": 0.5625,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 39,
+        "reward_mean": 1.0,
+        "effective_group_rate": 0.0,
+        "matches": true
+      },
+      {
+        "step": 40,
+        "reward_mean": 0.625,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 41,
+        "reward_mean": 0.625,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 42,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 43,
+        "reward_mean": 0.6875,
+        "effective_group_rate": 1.0,
+        "matches": true
+      },
+      {
+        "step": 44,
+        "reward_mean": 0.75,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 45,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 46,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 47,
+        "reward_mean": 0.75,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 48,
+        "reward_mean": 0.5625,
+        "effective_group_rate": 1.0,
+        "matches": true
+      },
+      {
+        "step": 49,
+        "reward_mean": 0.5,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 50,
+        "reward_mean": 0.625,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 51,
+        "reward_mean": 0.5,
+        "effective_group_rate": 0.0,
+        "matches": true
+      },
+      {
+        "step": 52,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 53,
+        "reward_mean": 1.0,
+        "effective_group_rate": 0.0,
+        "matches": true
+      },
+      {
+        "step": 54,
+        "reward_mean": 0.75,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 55,
+        "reward_mean": 0.6875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 56,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 57,
+        "reward_mean": 0.75,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 58,
+        "reward_mean": 0.625,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 59,
+        "reward_mean": 0.75,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 60,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 61,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 62,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 63,
+        "reward_mean": 0.5625,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 64,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 65,
+        "reward_mean": 0.75,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 66,
+        "reward_mean": 0.75,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 67,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 68,
+        "reward_mean": 0.625,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 69,
+        "reward_mean": 1.0,
+        "effective_group_rate": 0.0,
+        "matches": true
+      },
+      {
+        "step": 70,
+        "reward_mean": 0.625,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 71,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 72,
+        "reward_mean": 0.6875,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 73,
+        "reward_mean": 0.5625,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 74,
+        "reward_mean": 0.6875,
+        "effective_group_rate": 1.0,
+        "matches": true
+      },
+      {
+        "step": 75,
+        "reward_mean": 0.75,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 76,
+        "reward_mean": 0.6875,
+        "effective_group_rate": 1.0,
+        "matches": true
+      },
+      {
+        "step": 77,
+        "reward_mean": 0.6875,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 78,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 79,
+        "reward_mean": 0.75,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 80,
+        "reward_mean": 0.75,
+        "effective_group_rate": 0.5,
+        "matches": true
+      }
+    ],
+    "mask_evidence": "Token-level mask correctness not established; token mask arrays absent."
+  },
+  "r4r_fixed_2718": {
+    "sources": [
+      "artifacts/self_improve/r4r/remote_records/seed_2718/fixed/stage_1/attributed.jsonl",
+      "artifacts/self_improve/r4r/remote_records/seed_2718/fixed/stage_2/attributed.jsonl",
+      "artifacts/self_improve/r4r/remote_records/seed_2718/fixed/stage_3/attributed.jsonl",
+      "artifacts/self_improve/r4r/remote_records/seed_2718/fixed/stage_4/attributed.jsonl",
+      "artifacts/self_improve/r4r/remote_records/seed_2718/fixed/stage_5/attributed.jsonl",
+      "artifacts/self_improve/r4r/remote_records/seed_2718/fixed/stage_6/attributed.jsonl"
+    ],
+    "rollouts": 960,
+    "groups": 240,
+    "binary_reward_mean": 0.871875,
+    "effective_group_rate": 0.3458333333333333,
+    "diagnostic_flags": {
+      "field_not_in_schema": 9,
+      "no_read_config": 12
+    },
+    "fault_rollout_counts": {
+      "constraint_violation": 360,
+      "missing_dependency": 312,
+      "stale_version": 288
+    },
+    "per_step_agreement": [
+      {
+        "step": 21,
+        "reward_mean": 0.625,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 22,
+        "reward_mean": 0.6875,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 23,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 24,
+        "reward_mean": 1.0,
+        "effective_group_rate": 0.0,
+        "matches": true
+      },
+      {
+        "step": 25,
+        "reward_mean": 0.75,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 26,
+        "reward_mean": 0.5625,
+        "effective_group_rate": 1.0,
+        "matches": true
+      },
+      {
+        "step": 27,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 28,
+        "reward_mean": 0.75,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 29,
+        "reward_mean": 0.625,
+        "effective_group_rate": 1.0,
+        "matches": true
+      },
+      {
+        "step": 30,
+        "reward_mean": 0.75,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 31,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 32,
+        "reward_mean": 1.0,
+        "effective_group_rate": 0.0,
+        "matches": true
+      },
+      {
+        "step": 33,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 34,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 35,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 36,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 37,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 38,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 39,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 40,
+        "reward_mean": 1.0,
+        "effective_group_rate": 0.0,
+        "matches": true
+      },
+      {
+        "step": 41,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 42,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 43,
+        "reward_mean": 1.0,
+        "effective_group_rate": 0.0,
+        "matches": true
+      },
+      {
+        "step": 44,
+        "reward_mean": 0.75,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 45,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 46,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 47,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 48,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 49,
+        "reward_mean": 0.75,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 50,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 51,
+        "reward_mean": 1.0,
+        "effective_group_rate": 0.0,
+        "matches": true
+      },
+      {
+        "step": 52,
+        "reward_mean": 1.0,
+        "effective_group_rate": 0.0,
+        "matches": true
+      },
+      {
+        "step": 53,
+        "reward_mean": 1.0,
+        "effective_group_rate": 0.0,
+        "matches": true
+      },
+      {
+        "step": 54,
+        "reward_mean": 0.75,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 55,
+        "reward_mean": 0.75,
+        "effective_group_rate": 0.0,
+        "matches": true
+      },
+      {
+        "step": 56,
+        "reward_mean": 1.0,
+        "effective_group_rate": 0.0,
+        "matches": true
+      },
+      {
+        "step": 57,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 58,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 59,
+        "reward_mean": 1.0,
+        "effective_group_rate": 0.0,
+        "matches": true
+      },
+      {
+        "step": 60,
+        "reward_mean": 1.0,
+        "effective_group_rate": 0.0,
+        "matches": true
+      },
+      {
+        "step": 61,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 62,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 63,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 64,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 65,
+        "reward_mean": 0.75,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 66,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 67,
+        "reward_mean": 1.0,
+        "effective_group_rate": 0.0,
+        "matches": true
+      },
+      {
+        "step": 68,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 69,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 70,
+        "reward_mean": 1.0,
+        "effective_group_rate": 0.0,
+        "matches": true
+      },
+      {
+        "step": 71,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 72,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 73,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 74,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 75,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 76,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 77,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 78,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 79,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 80,
+        "reward_mean": 1.0,
+        "effective_group_rate": 0.0,
+        "matches": true
+      }
+    ],
+    "mask_evidence": "Token-level mask correctness not established; token mask arrays absent."
+  },
+  "r4r_failure_driven_2718": {
+    "sources": [
+      "artifacts/self_improve/r4r/remote_records/seed_2718/failure_driven/stage_1/attributed.jsonl",
+      "artifacts/self_improve/r4r/remote_records/seed_2718/failure_driven/stage_2/attributed.jsonl",
+      "artifacts/self_improve/r4r/remote_records/seed_2718/failure_driven/stage_3/attributed.jsonl",
+      "artifacts/self_improve/r4r/remote_records/seed_2718/failure_driven/stage_4/attributed.jsonl",
+      "artifacts/self_improve/r4r/remote_records/seed_2718/failure_driven/stage_5/attributed.jsonl",
+      "artifacts/self_improve/r4r/remote_records/seed_2718/failure_driven/stage_6/attributed.jsonl"
+    ],
+    "rollouts": 960,
+    "groups": 240,
+    "binary_reward_mean": 0.825,
+    "effective_group_rate": 0.4666666666666667,
+    "diagnostic_flags": {
+      "field_not_in_schema": 16,
+      "no_read_config": 9,
+      "excessive_queries": 1
+    },
+    "fault_rollout_counts": {
+      "constraint_violation": 240,
+      "missing_dependency": 448,
+      "stale_version": 272
+    },
+    "per_step_agreement": [
+      {
+        "step": 21,
+        "reward_mean": 0.6875,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 22,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 23,
+        "reward_mean": 0.5,
+        "effective_group_rate": 1.0,
+        "matches": true
+      },
+      {
+        "step": 24,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 25,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 26,
+        "reward_mean": 0.625,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 27,
+        "reward_mean": 0.625,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 28,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 29,
+        "reward_mean": 0.5,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 30,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 31,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 32,
+        "reward_mean": 0.6875,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 33,
+        "reward_mean": 0.6875,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 34,
+        "reward_mean": 0.6875,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 35,
+        "reward_mean": 0.6875,
+        "effective_group_rate": 1.0,
+        "matches": true
+      },
+      {
+        "step": 36,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 37,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 38,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 39,
+        "reward_mean": 0.5625,
+        "effective_group_rate": 1.0,
+        "matches": true
+      },
+      {
+        "step": 40,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 41,
+        "reward_mean": 0.6875,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 42,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 43,
+        "reward_mean": 1.0,
+        "effective_group_rate": 0.0,
+        "matches": true
+      },
+      {
+        "step": 44,
+        "reward_mean": 0.6875,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 45,
+        "reward_mean": 0.75,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 46,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 47,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 48,
+        "reward_mean": 1.0,
+        "effective_group_rate": 0.0,
+        "matches": true
+      },
+      {
+        "step": 49,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 50,
+        "reward_mean": 1.0,
+        "effective_group_rate": 0.0,
+        "matches": true
+      },
+      {
+        "step": 51,
+        "reward_mean": 0.6875,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 52,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 53,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 54,
+        "reward_mean": 0.625,
+        "effective_group_rate": 1.0,
+        "matches": true
+      },
+      {
+        "step": 55,
+        "reward_mean": 0.75,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 56,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 57,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 58,
+        "reward_mean": 1.0,
+        "effective_group_rate": 0.0,
+        "matches": true
+      },
+      {
+        "step": 59,
+        "reward_mean": 0.75,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 60,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 61,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 62,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 63,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 64,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 65,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 66,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 67,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 68,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 69,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 70,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 71,
+        "reward_mean": 1.0,
+        "effective_group_rate": 0.0,
+        "matches": true
+      },
+      {
+        "step": 72,
+        "reward_mean": 1.0,
+        "effective_group_rate": 0.0,
+        "matches": true
+      },
+      {
+        "step": 73,
+        "reward_mean": 0.75,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 74,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 75,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 76,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 77,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.25,
+        "matches": true
+      },
+      {
+        "step": 78,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 79,
+        "reward_mean": 0.75,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 80,
+        "reward_mean": 0.9375,
+        "effective_group_rate": 0.25,
+        "matches": true
+      }
+    ],
+    "mask_evidence": "Token-level mask correctness not established; token mask arrays absent."
+  },
+  "r4r_warmup_2718": {
+    "sources": [
+      "artifacts/self_improve/r4r/remote_records/seed_2718/warmup/attributed.jsonl"
+    ],
+    "rollouts": 320,
+    "groups": 80,
+    "binary_reward_mean": 0.653125,
+    "effective_group_rate": 0.75,
+    "diagnostic_flags": {
+      "no_read_config": 17,
+      "field_not_in_schema": 15
+    },
+    "fault_rollout_counts": {
+      "constraint_violation": 112,
+      "stale_version": 76,
+      "missing_dependency": 132
+    },
+    "per_step_agreement": [
+      {
+        "step": 1,
+        "reward_mean": 0.625,
+        "effective_group_rate": 1.0,
+        "matches": true
+      },
+      {
+        "step": 2,
+        "reward_mean": 0.25,
+        "effective_group_rate": 1.0,
+        "matches": true
+      },
+      {
+        "step": 3,
+        "reward_mean": 0.8125,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 4,
+        "reward_mean": 0.5625,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 5,
+        "reward_mean": 0.625,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 6,
+        "reward_mean": 0.5625,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 7,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 8,
+        "reward_mean": 0.5625,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 9,
+        "reward_mean": 0.6875,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 10,
+        "reward_mean": 0.75,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 11,
+        "reward_mean": 0.375,
+        "effective_group_rate": 1.0,
+        "matches": true
+      },
+      {
+        "step": 12,
+        "reward_mean": 0.6875,
+        "effective_group_rate": 1.0,
+        "matches": true
+      },
+      {
+        "step": 13,
+        "reward_mean": 0.75,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 14,
+        "reward_mean": 0.625,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 15,
+        "reward_mean": 0.5625,
+        "effective_group_rate": 0.75,
+        "matches": true
+      },
+      {
+        "step": 16,
+        "reward_mean": 0.75,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 17,
+        "reward_mean": 0.75,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 18,
+        "reward_mean": 0.625,
+        "effective_group_rate": 1.0,
+        "matches": true
+      },
+      {
+        "step": 19,
+        "reward_mean": 0.75,
+        "effective_group_rate": 0.5,
+        "matches": true
+      },
+      {
+        "step": 20,
+        "reward_mean": 0.875,
+        "effective_group_rate": 0.5,
+        "matches": true
+      }
+    ],
+    "mask_evidence": "Token-level mask correctness not established; token mask arrays absent."
   }
 }

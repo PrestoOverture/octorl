@@ -164,26 +164,32 @@ The gain is concentrated in the missing-dependency fault type. Fixed-distributio
 Study entry points are `scripts/self_improve/r4r_analysis.py` (R4r analysis on any instance count) and
 `r4_analysis.py` (the frozen R4 analysis), `r5_diagnostics.py` (training logs), and `r5_load_adapter.py`
 (adapter checking or loading). The [R5 report](artifacts/self_improve/r5/R5_report.md) holds provenance,
-diagnostics, costs and limitations; its Q1/Q2 sections still describe R4 until R5 is finalised.
-Local adapter weights are excluded from Git; acquire them using `r5_pull.py` with
-authorized key-only access to `autodl-r4`.
+diagnostics, costs and limitations; its final Q1/Q2 evidence is R4r.
+All 20 local adapters are indexed by `artifacts/self_improve/r5/checkpoint_manifest.json`;
+weights are excluded from Git. R4r remote hashes remain unverified while the instance is powered off.
 
-```sh
-# Offline analysis; keep the frozen R4 outputs unchanged.
-python scripts/self_improve/r4_analysis.py \
-  --model base=artifacts/self_improve/r4/test_eval/base.json \
-  --model fixed_42=artifacts/self_improve/r4/test_eval/fixed_42.json \
-  --model fixed_137=artifacts/self_improve/r4/test_eval/fixed_137.json \
-  --model fixed_2718=artifacts/self_improve/r4/test_eval/fixed_2718.json \
-  --model failure_driven_42=artifacts/self_improve/r4/test_eval/failure_driven_42.json \
-  --model failure_driven_137=artifacts/self_improve/r4/test_eval/failure_driven_137.json \
-  --model failure_driven_2718=artifacts/self_improve/r4/test_eval/failure_driven_2718.json \
-  --out-json artifacts/self_improve/r5/reanalysis.json \
-  --out-md artifacts/self_improve/r5/reanalysis.md
+```bash
+# Optional analysis reproduction only; NOT run during R5 finalisation.
+# Use the existing evaluations and leave the frozen analyses unchanged.
+for endpoint in test2 test_r3; do
+  extra=()
+  if [ "$endpoint" = test_r3 ]; then extra=(--secondary); fi
+  .venv/bin/python scripts/self_improve/r4r_analysis.py \
+    --model base=artifacts/self_improve/r4r/test_eval/$endpoint/base.json \
+    --model fixed_42=artifacts/self_improve/r4r/test_eval/$endpoint/fixed_42.json \
+    --model fixed_137=artifacts/self_improve/r4r/test_eval/$endpoint/fixed_137.json \
+    --model fixed_2718=artifacts/self_improve/r4r/test_eval/$endpoint/fixed_2718.json \
+    --model failure_driven_42=artifacts/self_improve/r4r/test_eval/$endpoint/failure_driven_42.json \
+    --model failure_driven_137=artifacts/self_improve/r4r/test_eval/$endpoint/failure_driven_137.json \
+    --model failure_driven_2718=artifacts/self_improve/r4r/test_eval/$endpoint/failure_driven_2718.json \
+    "${extra[@]}" \
+    --out-json artifacts/self_improve/r5/reanalysis_r4r_$endpoint.json \
+    --out-md artifacts/self_improve/r5/reanalysis_r4r_$endpoint.md
+done
 # CPU-only adapter checks, no base weights needed:
-python scripts/self_improve/r5_load_adapter.py --check-only
-python scripts/self_improve/r5_verify_report.py
+.venv/bin/python scripts/self_improve/r5_load_adapter.py --check-only
+.venv/bin/python scripts/self_improve/r5_verify_report.py
 # Optional future full load; requires local base weights, torch, transformers and peft.
 # This full-load command was not run for R5.
-python scripts/self_improve/r5_load_adapter.py --adapter artifacts/self_improve/r5/checkpoints/r4_fixed_137_u80 --base /absolute/path/to/Qwen3-4B --seed 42
+.venv/bin/python scripts/self_improve/r5_load_adapter.py --adapter artifacts/self_improve/r5/checkpoints/r4r_failure_driven_137_u80 --base /absolute/path/to/Qwen3-4B --seed 42
 ```

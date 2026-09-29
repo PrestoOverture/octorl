@@ -5,7 +5,7 @@ from pathlib import Path
 from r5_diagnostics import ROOT,OUT,DIAG,RAW
 from r5_verify_report import resolve
 
-def main():
+def historical_report():
     analysis='artifacts/self_improve/r4/r4_analysis.json'
     numeric=[]
     def add(label,source,pointer):
@@ -86,7 +86,7 @@ RESTORE_EVIDENCE
 
 U21_METRICS
 
-The LR difference is visible in all stages and merits attention in any future contract. No existing experiment or conclusion has been edited to account for it retrospectively.
+R4r re-ran the study with the preregistered horizon (§1 LR check); R4's verdicts are retained unchanged as the as-run record.
 
 ## Training diagnostics and attribution
 
@@ -151,6 +151,10 @@ Local reproduction (CPU; no training/evaluation): run `r5_diagnostics.py`, `r5_g
     wall=inventory.get('remote_session_wall_seconds')
     repl={'CONTROL':str(control['shared_values_checked']),'NUMERIC_TABLE':'\n'.join(numeric),'RESTORE_EVIDENCE':'\n'.join(restore),'U21_METRICS':'\n'.join(metrics),'ATTRIBUTION_TABLE':'\n'.join(at),'RUN_TABLE':'\n'.join(runs),'MISSING':'Missing requested paths: '+ ('; '.join('`'+p+'`' for p in inventory['missing']) or 'none.') ,'REMOTE_TIME':f'R5 acquisition-session elapsed wall time: {wall:.3f} seconds, including transfers, retries and hash checks. The separate compact remote evidence query took '+str(json.loads((RAW/'offline_remote_evidence.json').read_text())['remote_query_wall_seconds'])+' seconds. These are CPU/network session times, not GPU hours.' if wall is not None else 'Acquisition still running; elapsed wall time not final.'}
     for key,value in repl.items():report=report.replace(key,value)
-    (OUT/'R5_report.md').write_text(report)
+    return report
+
+def main():
+    from r5_r4r_report import final_report
+    (OUT/'R5_report.md').write_text(final_report(historical_report()))
 
 if __name__=='__main__':main()

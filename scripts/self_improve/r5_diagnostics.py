@@ -108,4 +108,12 @@ def main():
             ax.axvline(20,color='black',linestyle=':',linewidth=.8);ax.set_ylabel(field);ax.set_title(f'Training seed {seed}');ax.legend(fontsize=8);ax.grid(alpha=.2)
         axes[-1].set_xlabel('Global update (raw, unsmoothed)');fig.tight_layout();fig.savefig(DIAG/f'{field}.png',dpi=150);plt.close(fig)
 
-if __name__=='__main__': main()
+if __name__=='__main__':
+    import argparse
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--r4r-only', action='store_true', help='Preserve the historical R4 outputs')
+    args = parser.parse_args()
+    if not args.r4r_only:
+        main()
+    from r5_r4r_evidence import diagnostics
+    diagnostics()

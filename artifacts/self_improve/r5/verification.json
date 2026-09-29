@@ -1,24 +1,71 @@
 {
   "success": true,
-  "pytest_command": [
-    "/Users/kwang/projects/octorl/.venv/bin/python",
-    "-m",
-    "pytest",
-    "-q",
-    "tests/test_r4_analysis.py",
-    "tests/test_r4_runner.py",
-    "tests/test_r4_selector.py",
+  "pytest_command": ".venv/bin/python -m pytest tests/test_r5_*.py tests/test_r4_*.py tests/test_r4r_*.py -q",
+  "pytest_counts": {
+    "passed": 111,
+    "skipped": 0,
+    "seconds": 53.82
+  },
+  "pytest_log": "artifacts/self_improve/r5/raw/pytest_final.log",
+  "pytest_output": "........................................................................ [ 64%]\n.......................................                                  [100%]\n111 passed in 53.82s\n",
+  "report": {
+    "passed": true,
+    "numeric_values_checked": 226,
+    "fault_type_recomputed": true
+  },
+  "regeneration_byte_identical": true,
+  "report_sha256": "7eea1296040b85aa4000462b7a20beb9df162629c2793290b373ff4d3bebed2d",
+  "protected_files_checked": 3016,
+  "protected_files_unchanged": true,
+  "lr_steps_checked": 380,
+  "lr_max_absolute_difference": 0.0,
+  "staged_paths": [],
+  "git_status": " M README.md\n M artifacts/self_improve/r5/HANDOFF.md\n M artifacts/self_improve/r5/R5_report.md\n M artifacts/self_improve/r5/checkpoint_manifest.json\n M artifacts/self_improve/r5/diagnostics/adapter_checks.json\n M artifacts/self_improve/r5/diagnostics/attribution_summary.json\n M artifacts/self_improve/r5/diagnostics/run_summary.json\n M artifacts/self_improve/r5/raw/pytest_final.log\n M artifacts/self_improve/r5/verification.json\n M scripts/self_improve/r5_diagnostics.py\n M scripts/self_improve/r5_report.py\n M scripts/self_improve/r5_verify_report.py\n M tests/test_r5_deliverable.py\n?? artifacts/self_improve/r5/diagnostics/r4r_duplicate_steps.json\n?? artifacts/self_improve/r5/diagnostics/r4r_effective_group_rate.png\n?? artifacts/self_improve/r5/diagnostics/r4r_entropy.png\n?? artifacts/self_improve/r5/diagnostics/r4r_failure_driven_137.csv\n?? artifacts/self_improve/r5/diagnostics/r4r_failure_driven_2718.csv\n?? artifacts/self_improve/r5/diagnostics/r4r_failure_driven_42.csv\n?? artifacts/self_improve/r5/diagnostics/r4r_fault_type_breakdown.json\n?? artifacts/self_improve/r5/diagnostics/r4r_fixed_137.csv\n?? artifacts/self_improve/r5/diagnostics/r4r_fixed_2718.csv\n?? artifacts/self_improve/r5/diagnostics/r4r_fixed_42.csv\n?? artifacts/self_improve/r5/diagnostics/r4r_kl.png\n?? artifacts/self_improve/r5/diagnostics/r4r_lr.png\n?? artifacts/self_improve/r5/diagnostics/r4r_lr_check.json\n?? artifacts/self_improve/r5/diagnostics/r4r_protected_before.json\n?? artifacts/self_improve/r5/diagnostics/r4r_resume_evidence.json\n?? artifacts/self_improve/r5/diagnostics/r4r_reward_mean.png\n?? artifacts/self_improve/r5/diagnostics/r4r_selector_exposure.json\n?? artifacts/self_improve/r5/diagnostics/r4r_warmup_2718.csv\n?? scripts/self_improve/r5_r4r_evidence.py\n?? scripts/self_improve/r5_r4r_report.py\n?? scripts/self_improve/r5_r4r_validate.py\n?? tests/test_r5_r4r_finalisation.py\n?? uv.lock\n",
+  "git_diff_stat": " README.md                                          |   44 +-\n artifacts/self_improve/r5/HANDOFF.md               |   70 +\n artifacts/self_improve/r5/R5_report.md             |  505 +++-\n artifacts/self_improve/r5/checkpoint_manifest.json |  135 +-\n .../r5/diagnostics/adapter_checks.json             |   56 +\n .../r5/diagnostics/attribution_summary.json        | 2461 ++++++++++++++++++++\n .../self_improve/r5/diagnostics/run_summary.json   |  417 ++++\n artifacts/self_improve/r5/raw/pytest_final.log     |    5 +-\n artifacts/self_improve/r5/verification.json        |   83 +-\n scripts/self_improve/r5_diagnostics.py             |   10 +-\n scripts/self_improve/r5_report.py                  |   10 +-\n scripts/self_improve/r5_verify_report.py           |  121 +-\n tests/test_r5_deliverable.py                       |   11 +-\n 13 files changed, 3723 insertions(+), 205 deletions(-)\n",
+  "changed_files": [
+    "README.md",
+    "artifacts/self_improve/r5/HANDOFF.md",
+    "artifacts/self_improve/r5/R5_report.md",
+    "artifacts/self_improve/r5/checkpoint_manifest.json",
+    "artifacts/self_improve/r5/diagnostics/adapter_checks.json",
+    "artifacts/self_improve/r5/diagnostics/attribution_summary.json",
+    "artifacts/self_improve/r5/diagnostics/run_summary.json",
+    "artifacts/self_improve/r5/raw/pytest_final.log",
+    "artifacts/self_improve/r5/verification.json",
+    "scripts/self_improve/r5_diagnostics.py",
+    "scripts/self_improve/r5_report.py",
+    "scripts/self_improve/r5_verify_report.py",
     "tests/test_r5_deliverable.py"
   ],
-  "pytest_output": "......................................................                   [100%]\n54 passed in 19.33s\n",
-  "git_status": " M .gitignore\n M README.md\n?? artifacts/self_improve/r5/\n?? scripts/self_improve/r5_diagnostics.py\n?? scripts/self_improve/r5_evidence.py\n?? scripts/self_improve/r5_gap.py\n?? scripts/self_improve/r5_load_adapter.py\n?? scripts/self_improve/r5_pull.py\n?? scripts/self_improve/r5_report.py\n?? scripts/self_improve/r5_scheduler_evidence.py\n?? scripts/self_improve/r5_verify_report.py\n?? tests/test_r5_deliverable.py\n",
-  "staged_paths": [],
-  "modified_tracked_files": [
-    ".gitignore",
-    "README.md"
+  "new_files": [
+    "artifacts/self_improve/r5/diagnostics/r4r_duplicate_steps.json",
+    "artifacts/self_improve/r5/diagnostics/r4r_effective_group_rate.png",
+    "artifacts/self_improve/r5/diagnostics/r4r_entropy.png",
+    "artifacts/self_improve/r5/diagnostics/r4r_failure_driven_137.csv",
+    "artifacts/self_improve/r5/diagnostics/r4r_failure_driven_2718.csv",
+    "artifacts/self_improve/r5/diagnostics/r4r_failure_driven_42.csv",
+    "artifacts/self_improve/r5/diagnostics/r4r_fault_type_breakdown.json",
+    "artifacts/self_improve/r5/diagnostics/r4r_fixed_137.csv",
+    "artifacts/self_improve/r5/diagnostics/r4r_fixed_2718.csv",
+    "artifacts/self_improve/r5/diagnostics/r4r_fixed_42.csv",
+    "artifacts/self_improve/r5/diagnostics/r4r_kl.png",
+    "artifacts/self_improve/r5/diagnostics/r4r_lr.png",
+    "artifacts/self_improve/r5/diagnostics/r4r_lr_check.json",
+    "artifacts/self_improve/r5/diagnostics/r4r_protected_before.json",
+    "artifacts/self_improve/r5/diagnostics/r4r_resume_evidence.json",
+    "artifacts/self_improve/r5/diagnostics/r4r_reward_mean.png",
+    "artifacts/self_improve/r5/diagnostics/r4r_selector_exposure.json",
+    "artifacts/self_improve/r5/diagnostics/r4r_warmup_2718.csv",
+    "scripts/self_improve/r5_r4r_evidence.py",
+    "scripts/self_improve/r5_r4r_report.py",
+    "scripts/self_improve/r5_r4r_validate.py",
+    "tests/test_r5_r4r_finalisation.py"
   ],
-  "pulled_files": 133,
-  "missing": [],
-  "remote_acquisition_wall_seconds": 1491.6335170269012,
-  "gpu_training_evaluation_or_full_load_run": false
+  "preexisting_uv_lock_untouched": true,
+  "gpu_training_evaluation_or_full_load_run": false,
+  "remote_access": false,
+  "contract_reconciliations": [
+    "raw/pytest_final.log is outside the general output allowlist but explicitly required by the Tests success condition.",
+    "The required R4 10% comparison sentence remains in section 3; all R4 source paths and historical verdicts are confined to section 4 or R4-labelled numeric rows, as specified by the verifier rules."
+  ]
 }

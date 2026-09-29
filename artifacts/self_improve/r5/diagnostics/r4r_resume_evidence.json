@@ -1,0 +1,86 @@
+{
+  "r4r_fixed_42": {
+    "source": "artifacts/self_improve/r4r/remote_records/seed_42/fixed/stage_6/attempt_1/training.log",
+    "saved_state_evidence": [
+      {
+        "line": 851,
+        "text": "\u001b[36m(WorkerDict pid=100450)\u001b[0m INFO:2026-09-29 02:19:02,516:[Rank 0] Saved optim to /root/autodl-tmp/octorl_r4r/seed_42/fixed/stage_6/attempt_1/checkpoints/global_step_80/actor/optim_world_size_1_rank_0.pt"
+      },
+      {
+        "line": 852,
+        "text": "\u001b[36m(WorkerDict pid=100450)\u001b[0m INFO:2026-09-29 02:19:02,517:[Rank 0] Saved extra_state to /root/autodl-tmp/octorl_r4r/seed_42/fixed/stage_6/attempt_1/checkpoints/global_step_80/actor/extra_state_world_size_1_rank_0.pt"
+      }
+    ],
+    "pulled": false
+  },
+  "r4r_failure_driven_42": {
+    "source": "artifacts/self_improve/r4r/remote_records/seed_42/failure_driven/stage_6/attempt_1/training.log",
+    "saved_state_evidence": [
+      {
+        "line": 848,
+        "text": "\u001b[36m(WorkerDict pid=195531)\u001b[0m INFO:2026-09-29 05:35:56,981:[Rank 0] Saved optim to /root/autodl-tmp/octorl_r4r/seed_42/failure_driven/stage_6/attempt_1/checkpoints/global_step_80/actor/optim_world_size_1_rank_0.pt"
+      },
+      {
+        "line": 849,
+        "text": "\u001b[36m(WorkerDict pid=195531)\u001b[0m INFO:2026-09-29 05:35:56,982:[Rank 0] Saved extra_state to /root/autodl-tmp/octorl_r4r/seed_42/failure_driven/stage_6/attempt_1/checkpoints/global_step_80/actor/extra_state_world_size_1_rank_0.pt"
+      }
+    ],
+    "pulled": false
+  },
+  "r4r_fixed_137": {
+    "source": "artifacts/self_improve/r4r/remote_records/seed_137/fixed/stage_6/attempt_1/training.log",
+    "saved_state_evidence": [
+      {
+        "line": 852,
+        "text": "\u001b[36m(WorkerDict pid=290638)\u001b[0m INFO:2026-09-29 08:58:50,087:[Rank 0] Saved optim to /root/autodl-tmp/octorl_r4r/seed_137/fixed/stage_6/attempt_1/checkpoints/global_step_80/actor/optim_world_size_1_rank_0.pt"
+      },
+      {
+        "line": 853,
+        "text": "\u001b[36m(WorkerDict pid=290638)\u001b[0m INFO:2026-09-29 08:58:50,089:[Rank 0] Saved extra_state to /root/autodl-tmp/octorl_r4r/seed_137/fixed/stage_6/attempt_1/checkpoints/global_step_80/actor/extra_state_world_size_1_rank_0.pt"
+      }
+    ],
+    "pulled": false
+  },
+  "r4r_failure_driven_137": {
+    "source": "artifacts/self_improve/r4r/remote_records/seed_137/failure_driven/stage_6/attempt_1/training.log",
+    "saved_state_evidence": [
+      {
+        "line": 850,
+        "text": "\u001b[36m(WorkerDict pid=390112)\u001b[0m INFO:2026-09-29 12:33:19,735:[Rank 0] Saved optim to /root/autodl-tmp/octorl_r4r/seed_137/failure_driven/stage_6/attempt_1/checkpoints/global_step_80/actor/optim_world_size_1_rank_0.pt"
+      },
+      {
+        "line": 851,
+        "text": "\u001b[36m(WorkerDict pid=390112)\u001b[0m INFO:2026-09-29 12:33:19,736:[Rank 0] Saved extra_state to /root/autodl-tmp/octorl_r4r/seed_137/failure_driven/stage_6/attempt_1/checkpoints/global_step_80/actor/extra_state_world_size_1_rank_0.pt"
+      }
+    ],
+    "pulled": false
+  },
+  "r4r_fixed_2718": {
+    "source": "artifacts/self_improve/r4r/remote_records/seed_2718/fixed/stage_6/attempt_1/training.log",
+    "saved_state_evidence": [
+      {
+        "line": 853,
+        "text": "\u001b[36m(WorkerDict pid=516199)\u001b[0m INFO:2026-09-29 17:10:34,429:[Rank 0] Saved optim to /root/autodl-tmp/octorl_r4r/seed_2718/fixed/stage_6/attempt_1/checkpoints/global_step_80/actor/optim_world_size_1_rank_0.pt"
+      },
+      {
+        "line": 854,
+        "text": "\u001b[36m(WorkerDict pid=516199)\u001b[0m INFO:2026-09-29 17:10:34,430:[Rank 0] Saved extra_state to /root/autodl-tmp/octorl_r4r/seed_2718/fixed/stage_6/attempt_1/checkpoints/global_step_80/actor/extra_state_world_size_1_rank_0.pt"
+      }
+    ],
+    "pulled": false
+  },
+  "r4r_failure_driven_2718": {
+    "source": "artifacts/self_improve/r4r/remote_records/seed_2718/failure_driven/stage_6/attempt_1/training.log",
+    "saved_state_evidence": [
+      {
+        "line": 847,
+        "text": "\u001b[36m(WorkerDict pid=614221)\u001b[0m INFO:2026-09-29 20:37:34,395:[Rank 0] Saved optim to /root/autodl-tmp/octorl_r4r/seed_2718/failure_driven/stage_6/attempt_1/checkpoints/global_step_80/actor/optim_world_size_1_rank_0.pt"
+      },
+      {
+        "line": 848,
+        "text": "\u001b[36m(WorkerDict pid=614221)\u001b[0m INFO:2026-09-29 20:37:34,396:[Rank 0] Saved extra_state to /root/autodl-tmp/octorl_r4r/seed_2718/failure_driven/stage_6/attempt_1/checkpoints/global_step_80/actor/extra_state_world_size_1_rank_0.pt"
+      }
+    ],
+    "pulled": false
+  }
+}

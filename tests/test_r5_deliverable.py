@@ -18,7 +18,7 @@ OUT=ROOT/'artifacts/self_improve/r5'
 
 def test_manifest_integrity_and_eval_links():
     manifest=json.loads((OUT/'checkpoint_manifest.json').read_text())
-    assert len(manifest)==13 and len({r['name'] for r in manifest})==13
+    assert len(manifest)==20 and len({r['name'] for r in manifest})==20
     for row in manifest:
         directory=ROOT/row['local_path']
         assert {str(p.relative_to(directory)) for p in directory.rglob('*') if p.is_file()}==set(row['files'])
@@ -31,7 +31,7 @@ def test_manifest_integrity_and_eval_links():
 
 def test_all_adapters():
     results=check_all(OUT/'checkpoint_manifest.json')
-    assert len(results)==13 and all(r['tensor_count']==504 for r in results)
+    assert len(results)==20 and all(r['tensor_count']==504 for r in results)
 
 def test_adapter_negative_controls(tmp_path):
     # Each control modifies a temporary copy of a real archived adapter.
@@ -85,7 +85,7 @@ def test_plots_and_report():
 def test_report_drift_rejected(tmp_path):
     original=(OUT/'R5_report.md').read_text()
     lines=original.splitlines()
-    i=next(i for i,line in enumerate(lines) if line.startswith('| Q1 pooled difference |'))
+    i=next(i for i,line in enumerate(lines) if line.startswith('| R4r test2 Q1 pooled difference |'))
     cells=lines[i].split('|');cells[2]=' 0.999 ';lines[i]='|'.join(cells)
     p=tmp_path/'report.md';p.write_text('\n'.join(lines))
     with pytest.raises(AssertionError):verify(p)
@@ -109,8 +109,9 @@ def test_attribution_and_distribution():
     selected=[t for tasks in d['r4_stage_ordered_tasks'].values() for t in tasks]
     assert len(set(selected)&set(d['r3c_ordered_tasks']))==d['instance_overlap']==233
     a=json.loads((OUT/'diagnostics/attribution_summary.json').read_text())
-    assert len(a)==6
-    for record in a.values():
+    assert len(a)==13
+    for name, record in a.items():
+        if name.startswith("r4r_"): continue
         rows=[r for src in record['sources'] for r in read_jsonl(ROOT/src)]
         assert len(rows)==record['rollouts']==960
         assert sum(r['binary_reward'] for r in rows)/960==record['binary_reward_mean']

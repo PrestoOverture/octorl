@@ -9,7 +9,8 @@
       "adapter_model.safetensors": "cd52e7a3c154876c390a2ac36927c24ddd0d71509431d4b1bcb9a0d82b72626e",
       "adapter_config.json": "c2e0cac31ab2dc4f81ebb49aa0648809a39f667cd5096c2f7f713ececaa8bd1f"
     },
-    "test_eval_json": "artifacts/self_improve/r4/test_eval/fixed_42.json"
+    "test_eval_json": "artifacts/self_improve/r4/test_eval/fixed_42.json",
+    "experiment": "R4 (protocol deviation: LR horizon)"
   },
   {
     "name": "r4_failure_driven_42_u80",
@@ -21,7 +22,8 @@
       "adapter_model.safetensors": "f0f6f8d19c002c963a6f78b3ef9a617e7f0721b49d8bc4a6badeda9e8c2c076a",
       "adapter_config.json": "c2e0cac31ab2dc4f81ebb49aa0648809a39f667cd5096c2f7f713ececaa8bd1f"
     },
-    "test_eval_json": "artifacts/self_improve/r4/test_eval/failure_driven_42.json"
+    "test_eval_json": "artifacts/self_improve/r4/test_eval/failure_driven_42.json",
+    "experiment": "R4 (protocol deviation: LR horizon)"
   },
   {
     "name": "r4_fixed_137_u80",
@@ -33,7 +35,8 @@
       "adapter_model.safetensors": "98d745dde0dd1f12a4e4c90d0bfd169d463c715787c0003507d3a85d06634343",
       "adapter_config.json": "c2e0cac31ab2dc4f81ebb49aa0648809a39f667cd5096c2f7f713ececaa8bd1f"
     },
-    "test_eval_json": "artifacts/self_improve/r4/test_eval/fixed_137.json"
+    "test_eval_json": "artifacts/self_improve/r4/test_eval/fixed_137.json",
+    "experiment": "R4 (protocol deviation: LR horizon)"
   },
   {
     "name": "r4_failure_driven_137_u80",
@@ -45,7 +48,8 @@
       "adapter_model.safetensors": "6fedd36a8b4cba4ca70383d1bb611751df2e48782ac96fef4d89c11c700b9196",
       "adapter_config.json": "c2e0cac31ab2dc4f81ebb49aa0648809a39f667cd5096c2f7f713ececaa8bd1f"
     },
-    "test_eval_json": "artifacts/self_improve/r4/test_eval/failure_driven_137.json"
+    "test_eval_json": "artifacts/self_improve/r4/test_eval/failure_driven_137.json",
+    "experiment": "R4 (protocol deviation: LR horizon)"
   },
   {
     "name": "r4_fixed_2718_u80",
@@ -57,7 +61,8 @@
       "adapter_model.safetensors": "c75d104f2a64275703898f14a2cf533fbb5cd4d3bcfa73c6c38641dffd66f8ad",
       "adapter_config.json": "c2e0cac31ab2dc4f81ebb49aa0648809a39f667cd5096c2f7f713ececaa8bd1f"
     },
-    "test_eval_json": "artifacts/self_improve/r4/test_eval/fixed_2718.json"
+    "test_eval_json": "artifacts/self_improve/r4/test_eval/fixed_2718.json",
+    "experiment": "R4 (protocol deviation: LR horizon)"
   },
   {
     "name": "r4_failure_driven_2718_u80",
@@ -69,7 +74,8 @@
       "adapter_model.safetensors": "cef415bea02048c491709d594c46a7b1a867ca4c8e2880e6b622a6eb3f6c16e7",
       "adapter_config.json": "c2e0cac31ab2dc4f81ebb49aa0648809a39f667cd5096c2f7f713ececaa8bd1f"
     },
-    "test_eval_json": "artifacts/self_improve/r4/test_eval/failure_driven_2718.json"
+    "test_eval_json": "artifacts/self_improve/r4/test_eval/failure_driven_2718.json",
+    "experiment": "R4 (protocol deviation: LR horizon)"
   },
   {
     "name": "r3c_42_u20",
@@ -153,6 +159,121 @@
       "adapter_model.safetensors": "d7bb078f73dc2fc9889fc930864fc98e939db08a10b788a85cc030316f181719",
       "adapter_config.json": "c2e0cac31ab2dc4f81ebb49aa0648809a39f667cd5096c2f7f713ececaa8bd1f"
     },
-    "test_eval_json": null
+    "test_eval_json": null,
+    "experiment": "R4 (protocol deviation: LR horizon)"
+  },
+  {
+    "name": "r4r_failure_driven_137_u80",
+    "local_path": "artifacts/self_improve/r5/checkpoints/r4r_failure_driven_137_u80",
+    "remote_path": "/root/autodl-tmp/octorl_r4r/seed_137/failure_driven/stage_6/attempt_1/checkpoints/global_step_80/actor/lora_adapter",
+    "global_step": 80,
+    "lineage_parent": "r3c_137_u20",
+    "files": {
+      "adapter_config.json": "c2e0cac31ab2dc4f81ebb49aa0648809a39f667cd5096c2f7f713ececaa8bd1f",
+      "adapter_model.safetensors": "0576547a1161331e3300351e09d7b34ca9e2da2a8134c34edc769a43d41facc0"
+    },
+    "test_eval_json": "artifacts/self_improve/r4r/test_eval/test2/failure_driven_137.json",
+    "secondary_test_eval_json": "artifacts/self_improve/r4r/test_eval/test_r3/failure_driven_137.json",
+    "remote_sha256_verified": false,
+    "remote_sha256_note": "instance powered off at finalisation; no R4r remote hash inventory exists locally (r4r/archive_remote_inventory.json covers octorl_r4, not octorl_r4r)",
+    "experiment": "R4r"
+  },
+  {
+    "name": "r4r_failure_driven_2718_u80",
+    "local_path": "artifacts/self_improve/r5/checkpoints/r4r_failure_driven_2718_u80",
+    "remote_path": "/root/autodl-tmp/octorl_r4r/seed_2718/failure_driven/stage_6/attempt_1/checkpoints/global_step_80/actor/lora_adapter",
+    "global_step": 80,
+    "lineage_parent": "r4r_warmup_2718_u20",
+    "files": {
+      "adapter_config.json": "c2e0cac31ab2dc4f81ebb49aa0648809a39f667cd5096c2f7f713ececaa8bd1f",
+      "adapter_model.safetensors": "6a5f6bb6e8712e76deee804ff54728bafabed9abec0e5bfb5f43c01bb557d8b6"
+    },
+    "test_eval_json": "artifacts/self_improve/r4r/test_eval/test2/failure_driven_2718.json",
+    "secondary_test_eval_json": "artifacts/self_improve/r4r/test_eval/test_r3/failure_driven_2718.json",
+    "remote_sha256_verified": false,
+    "remote_sha256_note": "instance powered off at finalisation; no R4r remote hash inventory exists locally (r4r/archive_remote_inventory.json covers octorl_r4, not octorl_r4r)",
+    "experiment": "R4r"
+  },
+  {
+    "name": "r4r_failure_driven_42_u80",
+    "local_path": "artifacts/self_improve/r5/checkpoints/r4r_failure_driven_42_u80",
+    "remote_path": "/root/autodl-tmp/octorl_r4r/seed_42/failure_driven/stage_6/attempt_1/checkpoints/global_step_80/actor/lora_adapter",
+    "global_step": 80,
+    "lineage_parent": "r3c_42_u20",
+    "files": {
+      "adapter_config.json": "c2e0cac31ab2dc4f81ebb49aa0648809a39f667cd5096c2f7f713ececaa8bd1f",
+      "adapter_model.safetensors": "bab5f2aa4a61b41b54ff0c98dfceb5142ad9a225dbf7b9579a8b97df978a3c1c"
+    },
+    "test_eval_json": "artifacts/self_improve/r4r/test_eval/test2/failure_driven_42.json",
+    "secondary_test_eval_json": "artifacts/self_improve/r4r/test_eval/test_r3/failure_driven_42.json",
+    "remote_sha256_verified": false,
+    "remote_sha256_note": "instance powered off at finalisation; no R4r remote hash inventory exists locally (r4r/archive_remote_inventory.json covers octorl_r4, not octorl_r4r)",
+    "experiment": "R4r"
+  },
+  {
+    "name": "r4r_fixed_137_u80",
+    "local_path": "artifacts/self_improve/r5/checkpoints/r4r_fixed_137_u80",
+    "remote_path": "/root/autodl-tmp/octorl_r4r/seed_137/fixed/stage_6/attempt_1/checkpoints/global_step_80/actor/lora_adapter",
+    "global_step": 80,
+    "lineage_parent": "r3c_137_u20",
+    "files": {
+      "adapter_config.json": "c2e0cac31ab2dc4f81ebb49aa0648809a39f667cd5096c2f7f713ececaa8bd1f",
+      "adapter_model.safetensors": "bb04a8706d4fc58f78fbd5e179dfc610ca2d0fa4102c834ffe917e9d6be85201"
+    },
+    "test_eval_json": "artifacts/self_improve/r4r/test_eval/test2/fixed_137.json",
+    "secondary_test_eval_json": "artifacts/self_improve/r4r/test_eval/test_r3/fixed_137.json",
+    "remote_sha256_verified": false,
+    "remote_sha256_note": "instance powered off at finalisation; no R4r remote hash inventory exists locally (r4r/archive_remote_inventory.json covers octorl_r4, not octorl_r4r)",
+    "experiment": "R4r"
+  },
+  {
+    "name": "r4r_fixed_2718_u80",
+    "local_path": "artifacts/self_improve/r5/checkpoints/r4r_fixed_2718_u80",
+    "remote_path": "/root/autodl-tmp/octorl_r4r/seed_2718/fixed/stage_6/attempt_1/checkpoints/global_step_80/actor/lora_adapter",
+    "global_step": 80,
+    "lineage_parent": "r4r_warmup_2718_u20",
+    "files": {
+      "adapter_config.json": "c2e0cac31ab2dc4f81ebb49aa0648809a39f667cd5096c2f7f713ececaa8bd1f",
+      "adapter_model.safetensors": "ffb5c2656b688a79da48638e2fe6ddd65a5fd6cc65b92c692a98b35c1d4f3551"
+    },
+    "test_eval_json": "artifacts/self_improve/r4r/test_eval/test2/fixed_2718.json",
+    "secondary_test_eval_json": "artifacts/self_improve/r4r/test_eval/test_r3/fixed_2718.json",
+    "remote_sha256_verified": false,
+    "remote_sha256_note": "instance powered off at finalisation; no R4r remote hash inventory exists locally (r4r/archive_remote_inventory.json covers octorl_r4, not octorl_r4r)",
+    "experiment": "R4r"
+  },
+  {
+    "name": "r4r_fixed_42_u80",
+    "local_path": "artifacts/self_improve/r5/checkpoints/r4r_fixed_42_u80",
+    "remote_path": "/root/autodl-tmp/octorl_r4r/seed_42/fixed/stage_6/attempt_1/checkpoints/global_step_80/actor/lora_adapter",
+    "global_step": 80,
+    "lineage_parent": "r3c_42_u20",
+    "files": {
+      "adapter_config.json": "c2e0cac31ab2dc4f81ebb49aa0648809a39f667cd5096c2f7f713ececaa8bd1f",
+      "adapter_model.safetensors": "8b123037d5588aad02b56a4b1b4926ea8289574f9d5e3d482345c8b4e1eb3709"
+    },
+    "test_eval_json": "artifacts/self_improve/r4r/test_eval/test2/fixed_42.json",
+    "secondary_test_eval_json": "artifacts/self_improve/r4r/test_eval/test_r3/fixed_42.json",
+    "remote_sha256_verified": false,
+    "remote_sha256_note": "instance powered off at finalisation; no R4r remote hash inventory exists locally (r4r/archive_remote_inventory.json covers octorl_r4, not octorl_r4r)",
+    "experiment": "R4r"
+  },
+  {
+    "name": "r4r_warmup_2718_u20",
+    "local_path": "artifacts/self_improve/r5/checkpoints/r4r_warmup_2718_u20",
+    "remote_path": null,
+    "global_step": 20,
+    "lineage_parent": null,
+    "files": {
+      "adapter_config.json": "c2e0cac31ab2dc4f81ebb49aa0648809a39f667cd5096c2f7f713ececaa8bd1f",
+      "adapter_model.safetensors": "2e97026dbb304c052a0a4ad5a1c1fd0e36d98ca81f6e8bcd638a19affededc21"
+    },
+    "test_eval_json": null,
+    "secondary_test_eval_json": null,
+    "remote_sha256_verified": false,
+    "remote_sha256_note": "instance powered off at finalisation; no R4r remote hash inventory exists locally (r4r/archive_remote_inventory.json covers octorl_r4, not octorl_r4r)",
+    "experiment": "R4r",
+    "remote_path_evidence": [],
+    "remote_path_note": "No literal warm-up adapter path in warmup/training.log or logs/queue.log; checkpoint parent is recorded, but the adapter path is not inferred."
   }
 ]
