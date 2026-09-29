@@ -130,6 +130,12 @@ hashed both sides, re-inventoried the remote after the transfer, and wrote
 - **Remaining before the queue:** the GPU preflight (`r4r_preflight.sh --execute`), which needs the instance in GPU
   mode. The queue refuses to start without `preflight_pass.json`.
 
+## Outcome (2026-09-29)
+
+The preflight passed on 09-28 at 22:53 (`preflight/`). The queue ran from 09-28 22:54 to 09-29 20:38: 37/37
+processes on attempt_1, with every logged LR equal to R3c. Evaluation ran 20:39–21:02. Verdicts: Q2
+`Q2_failure_driven_better`, Q1 `no_evidence_of_improvement`. See `RESULTS.md` and `watch_log.md`.
+
 ## Validation and limitations
 
 - Test command: `.venv/bin/python -m pytest tests/test_r4_*.py tests/test_r4r_*.py tests/test_r5_*.py -q`.

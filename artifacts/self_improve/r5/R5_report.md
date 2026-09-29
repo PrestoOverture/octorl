@@ -1,5 +1,12 @@
 # R5 — Qwen3-4B dev-tool fault-recovery study
 
+> **Status (2026-09-29): draft, partly superseded.** Sections 2–3 and the numeric table report **R4**, whose
+> training did not realise the preregistered LR schedule (cumulative LR about 10% of plan; see the gap audit
+> below). R4 was re-run as **R4r**. The authoritative verdicts are now Q2 `Q2_failure_driven_better` (test2
+> pooled +3.07 pp, CI [+1.72, +4.53] pp) and Q1 `no_evidence_of_improvement`; see
+> [R4r results](../r4r/RESULTS.md). This report will be finalised on R4r. The engineering, provenance and
+> diagnostics sections remain valid.
+
 ## 1. Engineering: completed / not completed
 
 Completed: read-only key-authenticated retrieval, remote/local SHA-256 integrity checks for all 13 LoRA adapters, provenance and exact test-evaluation path links, CPU tensor checks, nine per-run CSVs, raw unsmoothed curves, seed-42 reconstruction after the seed-137 parser control, and an offline gap audit. These are engineering checks, not capability evidence. No GPU job, training, evaluation, or full model loading was performed for R5. Full base+PEFT loading and short generation are implemented but not run.

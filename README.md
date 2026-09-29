@@ -150,14 +150,21 @@ See `LICENSE`. Micro-repository provenance and license records are in each repo'
 This separate study uses a short, structured tool-recovery environment under
 `src/tasks/tool_recovery/`, with the Agent-R1 adapter in
 `src/adapters/tool_recovery_agent_r1.py`. It is distinct from the repository-repair
-environment described above. R4's pre-registered results are
-`no_evidence_of_improvement` (fixed training versus base) and
-`no_evidence_of_difference` (failure-driven versus fixed).
+environment described above.
 
-Study entry points are `scripts/self_improve/r4_analysis.py` (offline analysis),
-`r5_diagnostics.py` (training logs), and `r5_load_adapter.py` (adapter checking or
-loading). See [the R5 report](artifacts/self_improve/r5/R5_report.md) for exact
-results, exploratory-result labels, provenance, diagnostics, costs and limitations.
+The preregistered results come from **R4r**, a re-run of R4 after an audit found that R4's staged training
+did not realise the frozen learning-rate schedule. On the primary sealed test (test2: 160 held-out fault
+instances × 4 rollouts), failure-driven task selection beats fixed-distribution GRPO: the decision is
+`Q2_failure_driven_better`, pooled +3.07 pp with 95% CI [+1.72, +4.53] pp, and all three seeds are positive.
+The gain is concentrated in the missing-dependency fault type. Fixed-distribution GRPO versus the base model is
+`no_evidence_of_improvement`. Training-seed variance is not estimated (n = 3). R4's own verdicts
+(`no_evidence_of_improvement`, `no_evidence_of_difference`) are kept only as a record of that deviation. See
+[R4r results](artifacts/self_improve/r4r/RESULTS.md).
+
+Study entry points are `scripts/self_improve/r4r_analysis.py` (R4r analysis on any instance count) and
+`r4_analysis.py` (the frozen R4 analysis), `r5_diagnostics.py` (training logs), and `r5_load_adapter.py`
+(adapter checking or loading). The [R5 report](artifacts/self_improve/r5/R5_report.md) holds provenance,
+diagnostics, costs and limitations; its Q1/Q2 sections still describe R4 until R5 is finalised.
 Local adapter weights are excluded from Git; acquire them using `r5_pull.py` with
 authorized key-only access to `autodl-r4`.
 
