@@ -27,3 +27,4 @@ artifacts/self_improve/r4r/watch_tools/stages/
 
 # R4r raw per-step rollout dumps (171 MB; kept locally, redundant with trajectories/attributed)
 artifacts/self_improve/r4r/remote_records/**/rollouts/
+uv.lock
