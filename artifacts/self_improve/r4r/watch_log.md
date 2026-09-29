@@ -8,6 +8,24 @@ Every completed stage is checked by Claude Code in addition to the code gates. T
 vs the R3c reference (the check R4's watch lacked), grad norm (stop > 100), KL, reward, effective-group rate,
 attempt/exit status, and cost.
 
+## Resuming the watch in a new session
+
+The queue runs in tmux `r4r_queue` on the remote and does not depend on any Claude Code session. To resume:
+
+1. Read this log (the last row and Events) and `docs/progress.md` §9.
+2. Status:
+   `ssh autodl-r4 'R=/root/autodl-tmp/octorl_r4r; tail -3 $R/logs/queue.log; ls $R/logs; find $R -name INFRA_FAILED'`
+3. Per-stage check (LR vs R3c, grad, KL, reward, allocation):
+   `python3 artifacts/self_improve/r4r/watch_tools/check_stage.py SEED ARM STAGE <scratch-dir>`
+   (for the warm-up: `2718 warmup 0`). Append a row to the table below.
+4. Wake-up watcher (exits on a new completed stage, queue exit, infra failure, error, tmux gone, or 2 h silence):
+   `bash artifacts/self_improve/r4r/watch_tools/watch_r4r.sh` (run in the background).
+5. After `ALL_DONE` and all 7 `DONE_*` markers:
+   `ssh autodl-r4 'tmux new-session -d -s r4r_eval "export PATH=/root/miniconda3/bin:\$PATH; python3 /root/octorl_r3/scripts/self_improve/r4r_test_eval.py --execute > /root/autodl-tmp/octorl_r4r/test_eval.log 2>&1"'`
+   It refuses to run while the test is still sealed. Progress: `/root/autodl-tmp/octorl_r4r/test_eval/progress.log`.
+6. Billing: the 1-day package expires 2026-09-29 22:37 and then auto-converts to pay-as-you-go. The balance is about
+   ¥5.46, roughly 2.5 h.
+
 ## Pre-launch
 
 - **2026-09-28 22:35–22:53 · GPU preflight PASS.** Resumed from R3c 137 U20: U21 LR 1.879473751206489e-05 and U22
@@ -58,6 +76,9 @@ attempt/exit status, and cost.
   ¥2.18/h. The ETA is queue done ≈ 20:45 and evaluations ≈ 21:45, so the evaluations should finish before expiry
   and pay-as-you-go is only a buffer. If the queue slips past about 22:00, the user needs a small top-up before
   00:30 to avoid an arrears shutdown.
+- **2026-09-29 13:12** · Claude Code session paused for a user-side update. State: 2718 warm-up at U9/20, 4/7
+  branches done, ¥29.46. The watch tools were moved to `watch_tools/`, and resume steps are at the top of this log.
+  The evaluation queue (`r4r_test_eval.py`, commit `0fd2f97`) is deployed and verified sealed.
 
 ## Events
 
