@@ -1,0 +1,1 @@
+5c7e879ef98128e82d9e8b56dbbf64640b16800a6393ed7233eb9d6122ace144  artifacts/self_improve/contracts/r6_model_chooser_prereg.yaml

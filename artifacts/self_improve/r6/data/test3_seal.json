@@ -1,0 +1,41 @@
+{
+  "counts": {
+    "constraint_violation": 60,
+    "missing_dependency": 52,
+    "normal": 40,
+    "stale_version": 48
+  },
+  "dedup_evidence": {
+    "dev": {
+      "manifest_sha256": "b865c8f79e4498fd342946da7273c8722deca24536a50673b802f8bf5a913ca9",
+      "overlap_count": 0
+    },
+    "test": {
+      "manifest_sha256": "072e6fe876c34d2ec03055b9b1fef6d7a0ff6f8ac8ff924bbc26fab5ee720f88",
+      "overlap_count": 0
+    },
+    "test2": {
+      "manifest_sha256": "1b729b717c3dfffde8579cf19bb2eb1fae9b446aba6890d3fd75e96f47f38bb3",
+      "overlap_count": 0
+    },
+    "train": {
+      "manifest_sha256": "ea4dafa969dcf92b9748e9e81d784f55a85c563c6fdafdee1007cc5ea3aea110",
+      "overlap_count": 0
+    }
+  },
+  "end_seed_exclusive": 320279,
+  "families": [
+    "deployment_service",
+    "notification_service"
+  ],
+  "generator_version": "r2.0",
+  "manifest_sha256": "1f0d28ff955ed8893c3ea2c565192bf202fb30e57c37943fd3d869ef3dbf68ab",
+  "model_evaluated": false,
+  "parquet_sha256": "4195939844caaa87b4a5221b69a3ed4909578535bfca600b030b9f2392121b0c",
+  "seed_range": [
+    320000,
+    320278
+  ],
+  "start_seed": 320000,
+  "unique_fingerprints": 200
+}

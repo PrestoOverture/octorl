@@ -1,0 +1,368 @@
+{
+  "all_pass": true,
+  "checks": [
+    {
+      "arm": "fixed",
+      "counts": true,
+      "p_tolerance": true,
+      "seed": 42,
+      "selection_bytes": true,
+      "stage": 1,
+      "stats": true,
+      "train_task_ids": true
+    },
+    {
+      "arm": "fixed",
+      "counts": true,
+      "p_tolerance": true,
+      "seed": 42,
+      "selection_bytes": true,
+      "stage": 2,
+      "stats": true,
+      "train_task_ids": true
+    },
+    {
+      "arm": "fixed",
+      "counts": true,
+      "p_tolerance": true,
+      "seed": 42,
+      "selection_bytes": true,
+      "stage": 3,
+      "stats": true,
+      "train_task_ids": true
+    },
+    {
+      "arm": "fixed",
+      "counts": true,
+      "p_tolerance": true,
+      "seed": 42,
+      "selection_bytes": true,
+      "stage": 4,
+      "stats": true,
+      "train_task_ids": true
+    },
+    {
+      "arm": "fixed",
+      "counts": true,
+      "p_tolerance": true,
+      "seed": 42,
+      "selection_bytes": true,
+      "stage": 5,
+      "stats": true,
+      "train_task_ids": true
+    },
+    {
+      "arm": "fixed",
+      "counts": true,
+      "p_tolerance": true,
+      "seed": 42,
+      "selection_bytes": true,
+      "stage": 6,
+      "stats": true,
+      "train_task_ids": true
+    },
+    {
+      "arm": "failure_driven",
+      "counts": true,
+      "p_tolerance": true,
+      "seed": 42,
+      "selection_bytes": true,
+      "stage": 1,
+      "stats": true,
+      "train_task_ids": true
+    },
+    {
+      "arm": "failure_driven",
+      "counts": true,
+      "p_tolerance": true,
+      "seed": 42,
+      "selection_bytes": true,
+      "stage": 2,
+      "stats": true,
+      "train_task_ids": true
+    },
+    {
+      "arm": "failure_driven",
+      "counts": true,
+      "p_tolerance": true,
+      "seed": 42,
+      "selection_bytes": true,
+      "stage": 3,
+      "stats": true,
+      "train_task_ids": true
+    },
+    {
+      "arm": "failure_driven",
+      "counts": true,
+      "p_tolerance": true,
+      "seed": 42,
+      "selection_bytes": true,
+      "stage": 4,
+      "stats": true,
+      "train_task_ids": true
+    },
+    {
+      "arm": "failure_driven",
+      "counts": true,
+      "p_tolerance": true,
+      "seed": 42,
+      "selection_bytes": true,
+      "stage": 5,
+      "stats": true,
+      "train_task_ids": true
+    },
+    {
+      "arm": "failure_driven",
+      "counts": true,
+      "p_tolerance": true,
+      "seed": 42,
+      "selection_bytes": true,
+      "stage": 6,
+      "stats": true,
+      "train_task_ids": true
+    },
+    {
+      "arm": "fixed",
+      "counts": true,
+      "p_tolerance": true,
+      "seed": 137,
+      "selection_bytes": true,
+      "stage": 1,
+      "stats": true,
+      "train_task_ids": true
+    },
+    {
+      "arm": "fixed",
+      "counts": true,
+      "p_tolerance": true,
+      "seed": 137,
+      "selection_bytes": true,
+      "stage": 2,
+      "stats": true,
+      "train_task_ids": true
+    },
+    {
+      "arm": "fixed",
+      "counts": true,
+      "p_tolerance": true,
+      "seed": 137,
+      "selection_bytes": true,
+      "stage": 3,
+      "stats": true,
+      "train_task_ids": true
+    },
+    {
+      "arm": "fixed",
+      "counts": true,
+      "p_tolerance": true,
+      "seed": 137,
+      "selection_bytes": true,
+      "stage": 4,
+      "stats": true,
+      "train_task_ids": true
+    },
+    {
+      "arm": "fixed",
+      "counts": true,
+      "p_tolerance": true,
+      "seed": 137,
+      "selection_bytes": true,
+      "stage": 5,
+      "stats": true,
+      "train_task_ids": true
+    },
+    {
+      "arm": "fixed",
+      "counts": true,
+      "p_tolerance": true,
+      "seed": 137,
+      "selection_bytes": true,
+      "stage": 6,
+      "stats": true,
+      "train_task_ids": true
+    },
+    {
+      "arm": "failure_driven",
+      "counts": true,
+      "p_tolerance": true,
+      "seed": 137,
+      "selection_bytes": true,
+      "stage": 1,
+      "stats": true,
+      "train_task_ids": true
+    },
+    {
+      "arm": "failure_driven",
+      "counts": true,
+      "p_tolerance": true,
+      "seed": 137,
+      "selection_bytes": true,
+      "stage": 2,
+      "stats": true,
+      "train_task_ids": true
+    },
+    {
+      "arm": "failure_driven",
+      "counts": true,
+      "p_tolerance": true,
+      "seed": 137,
+      "selection_bytes": true,
+      "stage": 3,
+      "stats": true,
+      "train_task_ids": true
+    },
+    {
+      "arm": "failure_driven",
+      "counts": true,
+      "p_tolerance": true,
+      "seed": 137,
+      "selection_bytes": true,
+      "stage": 4,
+      "stats": true,
+      "train_task_ids": true
+    },
+    {
+      "arm": "failure_driven",
+      "counts": true,
+      "p_tolerance": true,
+      "seed": 137,
+      "selection_bytes": true,
+      "stage": 5,
+      "stats": true,
+      "train_task_ids": true
+    },
+    {
+      "arm": "failure_driven",
+      "counts": true,
+      "p_tolerance": true,
+      "seed": 137,
+      "selection_bytes": true,
+      "stage": 6,
+      "stats": true,
+      "train_task_ids": true
+    },
+    {
+      "arm": "fixed",
+      "counts": true,
+      "p_tolerance": true,
+      "seed": 2718,
+      "selection_bytes": true,
+      "stage": 1,
+      "stats": true,
+      "train_task_ids": true
+    },
+    {
+      "arm": "fixed",
+      "counts": true,
+      "p_tolerance": true,
+      "seed": 2718,
+      "selection_bytes": true,
+      "stage": 2,
+      "stats": true,
+      "train_task_ids": true
+    },
+    {
+      "arm": "fixed",
+      "counts": true,
+      "p_tolerance": true,
+      "seed": 2718,
+      "selection_bytes": true,
+      "stage": 3,
+      "stats": true,
+      "train_task_ids": true
+    },
+    {
+      "arm": "fixed",
+      "counts": true,
+      "p_tolerance": true,
+      "seed": 2718,
+      "selection_bytes": true,
+      "stage": 4,
+      "stats": true,
+      "train_task_ids": true
+    },
+    {
+      "arm": "fixed",
+      "counts": true,
+      "p_tolerance": true,
+      "seed": 2718,
+      "selection_bytes": true,
+      "stage": 5,
+      "stats": true,
+      "train_task_ids": true
+    },
+    {
+      "arm": "fixed",
+      "counts": true,
+      "p_tolerance": true,
+      "seed": 2718,
+      "selection_bytes": true,
+      "stage": 6,
+      "stats": true,
+      "train_task_ids": true
+    },
+    {
+      "arm": "failure_driven",
+      "counts": true,
+      "p_tolerance": true,
+      "seed": 2718,
+      "selection_bytes": true,
+      "stage": 1,
+      "stats": true,
+      "train_task_ids": true
+    },
+    {
+      "arm": "failure_driven",
+      "counts": true,
+      "p_tolerance": true,
+      "seed": 2718,
+      "selection_bytes": true,
+      "stage": 2,
+      "stats": true,
+      "train_task_ids": true
+    },
+    {
+      "arm": "failure_driven",
+      "counts": true,
+      "p_tolerance": true,
+      "seed": 2718,
+      "selection_bytes": true,
+      "stage": 3,
+      "stats": true,
+      "train_task_ids": true
+    },
+    {
+      "arm": "failure_driven",
+      "counts": true,
+      "p_tolerance": true,
+      "seed": 2718,
+      "selection_bytes": true,
+      "stage": 4,
+      "stats": true,
+      "train_task_ids": true
+    },
+    {
+      "arm": "failure_driven",
+      "counts": true,
+      "p_tolerance": true,
+      "seed": 2718,
+      "selection_bytes": true,
+      "stage": 5,
+      "stats": true,
+      "train_task_ids": true
+    },
+    {
+      "arm": "failure_driven",
+      "counts": true,
+      "p_tolerance": true,
+      "seed": 2718,
+      "selection_bytes": true,
+      "stage": 6,
+      "stats": true,
+      "train_task_ids": true
+    }
+  ],
+  "failure_driven_stages": 18,
+  "fixed_stages": 18,
+  "windows": 36
+}

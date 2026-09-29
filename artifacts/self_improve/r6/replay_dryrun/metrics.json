@@ -1,0 +1,90 @@
+{
+  "G1": {
+    "input_sensitivity_pass": true,
+    "pass": true,
+    "validity_pass": true
+  },
+  "G2": {
+    "TV_noise": 0.007600175127068335,
+    "pass": false,
+    "pooled_TV_identity": 0.0
+  },
+  "TV_identity": {
+    "u20": {
+      "per_seed": {
+        "137": 0.0,
+        "2718": 0.0,
+        "42": 0.0
+      },
+      "pooled": 0.0
+    },
+    "u80": {
+      "per_seed": {
+        "137": 0.0,
+        "2718": 0.0,
+        "42": 0.0
+      },
+      "pooled": 0.0
+    }
+  },
+  "TV_noise": 0.007600175127068335,
+  "backend": "MockBackend",
+  "fallback_q_all_pi0": true,
+  "fallback_stages": 0,
+  "input_sensitivity": 0.5205154092130369,
+  "query_count": {
+    "formula": "36 * (base: 8+8+2*8; paired U20: 8+8; paired U80: 8+8) = 2304",
+    "total": 2304
+  },
+  "sample_level_validity": {
+    "base": {
+      "rate": 1.0,
+      "total": 1152,
+      "valid": 1152
+    },
+    "u20_137": {
+      "rate": 1.0,
+      "total": 192,
+      "valid": 192
+    },
+    "u20_2718": {
+      "rate": 1.0,
+      "total": 192,
+      "valid": 192
+    },
+    "u20_42": {
+      "rate": 1.0,
+      "total": 192,
+      "valid": 192
+    },
+    "u80_137": {
+      "rate": 1.0,
+      "total": 192,
+      "valid": 192
+    },
+    "u80_2718": {
+      "rate": 1.0,
+      "total": 192,
+      "valid": 192
+    },
+    "u80_42": {
+      "rate": 1.0,
+      "total": 192,
+      "valid": 192
+    }
+  },
+  "sample_stage_count": 108,
+  "schema": "r6-offline-replay-v1",
+  "unnormalised_rate": {
+    "base": 0.9791666666666666,
+    "u20_137": 1.0,
+    "u20_2718": 0.9375,
+    "u20_42": 1.0,
+    "u80_137": 1.0,
+    "u80_2718": 0.9375,
+    "u80_42": 1.0
+  },
+  "wall_time_measurement": "deterministic zero for mock dry-run",
+  "wall_time_seconds": 0.0,
+  "windows": 36
+}

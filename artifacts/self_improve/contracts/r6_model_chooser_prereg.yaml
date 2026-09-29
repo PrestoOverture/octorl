@@ -1,0 +1,211 @@
+contract_id: r6-model-chooser-v1
+frozen_at: "2026-09-29T00:00:00+08:00"   # sha256 recorded in artifacts/self_improve/r6/prereg_sha256.txt
+status: frozen_before_test3_generation_and_any_chooser_query
+inherits: r4r-lr-fixed-rerun-v1      # artifacts/self_improve/contracts/r4r_lr_fixed_rerun_prereg.yaml (and through it R4 incl. A1/A2)
+questions:
+  Q3: "Under the same information and a matched raw-group budget, does a frozen base model choosing the adaptive part of the stage mix beat the fd-v1 rule?"
+  Q4: >-
+    RSI-related, one recursion level: when the chooser is the learner's own current checkpoint (improved by training),
+    does the learner end up better than when the chooser stays the untrained base model? Learner start, information,
+    budget, prompt and every other pipeline element are identical; only the chooser's identity differs.
+not_claimed: >-
+  A positive Q4 is evidence that task training changed the model's curriculum choices in a way that helped its own
+  later learning. It is not RSI: the chooser is never trained to choose, there is one mechanism level, n = 3 seeds.
+
+authorisation:
+  user_decisions_2026_09_29:
+    r6_hard_ceiling_cny: 70.0
+    cell_space: fault_type_3_cells
+    control: reuse_r4r_failure_driven
+    chooser_sampling: "K=8 averaged, stage valid iff >= 6 valid"
+    q3_after_g2_failure: "not automatic; fresh authorisation required"
+    prompt: v1 as below
+
+arms:                                 # all three adaptive arms share p = rho * pi0 + (1 - rho) * q, rho = 0.4
+  fd_rule:          {source: "R4r failure_driven_{42,137,2718}_U80", q: "pi0_c * f_c / sum_k pi0_k * f_k", trained_in_r6: false}
+  chooser_frozen:   {q: "chooser(model = base Qwen3-4B, no adapter)", trained_in_r6: true}
+  chooser_self:     {q: "chooser(model = base + this branch's adapter at the stage boundary)", trained_in_r6: true}
+  descriptive_only: ["R4r fixed_{42,137,2718}_U80", base]
+  stage_1_note: "At U20 all adaptive arms of a seed see the identical window U1-U20; chooser_self uses the U20 start adapter."
+
+training:
+  identical_to_r4r_except: [selector_q, run_root]
+  run_root: /root/autodl-tmp/octorl_r6
+  starts:                               # sha256 of each lora_adapter recorded before launch (gate G3)
+    "42":   r3c seed_42 global_step_20
+    "137":  r3c seed_137 global_step_20
+    "2718": "R4r warm-up global_step_20 (remote path currently unrecorded; see gate G3)"
+  inherited_unchanged: [lr_horizon_100_and_reference_curve, stages_20_to_80, groups_per_stage_40, budget_unit_raw_groups,
+                        pi0, window_updates_20, failure_definition, A1_infra_definition, cap_0.6_with_pi0_redistribution,
+                        largest_remainder_allocation, within_cell_order_and_selector_seed_r4_prefix, A2_stage_row_permutation_seed,
+                        resume_path, dataloader_state_restore_forbidden, sampling, vllm_seed_equals_train_seed, stops]
+  hardware: "single RTX 4090 24GB with the R4r software stack (tech_stack.md pins + agent_r1_r4r.patch). A different GPU model or any wheel change -> stop and escalate, because the fd_rule control was trained on that stack."
+
+chooser:
+  version: ch-v1
+  model_inputs:                        # exactly the rule's information: the window's cell_stats
+    per_cell: [n, fail, infra, "f_c = (fail+1)/(n+2) rounded to 3 dp"]
+    source: "cell_stats over the window, as written in each stage's stage_distribution.json"
+    note: "Rule and chooser see identical information, so Q3 compares mappings and Q4 compares chooser identities."
+    excluded_failure_endings: >-
+      Dropped before freezing: across all R4r stage trajectories 955 of 1007 failures end in text_response
+      (tool_call_limit 47, duplicate_tool_call 3, max_steps 2), so the block would be near-constant.
+  prompt_template_v1: |
+    You are designing the practice curriculum for a learner agent. The learner repairs service configuration files
+    using three tools. Every practice task contains exactly one fault of one of these types:
+    - constraint_violation: a field holds a value that violates the service's documented constraints.
+    - missing_dependency: a field that becomes required when another field has a particular value is missing.
+    - stale_version: a field was computed from an external state value that has since changed.
+
+    Results of the learner's attempts during the last {window_updates} training updates (infrastructure errors excluded):
+    {stats_table}
+
+    The next training stage has {groups} practice tasks. 40% of them are always spread across all three types;
+    you decide how the remaining 60% is split. No type can exceed 60% of the stage in total.
+    Your goal is the learner's success rate on new, unseen tasks of all three types after training.
+
+    Reply with only a JSON object of integer percentages that sum to 100:
+    {"constraint_violation": a, "missing_dependency": b, "stale_version": c}
+  rendering: >-
+    stats_table as a fixed-order markdown table (cell order as CELLS) with columns
+    | fault type | attempts | failures | failure rate |, attempts = n, failures = fail, failure rate = f_c to 3 dp;
+    byte-identical for identical inputs; no arm, seed, stage or model identity in the prompt
+  chat: {template: Qwen3 chat, single user turn, enable_thinking: false}   # as the training prompts
+  sampling: {samples_K: 8, temperature: 0.7, top_p: 0.95, max_new_tokens: 256}
+  sample_seed: "int(sha256(f'r6|chooser|{train_seed}|{stage}|{j}').hexdigest()[:8], 16), j = 0..7; identical across arms and counterfactual queries"
+  noise_seed:  "int(sha256(f'r6|noise|{train_seed}|{stage}|{j}').hexdigest()[:8], 16)"
+  parse: >-
+    Take the last {...} JSON object in the completion. Valid iff keys are exactly the three cells, values are finite
+    numbers >= 0, and the sum > 0. q_j = values / sum. (sum != 100 is valid but counted as 'unnormalised'.)
+  aggregate: "q = mean of valid q_j; stage valid iff >= 6 of 8 samples valid"
+  fallback: "stage invalid -> q = pi0 (p = pi0, i.e. a fixed-arm stage); recorded"
+  branch_invalid: "a chooser branch with >= 2 of 6 invalid stages is 'chooser_invalid'"
+  record: "stage_distribution record extended with chooser_id (base or adapter path + sha256), prompt_sha256, raw completions, q_j, validity, q, p, counts, counterfactual and noise queries"
+  prompt_revisions: >-
+    At most one revision (v2), decided only on gate G1 criteria (validity, input sensitivity) from offline replay;
+    never on test data or on TV_identity. v2 is added as a dated amendment before G2; the hash gate uses the sha256
+    recorded at G3.
+
+procedure:                              # each gate failure stops R6 at that step unless stated
+  G0_cpu_regression:
+    - "R6 selector with q := fd-v1 rule reproduces every R4r failure_driven selection.json and train.parquet order byte-identically from R4r records"
+    - "q := pi0 reproduces every R4r fixed selection.json byte-identically"
+    - "prompt rendering byte-identical across two processes for identical inputs; parser unit tests incl. malformed, negative, extra-key, zero-sum, trailing-text cases"
+  G1_offline_replay:                    # GPU inference only, <= 3 CNY
+    inputs: "the 36 R4r windows: cell stats from artifacts/self_improve/r4r/remote_records/seed_*/{fixed,failure_driven}/stage_*/stage_distribution.json"
+    choosers: [base, "U20 start adapter of seed s (training.starts)", "R4r failure_driven_{s}_U80"]
+    validity: "sample-level validity >= 0.95 for every chooser"
+    input_sensitivity: >-
+      base chooser: mean over the 36 windows and the 2 cyclic cell relabellings sigma of TV(q(x), sigma^-1 q(sigma x))
+      >= 0.10 (a chooser that ignores the failure summary does not close the loop).
+    on_failure: "one prompt revision to v2, re-run G1 once; second failure -> stop R6, report."
+  G2_futility:                           # final prompt only, evaluated once, before any R6 training
+    TV_identity: "TV(q_U80adapter(x), q_base(x)), same sample seeds, mean over the 36 windows, per seed and pooled"
+    TV_noise:    "TV(q_base(x; sample seeds), q_base(x; noise seeds)), mean over the 36 windows"
+    pass: "pooled TV_identity >= 0.10 AND >= 2 * TV_noise"
+    on_failure: >-
+      Q4 is not run; result recorded as Q4_mechanism_not_exercised (pre-training). Running Q3 alone
+      (3 chooser_frozen branches) needs a fresh user authorisation; not automatic.
+  G3_launch:
+    - "prereg sha256 recorded; queue refuses to start/continue on mismatch (inherited)"
+    - "three U20 start adapters located on the remote, sha256 recorded; seed 2718 start must be shown to be the adapter R4r stage 1 of seed 2718 loaded (log or hash evidence), else stop and escalate"
+    - "GPU preflight as R4r (LR at U21/U22 equals reference, optimizer + scheduler loads) plus one chooser query with an adapter"
+  G4_pilot: "chooser_self seed 137 stages 1-2 = the first two stages of the real branch; kept if no code change follows, otherwise discarded and re-run"
+  G5_training: "remaining stages and branches; queue order interleaves arms by seed (137 self/frozen, 42 self/frozen, 2718 self/frozen)"
+  G6_evaluation: "only after all six branches finish or stop"
+
+gates_inherited: [lr_gate_1e-12, prereg_hash_gate, one_infra_retry_per_stage, no_retry_on_gate_failure]
+gates_new:
+  chooser_infra: "a chooser inference process crash counts as a stage infra failure (one retry); a completed query with invalid outputs is not infra"
+
+manipulation_check:                     # in-run; decides whether Q4 can be read as a chooser-identity effect
+  counterfactual: "at every boundary of every chooser_self branch, also query base on the identical input x_k with the same sample seeds and with noise seeds; logged, never used for selection"
+  TV_identity_run: "mean over the 18 (seed, stage) boundaries of TV(q_self(x_k), q_base(x_k))"
+  TV_noise_run:    "mean over the same 18 of TV(q_base(x_k; sample seeds), q_base(x_k; noise seeds))"
+  pass: "TV_identity_run >= 0.10 AND TV_identity_run >= 2 * TV_noise_run"
+  threshold_rationale: >-
+    q enters p with weight 0.6, so TV_q 0.10 = TV_p 0.06 = about 2.4 of 40 groups per stage; R4r stage-1 fd-v1 vs pi0
+    was TV_p 0.16 (seed 42). Below this the arms differ by less than ~40% of the rule's own departure from pi0.
+  also_reported: "per-stage TV_identity trajectory, per-cell mean q by arm, invalid-stage counts, unnormalised-output rate"
+
+budget:
+  r6_hard_ceiling_cny: 70.0             # everything in R6: offline replay, preflight, pilot, training, evaluation, retries, idle
+  lines_cny: {G1_offline: 3.0, per_branch_stop: 11.0, evaluation: 3.0}
+  forecast_cny: "about 57 (6 branches x ~8.5 incl. chooser queries, + ~3 offline, + ~2 eval); reported at every gate"
+  gpu_hour_rate_cny: 2.18
+  stop: "projected total > 70 at any gate -> stop before starting the next process; keep evaluation reserve"
+
+evaluation:
+  final_checkpoint: U80
+  primary_test:                          # 'test3'
+    families: [deployment_service, notification_service]
+    generator_version: r2.0
+    start_seed: 320000                   # test2 consumed 300000-300281
+    counts: {constraint_violation: 60, missing_dependency: 52, stale_version: 48, normal: 40}
+    uniqueness: "no fingerprint shared with train, dev, R3 test or test2 manifests; never shrink silently"
+    sealed: "generated, sealed and sha256-recorded before G1; no model evaluated on it until G6"
+    rollouts_per_instance: 4
+    evaluation_sampling_seed: 610000
+    models: [base, "fixed_{s}", "fd_rule_{s}", "chooser_frozen_{s}", "chooser_self_{s}"]   # 13; R4r adapters re-evaluated in the same session
+  secondary_test:
+    manifest: artifacts/self_improve/r4r/data/test2_manifest.json
+    evaluation_sampling_seed: 510000
+    models: "the six new R6 models; R4r test2 outputs reused for the rest"
+    role: continuity only; no decision authority
+
+estimands:
+  unit: "test3 fault instance i (160); y_{m,i,r} in {0,1}; FCR_m = mean over i, r"
+  Q3_s: "FCR(chooser_frozen_s) - FCR(fd_rule_s)"
+  Q4_s: "FCR(chooser_self_s) - FCR(chooser_frozen_s)"
+  descriptive: ["FCR(chooser_*_s) - FCR(fixed_s)", "FCR(chooser_*_s) - FCR(base)", "per-fault-type differences"]
+  pooled: mean over the three seeds
+  paired_instance_difference: "d_i = mean_r (y_{A,i,r} - y_{B,i,r})"
+  interval: "95% percentile CI, instance-cluster bootstrap over the 160 fault instances, 10000 resamples"
+  bootstrap_seed: 20260930
+  guardrail: "test3 normal pass rate (40) of the claimed model >= base - 0.05"
+  caveat_required: "CI covers test-instance and evaluation-sampling uncertainty only; training-seed variance is not estimated (n=3)"
+
+decision_rules:                          # applied to primary_test only; evaluated in the order listed
+  Q3:
+    Q3_chooser_invalid: "any chooser_frozen branch is chooser_invalid"
+    Q3_model_chooser_better: "all three Q3_s > 0 AND pooled CI lower > 0 AND guardrail passes"
+    Q3_model_chooser_worse: "all three Q3_s < 0 AND pooled CI upper < 0"
+    Q3_otherwise: no_evidence_of_difference
+  Q4:
+    Q4_chooser_invalid: "any chooser_self or chooser_frozen branch is chooser_invalid"
+    Q4_mechanism_not_exercised: "manipulation_check fails (FCR numbers reported descriptively only)"
+    Q4_self_chooser_better: "all three Q4_s > 0 AND pooled CI lower > 0 AND guardrail passes"
+    Q4_self_chooser_worse: "all three Q4_s < 0 AND pooled CI upper < 0"
+    Q4_otherwise: no_evidence_of_difference
+
+power:                                   # CPU, before G4; recorded in artifacts/self_improve/r6/prelaunch_power.md
+  procedure: "R4r power procedure unchanged (independent, q_hi, q_lo) on test3 n=160, seed 20260930, 1000 reps"
+  added: "pooled-over-3-seeds detection under a common per-seed shift (+0.03, +0.05)"
+  regression_control: "same code reproduces artifacts/self_improve/r4r/prelaunch_power.json on R4r inputs"
+
+synthetic_controls:
+  - "q := rule-q -> selection byte-identical to R4r failure_driven (G0)"
+  - "q := pi0 -> p == pi0, counts == fixed arm (G0)"
+  - "q := one-hot on any cell -> cap respected, every cell >= rho * pi0_c, sum p = 1 within 1e-12, counts sum to 40"
+  - "A/A: identical outcome arrays for two models -> every d_i = 0, Q = 0, CI = [0, 0]"
+  - "identical chooser on both sides of TV (same seeds) -> TV_identity = 0 exactly"
+  - "null simulation on test3 rates -> CI covers 0 in [0.93, 0.97] of reps (independent model)"
+
+stops:
+  inherited: [numerical, infra, truncation_rule]
+  chooser: "branch reaching 2 invalid stages continues to U80 (budget-matched) but is labelled chooser_invalid"
+  budget: see budget
+
+amendments:                               # dated, with 'before_which_data_read', as in R4
+  - id: A1-input-sensitivity-formula
+    date: "2026-09-29"
+    before_any_chooser_query_or_test3_generation: true
+    reason: >-
+      Spec error (Claude Code), found while drafting the R6-A contract. procedure.G1_offline_replay.input_sensitivity
+      re-maps the relabelled output: TV(q(x), sigma^-1 q(sigma x)). That is 0 for a chooser that responds only to the
+      stats (equivariant) and > 0 for a constant chooser that ignores them, the opposite of what the gate must detect.
+    rule: >-
+      input_sensitivity = mean over the 36 windows and the 2 cyclic cell relabellings sigma (stats of cell c moved to
+      cell sigma(c)) of TV(q(x), q(sigma x)), with no re-mapping of the output; base chooser must reach >= 0.10.
+      A chooser with fixed label preferences scores 0; one that follows the stats scores > 0.
+    supersedes: procedure.G1_offline_replay.input_sensitivity
