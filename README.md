@@ -166,7 +166,16 @@ Study entry points are `scripts/self_improve/r4r_analysis.py` (R4r analysis on a
 (adapter checking or loading). The [R5 report](artifacts/self_improve/r5/R5_report.md) holds provenance,
 diagnostics, costs and limitations; its final Q1/Q2 evidence is R4r.
 All 20 local adapters are indexed by `artifacts/self_improve/r5/checkpoint_manifest.json`;
-weights are excluded from Git. R4r remote hashes remain unverified while the instance is powered off.
+weights are excluded from Git. On 2026-09-30 (R6) the remote hashes of the R4r failure-driven U80, the R4r 2718
+warm-up and the R3c U20 adapters were verified against the manifest; the R4r fixed-arm U80 remote hashes were not re-checked.
+
+**R6 (optional extension, closed).** R6 asked whether the model itself could replace the fixed selection rule, and
+whether a checkpoint improved by training would also choose better practice for itself, a first RSI-related test.
+A preregistered pre-training futility gate stopped it. On identical inputs the trained adapter's curriculum
+choices differ from the base model's by less than sampling noise (TV 0.003 against a threshold of 0.10). The verdict is
+`Q4_mechanism_not_exercised`; no R6 training was run, and R6 cost about ¥2. This is a bounded negative measurement
+for this model, adapter scale and prompt. It is not evidence about RSI in general. See the
+[R6 report](artifacts/self_improve/r6/R6_report.md).
 
 ```bash
 # Optional analysis reproduction only; NOT run during R5 finalisation.
