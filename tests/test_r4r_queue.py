@@ -127,3 +127,16 @@ def test_prereg_change_between_process_and_next_stage_stops(tmp_path,monkeypatch
         runner.queue(workspace=WS,root=tmp_path)
     assert len(stub)==1
     assert not list((tmp_path/'logs').glob('DONE_*'))
+
+
+def test_test_eval_stays_sealed_until_queue_done(tmp_path):
+    from scripts.self_improve import r4r_test_eval as ev
+    logs=tmp_path/'logs';logs.mkdir()
+    (logs/'queue.log').write_text('START seed_42_fixed\n')
+    with pytest.raises(RuntimeError,match='sealed'):ev.unsealed(tmp_path)
+    for d in ev.DONE[:-1]:(logs/f'DONE_{d}').write_text('gates passed\n')
+    (logs/'queue.log').write_text('ALL_DONE\n')
+    with pytest.raises(RuntimeError,match='sealed'):ev.unsealed(tmp_path)
+    (logs/f'DONE_{ev.DONE[-1]}').write_text('gates passed\n')
+    ev.unsealed(tmp_path)
+    assert len(ev.plan(tmp_path,WS))==16

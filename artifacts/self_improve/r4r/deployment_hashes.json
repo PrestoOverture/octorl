@@ -78,6 +78,11 @@
       "remote_sha256": "e5fef01aa8357014a6f51c9da41a82bad345d027bedc3494f0791562a409fcb5"
     },
     {
+      "path": "scripts/self_improve/r4r_test_eval.py",
+      "local_sha256": "a8f02958548bde4d6768b03b1c5367237a81958a90190ee83a4c06c5f1aac7f6",
+      "remote_sha256": "a8f02958548bde4d6768b03b1c5367237a81958a90190ee83a4c06c5f1aac7f6"
+    },
+    {
       "path": "scripts/self_improve/r4r_train_stage.sh",
       "local_sha256": "7f41973b9b6c62e414f52266fa68ddb604745a90f073b99dd562e1c2e8be904c",
       "remote_sha256": "7f41973b9b6c62e414f52266fa68ddb604745a90f073b99dd562e1c2e8be904c"
