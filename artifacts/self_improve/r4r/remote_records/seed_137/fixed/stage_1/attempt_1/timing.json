@@ -1,0 +1,18 @@
+{
+  "elapsed_seconds": 2145.2894161958247,
+  "cost_cny": 1.2990919242519163,
+  "exit_code": 0,
+  "command": [
+    "bash",
+    "/root/octorl_r3/scripts/self_improve/r4r_train_stage.sh",
+    "137",
+    "fixed",
+    "1",
+    "20",
+    "/root/autodl-tmp/octorl_r4r/seed_137/fixed/stage_1/train.parquet",
+    "/root/autodl-tmp/octorl_r3c/seed_137/checkpoints/global_step_20",
+    "/root/autodl-tmp/octorl_r4r/seed_137/fixed/stage_1/attempt_1",
+    "--root",
+    "/root/autodl-tmp/octorl_r4r"
+  ]
+}

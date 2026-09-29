@@ -24,3 +24,6 @@ artifacts/self_improve/r5/checkpoints/
 # Verified local archive of old R4 (never stage checkpoint weights)
 artifacts/self_improve/r4/checkpoint_archive/
 artifacts/self_improve/r4r/watch_tools/stages/
+
+# R4r raw per-step rollout dumps (171 MB; kept locally, redundant with trajectories/attributed)
+artifacts/self_improve/r4r/remote_records/**/rollouts/

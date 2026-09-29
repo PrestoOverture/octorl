@@ -1,0 +1,11 @@
+{
+  "elapsed_seconds": 4472.357302615419,
+  "cost_cny": 2.7082608110282265,
+  "exit_code": 0,
+  "command": [
+    "bash",
+    "/root/octorl_r3/scripts/self_improve/r4r_warmup.sh",
+    "--root",
+    "/root/autodl-tmp/octorl_r4r"
+  ]
+}

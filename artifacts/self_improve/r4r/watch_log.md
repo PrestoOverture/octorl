@@ -70,6 +70,46 @@ The queue runs in tmux `r4r_queue` on the remote and does not depend on any Clau
 | 09-29 11:34 | 137 FD | 4 | U51–U60 | a1 / 0 | **0.0** | 0.249 | 0.01291 | 0.769 | 0.400 | 1.23 / 27.14 | Allocation 10/21/9. |
 | 09-29 12:04 | 137 FD | 5 | U61–U70 | a1 / 0 | **0.0** | 0.260 | 0.01451 | 0.769 | 0.425 | 1.12 / 28.26 | Allocation 9/22/9 (MD share 55%, under the 0.6 cap). |
 | 09-29 12:36 | 137 FD | 6 | U71–U80 | a1 / 0 | **0.0** | 0.278 | 0.01537 | 0.738 | 0.700 | 1.20 / 29.46 | **Branch DONE (4/7).** Allocation 8/22/10. U80 dev (monitoring): fault 73.1%, normal 10% (R4r fixed 137 U80 68.75%). The 2718 warm-up started at 12:34; its LR gate (U1–U20) and warm-up task-identity gate run when it ends. |
+| 09-29 13:50 | 2718 warm-up | — | U1–U20 | a1 / 0 | **0.0** | 0.198 | 0.00116 | 0.653 | 0.750 | 2.71 / 32.17 | **DONE (5/7).** Own check: per-step task multiset over 320 rollouts equals R4's warm-up exactly, so the seen-set is unchanged. ΣLR 3.345e-4 = R3c U1–20 (R4 warm-up 2.0e-4, 20-step horizon). 74.5 min. 2718 fixed started. |
+| 09-29 14:30 | 2718 fixed | 1 | U21–U30 | a1 / 0 | **0.0** | 0.213 | 0.00299 | 0.744 | 0.625 | 1.37 / 33.54 | selection.json byte-identical to R4 (own `cmp`). ΣLR 1.80e-4 (R4 same stage 2.1e-5). 7.1 GB free. |
+| 09-29 15:06 | 2718 fixed | 2 | U31–U40 | a1 / 0 | **0.0** | 0.221 | 0.00573 | 0.894 | 0.325 | 1.24 / 34.78 | 6.9 GB free. |
+| 09-29 15:36 | 2718 fixed | 3 | U41–U50 | a1 / 0 | **0.0** | 0.257 | 0.00966 | 0.869 | 0.350 | 1.22 / 36.00 | U50 dev (monitoring): fault 77.5%, normal 12.5% (base 66.25%; R4 fixed 2718 U50 n/a here). |
+| 09-29 16:12 | 2718 fixed | 4 | U51–U60 | a1 / 0 | **0.0** | 0.266 | 0.01384 | 0.925 | **0.100** | 1.14 / 37.14 | Effective groups are low (reward 0.925, most groups all-pass). Under Sign advantage uniform groups still give gradient, and no stop rule applies (mixed > 0). Noted only. |
+| 09-29 16:42 | 2718 fixed | 5 | U61–U70 | a1 / 0 | **0.0** | 0.272 | 0.01588 | 0.894 | 0.350 | 1.12 / 38.26 | 6.5 GB free. |
+| 09-29 17:12 | 2718 fixed | 6 | U71–U80 | a1 / 0 | **0.0** | 0.288 | 0.01710 | 0.906 | 0.325 | 1.19 / 39.45 | **Branch DONE (6/7).** U80 dev (monitoring): fault 78.1%, normal 15%. 2718 FD, the last branch, started; ETA ≈ 20:35. |
+| 09-29 17:52 | 2718 FD | 1 | U21–U30 | a1 / 0 | **0.0** | 0.211 | 0.00294 | 0.713 | 0.675 | 1.42 / 40.87 | Allocation 9/18/13 (R4: 12/17/11). This differs from R4 as the design expects: FD stage 1 reads the U1–U20 failure rates of the **re-run** warm-up (the tasks are identical, the outcomes are not). The prereg gates FD stage-1 identity only for seeds 42/137. 6.0 GB free. |
+| 09-29 18:28 | 2718 FD | 2 | U31–U40 | a1 / 0 | **0.0** | 0.222 | 0.00513 | 0.781 | 0.550 | 1.23 / 42.10 | Allocation 10/19/11. 5.8 GB free. |
+| 09-29 18:58 | 2718 FD | 3 | U41–U50 | a1 / 0 | **0.0** | 0.233 | 0.00885 | 0.863 | 0.350 | 1.14 / 43.24 | Allocation 10/20/10. U50 dev (monitoring): fault 75.6%, normal 12.5% (R4r fixed 2718 U50 77.5%). |
+| 09-29 19:34 | 2718 FD | 4 | U51–U60 | a1 / 0 | **0.0** | 0.250 | 0.01285 | 0.825 | 0.475 | 1.24 / 44.48 | Allocation 11/19/10. Two stages left → ETA ≈ 20:45. |
+| 09-29 20:09 | 2718 FD | 5 | U61–U70 | a1 / 0 | **0.0** | 0.273 | 0.01573 | 0.888 | 0.400 | 1.29 / 45.77 | Allocation 10/19/11. Last stage started. |
+| 09-29 20:40 | 2718 FD | 6 | U71–U80 | a1 / 0 | **0.0** | 0.274 | 0.01746 | 0.881 | 0.350 | 1.11 / 46.86 | **Branch DONE (7/7).** Allocation 10/17/13. U80 dev (monitoring): fault 81.25%, normal 12.5%. |
+
+## Queue completion
+
+- **2026-09-29 ~20:38:** `ALL_DONE`, `QUEUE_EXIT=0`, all 7 `DONE_*` markers.
+- **Totals** (from every `timing.json` on the remote): 37 trainer processes (36 stages + 1 warm-up), **all on
+  attempt_1**, with no non-zero exit, no `INFRA_FAILED`, and no gate stop. Training cost **¥46.86** (21.49 GPU-h at
+  ¥2.18) plus 12 dev-health evaluations at ¥0.52, total **¥47.38**, under the ¥80 ceiling and the ¥15/branch stop.
+- **LR:** every one of the 380 logged steps (20 warm-up + 6 × 60) equals the R3c reference, with max |ΔLR| = 0.0
+  in every row above.
+- **Selection identity:** the fixed arm matched R4 byte for byte in all 18 stages, as did FD stage 1 for seeds 42/137.
+  The 2718 warm-up task multiset equals R4's.
+- **U80 dev summary** (monitoring only; not a decision input):
+
+  | seed | fixed | failure-driven | R3c U80 |
+  |---|---|---|---|
+  | 42 | 68.1% | 73.1% | 71.25% |
+  | 137 | 68.75% | 73.1% | 76.9% |
+  | 2718 | 78.1% | 81.25% | — |
+
+- **2026-09-29 20:39:** the evaluation queue auto-started in tmux `r4r_eval` after `ALL_DONE`
+  (`r4r_test_eval.py --execute`, 16 jobs: test2 ×7, R3 test ×7, exploratory R3c U80 ×2).
+- **2026-09-29 21:02:** `EVAL_ALL_DONE`, with every job at exit 0. All 16 results passed the provenance check
+  (manifest sha256, instance and rollout counts, LoRA path matches branch/seed, all_finite). CRN sampling seeds are
+  identical across models. Base on the R3 test reproduces R4's 63.75% exactly.
+- **2026-09-29 21:05:** the frozen analysis gives primary (test2) **Q2 `Q2_failure_driven_better`** (pooled +3.07 pp,
+  CI [+1.72, +4.53]) and **Q1 `no_evidence_of_improvement`**. The secondary (R3 test) gives the same verdicts. An
+  independent recomputation matches. See `RESULTS.md`.
 
 - **2026-09-29 12:55** · Billing decision (user): no 1-day renewal. The user enabled "到期转按量计费", so at 22:37 the
   instance converts to pay-as-you-go and keeps running. Caveat: the balance is ¥5.46, which is about 2.5 h at
@@ -79,6 +119,8 @@ The queue runs in tmux `r4r_queue` on the remote and does not depend on any Clau
 - **2026-09-29 13:12** · Claude Code session paused for a user-side update. State: 2718 warm-up at U9/20, 4/7
   branches done, ¥29.46. The watch tools were moved to `watch_tools/`, and resume steps are at the top of this log.
   The evaluation queue (`r4r_test_eval.py`, commit `0fd2f97`) is deployed and verified sealed.
+- **2026-09-29 13:15** · Watch resumed after the update. Nothing was missed: the 2718 warm-up is still running,
+  4/7 DONE, no INFRA_FAILED, tmux up, 7.9 GB free. The watcher was restarted from `watch_tools/`.
 
 ## Events
 
