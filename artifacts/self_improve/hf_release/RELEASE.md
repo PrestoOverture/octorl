@@ -2,8 +2,8 @@
 
 | Repo | Visibility | HF commit | Files |
 |---|---|---|---|
-| [PrestoOverture/octorl-qwen3-4b-grpo-lora](https://huggingface.co/PrestoOverture/octorl-qwen3-4b-grpo-lora) | private (to be made public together with the GitHub repo) | `ffaa150e` | 6 R4r U80 adapters + card + manifest |
-| PrestoOverture/octorl-qwen3-4b-lora-archive | private (stays private) | `34b2aadf` | 14 other adapters + card + manifest |
+| [PrestoOverture/octorl-qwen3-4b-grpo-lora](https://huggingface.co/PrestoOverture/octorl-qwen3-4b-grpo-lora) | **public** since 2026-10-01, made public together with the GitHub repo and checked anonymously (page 200, weight download sha256 matches) | `ffaa150e` | 6 R4r U80 adapters + card + manifest |
+| PrestoOverture/octorl-qwen3-4b-lora-archive | private (anonymous access returns 401, checked 2026-10-01) | `34b2aadf` | 14 other adapters + card + manifest |
 
 Staged by `scripts/self_improve/hf_release_stage.py`. Content commit: `f98b1e6`.
 Uploaded with `huggingface_hub.HfApi.upload_folder`.

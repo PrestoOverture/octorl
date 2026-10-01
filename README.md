@@ -31,6 +31,8 @@ training, plus 40 normal instances as a guardrail. Fault-recovery success rate (
   indistinguishable from the base model's (the difference is below sampling noise). Task training did not transfer
   into curriculum design, so the recursive mechanism was never exercised. This says nothing about RSI in general.
 - Total GPU spend for the whole study was about ¥144 (about US$20).
+- The six R4r adapters behind this table are on Hugging Face:
+  [PrestoOverture/octorl-qwen3-4b-grpo-lora](https://huggingface.co/PrestoOverture/octorl-qwen3-4b-grpo-lora).
 
 ## Study design
 
@@ -96,7 +98,9 @@ cmp /tmp/r6_g2/g2_metrics.json artifacts/self_improve/r6/replay_real/g2/final14/
 ```
 
 Adapter checks run on CPU only: `uv run scripts/self_improve/r5_load_adapter.py --check-only`. The report verifier is
-`uv run scripts/self_improve/r5_verify_report.py`. LoRA weights are not in Git; all 20 adapters are indexed with
+`uv run scripts/self_improve/r5_verify_report.py`. LoRA weights are not in Git. The six R4r U80 adapters are published on
+[Hugging Face](https://huggingface.co/PrestoOverture/octorl-qwen3-4b-grpo-lora), byte-identical to the manifest (see
+`artifacts/self_improve/hf_release/RELEASE.md`). All 20 adapters are indexed with
 sha256 values in `artifacts/self_improve/r5/checkpoint_manifest.json`.
 
 ## Where things are
