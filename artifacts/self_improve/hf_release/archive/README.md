@@ -9,7 +9,7 @@ tags:
 # OctoRL: adapter archive (private)
 
 This repository is a private backup of the 14 OctoRL LoRA adapters that are not part of the public release
-(`{HF_USER}/octorl-qwen3-4b-grpo-lora`). It holds:
+(`PrestoOverture/octorl-qwen3-4b-grpo-lora`). It holds:
 
 - `r3c_{42,137}_u{20,50,80}`: fixed-distribution GRPO runs (R3c). The U20 checkpoints are the shared fork points for seeds 42 and 137.
 - `r4_{fixed,failure_driven}_{42,137,2718}_u80` and `r4_warmup_2718_u20`: the **superseded R4 run**. Its staged

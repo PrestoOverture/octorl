@@ -67,7 +67,7 @@ from peft import PeftModel
 base_id, rev = "Qwen/Qwen3-4B", "1cfa9a7208912126459214e8b04321603b3df60c"
 tokenizer = AutoTokenizer.from_pretrained(base_id, revision=rev)
 base = AutoModelForCausalLM.from_pretrained(base_id, revision=rev, torch_dtype="auto")
-model = PeftModel.from_pretrained(base, "{HF_USER}/octorl-qwen3-4b-grpo-lora",
+model = PeftModel.from_pretrained(base, "PrestoOverture/octorl-qwen3-4b-grpo-lora",
                                   subfolder="r4r_failure_driven_42_u80")
 ```
 
