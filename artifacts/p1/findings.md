@@ -140,7 +140,7 @@ and §8 specify for interval reporting.
 
 ## F4 — The GPU host cannot run the sandbox
 
-`ssh -p 47559 root@connect.bjb2.seetacloud.com`, RTX 4090D, 128 CPUs, Linux 5.15:
+Rented AutoDL GPU host (connection details removed), RTX 4090D, 128 CPUs, Linux 5.15:
 
 ```
 docker            -> command not found

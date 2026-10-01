@@ -1,0 +1,151 @@
+{
+  "adapters": [
+    {
+      "adapter_config.json": "0876a05635fecfd1536ed0c58127b94cbd57c17396c602b582f7e26180f47956",
+      "adapter_model.safetensors": "e7d68fd875e46487187d14e8554e749045145b744b3c23904243e9c577f7d316",
+      "global_step": 20,
+      "lineage_parent": "Qwen3-4B@1cfa9a7",
+      "name": "r3c_137_u20",
+      "original_adapter_config_sha256": "c2e0cac31ab2dc4f81ebb49aa0648809a39f667cd5096c2f7f713ececaa8bd1f",
+      "path_in_repo": "r3c_137_u20",
+      "test_eval_json": null
+    },
+    {
+      "adapter_config.json": "0876a05635fecfd1536ed0c58127b94cbd57c17396c602b582f7e26180f47956",
+      "adapter_model.safetensors": "870731351f5e420011dbbfd0b22477025d09b916f2c374fb2b5f131fdc4a7bb8",
+      "global_step": 50,
+      "lineage_parent": "r3c_137_u20",
+      "name": "r3c_137_u50",
+      "original_adapter_config_sha256": "c2e0cac31ab2dc4f81ebb49aa0648809a39f667cd5096c2f7f713ececaa8bd1f",
+      "path_in_repo": "r3c_137_u50",
+      "test_eval_json": "artifacts/self_improve/r4/test_eval/exploratory_r3c/r3c_137_u50.json"
+    },
+    {
+      "adapter_config.json": "0876a05635fecfd1536ed0c58127b94cbd57c17396c602b582f7e26180f47956",
+      "adapter_model.safetensors": "1b39b3d5584914d85a21baa476f8e9cc2123bb3142d47250237f650b268be751",
+      "global_step": 80,
+      "lineage_parent": "r3c_137_u20",
+      "name": "r3c_137_u80",
+      "original_adapter_config_sha256": "c2e0cac31ab2dc4f81ebb49aa0648809a39f667cd5096c2f7f713ececaa8bd1f",
+      "path_in_repo": "r3c_137_u80",
+      "test_eval_json": "artifacts/self_improve/r4/test_eval/exploratory_r3c/r3c_137_u80.json"
+    },
+    {
+      "adapter_config.json": "0876a05635fecfd1536ed0c58127b94cbd57c17396c602b582f7e26180f47956",
+      "adapter_model.safetensors": "f7af949bee5feb930b589bbeeea277ae3ecbf4a3cc5a8078e8b89ca21ee25262",
+      "global_step": 20,
+      "lineage_parent": "Qwen3-4B@1cfa9a7",
+      "name": "r3c_42_u20",
+      "original_adapter_config_sha256": "c2e0cac31ab2dc4f81ebb49aa0648809a39f667cd5096c2f7f713ececaa8bd1f",
+      "path_in_repo": "r3c_42_u20",
+      "test_eval_json": null
+    },
+    {
+      "adapter_config.json": "0876a05635fecfd1536ed0c58127b94cbd57c17396c602b582f7e26180f47956",
+      "adapter_model.safetensors": "8c46174265bdbc741aa96857f460fd8e9a0bb716dd89d06bc148d2a178779865",
+      "global_step": 50,
+      "lineage_parent": "r3c_42_u20",
+      "name": "r3c_42_u50",
+      "original_adapter_config_sha256": "c2e0cac31ab2dc4f81ebb49aa0648809a39f667cd5096c2f7f713ececaa8bd1f",
+      "path_in_repo": "r3c_42_u50",
+      "test_eval_json": "artifacts/self_improve/r4/test_eval/exploratory_r3c/r3c_42_u50.json"
+    },
+    {
+      "adapter_config.json": "0876a05635fecfd1536ed0c58127b94cbd57c17396c602b582f7e26180f47956",
+      "adapter_model.safetensors": "78fab16f387539028971a9db5b6485a9308025dda5af3b1cd755dd02f329acff",
+      "global_step": 80,
+      "lineage_parent": "r3c_42_u20",
+      "name": "r3c_42_u80",
+      "original_adapter_config_sha256": "c2e0cac31ab2dc4f81ebb49aa0648809a39f667cd5096c2f7f713ececaa8bd1f",
+      "path_in_repo": "r3c_42_u80",
+      "test_eval_json": "artifacts/self_improve/r4/test_eval/exploratory_r3c/r3c_42_u80.json"
+    },
+    {
+      "adapter_config.json": "0876a05635fecfd1536ed0c58127b94cbd57c17396c602b582f7e26180f47956",
+      "adapter_model.safetensors": "6fedd36a8b4cba4ca70383d1bb611751df2e48782ac96fef4d89c11c700b9196",
+      "global_step": 80,
+      "lineage_parent": "r3c_137_u20",
+      "name": "r4_failure_driven_137_u80",
+      "original_adapter_config_sha256": "c2e0cac31ab2dc4f81ebb49aa0648809a39f667cd5096c2f7f713ececaa8bd1f",
+      "path_in_repo": "r4_failure_driven_137_u80",
+      "test_eval_json": "artifacts/self_improve/r4/test_eval/failure_driven_137.json"
+    },
+    {
+      "adapter_config.json": "0876a05635fecfd1536ed0c58127b94cbd57c17396c602b582f7e26180f47956",
+      "adapter_model.safetensors": "cef415bea02048c491709d594c46a7b1a867ca4c8e2880e6b622a6eb3f6c16e7",
+      "global_step": 80,
+      "lineage_parent": "r4_warmup_2718_u20",
+      "name": "r4_failure_driven_2718_u80",
+      "original_adapter_config_sha256": "c2e0cac31ab2dc4f81ebb49aa0648809a39f667cd5096c2f7f713ececaa8bd1f",
+      "path_in_repo": "r4_failure_driven_2718_u80",
+      "test_eval_json": "artifacts/self_improve/r4/test_eval/failure_driven_2718.json"
+    },
+    {
+      "adapter_config.json": "0876a05635fecfd1536ed0c58127b94cbd57c17396c602b582f7e26180f47956",
+      "adapter_model.safetensors": "f0f6f8d19c002c963a6f78b3ef9a617e7f0721b49d8bc4a6badeda9e8c2c076a",
+      "global_step": 80,
+      "lineage_parent": "r3c_42_u20",
+      "name": "r4_failure_driven_42_u80",
+      "original_adapter_config_sha256": "c2e0cac31ab2dc4f81ebb49aa0648809a39f667cd5096c2f7f713ececaa8bd1f",
+      "path_in_repo": "r4_failure_driven_42_u80",
+      "test_eval_json": "artifacts/self_improve/r4/test_eval/failure_driven_42.json"
+    },
+    {
+      "adapter_config.json": "0876a05635fecfd1536ed0c58127b94cbd57c17396c602b582f7e26180f47956",
+      "adapter_model.safetensors": "98d745dde0dd1f12a4e4c90d0bfd169d463c715787c0003507d3a85d06634343",
+      "global_step": 80,
+      "lineage_parent": "r3c_137_u20",
+      "name": "r4_fixed_137_u80",
+      "original_adapter_config_sha256": "c2e0cac31ab2dc4f81ebb49aa0648809a39f667cd5096c2f7f713ececaa8bd1f",
+      "path_in_repo": "r4_fixed_137_u80",
+      "test_eval_json": "artifacts/self_improve/r4/test_eval/fixed_137.json"
+    },
+    {
+      "adapter_config.json": "0876a05635fecfd1536ed0c58127b94cbd57c17396c602b582f7e26180f47956",
+      "adapter_model.safetensors": "c75d104f2a64275703898f14a2cf533fbb5cd4d3bcfa73c6c38641dffd66f8ad",
+      "global_step": 80,
+      "lineage_parent": "r4_warmup_2718_u20",
+      "name": "r4_fixed_2718_u80",
+      "original_adapter_config_sha256": "c2e0cac31ab2dc4f81ebb49aa0648809a39f667cd5096c2f7f713ececaa8bd1f",
+      "path_in_repo": "r4_fixed_2718_u80",
+      "test_eval_json": "artifacts/self_improve/r4/test_eval/fixed_2718.json"
+    },
+    {
+      "adapter_config.json": "0876a05635fecfd1536ed0c58127b94cbd57c17396c602b582f7e26180f47956",
+      "adapter_model.safetensors": "cd52e7a3c154876c390a2ac36927c24ddd0d71509431d4b1bcb9a0d82b72626e",
+      "global_step": 80,
+      "lineage_parent": "r3c_42_u20",
+      "name": "r4_fixed_42_u80",
+      "original_adapter_config_sha256": "c2e0cac31ab2dc4f81ebb49aa0648809a39f667cd5096c2f7f713ececaa8bd1f",
+      "path_in_repo": "r4_fixed_42_u80",
+      "test_eval_json": "artifacts/self_improve/r4/test_eval/fixed_42.json"
+    },
+    {
+      "adapter_config.json": "0876a05635fecfd1536ed0c58127b94cbd57c17396c602b582f7e26180f47956",
+      "adapter_model.safetensors": "d7bb078f73dc2fc9889fc930864fc98e939db08a10b788a85cc030316f181719",
+      "global_step": 20,
+      "lineage_parent": "Qwen3-4B@1cfa9a7",
+      "name": "r4_warmup_2718_u20",
+      "original_adapter_config_sha256": "c2e0cac31ab2dc4f81ebb49aa0648809a39f667cd5096c2f7f713ececaa8bd1f",
+      "path_in_repo": "r4_warmup_2718_u20",
+      "test_eval_json": null
+    },
+    {
+      "adapter_config.json": "0876a05635fecfd1536ed0c58127b94cbd57c17396c602b582f7e26180f47956",
+      "adapter_model.safetensors": "2e97026dbb304c052a0a4ad5a1c1fd0e36d98ca81f6e8bcd638a19affededc21",
+      "global_step": 20,
+      "lineage_parent": null,
+      "name": "r4r_warmup_2718_u20",
+      "original_adapter_config_sha256": "c2e0cac31ab2dc4f81ebb49aa0648809a39f667cd5096c2f7f713ececaa8bd1f",
+      "path_in_repo": "r4r_warmup_2718_u20",
+      "test_eval_json": null
+    }
+  ],
+  "base_model": "Qwen/Qwen3-4B",
+  "base_revision": "1cfa9a7208912126459214e8b04321603b3df60c",
+  "config_changes": [
+    "target_modules: char-list -> regex string",
+    "base_model_name_or_path/revision: remote path -> public id + revision"
+  ],
+  "source_manifest": "artifacts/self_improve/r5/checkpoint_manifest.json"
+}

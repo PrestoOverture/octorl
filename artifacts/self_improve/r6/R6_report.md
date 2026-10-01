@@ -7,7 +7,7 @@ Prereg: `artifacts/self_improve/contracts/r6_model_chooser_prereg.yaml`
 ## Question
 
 R4r established `Q2_failure_driven_better`: a fixed rule that re-weights practice toward failing fault types beats
-a fixed distribution. That result sits on rung 3 of the claims ladder (`docs/prd.md`, "自我改进与 RSI"). Rung 4, RSI-related
+a fixed distribution. That result sits on rung 3 of the project's claims ladder (Agentic RL → failure-driven loop → mechanism adds value → RSI-related evidence). Rung 4, RSI-related
 evidence, requires that *the improved system is better at driving the next round of learning*. The fd-v1 rule
 cannot improve, so R6 hands the adaptive part of the mix to the model:
 
@@ -47,7 +47,7 @@ The "improved learner → better teacher" path is not exercised, so this setup c
 
 It does not show that model-chosen curricula cannot help, or anything about RSI in general. The chooser was never
 optimised to choose. Testing the mechanism needs a chooser that is itself trained for learner gain, such as a
-SEAL-style outer loop. That is a new question with its own scope and budget, and `docs/prd.md` lists a full RSI system as
+SEAL-style outer loop. That is a new question with its own scope and budget, and the project scope listed a full RSI system as
 out of scope for this round.
 
 ## Cost

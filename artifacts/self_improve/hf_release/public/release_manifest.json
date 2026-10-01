@@ -1,0 +1,71 @@
+{
+  "adapters": [
+    {
+      "adapter_config.json": "0876a05635fecfd1536ed0c58127b94cbd57c17396c602b582f7e26180f47956",
+      "adapter_model.safetensors": "0576547a1161331e3300351e09d7b34ca9e2da2a8134c34edc769a43d41facc0",
+      "global_step": 80,
+      "lineage_parent": "r3c_137_u20",
+      "name": "r4r_failure_driven_137_u80",
+      "original_adapter_config_sha256": "c2e0cac31ab2dc4f81ebb49aa0648809a39f667cd5096c2f7f713ececaa8bd1f",
+      "path_in_repo": "r4r_failure_driven_137_u80",
+      "test_eval_json": "artifacts/self_improve/r4r/test_eval/test2/failure_driven_137.json"
+    },
+    {
+      "adapter_config.json": "0876a05635fecfd1536ed0c58127b94cbd57c17396c602b582f7e26180f47956",
+      "adapter_model.safetensors": "6a5f6bb6e8712e76deee804ff54728bafabed9abec0e5bfb5f43c01bb557d8b6",
+      "global_step": 80,
+      "lineage_parent": "r4r_warmup_2718_u20",
+      "name": "r4r_failure_driven_2718_u80",
+      "original_adapter_config_sha256": "c2e0cac31ab2dc4f81ebb49aa0648809a39f667cd5096c2f7f713ececaa8bd1f",
+      "path_in_repo": "r4r_failure_driven_2718_u80",
+      "test_eval_json": "artifacts/self_improve/r4r/test_eval/test2/failure_driven_2718.json"
+    },
+    {
+      "adapter_config.json": "0876a05635fecfd1536ed0c58127b94cbd57c17396c602b582f7e26180f47956",
+      "adapter_model.safetensors": "bab5f2aa4a61b41b54ff0c98dfceb5142ad9a225dbf7b9579a8b97df978a3c1c",
+      "global_step": 80,
+      "lineage_parent": "r3c_42_u20",
+      "name": "r4r_failure_driven_42_u80",
+      "original_adapter_config_sha256": "c2e0cac31ab2dc4f81ebb49aa0648809a39f667cd5096c2f7f713ececaa8bd1f",
+      "path_in_repo": "r4r_failure_driven_42_u80",
+      "test_eval_json": "artifacts/self_improve/r4r/test_eval/test2/failure_driven_42.json"
+    },
+    {
+      "adapter_config.json": "0876a05635fecfd1536ed0c58127b94cbd57c17396c602b582f7e26180f47956",
+      "adapter_model.safetensors": "bb04a8706d4fc58f78fbd5e179dfc610ca2d0fa4102c834ffe917e9d6be85201",
+      "global_step": 80,
+      "lineage_parent": "r3c_137_u20",
+      "name": "r4r_fixed_137_u80",
+      "original_adapter_config_sha256": "c2e0cac31ab2dc4f81ebb49aa0648809a39f667cd5096c2f7f713ececaa8bd1f",
+      "path_in_repo": "r4r_fixed_137_u80",
+      "test_eval_json": "artifacts/self_improve/r4r/test_eval/test2/fixed_137.json"
+    },
+    {
+      "adapter_config.json": "0876a05635fecfd1536ed0c58127b94cbd57c17396c602b582f7e26180f47956",
+      "adapter_model.safetensors": "ffb5c2656b688a79da48638e2fe6ddd65a5fd6cc65b92c692a98b35c1d4f3551",
+      "global_step": 80,
+      "lineage_parent": "r4r_warmup_2718_u20",
+      "name": "r4r_fixed_2718_u80",
+      "original_adapter_config_sha256": "c2e0cac31ab2dc4f81ebb49aa0648809a39f667cd5096c2f7f713ececaa8bd1f",
+      "path_in_repo": "r4r_fixed_2718_u80",
+      "test_eval_json": "artifacts/self_improve/r4r/test_eval/test2/fixed_2718.json"
+    },
+    {
+      "adapter_config.json": "0876a05635fecfd1536ed0c58127b94cbd57c17396c602b582f7e26180f47956",
+      "adapter_model.safetensors": "8b123037d5588aad02b56a4b1b4926ea8289574f9d5e3d482345c8b4e1eb3709",
+      "global_step": 80,
+      "lineage_parent": "r3c_42_u20",
+      "name": "r4r_fixed_42_u80",
+      "original_adapter_config_sha256": "c2e0cac31ab2dc4f81ebb49aa0648809a39f667cd5096c2f7f713ececaa8bd1f",
+      "path_in_repo": "r4r_fixed_42_u80",
+      "test_eval_json": "artifacts/self_improve/r4r/test_eval/test2/fixed_42.json"
+    }
+  ],
+  "base_model": "Qwen/Qwen3-4B",
+  "base_revision": "1cfa9a7208912126459214e8b04321603b3df60c",
+  "config_changes": [
+    "target_modules: char-list -> regex string",
+    "base_model_name_or_path/revision: remote path -> public id + revision"
+  ],
+  "source_manifest": "artifacts/self_improve/r5/checkpoint_manifest.json"
+}

@@ -28,3 +28,6 @@ artifacts/self_improve/r4r/watch_tools/stages/
 # R4r raw per-step rollout dumps (171 MB; kept locally, redundant with trajectories/attributed)
 artifacts/self_improve/r4r/remote_records/**/rollouts/
 uv.lock
+
+# HF release staging: weights are hard links to r5/checkpoints (cards, configs, manifests are tracked)
+artifacts/self_improve/hf_release/**/*.safetensors
